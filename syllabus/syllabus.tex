@@ -1,0 +1,106 @@
+\documentclass{article}
+
+\title{Programming for Scientists}
+\author{Lu\'\i s Pedro Coelho \and Jacob Joseph}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We propose a course which introduces students to programming for scientific computing. The target audience consists of working scientists with a need to program. We expect that they have some limited experience (perhaps only using simple languages like Matlab), but lack a formal introduction to programming. Students with no programming experience will be welcome and will be accommodated through extra lectures and lab sessions.
+
+The course will consist of a weekly lecture (80~min) and a weekly lab session (80~min). The lab session will introduce specific technologies which implement the concepts described in the lecture. Students are expected to turn in weekly homeworks and a final project at the end. There will be no tests.
+
+By the end of the course, students will understand the basic issues in programming, including principles of program design. They will be able to understand issues of precision and resource consumption. They should know of the basic algorithms for numerical optimisation and how to formulate problems as a numerical optimisation problem. In the lab sessions, they will have learned modern technologies with which to turn these concepts into a working program.
+\end{abstract}
+
+\section{Topics covered}
+
+\subsection{Module I: Introduction to Programming (4 weeks)}
+
+In this module, we introduce students to code organisation paradigms. In the lab sessions, we introduce the Python language, which will be the basic technology used throughout the course.
+
+Lecture 1.1: Introduction
+
+Overview of the course, course policies. Some examples of what students should be able to achieve by the end of the course.
+
+Extra Lectures E1 \& Lab Session EL1 (for those who have no programming experience): Introduction to Programming.
+
+Lab Session 1: Introduction to Python. Basic types and iterations.
+
+Homework: Compute the results of ``hash('your email')'' % This seemingly absurd assignment ensures that, by the second week, everyone has access to a working Python installation.
+
+Lecture 1.2: Code Organisation I (Procedural code)
+
+Lab Session 2: Basic procedural constructs.
+
+Lecture 1.3: Code Organisation II (Introduction to Object Based Code)
+
+Lab Session 3: Writing classes.
+
+Lecture 1.4: Code Organisation III (Introduction to Object Oriented Code)
+
+Lab Session 4: More advanced Python examples. Documentation. Example of a real script.
+
+\subsection{Module II: Techniques for Scientific Computing (9 weeks)}
+
+This is the main module of the course. We focus on both basic issues of scientific computing (floating point representation) and an overview of basic algorithms for scientific tasks (in particular, numerical optimisation).
+
+Lecture 2.1: Thinking in arrays. Thinking about memory allocation.
+
+Lab Session 5: Introduction to numpy.
+
+Lecture 2.2:  Floating point I. How floating point numbers are represented internally.
+
+Lab Session 6: Writing fast array-based code.
+
+Lecture 2.3: Floating point II. Techniques to overcome under- and over-flow.
+
+Lab Session 7: Introduction to other scipy tools.
+
+Lecture 2.4: Optimisation as a programming tool I. Reformulating your problems as an optimisation problem. Limitations of this approach.
+
+Lab Session 8: Introduction to OpenOpt. Discussion of possible projects.
+
+Homework: Students should submit a project proposal (or choose from the instructor proposed projects).
+
+Lecture 2.5: Optimisation as a programming tool II. Newton's method. Gradient descent.
+
+Lab Session 9: Implementation of a numerical algorithm.
+
+Lecture 2.6: Random processes. Pseudo-random numbers. Issues with stochasticity.
+
+Lab Session 10: 
+
+Lecture 2.7: File parsing and regular expressions.
+
+Lab Session 11: Parsing file formats.
+
+Lecture 2.8: Packaging your code for others. Publishing code is often part of the publication process with benefits for both the community and the author. In this lecture, we focus on the aspects inherent to a good, re-usable, software package
+
+Lab Session 12: setup.py. Discussion of open source distribution licenses and models.
+
+\subsection{Module III: Advanced Topics (3 weeks)}
+
+This final section consists of more advanced topics. No homeworks will be assigned as students should be working on their projects.
+
+Lecture 3.1: Graphical User Interfaces. Simple design principles behind an effective graphical user interface.
+
+Lab Session 13: Tools for building a user interface.
+
+Lecture 3.2: Databases. Organising large quantities of data using a relational database.
+
+Lab Session 14: How to build a database.
+
+Lecture 3.3: Buffer time for overflow from other lectures.
+
+Lab Session 15: Tools for interface Python/C/C++/Fortran/R/\dots
+
+\section{Grading}
+
+Grading will be based on weekly homeworks and a final project. There will be no exams.
+
+The final project will be performed by students individually or in small groups (2~3 students). Students are encouraged to propose their own project topics (solving a scientific problem using techniques and technologies learned in this course), but instructors will also propose ideas.
+
+\end{document}
