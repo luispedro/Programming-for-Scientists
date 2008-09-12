@@ -1,7 +1,11 @@
 \documentclass{article}
 
 \title{Programming for Scientists}
-\author{Lu\'\i s Pedro Coelho \and Jacob Joseph}
+\author{Lu\'\i s Pedro Coelho}
+
+\newcommand*{\Lecture}[1]{%
+{\bf #1}%
+}
 
 \begin{document}
 
@@ -21,86 +25,86 @@ By the end of the course, students will understand the basic issues in programmi
 
 In this module, we introduce students to code organisation paradigms. In the lab sessions, we introduce the Python language, which will be the basic technology used throughout the course.
 
-Lecture 1.1: Introduction
+\Lecture{Lecture 1.1}: Introduction
 
 Overview of the course, course policies. Some examples of what students should be able to achieve by the end of the course.
 
-Extra Lectures E1 \& Lab Session EL1 (for those who have no programming experience): Introduction to Programming.
+\Lecture{Extra Lectures E1 \& Lab Session EL1} (for those who have no programming experience): Introduction to Programming.
 
-Lab Session 1: Introduction to Python. Basic types and iterations.
+\Lecture{Lab Session 1}: Introduction to Python. Basic types and iterations.
 
 Homework: Compute the results of ``hash('your email')'' % This seemingly absurd assignment ensures that, by the second week, everyone has access to a working Python installation.
 
-Lecture 1.2: Code Organisation I (Procedural code)
+\Lecture{Lecture 1.2}: Code Organisation I (Procedural code)
 
-Lab Session 2: Basic procedural constructs.
+\Lecture{Lab Session 2}: Basic procedural constructs.
 
-Lecture 1.3: Code Organisation II (Introduction to Object Based Code)
+\Lecture{Lecture 1.3}: Code Organisation II (Introduction to Object Based Code)
 
-Lab Session 3: Writing classes.
+\Lecture{Lab Session 3}: Writing classes.
 
-Lecture 1.4: Code Organisation III (Introduction to Object Oriented Code)
+\Lecture{Lecture 1.4}: Code Organisation III (Introduction to Object Oriented Code)
 
-Lab Session 4: More advanced Python examples. Documentation. Example of a real script.
+\Lecture{Lab Session 4}: More advanced Python examples. Documentation. Example of a real script.
 
 \subsection{Module II: Techniques for Scientific Computing (9 weeks)}
 
 This is the main module of the course. We focus on both basic issues of scientific computing (floating point representation) and an overview of basic algorithms for scientific tasks (in particular, numerical optimisation).
 
-Lecture 2.1: Thinking in arrays. Thinking about memory allocation.
+\Lecture{Lecture 2.1}: How integers are represented in memory, integer sizes. Thinking about memory allocation.
 
-Lab Session 5: Introduction to numpy.
+\Lecture{Lab Session 5}: Introduction to numpy.
 
-Lecture 2.2:  Floating point I. How floating point numbers are represented internally.
+\Lecture{Lecture 2.2}:  Floating point I. How floating point numbers are represented internally.
 
-Lab Session 6: Writing fast array-based code.
+\Lecture{Lab Session 6}: Writing fast array-based code.
 
-Lecture 2.3: Floating point II. Techniques to overcome under- and over-flow.
+\Lecture{Lecture 2.3}: Floating point II. Techniques to overcome under- and over-flow.
 
-Lab Session 7: Introduction to other scipy tools.
+\Lecture{Lab Session 7}: Introduction to other scipy tools.
 
-Lecture 2.4: Optimisation as a programming tool I. Reformulating your problems as an optimisation problem. Limitations of this approach.
+\Lecture{Lecture 2.4}: Optimisation as a programming tool I. Reformulating your problems as an optimisation problem. Limitations of this approach.
 
-Lab Session 8: Introduction to OpenOpt. Discussion of possible projects.
+\Lecture{Lab Session 8}: Introduction to OpenOpt. Discussion of possible projects.
 
 Homework: Students should submit a project proposal (or choose from the instructor proposed projects).
 
-Lecture 2.5: Optimisation as a programming tool II. Newton's method. Gradient descent.
+\Lecture{Lecture 2.5}: Optimisation as a programming tool II. Newton's method. Gradient descent.
 
-Lab Session 9: Implementation of a numerical algorithm.
+\Lecture{Lab Session 9}: Implementation of a numerical algorithm.
 
-Lecture 2.6: Random processes. Pseudo-random numbers. Issues with stochasticity.
+\Lecture{Lecture 2.6}: Random processes. Pseudo-random numbers. Issues with stochasticity.
 
-Lab Session 10: 
+\Lecture{Lab Session 10}:Metropolis-Hastings Algorithm.
 
-Lecture 2.7: File parsing and regular expressions.
+\Lecture{Lecture 2.7}: File parsing and regular expressions.
 
-Lab Session 11: Parsing file formats.
+\Lecture{Lab Session 11}: Parsing file formats.
 
-Lecture 2.8: Packaging your code for others. Publishing code is often part of the publication process with benefits for both the community and the author. In this lecture, we focus on the aspects inherent to a good, re-usable, software package
+\Lecture{Lecture 2.8}: Packaging your code for others. Publishing code is often part of the publication process with benefits for both the community and the author. In this lecture, we focus on the aspects inherent to a good, re-usable, software package
 
-Lab Session 12: setup.py. Discussion of open source distribution licenses and models.
+\Lecture{Lab Session 12}: setup.py. Discussion of open source distribution licenses and models.
 
 \subsection{Module III: Advanced Topics (3 weeks)}
 
 This final section consists of more advanced topics. No homeworks will be assigned as students should be working on their projects.
 
-Lecture 3.1: Graphical User Interfaces. Simple design principles behind an effective graphical user interface.
+\Lecture{Lecture 3.1}: Graphical User Interfaces. Simple design principles behind an effective graphical user interface.
 
-Lab Session 13: Tools for building a user interface.
+\Lecture{Lab Session 13}: Tools for building a user interface.
 
-Lecture 3.2: Databases. Organising large quantities of data using a relational database.
+\Lecture{Lecture 3.2}: Databases. Organising large quantities of data using a relational database.
 
-Lab Session 14: How to build a database.
+\Lecture{Lab Session 14}: How to build a database.
 
-Lecture 3.3: Buffer time for overflow from other lectures.
+\Lecture{Lecture 3.3}: Buffer time for overflow from other lectures.
 
-Lab Session 15: Tools for interface Python/C/C++/Fortran/R/\dots
+\Lecture{Lab Session 15}: Tools for interface Python/C/C++/Fortran/R/\dots
 
 \section{Grading}
 
 Grading will be based on weekly homeworks and a final project. There will be no exams.
 
-The final project will be performed by students individually or in small groups (2~3 students). Students are encouraged to propose their own project topics (solving a scientific problem using techniques and technologies learned in this course), but instructors will also propose ideas.
+The final project will be performed by students individually or in small groups (2 or~3 students). Students are encouraged to propose their own project topics (solving a scientific problem using techniques and technologies learned in this course), but instructors will also propose ideas.
 
 \end{document}
