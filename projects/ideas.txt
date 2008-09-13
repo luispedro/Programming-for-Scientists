@@ -1,0 +1,5 @@
+OBJECT TRACKING
+================
+
+* Implement a simulator for tracking
+* Implement a GUI for human tracking
