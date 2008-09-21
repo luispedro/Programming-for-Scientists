@@ -1,0 +1,170 @@
+\input{header}
+\title{First Lecture: Course Policies and Course Overview}
+
+\begin{document}
+
+\section{Basics}
+
+\frame{\frametitle{Introduction}
+
+\begin{block}{Who am I}
+\begin{itemize}
+\item Luís Pedro Coelho (lpc@cmu.edu)
+\item Third year Ph.D.\ student in computational biology
+\item My office is 409D, Mellon Institute
+\end{itemize}
+\end{block}
+
+\begin{block}{This course}
+\begin{itemize}
+\item Meets: Tuesdays \& Thursdays 6.30
+\item Tuesday: Lecture
+\item Thursday: Lab Session
+\item Office Hours:  (or by appointment)
+\item Course Website: http://\ldots
+\item Course Mailing List:
+\end{itemize}
+\end{block}
+
+}
+\frame{\frametitle{Homework}
+
+\begin{block}{Homeworks}
+\begin{itemize}
+\item Grades will come from homeworks and final project.
+\item Homeworks will be assigned on Tuesdays and are due the next Tuesday at mid-night.
+\item Up to 24 hours delay: 20\% penalty. Up until beginning of lab-session: 30\% penalty.
+\item Thursday sessions will often include discussion of homeworks, so no after that, you can no longer turn in homeworks.
+\item Homework will normally consists of a multiple-choice/short answer section plus a programming question.
+\item Homeworks are to be turned in by email in text (.txt) or pdf format for the questions, and Python code for the programming (.py files). In particular, \textbf{doc, docx, odt} will not be accepted.
+\end{itemize}
+\end{block}
+}
+\frame{\frametitle{Project}
+
+\begin{block}{Project}
+\begin{itemize}
+\item There will be a final project, which will replace homeworks towards the end of the class.
+\item You can submit your own project, but I will have my own proposals.
+\item You can work individually or in small groups. Expectations will scale linearly.
+\end{itemize}
+\end{block}
+}
+
+\frame{\frametitle{}
+}
+\frame{\frametitle{}
+}
+\frame{\frametitle{}
+}
+\frame{\frametitle{}
+}
+\frame{\frametitle{}
+}
+
+\section{Overview}
+\frame{\frametitle{Course Structure}
+\begin{block}{Two Lectures}
+\begin{enumerate}
+\item Tuesday session: a lecture where basic concepts are presented.
+\item Tuesday session: a lab type session, where we discuss particular technologies that let us implement the basic concepts. You can use a laptop in this lecture, but I recommend pen \& paper.
+\end{enumerate}
+\end{block}
+}
+\frame{\frametitle{Course Overview}
+\begin{block}{Class Modules}
+\begin{enumerate}
+\item Structured Programming
+\item Basics of Scientific Programming
+\item Advanced Topics
+\end{enumerate}
+\end{block}
+}
+\frame{\frametitle{Course Overview: Module I}
+
+\begin{block}{Structure of Programs}
+\begin{itemize}
+\item Structured programming
+\item Object-based programming
+\item Object-oriented programming
+\end{itemize}
+\end{block}
+}
+\frame{\frametitle{Basics of Scientific Programming}
+
+\begin{block}{Scientific Programming}
+\begin{enumerate}
+\item Representation of numbers
+\item Numerical optimisation
+\item 
+\end{enumerate}
+\end{block}
+}
+\frame{\frametitle{Advanced Topics}
+
+This is a mixed bag and subject to change (if you want to).
+
+\begin{block}{Advanced Topics}
+\begin{itemize}
+\item Concurrent programming
+\item Databases
+\item Interfacing multiple languages (lab session only)
+\end{itemize}
+\end{block}
+}
+\section{Class Starts Here}
+
+\frame{\frametitle{Structured Programming}
+
+\begin{block}{Bad Code}
+\begin{python}
+def xyf(x,y):
+    t=x*0.5
+    t2=t/2
+    t3=x*p
+    t4=t2*t2-y
+    t4=sqrt(t4)
+    t5=t2-t4,t2+t4
+    return t5
+\end{python}
+\end{block}
+
+\begin{block}{Good Code}
+\begin{block}
+def pq\_formula(p,q):
+    return -p/2.+sqrt(p*p/4.-q), -p/2.-sqrt(p*p/4.-q)
+\end{python}
+\end{block}
+}
+
+\frame{\frametitle{Principles of Good Code}
+\begin{Principle and Rules}
+\begin{itemize}
+\item A \alert{principle} is a general goal.
+\item A \alert{rule} is a concrete way to implement principles.\\
+    Often a rule is only a ``rule of thumb.''
+\end{itemize}
+\end{block}
+
+\begin{Principles of Good Code}
+\begin{itemize}
+\item Correct
+\item Sufficiently efficient
+\item Readable
+\item Extendable
+\end{itemize}
+\end{block}
+}
+
+\frame{\frametitle{Homework 0}
+
+\begin{block}{Homework (for next week)}
+Run the following Python program and email me the results:
+\begin{verbatim}
+email="YOUR EMAIL"
+print email, hash(email)
+\end{verbatim}
+\end{block}
+}
+
+\end{document}
