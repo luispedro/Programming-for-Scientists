@@ -1,0 +1,24 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{amsmath,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{colortbl}
+\usepackage[english]{babel}
+\usepackage{booktabs}
+\usepackage{slpython}
+
+\author{Luís Pedro Coelho}
+\institute{Programming for Scientists}
+
+\graphicspath{{figures/}{figures/generated/}{images/}}
+
+\AtBeginSection[] % Do nothing for \subsection*
+{
+	\begin{frame}<beamer>
+		\frametitle{Outline}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+}
+
