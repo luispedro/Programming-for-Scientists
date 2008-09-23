@@ -1,4 +1,4 @@
-\input{header}
+\input{slheader}
 \title{First Lecture: Course Policies and Course Overview}
 
 \begin{document}
@@ -114,7 +114,8 @@ This is a mixed bag and subject to change (if you want to).
 }
 \section{Class Starts Here}
 
-\frame{\frametitle{Structured Programming}
+\begin{frame}[fragile]
+\frametitle{Structured Programming}
 
 \begin{block}{Bad Code}
 \begin{python}
@@ -126,19 +127,22 @@ def xyf(x,y):
     t4=sqrt(t4)
     t5=t2-t4,t2+t4
     return t5
+
 \end{python}
 \end{block}
 
 \begin{block}{Good Code}
-\begin{block}
+\begin{python}
 def pq\_formula(p,q):
     return -p/2.+sqrt(p*p/4.-q), -p/2.-sqrt(p*p/4.-q)
+
 \end{python}
 \end{block}
-}
+\end{frame}
 
 \frame{\frametitle{Principles of Good Code}
-\begin{Principle and Rules}
+
+\begin{block}{Principle and Rules}
 \begin{itemize}
 \item A \alert{principle} is a general goal.
 \item A \alert{rule} is a concrete way to implement principles.\\
@@ -146,7 +150,7 @@ def pq\_formula(p,q):
 \end{itemize}
 \end{block}
 
-\begin{Principles of Good Code}
+\begin{block}{Principles of Good Code}
 \begin{itemize}
 \item Correct
 \item Sufficiently efficient
@@ -156,15 +160,16 @@ def pq\_formula(p,q):
 \end{block}
 }
 
-\frame{\frametitle{Homework 0}
+\begin{frame}[fragile]
+\frametitle{Homework 0}
 
 \begin{block}{Homework (for next week)}
 Run the following Python program and email me the results:
-\begin{verbatim}
+\begin{python}
 email="YOUR EMAIL"
 print email, hash(email)
-\end{verbatim}
+\end{python}
 \end{block}
-}
+\end{frame}
 
 \end{document}
