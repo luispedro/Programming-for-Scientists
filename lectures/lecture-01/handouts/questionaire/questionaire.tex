@@ -57,8 +57,8 @@
 \DeclareMathOperator{\goodness}{score}
 \DeclareMathOperator{\powerset}{Pow}
 
-\title{<+title+>}
-\author{<+author+>}
+\title{Student Survey}
+\author{Programming for Scientists}
 
 \bibliographystyle{alpha}
 %\bibliographystyle{plain}
@@ -129,5 +129,52 @@
 
 \SetCommentSty{textsl}
 \begin{document}
-<+content+>
+\begin{abstract}
+Please fill out this survey. It will help steer the class in the right direction
+\end{abstract}
+
+\chapter{About You}
+
+\header{This is just general information about you.}
+
+Name: \fillunderscore\\
+Major/Programme: \fillunderscore\\
+I am taking this class for credit: \yesno.
+
+\chapter{Motivation}
+
+Why are you taking this class?
+\begin{itemize}
+\item To learn to program \checkbox.
+\item To learn to program \emph{better} \checkbox.
+\item To learn Python \checkbox.
+\item My advisor told me to take it \checkbox.
+\end{itemize}
+
+Others (write as many as you can think of): \fillunderscore\\
+\fillunderscore\\
+\fillunderscore\\
+\fillunderscore
+
+\chapter{Background}
+
+\chapter{Interests}
+
+\section{Special Topics}
+
+\header{The last section of the course has some room for modification (see the syllabus). Please tell me what you would like to hear about.}
+
+\begin{tabular}{cc}
+Image Processing & \checkbox\\
+Interfacing with Other Languages & \checkbox\\
+Concurrent (Parallel) Programming & \checkbox\\
+\end{itemize}
+Something else: \fillunderscore.
+
+\chapter{Comments}
+
+\header{Please add any other comments you fill might be helpful.}
+
+\vspace*{10em}
+
 \end{document}
