@@ -128,7 +128,15 @@
 \chapterstyle{mestrado}
 
 \SetCommentSty{textsl}
+
+
+
+\newcommand*{\fillunderscore}{\textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore}
+\newcommand*{\checkbox}{$\square$}
+\newcommand*{\yesno}{\hfill\mbox{yes\checkbox~no\checkbox}}
+\newcommand{\header}[1]{\textsl{#1}}
 \begin{document}
+\maketitle
 \begin{abstract}
 Please fill out this survey. It will help steer the class in the right direction
 \end{abstract}
@@ -158,17 +166,76 @@ Others (write as many as you can think of): \fillunderscore\\
 
 \chapter{Background}
 
+\section{Programming Languages}
+
+\begin{tabular}{lccccc}
+ & Never heard of it & Heard of it & Used it at most a couple of times & Used it a lot & Expert\\
+Matlab  &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Java    &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+C       &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+C++     &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Python  &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+R       &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Fortran &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Perl    &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Lisp    &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Scheme  &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+\end{tabular}
+
+\section{Programming Concepts}
+\begin{tabular}{lcccccc}
+ \toprule
+ & Never heard & Heard & Vague & I know what & I could write \\
+ & of it & of it & Idea& it means& my dissertation \\
+ & & & & & about it\\
+ \midrule
+Object-oriented Programming            &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Big O Notation (e.g., $\bigO(\log N)$) &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Space-time trade-off                   &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Linked Lists                           &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+\end{tabular}
+
+\section{Things you know}
+
+\begin{itemize}
+\item I know what open-source means \yesno.
+\item I know the difference between the GPL and the BSD license \yesno.
+\item I know the difference between ``amortised constant time'' and ``constant time'' \yesno.
+\end{itemize}
+
+
+\section{Software usage}
+
+I use the following operating system(s) regularly:
+\begin{itemize}
+\item Windows XP \checkbox
+\item Windows Vista \checkbox
+\item Linux \checkbox (Any particular distribution? \fillunderscore)
+\item Mac OS X \checkbox
+\item Other Unix variant \checkbox (Which? \fillunderscore)
+\end{itemize}
+
+I am able to use the following operating system(s)
+
+\begin{itemize}
+\item Windows XP \checkbox
+\item Windows Vista \checkbox
+\item Mac OS X \checkbox
+\item Non-mac Unix (for example, Linux) \checkbox
+\end{itemize}
+
 \chapter{Interests}
 
 \section{Special Topics}
 
 \header{The last section of the course has some room for modification (see the syllabus). Please tell me what you would like to hear about.}
 
-\begin{tabular}{cc}
+\begin{tabular}{lc}
 Image Processing & \checkbox\\
 Interfacing with Other Languages & \checkbox\\
 Concurrent (Parallel) Programming & \checkbox\\
-\end{itemize}
+\end{tabular}
+
 Something else: \fillunderscore.
 
 \chapter{Comments}
