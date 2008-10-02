@@ -11,9 +11,9 @@
 \usepackage{amsthm}
 \usepackage{sublabel}
 \usepackage[vlined,linesnumbered,ruled]{algorithm2e}
+\usepackage{multirow}
 %\usepackage[]{pgf}
 \usepackage[]{graphicx}
-\usepackage{subfigure}
 
 \graphicspath{{../figures/other/}{../figures/generated/}}
 
@@ -131,7 +131,7 @@
 
 
 
-\newcommand*{\fillunderscore}{\textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore \textunderscore}
+\newcommand*{\fillunderscore}{~\hrulefill}
 \newcommand*{\checkbox}{$\square$}
 \newcommand*{\yesno}{\hfill\mbox{yes\checkbox~no\checkbox}}
 \newcommand{\header}[1]{\textsl{#1}}
@@ -152,24 +152,25 @@ I am taking this class for credit: \yesno.
 \chapter{Motivation}
 
 Why are you taking this class?
-\begin{itemize}
-\item To learn to program \checkbox.
-\item To learn to program \emph{better} \checkbox.
-\item To learn Python \checkbox.
-\item My advisor told me to take it \checkbox.
+\begin{itemize}[\checkbox]
+\item To learn to program.
+\item To learn to program \emph{better}.
+\item To learn Python.
+\item My advisor told me to take it.
 \end{itemize}
 
-Others (write as many as you can think of): \fillunderscore\\
-\fillunderscore\\
-\fillunderscore\\
+Others (write as many as you can think of): \fillunderscore\par
+\fillunderscore\par
+\fillunderscore\par
 \fillunderscore
 
 \chapter{Background}
 
 \section{Programming Languages}
 
+\def\th#1{#1}
 \begin{tabular}{lccccc}
- & Never heard of it & Heard of it & Used it at most a couple of times & Used it a lot & Expert\\
+ & \th{Never heard of it} & \th{Heard of it} & \th{Used it at most a couple of times} & \th{Used it a lot} & \th{Expert}\\
 Matlab  &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 Java    &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 C       &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
@@ -193,6 +194,7 @@ Object-oriented Programming            &\checkbox &\checkbox &\checkbox &\checkb
 Big O Notation (e.g., $\bigO(\log N)$) &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 Space-time trade-off                   &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 Linked Lists                           &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Regular Expressions                    &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 \end{tabular}
 
 \section{Things you know}
@@ -206,22 +208,23 @@ Linked Lists                           &\checkbox &\checkbox &\checkbox &\checkb
 
 \section{Software usage}
 
-I use the following operating system(s) regularly:
-\begin{itemize}
-\item Windows XP \checkbox
-\item Windows Vista \checkbox
-\item Linux \checkbox (Any particular distribution? \fillunderscore)
-\item Mac OS X \checkbox
-\item Other Unix variant \checkbox (Which? \fillunderscore)
+I use the following operating system(s) regularly (check all that apply):
+\begin{itemize}[\checkbox]
+\item Windows XP
+\item Windows Vista
+\item Linux (Any particular distribution? \fillunderscore)
+\item Mac OS X
+\item Other Unix variant (Which? \fillunderscore)
 \end{itemize}
 
-I am able to use the following operating system(s)
+\medskip
 
-\begin{itemize}
-\item Windows XP \checkbox
-\item Windows Vista \checkbox
-\item Mac OS X \checkbox
-\item Non-mac Unix (for example, Linux) \checkbox
+I am able to use the following operating system(s):
+\begin{itemize}[\checkbox]
+\item Windows XP
+\item Windows Vista
+\item Mac OS X
+\item Non-mac Unix (for example, Linux)
 \end{itemize}
 
 \chapter{Interests}
@@ -230,11 +233,11 @@ I am able to use the following operating system(s)
 
 \header{The last section of the course has some room for modification (see the syllabus). Please tell me what you would like to hear about.}
 
-\begin{tabular}{lc}
-Image Processing & \checkbox\\
-Interfacing with Other Languages & \checkbox\\
-Concurrent (Parallel) Programming & \checkbox\\
-\end{tabular}
+\begin{itemize}[\checkbox]
+\item Image Processing
+\item Interfacing with Other Languages
+\item Concurrent (Parallel) Programming
+\end{itemize}
 
 Something else: \fillunderscore.
 
