@@ -8,12 +8,6 @@
     <div class="related">
       <h3>Navigation</h3>
       <ul>
-        {%- for rellink in rellinks %}
-        <li class="right" {% if loop.first %}style="margin-right: 10px"{% endif %}>
-          <a href="{{ pathto(rellink[0]) }}" title="{{ rellink[1]|striptags }}"
-             accesskey="{{ rellink[2] }}">{{ rellink[3] }}</a>
-          {%- if not loop.first %}{{ reldelim2 }}{% endif %}</li>
-        {%- endfor %}
         {%- block rootrellink %}
         <li><a href="{{ pathto('index') }}">{{ shorttitle }}</a>{{ reldelim1 }}</li>
         {%- endblock %}
@@ -39,28 +33,6 @@
             {{ toc }}
           {%- endif %}
           {%- endblock %}
-          {%- block sidebarrel %}
-          {%- if prev %}
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="{{ prev.link|e }}" title="previous chapter">{{ prev.title }}</a></p>
-          {%- endif %}
-          {%- if next %}
-            <h4>Next topic</h4>
-            <p class="topless"><a href="{{ next.link|e }}" title="next chapter">{{ next.title }}</a></p>
-          {%- endif %}
-          {%- endblock %}
-          {%- if sourcename %}
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-            {%- if builder == 'web' %}
-              <li><a href="#comments">Comments ({{ comments|length }} so far)</a></li>
-              <li><a href="{{ pathto('@edit/' + sourcename)|e }}">Suggest Change</a></li>
-              <li><a href="{{ pathto('@source/' + sourcename)|e }}">Show Source</a></li>
-            {%- elif builder == 'html' %}
-              <li><a href="{{ pathto('_sources/' + sourcename, true)|e }}">Show Source</a></li>
-            {%- endif %}
-            </ul>
-          {%- endif %}
           {%- if customsidebar %}
           {{ rendertemplate(customsidebar) }}
           {%- endif %}
@@ -131,15 +103,6 @@
     <link rel="copyright" title="Copyright" href="{{ pathto('copyright') }}" />
     {%- endif %}
     <link rel="top" title="{{ docstitle }}" href="{{ pathto('index') }}" />
-    {%- if parents %}
-    <link rel="up" title="{{ parents[-1].title|striptags }}" href="{{ parents[-1].link|e }}" />
-    {%- endif %}
-    {%- if next %}
-    <link rel="next" title="{{ next.title|striptags }}" href="{{ next.link|e }}" />
-    {%- endif %}
-    {%- if prev %}
-    <link rel="prev" title="{{ prev.title|striptags }}" href="{{ prev.link|e }}" />
-    {%- endif %}
 {%- endblock %}
 {%- block extrahead %}{% endblock %}
   </head>
