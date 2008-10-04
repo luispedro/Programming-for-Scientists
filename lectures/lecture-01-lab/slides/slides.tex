@@ -1,4 +1,4 @@
-\input{header}
+\input{slheader}
 \title{Introduction to Python}
 \begin{document}
 
@@ -11,5 +11,620 @@
 \end{itemize}
 \end{block}
 }
+
+\begin{frame}[fragile]
+\frametitle{Python Example}
+
+\begin{python}
+print "Hello World"
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Example}
+
+\begin{python}
+files=glob('*.data')
+for f in files:
+    data=parse(file(f))
+    value=compute(data)
+    print 'Result for file %s: %s' % (f,value)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Installing Python}
+
+Let's digress for a moment before coming back to the language\ldots
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Python Language}
+
+Unlike \textit{Matlab}, Python does not come as a single programme.
+
+This is a cultural difference.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example of Python IDEs}
+
+\begin{block}{Integrated Development Environments}
+\begin{itemize}
+\item Eclipse
+\item FIXME: ADD MORE IDEs
+\item Unix world: ipython + (vim or emacs or nano) + command-line tools
+\item \ldots
+\end{itemize}
+\end{block}
+
+(Links for the above are on the webpage, under ``notes for lab session 1''). FIXME: MAKE SURE THIS IS TRUE
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Back to Python}
+Let's go back to the language itself.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types}
+\begin{block}{Basic Types}
+\begin{itemize}
+\item Numbers (integers and floating point)
+\item Strings
+\item Lists and tuples
+\item Dictionaries
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types: Numbers}
+\begin{python}
+A = 1
+B = 2
+C = 3
+print A+B*C
+\end{python}
+
+Outputs 7.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types: Numbers}
+\begin{python}
+A = 1.2
+B = 2.4
+C = 3.6
+print A + B*C
+\end{python}
+
+Outputs 9.84.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types: Strings}
+
+\begin{python}
+first = 'John'
+last = "Doe"
+full = first + " " + last
+
+print full
+\end{python}
+
+\pause
+Outputs \alert{John Doe}.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types: String Rules}
+
+\begin{block}{What is a String Literal}
+\begin{itemize}
+\item Short string literals are delimited by (") or (').
+\item Short string literals are one line only.
+\item Special characters are input using escape sequences.
+\end{itemize}
+\end{block}
+
+\begin{python}
+multiple = 'Let  me go back and face the peril.\\nNo, it\'s too perilous.'
+alternative = "Let  me go back and face the peril.\\nNo, it\'s too perilous."
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types: Long Strings}
+
+We can input a long string using triple quotes (''' or """) as delimiters.
+
+\begin{python}
+long = '''Tell me, is love
+Still a popular suggestion
+Or merely an obsolete art?
+
+Forgive me, for asking,
+This simple question,
+I'm unfamiliar with his heart.'''
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types: Lists}
+\begin{python}
+to_read = ['Crime and Punishment','Brothers Karamazov']
+
+print "The first book I am going to read is", to_read[0]
+print "The second book is", to_read[1]
+
+\only<2>{to_read.sort()}
+\only<2>{print 'I prefer alphabetical order:', to_read[0], to_read[1]}
+\end{python}
+
+Notice that list indices start at \alert{0}!
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types: Lists}
+
+\begin{python}
+mixed = ['Banana',100,['Another','List'],[]]
+print len(mixed)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types: Dictionaries}
+\begin{python}
+emails = { 'Luis' : 'lpc@cmu.edu',
+           'Mark' : 'mark@cmu.edu' }
+print 'Luis's email is', emails['Luis']
+
+emails['Rita'] = 'rsmith@pitt.edu'
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Control Structures}
+
+\begin{python}
+student = 'Rita'
+average = gradeavg(student)
+if average > 0.7:
+    print student, 'passed!'
+    print 'Congratulations!!'
+else:
+    print student, 'failed. Sorry.'
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Blocks}
+
+Unlike almost all other modern programming languages,\\
+Python uses \alert{indentation} to delimit blocks!
+
+\begin{python}
+if <condition>:
+    statement 1
+    statement 2
+    statement 3
+next statement
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Adhere to Convention}
+\begin{block}{Principle}
+\begin{enumerate}
+\item Learn about the conventions of the technology you're using.
+\item Adhere to them
+\end{enumerate}
+\end{block}
+
+In this case, use either 4 spaces, 8 spaces, or a TAB character.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Nested Blocks}
+
+\begin{python}
+if <condition 1>:
+    do something
+    if condition 2>:
+        nested block
+    else:
+        nested else block
+elif <condition 1b>:
+    do something
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{For loop}
+
+\begin{python}
+emails = { 'Luis' : 'lpc@cmu.edu',
+           'Mark' : 'mark@cmu.edu',
+           'Rita' : 'rsmith@pitt.edu' }
+students = ['Rita','Sarah','Mark']
+for st in students:
+    if st not in emails.keys():
+        print 'We need to ask', st, 'for her email'
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{While Loop}
+
+\begin{python}
+i = 0
+while i < len(students):
+    if is_enrolled(students[i]):
+        i += 1
+    else:
+        del students[i]
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Other Loopy Stuff}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
 
 \end{document}
