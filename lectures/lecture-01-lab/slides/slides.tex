@@ -169,6 +169,17 @@ Notice that list indices start at \alert{0}!
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{List Indexing}
+\begin{block}{Indices Start at Zero}
+\begin{itemize}
+\item First element is denoted \code{list[0]}, last element is \code{list[N-1]}.
+\item Think of them as \alert{offsets}.
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
 \frametitle{Python Types: Lists}
 
 \begin{python}
@@ -176,7 +187,6 @@ mixed = ['Banana',100,['Another','List'],[]]
 print len(mixed)
 \end{python}
 \end{frame}
-
 \begin{frame}[fragile]
 \frametitle{Python Types: Dictionaries}
 \begin{python}
@@ -275,25 +285,77 @@ while i < len(students):
 
 \begin{frame}[fragile]
 \frametitle{Other Loopy Stuff}
+
+\begin{python}
+for i in range(5):
+    print i
+\end{python}
+
+prints
+
+\begin{verbatim}
+0
+1
+2
+3
+4
+\end{verbatim}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{<++>}
-<++>
+\frametitle{Range}
+\begin{python}
+R = range(5)
+R2 = [0,1,2,3,4]
+\end{python}
+
+R and R2 are identical lists.
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{<++>}
-<++>
+\frametitle{Xrange: Faster looping}
+\begin{python}
+for i in xrange(5):
+    print i
+\end{python}
+
+prints
+
+\begin{verbatim}
+0
+1
+2
+3
+4
+\end{verbatim}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{<++>}
-<++>
+\frametitle{Continue}
+\begin{python}
+rita_enrolled = False
+for st in students:
+    if st == 'Rita':
+        rita_enrolled = True
+        break
+\end{python}
+
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{<++>}
+\frametitle{Break}
+\begin{python}
+for st in students:
+    if turned_in_homework(st):
+        continue
+    print '%s did not turn in his homework on time' % st
+\end{python}
+
+Notice the string formatting on the last line!
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{}
 <++>
 \end{frame}
 
