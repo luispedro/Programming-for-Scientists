@@ -1,0 +1,229 @@
+In [3]: cProfile.run("F=pyslic.computefeatures(z1_40[0],['skl'])")
+/usr/lib/python2.5/site-packages/scipy/ndimage/measurements.py:350: DeprecationWarning: integer argument expected, got float
+  return _nd_image.histogram(input, min, max, bins, labels, index)
+         1855518 function calls in 21.589 CPU seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   21.591   21.591 <string>:1(<module>)
+     4540    0.025    0.000    0.095    0.000 Image.py:1698(new)
+     4540    0.007    0.000    0.007    0.000 Image.py:210(_conv_type_shape)
+     4540    0.016    0.000    0.032    0.000 Image.py:378(_getencoder)
+     9080    0.016    0.000    0.016    0.000 Image.py:440(__init__)
+     4540    0.023    0.000    0.032    0.000 Image.py:449(_new)
+    13620    0.030    0.000    0.151    0.000 Image.py:485(__getattr__)
+     4540    0.040    0.000    0.114    0.000 Image.py:504(tostring)
+     9080    0.016    0.000    0.022    0.000 Image.py:588(load)
+    13620    0.021    0.000    0.037    0.000 Image.py:82(isStringType)
+     4540    0.004    0.000    0.008    0.000 Image.py:91(isTupleType)
+     4540    0.005    0.000    0.007    0.000 Image.py:97(isImageType)
+     4540    0.020    0.000    0.049    0.000 ImageDraw.py:134(_getink)
+     4540    0.015    0.000    0.096    0.000 ImageDraw.py:235(polygon)
+     4540    0.033    0.000    0.088    0.000 ImageDraw.py:290(Draw)
+     4540    0.029    0.000    0.047    0.000 ImageDraw.py:58(__init__)
+        4    0.000    0.000    0.000    0.000 UserDict.py:44(has_key)
+        4    0.000    0.000    0.000    0.000 __init__.py:158(__init__)
+        4    0.000    0.000    0.000    0.000 __init__.py:180(__del__)
+        8    0.000    0.000    0.000    0.000 __init__.py:194(_closeCursors)
+       16    0.000    0.000    0.000    0.000 __init__.py:210(_checkOpen)
+        8    0.000    0.000    0.000    0.000 __init__.py:221(__getitem__)
+        8    0.000    0.000    0.000    0.000 __init__.py:223(<lambda>)
+        8    0.001    0.000    0.001    0.000 __init__.py:239(close)
+        4    0.000    0.000    0.000    0.000 __init__.py:254(has_key)
+        4    0.000    0.000    0.000    0.000 __init__.py:291(sync)
+        4    0.000    0.000    0.002    0.001 __init__.py:299(hashopen)
+        4    0.000    0.000    0.002    0.001 __init__.py:352(_openDBEnv)
+        4    0.000    0.000    0.000    0.000 __init__.py:363(_checkflag)
+     9436    0.008    0.000    0.008    0.000 _ni_support.py:34(_extend_mode_to_code)
+     9436    0.026    0.000    0.031    0.000 _ni_support.py:50(_normalize_sequence)
+     9437    0.058    0.000    0.058    0.000 _ni_support.py:66(_get_output)
+        1    0.000    0.000    0.001    0.001 anydbm.py:43(<module>)
+        1    0.000    0.000    0.000    0.000 anydbm.py:45(error)
+        4    0.000    0.000    0.003    0.001 anydbm.py:66(open)
+        2    0.000    0.000    0.065    0.032 basics.py:31(fullhistogram)
+        2    0.000    0.000    0.115    0.057 basics.py:43(majority_filter)
+     9436    0.184    0.000    0.451    0.000 bbox.py:27(bbox)
+        4    0.000    0.000    0.000    0.000 catalog.py:160(default_dir)
+        4    0.000    0.000    0.000    0.000 catalog.py:232(os_dependent_catalog_name)
+        4    0.000    0.000    0.000    0.000 catalog.py:246(catalog_path)
+        4    0.000    0.000    0.005    0.001 catalog.py:273(get_catalog)
+        4    0.000    0.000    0.000    0.000 catalog.py:350(set_module_directory)
+        4    0.000    0.000    0.000    0.000 catalog.py:361(clear_module_directory)
+        4    0.000    0.000    0.000    0.000 catalog.py:366(get_environ_path)
+        4    0.000    0.000    0.000    0.000 catalog.py:382(build_search_order)
+        4    0.000    0.000    0.000    0.000 catalog.py:481(path_key)
+        4    0.000    0.000    0.000    0.000 catalog.py:486(configure_path)
+        4    0.000    0.000    0.000    0.000 catalog.py:500(unconfigure_path)
+        4    0.000    0.000    0.008    0.002 catalog.py:508(get_cataloged_functions)
+        4    0.000    0.000    0.000    0.000 catalog.py:579(get_functions_fast)
+        4    0.000    0.000    0.008    0.002 catalog.py:586(get_functions)
+        4    0.000    0.000    0.000    0.000 catalog.py:701(fast_cache)
+        1    0.001    0.001   21.591   21.591 computefeatures.py:48(computefeatures)
+     9436    0.085    0.000    1.056    0.000 convexhull.py:34(convexhull)
+     4540    0.018    0.000    0.130    0.000 convexhull.py:81(computeConvexHull)
+        4    0.000    0.000    0.002    0.001 dbhash.py:15(open)
+       20    0.000    0.000    0.000    0.000 dbutils.py:41(DeadlockWrap)
+        1    0.000    0.000    0.000    0.000 dumbdbm.py:22(<module>)
+        1    0.000    0.000    0.000    0.000 dumbdbm.py:34(_Database)
+     9436    0.229    0.000    0.759    0.000 filters.py:289(_correlate_or_convolve)
+     9436    0.019    0.000    0.778    0.000 filters.py:324(convolve)
+        8    0.000    0.000    0.000    0.000 fromnumeric.py:986(cumsum)
+        1    0.000    0.000    0.645    0.645 image.py:139(lazy_load)
+        1    0.000    0.000    0.645    0.645 image.py:146(load)
+        1    0.249    0.249   20.565   20.565 imgskelfeats.py:35(imgskelfeatures)
+     9436    0.209    0.000    1.275    0.000 imgskelfeats.py:72(find_branch_points)
+     9436    0.648    0.000   20.183    0.002 imgskelfeats.py:86(_objskelfeats)
+        1    0.000    0.000    0.000    0.000 index_tricks.py:199(_retval)
+        1    0.000    0.000    0.000    0.000 index_tricks.py:219(__getitem__)
+   272142    1.081    0.000    9.498    0.000 inline_tools.py:134(inline)
+        4    0.000    0.000    0.091    0.023 inline_tools.py:345(attempt_function_call)
+        1    0.000    0.000    0.000    0.000 linecache.py:13(getline)
+        2    0.000    0.000    0.000    0.000 linecache.py:33(getlines)
+        1    0.000    0.000    0.000    0.000 linecache.py:68(updatecache)
+        2    0.000    0.000    0.055    0.027 measurements.py:327(histogram)
+        1    0.000    0.000    0.084    0.084 measurements.py:38(label)
+        1    0.000    0.000    0.034    0.034 measurements.py:73(find_objects)
+   131352    1.311    0.000    9.659    0.000 mmthin.py:105(hitmiss)
+   131352    1.303    0.000    2.256    0.000 mmthin.py:160(fastany)
+     9436    2.539    0.000   16.449    0.002 mmthin.py:33(mmthin)
+        1    0.000    0.000    0.000    0.000 morphology.py:69(generate_binary_structure)
+    47194    0.355    0.000    0.355    0.000 numeric.py:126(asarray)
+        8    0.000    0.000    0.000    0.000 numeric.py:134(asanyarray)
+        1    0.000    0.000    0.000    0.000 numeric.py:482(indices)
+     4540    0.009    0.000    0.214    0.000 pilutil.py:48(fromimage)
+        2    0.000    0.000    0.000    0.000 posixpath.py:110(basename)
+        2    0.000    0.000    0.000    0.000 posixpath.py:117(dirname)
+       12    0.000    0.000    0.000    0.000 posixpath.py:168(exists)
+        4    0.000    0.000    0.000    0.000 posixpath.py:192(isdir)
+        4    0.000    0.000    0.000    0.000 posixpath.py:310(expanduser)
+        4    0.000    0.000    0.000    0.000 posixpath.py:341(expandvars)
+        4    0.000    0.000    0.000    0.000 posixpath.py:373(normpath)
+        4    0.000    0.000    0.000    0.000 posixpath.py:400(abspath)
+        4    0.000    0.000    0.000    0.000 posixpath.py:47(isabs)
+        4    0.000    0.000    0.000    0.000 posixpath.py:56(join)
+        4    0.000    0.000    0.000    0.000 posixpath.py:74(split)
+        2    0.114    0.057    0.151    0.075 preprocess.py:105(_scale)
+        1    0.002    0.002    1.025    1.025 preprocess.py:34(preprocessimage)
+        2    0.035    0.017    0.378    0.189 preprocess.py:44(preprocessimg)
+        2    0.000    0.000    0.066    0.033 preprocess.py:71(thresholdfor)
+        2    0.000    0.000    0.013    0.007 readimgs.py:13(getfileinsidezip)
+        2    0.000    0.000    0.645    0.322 readimgs.py:24(_getimage)
+        2    0.000    0.000    0.645    0.322 readimgs.py:36(readimageinzip)
+        8    0.000    0.000    0.001    0.000 shelve.py:108(__getitem__)
+        8    0.000    0.000    0.001    0.000 shelve.py:133(close)
+        4    0.000    0.000    0.000    0.000 shelve.py:141(__del__)
+        8    0.000    0.000    0.000    0.000 shelve.py:147(sync)
+        4    0.000    0.000    0.004    0.001 shelve.py:207(__init__)
+        4    0.000    0.000    0.004    0.001 shelve.py:212(open)
+        4    0.000    0.000    0.000    0.000 shelve.py:83(__init__)
+        4    0.000    0.000    0.000    0.000 shelve.py:97(has_key)
+        4    0.000    0.000    0.000    0.000 stat.py:29(S_IFMT)
+        4    0.000    0.000    0.000    0.000 stat.py:45(S_ISDIR)
+     4540    0.005    0.000    0.008    0.000 string.py:306(join)
+        1    0.000    0.000    0.000    0.000 struct.py:35(_compile)
+      154    0.000    0.000    0.000    0.000 struct.py:77(unpack)
+        2    0.000    0.000    0.065    0.033 thresholding.py:70(rc)
+        8    0.000    0.000    0.000    0.000 twodim_base.py:20(flipud)
+     9440    0.027    0.000    0.133    0.000 type_check.py:85(iscomplexobj)
+        1    0.000    0.000    0.000    0.000 warnings.py:128(showwarning)
+        1    0.000    0.000    0.000    0.000 warnings.py:137(formatwarning)
+        2    0.000    0.000    0.000    0.000 warnings.py:24(warn)
+        2    0.000    0.000    0.000    0.000 warnings.py:64(warn_explicit)
+        4    0.000    0.000    0.000    0.000 whichdb.py:17(whichdb)
+        1    0.000    0.000    0.000    0.000 whichdb.py:2(<module>)
+        2    0.000    0.000    0.000    0.000 zipfile.py:128(_EndRecData)
+      142    0.001    0.000    0.001    0.000 zipfile.py:191(__init__)
+      142    0.000    0.000    0.000    0.000 zipfile.py:262(_decodeExtra)
+        2    0.000    0.000    0.007    0.004 zipfile.py:316(__init__)
+        2    0.000    0.000    0.003    0.002 zipfile.py:362(_GetContents)
+        2    0.002    0.001    0.003    0.002 zipfile.py:373(_RealGetContents)
+        2    0.000    0.000    0.000    0.000 zipfile.py:460(getinfo)
+        2    0.000    0.000    0.006    0.003 zipfile.py:464(read)
+        2    0.000    0.000    0.000    0.000 zipfile.py:636(__del__)
+        4    0.000    0.000    0.000    0.000 zipfile.py:640(close)
+        8    0.001    0.000    0.001    0.000 {__import__}
+        4    0.000    0.000    0.000    0.000 {_bsddb.DBEnv}
+        4    0.000    0.000    0.000    0.000 {_bsddb.DB}
+     4540    0.003    0.000    0.003    0.000 {_imaging.draw}
+     4540    0.015    0.000    0.015    0.000 {_imaging.fill}
+     9436    0.004    0.000    0.004    0.000 {abs}
+   276683    8.285    0.000    8.285    0.000 {apply}
+        2    0.004    0.002    0.004    0.002 {binascii.crc32}
+        4    0.001    0.000    0.001    0.000 {built-in method decompress}
+    13620    0.008    0.000    0.008    0.000 {built-in method draw_ink}
+     9080    0.033    0.000    0.033    0.000 {built-in method draw_polygon}
+     4561    0.011    0.000    0.011    0.000 {built-in method encode}
+        2    0.000    0.000    0.000    0.000 {built-in method flush}
+        8    0.001    0.000    0.001    0.000 {built-in method load}
+        4    0.000    0.000    0.000    0.000 {built-in method open}
+     9080    0.007    0.000    0.007    0.000 {built-in method pixel_access}
+        4    0.000    0.000    0.000    0.000 {built-in method set_flags}
+        4    0.000    0.000    0.000    0.000 {built-in method set_get_returns_none}
+        4    0.000    0.000    0.000    0.000 {built-in method set_lk_detect}
+     4540    0.004    0.000    0.004    0.000 {built-in method setimage}
+        8    0.000    0.000    0.000    0.000 {cPickle.Unpickler}
+       10    0.000    0.000    0.000    0.000 {cStringIO.StringIO}
+      142    0.000    0.000    0.000    0.000 {chr}
+     4540    0.003    0.000    0.003    0.000 {getattr}
+     4556    0.002    0.000    0.002    0.000 {hasattr}
+    41228    0.024    0.000    0.024    0.000 {isinstance}
+     9445    0.012    0.000    0.012    0.000 {issubclass}
+    32866    0.013    0.000    0.013    0.000 {len}
+     4540    0.004    0.000    0.004    0.000 {max}
+    89653    0.031    0.000    0.031    0.000 {method 'append' of 'list' objects}
+        2    0.008    0.004    0.008    0.004 {method 'astype' of 'numpy.ndarray' objects}
+        7    0.000    0.000    0.000    0.000 {method 'close' of 'file' objects}
+     4540    0.002    0.000    0.002    0.000 {method 'copy' of 'dict' objects}
+    18876    0.049    0.000    0.049    0.000 {method 'copy' of 'numpy.ndarray' objects}
+        8    0.000    0.000    0.000    0.000 {method 'cumsum' of 'numpy.ndarray' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        6    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+      142    0.000    0.000    0.000    0.000 {method 'find' of 'str' objects}
+       35    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+       28    0.000    0.000    0.000    0.000 {method 'has_key' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+     4544    0.003    0.000    0.003    0.000 {method 'join' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+        5    0.025    0.005    0.025    0.005 {method 'max' of 'numpy.ndarray' objects}
+        1    0.001    0.001    0.001    0.001 {method 'mean' of 'numpy.ndarray' objects}
+        2    0.010    0.005    0.010    0.005 {method 'min' of 'numpy.ndarray' objects}
+      568    0.000    0.000    0.000    0.000 {method 'read' of 'cStringIO.StringI' objects}
+       14    0.001    0.000    0.001    0.000 {method 'read' of 'file' objects}
+        1    0.000    0.000    0.000    0.000 {method 'readlines' of 'file' objects}
+        1    0.000    0.000    0.000    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+        1    0.000    0.000    0.000    0.000 {method 'remove' of 'list' objects}
+        2    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+        4    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+        4    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 {method 'seek' of 'file' objects}
+        2    0.000    0.000    0.000    0.000 {method 'setdefault' of 'dict' objects}
+        4    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+       20    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects}
+    56616    0.637    0.000    0.637    0.000 {method 'sum' of 'numpy.ndarray' objects}
+        4    0.000    0.000    0.000    0.000 {method 'tell' of 'file' objects}
+      154    0.000    0.000    0.000    0.000 {method 'unpack' of 'Struct' objects}
+        8    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'write' of 'file' objects}
+       52    0.000    0.000    0.000    0.000 {min}
+        4    0.000    0.000    0.000    0.000 {numpy.core.multiarray.arange}
+   108338    1.960    0.000    2.103    0.000 {numpy.core.multiarray.array}
+     9436    0.073    0.000    0.073    0.000 {numpy.core.multiarray.where}
+    18878    0.034    0.000    0.034    0.000 {numpy.core.multiarray.zeros}
+       15    0.004    0.000    0.004    0.000 {open}
+       21    0.000    0.000    0.000    0.000 {posix.stat}
+        2    0.631    0.316    0.631    0.316 {pyslic.image.io.readimg.readimgfromblob}
+     4540    0.112    0.000    0.112    0.000 {pyslic.imageprocessing._convexhull.computeConvexHull}
+     9437    0.009    0.000    0.009    0.000 {range}
+        2    0.000    0.000    0.000    0.000 {round}
+     9436    0.166    0.000    0.166    0.000 {scipy.ndimage._nd_image.correlate}
+        1    0.029    0.029    0.029    0.029 {scipy.ndimage._nd_image.find_objects}
+        2    0.054    0.027    0.055    0.027 {scipy.ndimage._nd_image.histogram}
+        1    0.080    0.080    0.080    0.080 {scipy.ndimage._nd_image.label}
+   272144    0.128    0.000    0.128    0.000 {sys._getframe}
+    18872    0.283    0.000    0.283    0.000 {zip}
+        2    0.000    0.000    0.000    0.000 {zlib.decompressobj}
+
+

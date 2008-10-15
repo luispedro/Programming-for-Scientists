@@ -1,0 +1,6 @@
+labeled,N = ndimage.label(protproc > 0)
+if N == 0:
+    return numpy.zeros(5,double)
+objects = ndimage.find_objects(labeled)
+for i,slice in enumerate(objects):
+    objimage = protproc[slice] * (labeled[slice] == (i+1))
