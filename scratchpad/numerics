@@ -1,1 +1,8 @@
-mention "catastrophic cancellation"
+mention "catastrophic cancellation":
+    example (From "A Note on Platt's Probabilistic Outputs for SVMs")
+
+    err = 0.
+    for i in xrange(N):
+        p = ... # a probability estimate
+        err += t*log(p)+(1-t)*log(1-p)
+        
