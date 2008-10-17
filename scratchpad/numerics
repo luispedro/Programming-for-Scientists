@@ -6,3 +6,9 @@ mention "catastrophic cancellation":
         p = ... # a probability estimate
         err += t*log(p)+(1-t)*log(1-p)
         
+
+*
+
+In [30]: 0.3 * 0.3 == .9
+Out[30]: False
+
