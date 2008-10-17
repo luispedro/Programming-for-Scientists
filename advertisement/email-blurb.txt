@@ -8,7 +8,8 @@ Grading: Pass/Fail (based on homeworks, no exams)
 Prerequisites: None
 Day/Time/Location:
 
-Programming for Scientists is a course for scientists (biologists, physicists, ...) who find themselves programming without having had a formal introduction to the practice of programming. Students who want to learn programming from scratch are welcome and will be accommodated through two extra lectures at the start of the course.
+Programming for Scientists is a course for scientists (biologists, physicists,...) who find themselves programming with not more than an introductory programming course or even just having informally learned how to write code. Students who want to learn programming from scratch are welcome and will be accommodated through two extra lectures at the start of the course.
 
-The goal is to make students more effective programmers, who spend less time doing it, who write code that is more efficient, more readable, and has less bugs. For the practical part of the course, the Python programming language will be covered. Python is a modern language which is increasingly used for scientific programming.
+The goal is to make students more effective programmers, who spend less time doing it, who write code that is more efficient, more readable, and has less bugs. A one semester course on the basics of good programming can increase programmer's productivity by 20%. Twenty per-cent is a full year of the typical PhD [numbers from Greg Wilson, U. of Toronto].
 
+For the practical part of the course, the Python programming language will be covered. Python is a modern language which is increasingly used for scientific programming.
