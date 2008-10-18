@@ -4,14 +4,25 @@ Programming for Scientists
 
 Who is this class for?
 ----------------------
-This course is for scientists who find that they spend a lot of time programming but who have never had a formal introduction to programming. Many have picked up programming (often using a language such as Matlab) and find a way to *manage*. However, the results are not as good as they could be.
 
-This course is also for you if you want to learn how to program. You will need to attend an extra lecture and so some extra homework at the beginning of the course.
+If a large part of your day is spent programming, but you've never had more than one semester of formal programming training (or less), then this is for you. If all you know is Matlab, then this is for you. If you do not use version control (or don't even really know what it is), then this is for you.
+
+Programming for Scientists is a course for scientists (biologists, physicists,...) who find themselves programming with not more than an introductory programming course or even just having informally learned how to write code.
+
+The goal is to make students more effective programmers, who spend less time doing it, who write code that is more efficient, more readable, and has less bugs. A one semester course on the basics of good programming can increase programmer's productivity by 20%. Twenty per-cent is a full year of the typical PhD [numbers from Greg Wilson, U. of Toronto].
+
+For the practical part of the course, the Python programming language will be covered. Python is a modern language which is increasingly used for scientific programming.
+
 
 Who teaches it?
 ---------------
 
-This is a *student taught* course, taught by Luís Pedro Coelho, a third-year Ph.D. student in Computational Biology.
+This is a *student taught* course, taught by Luís Pedro Coelho, a third-year Ph.D. student in Computational Biology. Luís has a BS and an MS in computer science from IST in Lisbon.
+
+
+
+Class Stuff
+-----------
 
 .. toctree::
    :maxdepth: 2

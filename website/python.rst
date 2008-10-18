@@ -10,4 +10,6 @@ Python is a modern, multi-paradigm, programming language that is increasingly us
 Why do we use Python?
 ---------------------
 
-Python is increasingly used for scientific 
+
+Why not Matlab?
+---------------
