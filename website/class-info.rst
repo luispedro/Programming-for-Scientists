@@ -11,8 +11,10 @@ Class Overview
 The class is broken up into three modules: *Programming and Software Carpentry*, *Scientific Programming* and *Applied Topics*. The class is also broken into two sections: a lecture and a lab session. During lecture, we will cover general interest material. Lab session will also have a lecture format. However, it will cover specific technologies and methods.
 
 
-Syllabus
-+++++++++
+Outline
++++++++
+
+This outline is my current thinking on the course. The general topics are very much fixed upon (except for the last module, which is flexible by-design), but the content of each lecture might still be tweaked.
 
 Programming and Software Carpentry
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -29,3 +29,4 @@ Class Stuff
 
    python
    class-info
+   notes
