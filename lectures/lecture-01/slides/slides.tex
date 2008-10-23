@@ -123,7 +123,92 @@ This is a mixed bag and subject to change (if you want to).
 \section{Class Starts Here}
 
 \begin{frame}[fragile]
+\frametitle{Who Are Your Clients?}
+\begin{block}{Different Classes of Users}
+\begin{enumerate}
+\item Other programmers (or you, next week).
+\item Actual users (maybe you).
+\end{enumerate}
+\end{block}
+
+In this class, we are focused on the programmers.
+\end{frame}
+
+
+
+\frame{\frametitle{Principles of Good Code}
+
+\begin{block}{Principles of Good Code}
+\begin{itemize}
+\item Correct
+\item Sufficiently efficient
+\item Robust
+\item Readable
+\item Tested
+\item Extendable
+\end{itemize}
+\end{block}
+
+}
+
+
+\begin{frame}[fragile]
+\frametitle{Code Organisation}
+
+\begin{block}{Code Organisation}
+
+\end{block}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{<++>}
+<++>
+\end{frame}
+
+
+\begin{frame}[fragile]
 \frametitle{Structured Programming}
+\begin{frame}[fragile]
+\frametitle{A Bit of History}
+
+\begin{block}{Programming Languages}
+\begin{enumerate}
+\item In the beginning, there was the bit.
+\item Assembler
+\item Fortran (1957, by \textsc{ibm})
+\item Structured programming (late 60s). Algol 68, C, \ldots
+\item Object-oriented programming. Simula, Smalltalk, C++ % FIXME
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Procedural Programming}
+Procedural programming is code organised into procedures (functions).
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Functions}
+\begin{block}{A Good Function}
+\begin{itemize}
+\item Fits on the screen.
+\item Has a small number of obligatory arguments.
+\item Has a small number of outputs.
+\item Can be tested separately from the rest of the program.
+\end{itemize}
+\end{block}
+\end{frame}
+
 
 \begin{block}{Bad Code}
 \begin{python}
@@ -141,33 +226,22 @@ def xyf(x,y):
 
 \begin{block}{Good Code}
 \begin{python}
-def pq\_formula(p,q):
-    return -p/2.+sqrt(p*p/4.-q), -p/2.-sqrt(p*p/4.-q)
+def quadratic_solution(a,b,c):
+    '''
+    xp, xm = quadratic_solution(a,b,c)
+
+    Computes the two solutions to
+        a * x**2 + b * x + c = 0
+    '''
+    Root = sqrt(b**2 - 4*a*c)
+    x_plus = (-b + Root)/(2*a)
+    x_minus = (-b - Root)/(2*a)
+    return x_plus, x_minus
 
 \end{python}
+
 \end{block}
 \end{frame}
-
-\frame{\frametitle{Principles of Good Code}
-
-\begin{block}{Principle and Rules}
-\begin{itemize}
-\item A \alert{principle} is a general goal.
-\item A \alert{rule} is a concrete way to implement principles.\\
-    Often a rule is only a ``rule of thumb.''
-\end{itemize}
-\end{block}
-
-\begin{block}{Principles of Good Code}
-\begin{itemize}
-\item Correct
-\item Sufficiently efficient
-\item Readable
-\item Extendable
-\end{itemize}
-\end{block}
-}
-
 \begin{frame}[fragile]
 \frametitle{Homework 0}
 

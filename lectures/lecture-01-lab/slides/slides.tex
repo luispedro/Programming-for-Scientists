@@ -2,15 +2,39 @@
 \title{Introduction to Python}
 \begin{document}
 
-\frame{\frametitle{Python Basics}
-\begin{block}{What is Python}
-\begin{itemize}
-\item Open-source
-\item Widely used
-\item Modern, multi-paradigm, language
-\end{itemize}
-\end{block}
+\frame{\frametitle{Programming Basics}
+
+A 5~minute introduction to programming\ldots
 }
+
+\frame{\frametitle{Task}
+
+\begin{block}{Average}
+Compute the average of the following numbers:
+\begin{enumerate}
+\item 10
+\item 7
+\item 22
+\item 14
+\item 17
+\end{enumerate}
+\end{block}
+
+}
+
+\begin{frame}[fragile]
+\frametitle{Python example}
+
+\begin{python}
+sum = 0
+n = 0
+for val in numbers:
+    sum = sum + val
+    n = n + 1
+return sum / n
+\end{python}
+
+\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Python Example}
@@ -40,6 +64,16 @@ Let's digress for a moment before coming back to the language\ldots
 
 
 \begin{frame}[fragile]
+\frametitle{Python Language History}
+
+\begin{block}{History}
+Python was started in the late 80's. It was intended to be both \alert{easy to teach} and \alert{industrial strength}.
+
+It is (has always been) open-source and has become one of the most widely used languages (top 10).
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Python Language}
 
 Unlike \textit{Matlab}, Python does not come as a single programme.
@@ -54,17 +88,45 @@ This is a cultural difference.
 \begin{block}{Integrated Development Environments}
 \begin{itemize}
 \item Eclipse
-\item FIXME: ADD MORE IDEs
-\item Unix world: ipython + (vim or emacs or nano) + command-line tools
+\item DrPython
+\item Komodo Edit
+\item Unix world: ipython + (vim or emacs or nano) + command-line
 \item \ldots
 \end{itemize}
 \end{block}
 
-(Links for the above are on the webpage, under ``notes for lab session 1''). FIXME: MAKE SURE THIS IS TRUE
+Links for the above are on the webpage under ``notes for lab session 1''.
+\end{frame}
+
+\begin{frame}
+\frametitle{Python Versions}
+
+\begin{block}{Python Versions}
+\begin{itemize}
+\item The current version of Python is \alert{2.6} (October 2008).
+\item This class assumes you have 2.5 or 2.6.
+\item There are some small differences, but only one difference is important (we'll get to that).
+\end{itemize}
+\end{block}
+
+\begin{block}{Python 3.0}
+Python 3.0 changes many more things. We'll, for the most part, ignore it.
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Back to Python}
+
+\begin{block}{Running Python}
+\begin{enumerate}
+\item From a file
+\item Interactively
+\end{enumerate}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Back to the Python Language}
 Let's go back to the language itself.
 \end{frame}
 
@@ -80,8 +142,9 @@ Let's go back to the language itself.
 \end{block}
 \end{frame}
 
+
 \begin{frame}[fragile]
-\frametitle{Python Types: Numbers}
+\frametitle{Python Types: Numbers I: Integers}
 \begin{python}
 A = 1
 B = 2
@@ -89,11 +152,11 @@ C = 3
 print A+B*C
 \end{python}
 
-Outputs 7.
+Outputs \alert{7}.
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Python Types: Numbers}
+\frametitle{Python Types: Numbers II: Floats}
 \begin{python}
 A = 1.2
 B = 2.4
@@ -101,7 +164,19 @@ C = 3.6
 print A + B*C
 \end{python}
 
-Outputs 9.84.
+Outputs \alert{9.84}.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types: Numbers III: Integers \& Floats}
+\begin{python}
+A = 2
+B = 2.5
+C = 4.4
+print A + B*C
+\end{python}
+
+Outputs \alert{22.0}.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -132,7 +207,7 @@ Outputs \alert{John Doe}.
 
 \begin{python}
 multiple = 'Let  me go back and face the peril.\\nNo, it\'s too perilous.'
-alternative = "Let  me go back and face the peril.\\nNo, it\'s too perilous."
+alternative = "Let  me go back and face the peril.\\nNo, it's too perilous."
 \end{python}
 \end{frame}
 
@@ -186,7 +261,9 @@ Notice that list indices start at \alert{0}!
 mixed = ['Banana',100,['Another','List'],[]]
 print len(mixed)
 \end{python}
+
 \end{frame}
+
 \begin{frame}[fragile]
 \frametitle{Python Types: Dictionaries}
 \begin{python}
@@ -194,7 +271,7 @@ emails = { 'Luis' : 'lpc@cmu.edu',
            'Mark' : 'mark@cmu.edu' }
 print 'Luis's email is', emails['Luis']
 
-emails['Rita'] = 'rsmith@pitt.edu'
+emails['Rita'] = 'rita@cmu.edu'
 \end{python}
 
 \end{frame}
@@ -234,11 +311,11 @@ next statement
 \begin{block}{Principle}
 \begin{enumerate}
 \item Learn about the conventions of the technology you're using.
-\item Adhere to them
+\item Adhere to them.
 \end{enumerate}
 \end{block}
 
-In this case, use either 4 spaces, 8 spaces, or a TAB character.
+Use 4 spaces to indent.
 \end{frame}
 
 \begin{frame}[fragile]
