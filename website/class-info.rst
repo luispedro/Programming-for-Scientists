@@ -4,9 +4,9 @@ Class Overview
 
 **Instructor**: Luís Pedro Coelho <lpc@cmu.edu>
 
-**Class Number**: TBA
+**Class Number**: 98-111
 
-**Meeting Times**: TBA
+**Meeting Times**: 6.30PM SH 220
 
 The class is broken up into three modules: *Programming and Software Carpentry*, *Scientific Programming* and *Applied Topics*. The class is also broken into two sections: a lecture and a lab session. During lecture, we will cover general interest material. Lab session will also have a lecture format. However, it will cover specific technologies and methods.
 

@@ -2,6 +2,15 @@
 Programming for Scientists
 ======================================================
 
+**Class Number**: 98-111
+
+**Meeting Times**: 6.30PM SH 220
+
+**Syllabus** See `Class Info`_
+
+.. _Class Info: class-info.html
+
+
 Who is this class for?
 ----------------------
 
