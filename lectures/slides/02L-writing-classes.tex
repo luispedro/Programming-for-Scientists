@@ -1,40 +1,79 @@
 \input{slheader}
-\title{<+title+>}
+\title{Writing Your Own Types}
 \begin{document}
 
 \begin{frame}[fragile] % SLIDE 1
-\frametitle{}
-<++>
+\frametitle{Your Own Types}
+
+\begin{block}{Defining Your Own Types}
+\end{block}
+
 \end{frame}
 
+
 \begin{frame}[fragile] % SLIDE 2
-\frametitle{<++>}
-<++>
+\frametitle{Class Keyword}
+\begin{python}
+class Point(object):
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 3
-\frametitle{<++>}
-<++>
+\frametitle{Usage of Defined Types}
+\begin{python}
+P1 = Point(0,1,1)
+P2 = Point(1,2,1)
+
+print P1.x, P1.y, P1.z
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 4
-\frametitle{<++>}
-<++>
+\frametitle{Usage of User-Defined Types}
+\begin{python}
+def dist2(p1,p2):
+    dx = p1.x-p2.x
+    dy = p1.y-p2.y
+    dz = p1.z-p2.z
+    return dx**2+dy**2+dz**2
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 5
-\frametitle{<++>}
-<++>
+\frametitle{Another Example}
+\begin{python}
+def norm2(p):
+    return p.x**2 + p.y**2 + p.z**2
+
+p = Point(1,2,2)
+print norm2(p)
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 6
-\frametitle{<++>}
-<++>
+\frametitle{Methods}
+\begin{block}{Methods}
+A \alert{method} is simply a function that is tied to a type.
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 7
-\frametitle{<++>}
-<++>
+\frametitle{Defining a Method}
+\begin{block}
+class Point(object):
+    def __init__(self,x,y,z):
+        \ldots
+
+    def norm2(self):
+        return self.x**2 + self.y**2 + self.z**2
+
+p = Point(1,2,2)
+print p.norm2()
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 8
