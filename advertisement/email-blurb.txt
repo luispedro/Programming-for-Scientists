@@ -1,15 +1,14 @@
 Programming for Scientists
 ---------------------------
 
-Format: Lecture
 Instructor: Luís Pedro Coelho <lpc@cmu.edu>
-Credit: 3 Units
-Grading: Pass/Fail (based on homeworks, no exams)
-Prerequisites: None
-Class Number: 98-111
+Course Number: 98-111
 Day/Time/Location: Tue & Thu 6.30pm SH 220
+Credit: 3 Units
+Prerequisites: None
+Grading: Pass/Fail (based on homeworks, no exams)
 
-Programming for Scientists is a course for scientists (biologists, physicists,...) who find themselves programming with not more than an introductory programming course or even just having informally learned how to write code.
+Programming for Scientists is a course for scientists (biologists, physicists, chemists, ...) who find themselves programming with not more than an introductory programming course or even just having informally learned how to write code.
 
 The goal is to make students more effective programmers, who spend less time doing it, who write code that is more efficient, more readable, and has less bugs. A one semester course on the basics of good programming can increase programmer's productivity by 20%. Twenty per-cent is a full year of the typical PhD [numbers from Greg Wilson, U. of Toronto].
 
