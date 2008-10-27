@@ -6,7 +6,8 @@ Instructor: Luís Pedro Coelho <lpc@cmu.edu>
 Credit: 3 Units
 Grading: Pass/Fail (based on homeworks, no exams)
 Prerequisites: None
-Day/Time/Location:
+Class Number: 98-111
+Day/Time/Location: Tue & Thu 6.30pm SH 220
 
 Programming for Scientists is a course for scientists (biologists, physicists,...) who find themselves programming with not more than an introductory programming course or even just having informally learned how to write code.
 
