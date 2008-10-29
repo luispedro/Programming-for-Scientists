@@ -1,0 +1,4 @@
+Once you fix it, test for it!
+    -> BUG that crashed the system when fed images with negative numbers.
+    -> SOLUTION: (1) stop feeding the system images with negative numbers.
+                 (2!) check for negative numbers!!
