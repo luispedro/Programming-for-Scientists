@@ -1,0 +1,4 @@
+Don't comment out code. Delete it.
+Be polite: VCS etiquette
+Don't use comments to explain changes. Use commit log!
+Commit log is for explaining changes.
