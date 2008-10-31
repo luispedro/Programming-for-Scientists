@@ -1,0 +1,19 @@
+(1) 
+
+if condition:
+    variable = True
+else:
+    variable = False
+
+============>
+
+variable = condition
+
+(2)
+
+variable = value
+return variable
+
+===========>
+
+return value
