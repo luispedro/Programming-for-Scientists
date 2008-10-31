@@ -6,6 +6,9 @@
 \frametitle{Your Own Types}
 
 \begin{block}{Defining Your Own Types}
+\begin{enumerate}
+\item Our types should look like 
+\end{enumerate}<++>
 \end{block}
 
 \end{frame}
@@ -23,6 +26,14 @@ class Point(object):
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 3
+\frametitle{Constructor}
+
+\begin{block}{Constructor}
+The \code{__init__} method is a special method that is called when you create an object of the given class.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile] % SLIDE 4
 \frametitle{Usage of Defined Types}
 \begin{python}
 P1 = Point(0,1,1)
@@ -32,7 +43,7 @@ print P1.x, P1.y, P1.z
 \end{python}
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 4
+\begin{frame}[fragile] % SLIDE 5
 \frametitle{Usage of User-Defined Types}
 \begin{python}
 def dist2(p1,p2):
@@ -43,7 +54,7 @@ def dist2(p1,p2):
 \end{python}
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 5
+\begin{frame}[fragile] % SLIDE 6
 \frametitle{Another Example}
 \begin{python}
 def norm2(p):
@@ -51,17 +62,18 @@ def norm2(p):
 
 p = Point(1,2,2)
 print norm2(p)
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 6
-\frametitle{Methods}
-\begin{block}{Methods}
-A \alert{method} is simply a function that is tied to a type.
-\end{block}
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 7
+\frametitle{Methods}
+\begin{block}{Methods}
+A \alert{method} is simply a function that is tied to a type\\
+and has a special syntax to call it.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile] % SLIDE 8
 \frametitle{Defining a Method}
 \begin{block}
 class Point(object):
@@ -76,14 +88,25 @@ print p.norm2()
 \end{block}
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 8
-\frametitle{<++>}
-<++>
-\end{frame}
-
 \begin{frame}[fragile] % SLIDE 9
-\frametitle{<++>}
-<++>
+\frametitle{Animal Example}
+\begin{python}
+from math import abs
+class Animal(object):
+    def __init__(self, adaptation, sigma):
+        self.adaptation = adaptation
+        self.sigma = sigma
+    def died(self,environment):
+        delta = abs(adaptation - sigma)
+        v = exp(delta)
+        r = random.random()*1000
+        return (v > r)
+
+    def reproduce(self):
+        nadaptation = self.adaptation + random.gaussian(0,self.sigma)
+        nsigma = self.sigma + random.gaussian(0,self.sigma/4.)
+        child = Animal(nadaptation,self.sigma)
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 10
@@ -106,7 +129,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 14
+\begin{frame}[fragile] % SLIDE 15
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -121,7 +144,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 17
+\begin{frame}[fragile] % SLIDE 18
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -136,7 +159,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 20
+\begin{frame}[fragile] % SLIDE 21
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -151,7 +174,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 23
+\begin{frame}[fragile] % SLIDE 24
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -166,7 +189,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 26
+\begin{frame}[fragile] % SLIDE 27
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -181,7 +204,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 29
+\begin{frame}[fragile] % SLIDE 30
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -196,7 +219,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 32
+\begin{frame}[fragile] % SLIDE 33
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -211,7 +234,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 35
+\begin{frame}[fragile] % SLIDE 36
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -226,7 +249,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 38
+\begin{frame}[fragile] % SLIDE 39
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -241,7 +264,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 41
+\begin{frame}[fragile] % SLIDE 42
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -256,7 +279,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 44
+\begin{frame}[fragile] % SLIDE 45
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -271,7 +294,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 47
+\begin{frame}[fragile] % SLIDE 48
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -286,7 +309,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 50
+\begin{frame}[fragile] % SLIDE 51
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -301,7 +324,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 53
+\begin{frame}[fragile] % SLIDE 54
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -316,7 +339,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 56
+\begin{frame}[fragile] % SLIDE 57
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -331,7 +354,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 59
+\begin{frame}[fragile] % SLIDE 60
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -346,7 +369,7 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 62
+\begin{frame}[fragile] % SLIDE 63
 \frametitle{<++>}
 <++>
 \end{frame}
@@ -361,7 +384,12 @@ print p.norm2()
 <++>
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 65
+\begin{frame}[fragile] % SLIDE 66
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile] % SLIDE 66
 \frametitle{<++>}
 <++>
 \end{frame}

@@ -3,98 +3,219 @@
 \begin{document}
 
 \begin{frame}[fragile] % SLIDE 1
-\frametitle{}
-<++>
+\frametitle{Object Oriented Programming}
+
+\begin{block}{OOP}
+\begin{enumerate}
+\item Organise functions into classes
+\item Type polymorphism
+\end{enumerate}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 2
-\frametitle{<++>}
-<++>
+\frametitle{User-Defined Types}
+
+\begin{block}{Types}
+\begin{enumerate}
+\item lists
+\item dictionaries
+\item strings
+\item \ldots
+\end{enumerate}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 3
-\frametitle{<++>}
-<++>
+\frametitle{Type}
+\begin{block}{What's a Type}
+\begin{enumerate}
+\item A domain of values
+\item A set of methods (functions)
+\end{enumerate}
+\end{block}
+
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 4
-\frametitle{<++>}
-<++>
+\frametitle{Examples of Types}
+
+\begin{block}{List}
+\begin{enumerate}
+\item Domain: lists
+\item Functions: \code{L.append(e),L.insert(idx,e), \ldots}
+\end{enumerate}
+\end{block}
+
+\pause
+\begin{block}{Integer}
+\begin{enumerate}
+\item Domain: $\dots,-2, 1, 0, 1, 2, \dots$
+\item Functions: $A + B$
+\end{enumerate}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 5
-\frametitle{<++>}
-<++>
+\frametitle{User-defined Types}
+
+Object-oriented programming languages allow one to define one own types.
+
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 6
-\frametitle{<++>}
-<++>
+\frametitle{Why User-defined Types}
+
+\begin{block}{Why Define Your Own Types?}
+\begin{enumerate}
+\item Elegance: pre-defined types shouldn't be better.
+\item Aggregation: closely related data and function should be tied together.
+\item Encapsulation: implementation details can be hidden.
+\end{enumerate}
+\end{block}
+
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 7
-\frametitle{<++>}
-<++>
-\end{frame}
+\frametitle{Motivating Example}
+\begin{block}{Simple Population Simulation}
+\begin{enumerate}
+\item Our world is characterised by a single environmental value $e$.
+\item We have ``animals'' that are in the world.
+\item Each animal has two characteristics: adaptation $a$ and mutation rate $\sigma$.
+\item The smaller the difference $|a-e|$, the better an animal is adapted to the world.
+\item When an animal reproduces, its offspring has adaptation $a + \cal{N}(0,\sigma)$
+\item At each iteration:
+\begin{enumerate}
+\item Animals die with a probability given by $\exp(\beta|a-e|)$
+\item Animals that survive, reproduce.
+\end{enumerate}
+\end{enumerate}
+\end{block}
 
-\begin{frame}[fragile] % SLIDE 8
-\frametitle{<++>}
-<++>
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 9
-\frametitle{<++>}
-<++>
+\frametitle{Animal World}
+\begin{block}{Animal Class}
+We define an Animal class, with two values:
+\begin{enumerate}
+\item adaptation: its current adaptation value
+\item sigma: its variability parameter
+\end{enumerate}
+and two methods:
+\begin{enumerate}
+\item \code{dies()}: make a stochastic decision on whether the animal dies
+\item \code{reproduce()}: make a new animal, derived from current one
+\end{enumerate}
+\end{block}
+
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 10
-\frametitle{<++>}
-<++>
+\frametitle{Using our Animals}
+\begin{python}
+animals = [Animal() for i in xrange(nr_inital_animals)]
+environ = 1.0
+for i in xrange(max_iters):
+    ai = 0
+    while ai < len(animals):
+        if animals[i].dies(environ): del animals[i]
+        else: ai += 1
+    N=len(animals)
+    if N == 0:
+        print 'Our population died out!'
+        break
+    for ai in xrange(len(ai)):
+        animals.append(animals[i].reproduce())
+    if N >= max_animals:
+        print 'Our population is out of control'
+        break
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 11
-\frametitle{<++>}
-<++>
+\frametitle{Using our Animals}
+
+\begin{python}
+\ldots
+DeltaAdaptation = [math.abs(y-a.adaptation) 
+                    for a in animals]
+Sigmas = [a.sigma for a in animals]
+hist(Sigmas)
+\end{python}
+
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 12
-\frametitle{<++>}
-<++>
+\frametitle{Classes As Logical Units}
+\begin{block}{Class}
+A class aggregates data and functions that belong together.
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 13
-\frametitle{<++>}
-<++>
+\frametitle{Animal Interface}
+
+\begin{block}{Interface}
+\begin{enumerate}
+\item Constructor: Takes the initial adaptation value and sigma.
+\item \code{died(environ)}: Make a stochastic decision on whether the Animal dies in the given environment.
+\item \code{reproduce()}: Return a new Animal.
+\item \code{adaptation}: Current adaptation.
+\item \code{sigma}: Current sigma.
+\end{enumerate}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 14
-\frametitle{<++>}
-<++>
-\end{frame}
+\frametitle{Animals}
+\begin{block}{Sigma Varying}
+Suppose we want to vary sigma from one generation to the next?
+\end{block}
 
+The \alert{code that uses Animals} need not change!
+\end{frame}
 \begin{frame}[fragile] % SLIDE 15
-\frametitle{<++>}
-<++>
+\frametitle{Animals}
+
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 16
-\frametitle{<++>}
-<++>
+\frametitle{More Complex Animals}
+\begin{block}{Motivation}
+Add resources to the environment and make it a grid.
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 17
-\frametitle{<++>}
-<++>
-\end{frame}
+\frametitle{More Complex World}
 
-\begin{frame}[fragile] % SLIDE 18
-\frametitle{<++>}
-<++>
+\begin{python}
+world = World()
+world.animals = [Animal(world,random(),random())
+                for i in xrange(nr_initial_animals)]
+for i in xrange(max_iters):
+    world.replenish()
+    for an in world.animals: an.roam()
+    i = 0
+    while i < len(world.animals):
+        if world.animals[i].dies():
+            del world.animals[i]
+        else: i += 1
+    for i in xrange(len(world.animals)):
+        nanimal = world.animals[i].may_reproduce()
+        if nanimal:
+            world.animals.append(nanimal)
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 19
-\frametitle{<++>}
-<++>
+\frametitle{Polymorphism}
+
+\begin{block}{Type Polymorphism}
+Code is \alert{polymorphic} if it can use different types without change
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 20
@@ -323,6 +444,26 @@
 \end{frame}
 
 \begin{frame}[fragile] % SLIDE 65
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile] % SLIDE 66
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile] % SLIDE 67
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile] % SLIDE 66
+\frametitle{<++>}
+<++>
+\end{frame}
+
+\begin{frame}[fragile] % SLIDE 66
 \frametitle{<++>}
 <++>
 \end{frame}
