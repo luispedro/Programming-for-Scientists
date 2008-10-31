@@ -21,7 +21,7 @@
 \item Tuesday: Lecture
 \item Thursday: Lab Session
 \item Office Hours:  (or by appointment)
-\item Course Website: http://coupland.cbi.cmu.edu/~luispedro/PfS-2008
+\item Course Website: http://coupland.cbi.cmu.edu/pfs
 \item Course Mailing List:
 \end{itemize}
 \end{block}
@@ -156,24 +156,10 @@ In this class, we are focused on the programmers.
 \frametitle{Code Organisation}
 
 \begin{block}{Code Organisation}
-
+The first section is on how to organise bits of code.
 \end{block}
 \end{frame}
 
-
-
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
 
 
 \begin{frame}[fragile]
@@ -211,7 +197,6 @@ Procedural programming is code organised into procedures (functions).
 \end{block}
 \end{frame}
 
-
 \begin{frame}[fragile]
 \begin{block}{Bad Code}
 \begin{python}
@@ -244,6 +229,37 @@ def quadratic_solution(a,b,c):
 \end{python}
 
 \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Good Variable Names}
+\begin{block}{Principle}
+Readibility
+\end{block}
+\begin{block}{Heuristics}
+\begin{enumerate}
+\item Don't be too short (except for $i$,$N$,\ldots)
+\item Be conventional: loop iteration uses $i,j,k,\dots$, counts use $N$,\ldots
+\item Try to avoid need for comments
+\item Exception: implementing code from a paper.
+\end{enumerate}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Variable Name Examples}
+\begin{python}
+x = somefunction() # x represents the force
+\end{python}
+
+Why not?
+
+\begin{python}
+force = somefunction()
+\end{python}
+
 \end{frame}
 
 \begin{frame}[fragile]
