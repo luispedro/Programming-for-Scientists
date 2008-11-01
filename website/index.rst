@@ -11,6 +11,18 @@ Programming for Scientists
 .. _Class Info: class-info.html
 
 
+Pages
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   class-info
+   faq
+   notes
+   python
+
+
 Who is this class for?
 ----------------------
 
@@ -30,13 +42,3 @@ This is a *student taught* course, taught by Luís Pedro Coelho, a third-year Ph
 
 
 
-Class Stuff
------------
-
-.. toctree::
-   :maxdepth: 2
-
-   python
-   class-info
-   faq
-   notes
