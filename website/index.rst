@@ -38,4 +38,5 @@ Class Stuff
 
    python
    class-info
+   faq
    notes
