@@ -11,6 +11,13 @@ Class Overview
 The class is broken up into three modules: *Programming and Software Carpentry*, *Scientific Programming* and *Applied Topics*. The class is also broken into two sections: a lecture and a lab session. During lecture, we will cover general interest material. Lab session will also have a lecture format. However, it will cover specific technologies and methods.
 
 
+Textbooks
++++++++++
+
+There is no official textbook for the course, but *Python Programming: An Introduction to Computer Science* by John Zelle is a good Python introduction. Also, you can check out *Dive Into Python*, which is available for free online_ or in the CMU library.
+
+.. _online: http://www.diveintopython.org/
+
 Outline
 +++++++
 
