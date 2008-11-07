@@ -45,18 +45,6 @@ print "Hello World"
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Python Example}
-
-\begin{python}
-files=glob('*.data')
-for f in files:
-    data=parse(file(f))
-    value=compute(data)
-    print 'Result for file %s: %s' % (f,value)
-\end{python}
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{Installing Python}
 
 Let's digress for a moment before coming back to the language\ldots
@@ -432,65 +420,128 @@ Notice the string formatting on the last line!
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{}
-<++>
+\frametitle{String Formatting}
+\begin{python}
+"string with %s placeholders %s" % (arg1,arg2)
+\end{python}
+
+\begin{itemize}
+\item The \code{\%s} placeholders are replaced by the passed arguments with the \code{\%} operator.
+\item Use \code{\%\%} to get a \%.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Conditions \& Booleans}
+\begin{block}{Booleans}
+\begin{itemize}
+\item Just two values: \code{True} and \code{False}.
+\item Comparisons return booleans (e.g., \code{$x < 2$})
+\end{itemize}
+\end{block}
+
+\begin{block}{Conditions}
+\begin{itemize}
+\item When evaluating a condition, the condition is converted to a boolean:
+\item Many things are converted to \code{False}:
+\begin{enumerate}
+\item \code{$[]$} (the empty list)
+\item \code{$\{ \}$} (the empty dictionary)
+\item \code{""} (the empty string)
+\item \code{0} or \code{0.0} (the value zero)
+\item \ldots
+\end{enumerate}
+\item Everything else is \code{True} or not convertible to boolean.
+\end{itemize}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
+\frametitle{Conditions Example}
 
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
+\begin{python}
+A = []
+B = [1,2]
+C = 2
+D = 0
 
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
+if A:
+    print 'A is true'
+if B:
+    print 'B is true'
+if C:
+    print 'C is true'
+if D:
+    print 'D is true'
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
+\frametitle{Numbers}
+\begin{block}{Two Types of Numbers}
+\begin{enumerate}
+\item Integers
+\item Floating-point
+\end{enumerate}
+\end{block}
 
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
+\begin{block}{Operations}
+\begin{enumerate}
+\item Unary Minus: \code{ -x}
+\item Addition: \code{x + y}
+\item Subtraction: \code{x - y}
+\item Multiplication: \code{x * y}
+\item Exponentiation: \code{x ** y}
+\end{enumerate}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
+\frametitle{Division}
+\begin{block}{Division}
+What is 9 divided by 3?
 
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
+What is 10 divided by 3?
+\end{block}
 
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
+\begin{block}{Two types of division}
+\begin{enumerate}
+\item Floating-point division: \code{x / y} (in Python 2.6)
+\item Integer division: \code{x // y}
+\end{enumerate}
+\end{block}
 
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
+\begin{block}{Python 2.5 vs.\ 2.6}
+\begin{itemize}
+\item This is the one important difference between the two versions of Python:
+\begin{enumerate}
+\item In Python 2.5, \code{x / y} means \alert{integer division} by default.
+\item In Python 2.6, it means \alert{floating-point division}.
+\end{enumerate}
+\item We can get the 2.6 behaviour by adding \code{from __future__ import division} at the top of your file
+\end{itemize}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
+\frametitle{Importing}
 
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
+\begin{python}
+A = 10
+B = 3
+print A / B
+\end{python}
+
+\begin{python}
+from __future__ import division
+A = 10
+B = 3
+print A / B
+\end{python}
 \end{frame}
 
+
 \begin{frame}[fragile]
 \frametitle{<++>}
 <++>
@@ -765,5 +816,7 @@ Notice the string formatting on the last line!
 \frametitle{<++>}
 <++>
 \end{frame}
+
+
 
 \end{document}
