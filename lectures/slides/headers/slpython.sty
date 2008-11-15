@@ -7,41 +7,46 @@
 \renewcommand{\lstlistingname}{Code Listing}
 \definecolor{gray}{gray}{0.5}
 \definecolor{green}{rgb}{0,0.5,0}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
 
 \lstnewenvironment{python}[1][]{
 \lstset{
 language=python,
 basicstyle=\ttfamily\small\setstretch{1},
-stringstyle=\color{red},
+stringstyle=\color{darkred},
 showstringspaces=false,
 alsoletter={1234567890},
 otherkeywords={\ , \}, \{},
-keywordstyle=\color{blue},
+keywordstyle=\color{darkblue},
 emph={access,and,break,class,continue,def,del,elif,else,%
 except,exec,finally,for,from,global,if,import,in,is,%
 lambda,not,or,pass,print,raise,return,try,while},
-emphstyle=\color{black}\bfseries,
+emphstyle=\color{darkgreen}\bfseries,
 emph={[2]True, False, None, self},
-emphstyle=[2]\color{green},
+emphstyle=[2]\color{darkgreen},
 emph={[3]from, import, as},
-emphstyle=[3]\color{blue},
+emphstyle=[3]\color{darkblue},
 upquote=true,
 morecomment=[s]{"""}{"""},
 commentstyle=\color{gray}\slshape,
 emph={[4]1, 2, 3, 4, 5, 6, 7, 8, 9, 0},
-emphstyle=[4]\color{blue},
-literate=*{:}{{\textcolor{blue}:}}{1}%
-        {=}{{\textcolor{blue}=}}{1}%
-        {-}{{\textcolor{blue}-}}{1}%
-        {+}{{\textcolor{blue}+}}{1}%
-        {*}{{\textcolor{blue}*}}{1}%
-        {!}{{\textcolor{blue}!}}{1}%
-        {(}{{\textcolor{blue}(}}{1}%
-        {)}{{\textcolor{blue})}}{1}%
-        {[}{{\textcolor{blue}[}}{1}%
-        {]}{{\textcolor{blue}]}}{1}%
-        {<}{{\textcolor{blue}<}}{1}%
-        {>}{{\textcolor{blue}>}}{1},%
-framexleftmargin=1mm, framextopmargin=1mm, frame=shadowbox, rulesepcolor=\color{blue},#1
+emphstyle=[4]\color{darkred},
+literate=*%
+        {:}{{\textcolor{darkblue}:}}{1}%
+        {=}{{\textcolor{darkblue}=}}{1}%
+        {-}{{\textcolor{darkblue}-}}{1}%
+        {+}{{\textcolor{darkblue}+}}{1}%
+        {/}{{\textcolor{darkblue}+}}{1}%
+        {*}{{\textcolor{darkblue}*}}{1}%
+        {!}{{\textcolor{darkblue}!}}{1}%
+        {(}{{\textcolor{darkblue}(}}{1}%
+        {)}{{\textcolor{darkblue})}}{1}%
+        {[}{{\textcolor{darkblue}[}}{1}%
+        {]}{{\textcolor{darkblue}]}}{1}%
+        {<}{{\textcolor{darkblue}<}}{1}%
+        {>}{{\textcolor{darkblue}>}}{1},%
+framexleftmargin=1em, framextopmargin=1mm, frame=leftline,#1
 }}{}
 
