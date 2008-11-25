@@ -76,6 +76,7 @@ This is a cultural difference.
 \begin{block}{Integrated Development Environments}
 \begin{itemize}
 \item Eclipse
+\item Stani (Stan's Python editor)
 \item DrPython
 \item Komodo Edit
 \item Unix world: ipython + (vim or emacs or nano) + command-line
@@ -543,13 +544,26 @@ print A / B
 
 
 \begin{frame}[fragile]
-\frametitle{<++>}
-<++>
+\frametitle{Functions}
+\begin{python}
+def double(x):
+    '''
+    y = double(x)
+
+    Returns the double of x
+    '''
+    return 2*x
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{<++>}
-<++>
+\frametitle{Functions}
+\begin{python}
+A=4
+print double(A)
+print double(2.3)
+print double(double(A))
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile]
