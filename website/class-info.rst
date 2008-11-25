@@ -18,6 +18,13 @@ There is no official textbook for the course, but *Python Programming: An Introd
 
 .. _online: http://www.diveintopython.org/
 
+Homeworks
++++++++++
+
+Grades will depend on homeworks and final project. Homeworks will be assigned on Tuesdays and are due the next Tuesday at mid-night. *Late penalties*: up to 24 hours delay: 20% penalty. Up until beginning of lab-session: 30\% penalty. Thursday sessions will often include discussion of homeworks, so after that, you can no longer turn in homeworks.
+
+Homework will normally consists of a multiple-choice/short answer section plus a programming question. Homeworks are to be turned in by email, with the answers either typed-in directly in the body of the email (text-only emails, please), or as a text (.txt) or PDF format for the question and as an attached .py file for the programming assignments. In particular, *doc, docx, odt* will not be accepted.
+
 Outline
 +++++++
 
