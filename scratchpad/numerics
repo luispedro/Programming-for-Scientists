@@ -12,3 +12,6 @@ mention "catastrophic cancellation":
 In [30]: 0.3 * 0.3 == .9
 Out[30]: False
 
+**
+
+We note that using GNU MP is two orders of magnitude slower than built-in double precision arithmetic. "3d zernike descriptors for content based shape retrieval" by Novotni & Klein
