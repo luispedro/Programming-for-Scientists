@@ -15,3 +15,11 @@ Out[30]: False
 **
 
 We note that using GNU MP is two orders of magnitude slower than built-in double precision arithmetic. "3d zernike descriptors for content based shape retrieval" by Novotni & Klein
+
+*
+
+In [21]: A=3.8
+
+In [22]: A
+Out[22]: 3.7999999999999998
+
