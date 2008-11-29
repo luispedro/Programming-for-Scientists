@@ -18,6 +18,7 @@ Enthought is a Python distribution specially targetted for scientific applicatio
 
 Python IDEs (integrated development environments):
     * Eclipse_ (see also PyDev_)
+    * Stani_
     * DrPython_
     * KomodoIDE_
     * Ipython_
@@ -25,6 +26,7 @@ Python IDEs (integrated development environments):
     * Also, you can use editors like Emacs and vi(m), of course
 
 .. _Eclipse: http://www.eclipse.org/
+.. _Stani: http://www.stani.be/
 .. _PyDev: http://pydev.sourceforge.net/
 .. _DrPython: http://drpython.sourceforge.net/
 .. _KomodoIDE: http://www.activestate.com/Products/komodo_ide/index.mhtml
