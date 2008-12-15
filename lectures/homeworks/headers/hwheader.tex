@@ -1,0 +1,134 @@
+\documentclass[article,twoside]{memoir}
+\usepackage[latin9]{inputenc}
+\usepackage{psfrag}
+\usepackage{hyperref}
+\usepackage{eepic}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{sublabel}
+\usepackage[vlined,linesnumbered,ruled]{algorithm2e}
+\usepackage{multirow}
+%\usepackage[]{pgf}
+\usepackage[]{graphicx}
+
+\graphicspath{{../figures/other/}{../figures/generated/}}
+
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}} 
+\newcommand{\pdpd}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}} 
+\newcommand{\B}{\ensuremath{\mathbb{B}}}
+\newcommand*{\Pa}{\ensuremath{\text{\upshape\textbf{Pa}}}}
+\newcommand*{\Dkl}{\ensuremath{D_{\text{\textsc{kl}}}}}
+\newcommand*{\encspace}{\quad}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+
+\newcommand*{\slantfrac}[2]{\hbox{$\raisebox{-.4ex}{$\,^#1$}\!/_#2$}}
+\newcommand*{\onehalf}{\ensuremath{
+{\frac{1}{2}}%
+}}
+\newcommand*{\dx}{\,dx}
+\newcommand*{\dt}{\,dt}
+
+\newcommand*{\Expected}{\ensuremath{\mathbb{E}}}
+\newcommand*{\Var}{\ensuremath{\text{Var}}}
+\newcommand*{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand*{\Binary}{\ensuremath{\mathbb{B}}}
+\newcommand*{\discr}{\mbox{discr}}
+\newcommand*{\from}{\leftarrow}
+
+\newcommand*{\indicator}[1]{\hspace{1pt}[\hspace{-.4em}[\hspace{3pt} #1 \hspace{3pt}]\hspace{-.4em}]\hspace{2pt}}
+\newcommand*{\Assign}{\ensuremath\,:=\,}
+\newcommand*{\vect}[1]{\ensuremath{\bm{#1}}}
+\newcommand*{\textvalue}[1]{\mbox{\textsl{#1}}}
+\newcommand*{\bigO}{\mathcal{O}}
+\newcommand*{\MI}{\mbox{MI}}
+
+\DeclareMathOperator{\goodness}{score}
+\DeclareMathOperator{\powerset}{Pow}
+
+\title{Student Survey}
+\author{Programming for Scientists}
+
+\bibliographystyle{alpha}
+%\bibliographystyle{plain}
+\pagestyle{Ruled}
+
+\aliaspagestyle{chapter}{Ruled}
+\makeatletter
+\if@twoside
+	\makeoddhead{Ruled}{}{}{\scshape\rightmark}
+	\makeevenhead{Ruled}{\scshape\leftmark}{}{}
+	\makeevenfoot{Ruled}{\pagenumberfont\thepage}{}{}
+	\makeoddfoot{Ruled}{}{}{\pagenumberfont\thepage}
+	% Put section number on top
+	\def\sectionmark#1{\markright{#1 (\thesection)}}
+	\def\chaptermark#1{\markboth{#1}{#1}}
+	\renewcommand*{\bibmark}{\markboth{\bibname}{\bibname}} % I don't like empty headings!
+\else
+
+	% Put section number on top
+	\def\sectionmark#1{\markright{#1 (\thesection)}}
+	\def\chaptermark#1{\markright{#1 (\thechapter)}}
+
+	\makeoddhead{Ruled}{}{}{\scshape\rightmark}
+	\makeevenhead{Ruled}{}{}{\scshape\rightmark}
+	\makeevenfoot{Ruled}{}{}{\pagenumberfont\thepage}
+	\makeoddfoot{Ruled}{}{}{\pagenumberfont\thepage}
+	\renewcommand*{\bibmark}{\markright{\bibname}} % I don't like empty headings!
+
+
+\fi
+\makeatother
+
+%Change fonts: Page number sans-serif (much cleaner than the roman version)
+\def\pagenumberfont{\sffamily}
+% Change fonts: Section headers Sans-Serif:
+\setsecheadstyle{\Large\sffamily\raggedright}
+\setsubsecheadstyle{\large\sffamily\raggedright}
+\setsubsubsecheadstyle{\normalsize\sffamily\raggedright}
+
+% Title
+\pretitle{\LARGE\sffamily}
+\posttitle{\par\vspace{4ex}}
+\preauthor{\large\sffamily\hspace{1cm}}
+\postauthor{\par\vspace{3ex}}
+\predate{\small\sffamily\hspace{1cm}Last Updated on: }
+\postdate{\par\vspace{2cm}}
+\copypagestyle{title}{plain}
+\makeoddfoot{title}{}{}{}
+\makeevenfoot{title}{}{}{}
+
+\renewcommand{\abstractnamefont}{\sffamily}
+\renewcommand{\abstracttextfont}{}
+\renewcommand{\absnamepos}{flushleft}
+
+
+\makechapterstyle{mestrado}{% Originally ``AlexanderGrebenkov'', adapted
+\renewcommand{\chapterheadstart}{\goodbreak\vspace*{\beforechapskip}\medskip}
+\renewcommand{\chapnamefont}{\normalfont\Large\scshape}
+\renewcommand{\chapnumfont}{\normalfont\Large\scshape}
+\renewcommand{\chaptitlefont}{\normalfont\Large\scshape}
+\renewcommand{\printchaptername}{}
+\renewcommand{\chapternamenum}{}
+\renewcommand{\printchapternum}{\normalfont\Large\scshape\S\thechapter}
+\renewcommand{\afterchapternum}{\hspace{1em}}
+\renewcommand{\afterchaptertitle}{\par\nobreak\vspace{-.9em}\moveright 6pt\vbox to 1pt{\hrule width .64\textwidth}\nobreak\vskip\afterchapskip\nobreak}
+}
+\chapterstyle{mestrado}
+
+\SetCommentSty{textsl}
+
+\newcommand*{\question}{\textbf{Question: }}
+
+\begin{document}
