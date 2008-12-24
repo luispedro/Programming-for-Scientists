@@ -14,16 +14,26 @@ The class is broken up into three modules: *Programming and Software Carpentry*,
 Textbooks
 +++++++++
 
-There is no official textbook for the course, but *Python Programming: An Introduction to Computer Science* by John Zelle is a good Python introduction. Also, you can check out *Dive Into Python*, which is available for free online_ or in the CMU library.
+There is no official textbook for the course, but *Python Programming: An Introduction to Computer Science* by John Zelle is a good Python introduction. Also, you can check out *Dive Into Python*, which is available for free online_ or (in printed form) in the CMU library.
 
 .. _online: http://www.diveintopython.org/
 
 Homeworks
 +++++++++
 
-Grades will depend on homeworks and final project. Homeworks will be assigned on Tuesdays and are due the next Tuesday at mid-night. *Late penalties*: up to 24 hours delay: 20% penalty. Up until beginning of lab-session: 30\% penalty. Thursday sessions will often include discussion of homeworks, so after that, you can no longer turn in homeworks.
+Grades will depend on homeworks and final project. For a passing grade, you need 7 (out of 10) on at least 7 homeworks (there will be at least 9 homeworks) and a 7 on the final project. Homeworks will be assigned on Tuesdays and are due the next Tuesday at mid-night. *Late penalties*: up to 24 hours delay: 20% penalty. Up until beginning of lab-session: 30% penalty. Thursday sessions will often include discussion of homeworks. Therefore, after that, you can no longer turn in homeworks for grading.
 
 Homework will normally consists of a multiple-choice/short answer section plus a programming question. Homeworks are to be turned in by email, with the answers either typed-in directly in the body of the email (text-only emails, please), or as a text (.txt) or PDF format for the question and as an attached .py file for the programming assignments. In particular, *doc, docx, odt* will not be accepted.
+
+Expectations
+++++++++++++
+
+This is what I expect that students will have learned by the end of the course:
+
+    (i) Software carpentry: source control, unit testing, profilers. Students should know how to use Subversion, nosetest, and the Python profiler as well as understand the concepts behind these tools (which will enable them to use them with a different implementation).
+    (ii) Modern programming paradigms: object oriented. Students should know how polymorphism works and understand when and why it can be useful.
+    (iii) Students should know how floating-point numbers are represented and their limitations. Detailed knowledge of specific formats is not required.
+    (iv) Technologies: Python including numpy. Students should be able to confortably write medium-sized programs (a few thousand lines of code) using these technologies in an effective way.
 
 Outline
 +++++++
