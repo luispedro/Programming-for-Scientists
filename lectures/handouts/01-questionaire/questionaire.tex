@@ -134,7 +134,7 @@
 \newcommand*{\fillunderscore}{~\hrulefill}
 \newcommand*{\checkbox}{$\square$}
 \newcommand*{\yesno}{\hfill\mbox{yes\checkbox~no\checkbox}}
-\newcommand{\header}[1]{\textsl{#1}}
+\newcommand{\header}[1]{\textsl{#1}\par\medskip}
 \def\th#1{#1}
 \begin{document}
 \maketitle
@@ -171,7 +171,11 @@ Others (write as many as you can think of): \fillunderscore\par
 \section{Programming Languages}
 
 \begin{tabular}{lccccc}
- & \th{Never heard of it} & \th{Heard of it} & \th{Used it at most a couple of times} & \th{Used it a lot} & \th{Expert}\\
+ \toprule
+ & \th{Never}       & \th{Heard of it} & \th{Used it}           & \th{Used it} & \th{}\\
+ & \th{heard of it} & \th{}            & \th{at most}           & \th{a lot}   & \th{Expert}\\
+ & \th{}            & \th{}            & \th{a couple of times} & \th{}        & \th{}\\
+ \midrule
 Matlab  &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 Java    &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 C       &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
@@ -189,13 +193,16 @@ Scheme  &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 
 \begin{tabular}{lcccccc}
  \toprule
- & \th{Never heard of it} & \th{Heard of it} & \th{Used it at most a couple of times} & \th{Used it a lot} & \th{Use it always}\\
+ & \th{Never}       & \th{Heard of it} & \th{Used it}           & \th{Used it} & \th{Use it}\\
+ & \th{heard of it} & \th{}            & \th{at most}           & \th{a lot}   & \th{always}\\
+ & \th{}            & \th{}            & \th{a couple of times} & \th{}        & \th{}\\
  \midrule
 assert statement           &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 shell (command line)       &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 debugger                   &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 profiler                   &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
-version control system (\textsc{cvs},
+version control system \\
+(\textsc{cvs}, 
 Subversion, Git,\dots)     &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 Unit tests                 &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 Design-by-Contract         &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
@@ -208,11 +215,11 @@ Design-by-Contract         &\checkbox &\checkbox &\checkbox &\checkbox &\checkbo
  & of it        & of it & Idea  & it means    & my dissertation  \\
  &              &       &       &             &    about it      \\
  \midrule
-Object-oriented Programming            &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Object-oriented programming            &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 Big O Notation (e.g., $\bigO(\log N)$) &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 Space-time trade-off                   &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
-Linked Lists                           &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
-Regular Expressions                    &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Linked lists                           &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Regular expressions                    &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 \end{tabular}
 
 
