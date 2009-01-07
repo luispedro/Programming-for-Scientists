@@ -20,6 +20,7 @@ Pages
    class-info
    faq
    notes
+   homeworks
    python
 
 
