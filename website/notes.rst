@@ -15,7 +15,7 @@ Links for Python:
 
 .. _Python: http://www.python.org
 .. _Python Docs: http://docs.python.org
-.. _Enthought: http://www.enthought.com/products/epd.php
+.. _Enthought Python Distribution: http://www.enthought.com/products/epd.php
 .. _Python(x,y): http://www.pythonxy.com/
 
 If you are using Linux, then I recommend you get the Python packages that are standard for your distribution. Be sure to look for the numpy and scipy packages as well (in ubuntu, they're called *python-numpy* and *python-scipy*). *Python-matplotlib* includes the very useful *matplotlib* library.
