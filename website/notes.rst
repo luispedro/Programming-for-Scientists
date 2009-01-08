@@ -5,6 +5,8 @@ Class Notes
 Lab Lecture 1
 ~~~~~~~~~~~~~
 
+For this class, we are using *Python*. Most of my material will be based on Python 2.5. Version 2.6, which came out recently and hasn't yet made it into the mainstream, is also fine. However, version 3 of Python is **not recommended**. In particular, many of the libraries that will be introduced in the practical sessions do not support Python 3 yet.
+
 Links for Python:
     * Python_ 
     * `Python Docs`_
