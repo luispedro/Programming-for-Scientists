@@ -24,6 +24,10 @@ Enthought Python Distribution is a Python distribution specially targetted for s
 
 Mac OS X includes a version of Python with the numpy & scipy libraries (they're, I'm told, on a separate CD). If you are using 10.5, this should suffice for this course. If you are using an older version, you might consider upgrading using one of the distributions above (like Enthought's)
 
+Consider installing *ipython*: it's a much improved Python shell (the default version is very limited). If you are using linux, then your distribution should have a package for it (Ubuntu calls it simply *ipython*). On Mac OS 10.5, check out this document_.
+
+.. _document : http://www.brianberliner.com/2008/04/18/ipython-on-mac-os-x-105-leopard/
+
 Python IDEs (integrated development environments):
     * Eclipse_ (see also PyDev_)
     * Stani_
