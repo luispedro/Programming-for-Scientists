@@ -66,7 +66,7 @@ What is 25 + 20\%?
 \begin{python}
 print 25 * 1.2
 \end{python}
-\note{Demo the shell.
+\note{Demo the python shell.
 
 This is basically a glorified calcular}
 \end{frame}
@@ -77,7 +77,7 @@ This is basically a glorified calcular}
 \begin{block}{Calculator}
 \begin{enumerate}
 \item Input: initial amount and the tip percentage.
-\item Ouput: final amount
+\item Ouput: final amount.
 \end{enumerate}
 \end{block}
 \end{frame}
@@ -86,6 +86,95 @@ This is basically a glorified calcular}
 \frametitle{Blackboard demonstration}
 
 \note{Use the blackboard to introduce the idea of objects, values and names.}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Flow of Control: Conditionals}
+
+\begin{block}{Tip Calculator (II)}
+\begin{enumerate}
+\item Input: initial amount and service quality.
+\item Output: final amount.
+\end{enumerate}
+\end{block}
+
+\note{
+\begin{python}
+initial = ..
+
+quality = ..
+
+if quality == 'great':
+    percentage = 20
+else:
+    percentage = 15
+
+print initial * (1+percentage/100.0)
+
+\# discuss 
+\end{python}
+}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Conditionals}
+
+\begin{python}
+
+if <condition>:
+    <statement 1>
+    <statement 2>
+else:
+    <statement 3>
+
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lists}
+
+\begin{python}
+
+students = ['Luis','Mark','Rita']
+
+print students[0]
+print students[1]
+print students[2]
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Loops}
+
+\begin{python}
+students = ['Luis','Mark','Rita',\ldots]
+
+for st in students:
+    print st
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Loops (II)}
+
+\begin{python}
+
+students = ['Luis',\ldots]
+
+looking_for = 'Anna'
+
+i = 0
+while students[i] != looking_for:
+    i += 1
+
+if students[i] == looking_for:
+    print 'Found her'
+else:
+    print "Sorry, she's not registered!"
+\end{python}
+
 \end{frame}
 
 \end{document}

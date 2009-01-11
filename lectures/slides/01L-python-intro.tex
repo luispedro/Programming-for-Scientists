@@ -2,52 +2,11 @@
 \title{Introduction to Python}
 \begin{document}
 
-\frame{\frametitle{Programming Basics}
-
-A 5~minute introduction to programming\ldots
-}
-
-\frame{\frametitle{Task}
-
-\begin{block}{Average}
-Compute the average of the following numbers:
-\begin{enumerate}
-\item 10
-\item 7
-\item 22
-\item 14
-\item 17
-\end{enumerate}
-\end{block}
-
-}
-
-\begin{frame}[fragile]
-\frametitle{Python example}
-
-\begin{python}
-sum = 0
-n = 0
-for val in numbers:
-    sum = sum + val
-    n = n + 1
-return sum / n
-\end{python}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Python Example}
-
-\begin{python}
-print "Hello World"
-\end{python}
-\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Installing Python}
 
-Let's digress for a moment before coming back to the language\ldots
+Let's digress for a moment discussing the language\ldots
 \end{frame}
 
 
@@ -116,8 +75,59 @@ Python 3.0 changes many more things. We'll, for the most part, ignore it.
 
 \begin{frame}[fragile]
 \frametitle{Back to the Python Language}
-Let's go back to the language itself.
+Let's look at the language itself.
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Example}
+
+\begin{python}
+print "Hello World"
+\end{python}
+\end{frame}
+
+\frame{\frametitle{Task}
+\begin{block}{Average}
+Compute the average of the following numbers:
+\begin{enumerate}
+\item 10
+\item 7
+\item 22
+\item 14
+\item 17
+\end{enumerate}
+\end{block}
+
+}
+
+\begin{frame}[fragile]
+\frametitle{Python example}
+
+\begin{python}
+numbers = [10, 7, 22, 14, 17]
+
+sum = 0
+n = 0
+for val in numbers:
+    sum = sum + val
+    n = n + 1
+return sum / n
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+``Python is executable pseudo-code.''
+
+---Python lore (often attributed to Bruce Eckel)
+
+\end{frame}
+
+
+\frame{\frametitle{Programming Basics}
+
+A 5~minute introduction to programming\ldots
+}
 
 \begin{frame}[fragile]
 \frametitle{Python Types}
@@ -190,7 +200,8 @@ Outputs \alert{John Doe}.
 \begin{itemize}
 \item Short string literals are delimited by (") or (').
 \item Short string literals are one line only.
-\item Special characters are input using escape sequences.
+\item Special characters are input using escape sequences.\\
+        ($\backslash$n for newline,\ldots)
 \end{itemize}
 \end{block}
 
@@ -308,6 +319,23 @@ Use 4 spaces to indent.
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Conditionals}
+
+
+\begin{block}{Examples}
+\begin{itemize}
+\item \python{x == y}
+\item \python{x != y}
+\item \python{x < y}
+\item \python{x < y < z}
+\item \python{x in lst}
+\item \python{x not in lst}
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Nested Blocks}
 
 \begin{python}
@@ -397,7 +425,7 @@ prints
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Continue}
+\frametitle{Break}
 \begin{python}
 rita_enrolled = False
 for st in students:
@@ -409,12 +437,15 @@ for st in students:
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Break}
+\frametitle{Continue}
 \begin{python}
 for st in students:
     if turned_in_homework(st):
         continue
     print '%s did not turn in his homework on time' % st
+    <statement>
+    <statement>
+    <statement>
 \end{python}
 
 Notice the string formatting on the last line!
@@ -565,272 +596,6 @@ print double(2.3)
 print double(double(A))
 \end{python}
 \end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{<++>}
-<++>
-\end{frame}
-
 
 
 \end{document}
