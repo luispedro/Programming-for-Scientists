@@ -130,7 +130,7 @@
 \SetCommentSty{textsl}
 
 
-
+\renewcommand{\baselinestretch}{1.2}
 \newcommand*{\fillunderscore}{~\hrulefill}
 \newcommand*{\checkbox}{$\square$}
 \newcommand*{\yesno}{\hfill\mbox{yes\checkbox~no\checkbox}}
@@ -146,7 +146,7 @@ Please fill out this survey. It will help steer the class in the right direction
 
 \header{This is just general information about you.}
 
-Name: \fillunderscore\\
+\noindent Name: \fillunderscore\\
 Email (if you want to receive class information): \fillunderscore\\
 Major/Programme: \fillunderscore\\
 I am taking this class for credit: \yesno.
@@ -168,7 +168,18 @@ Others (write as many as you can think of): \fillunderscore\par
 
 \chapter{Background}
 
-\section{Programming Languages}
+\section{Programming}
+
+How did you learn to program?
+\begin{itemize}[\checkbox]
+\item On my own (from books, websites).
+\item Had one programming class.
+\item Had a few programming classes.
+\item Have a CS (or similar) degree.
+\item I don't know how to program.
+\end{itemize}
+
+Which programming languages do you know?
 
 \begin{tabular}{lccccc}
  \toprule
@@ -216,9 +227,9 @@ Design-by-Contract         &\checkbox &\checkbox &\checkbox &\checkbox &\checkbo
  &              &       &       &             &    about it      \\
  \midrule
 Object-oriented programming            &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
-Big O Notation (e.g., $\bigO(\log N)$) &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
-Space-time trade-off                   &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
-Linked lists                           &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+%Big O Notation (e.g., $\bigO(\log N)$) &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+%Space-time trade-off                   &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+%Linked lists                           &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 Regular expressions                    &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
 \end{tabular}
 
