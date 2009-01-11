@@ -14,9 +14,10 @@ The class is broken up into three modules: *Programming and Software Carpentry*,
 Textbooks
 +++++++++
 
-There is no official textbook for the course, but *Python Programming: An Introduction to Computer Science* by John Zelle is a good Python introduction. Also, you can check out *Dive Into Python*, which is available for free online_ or (in printed form) in the CMU library.
+There is no official textbook for the course, but *Python Programming: An Introduction to Computer Science* by John Zelle is a good Python introduction. Also, you can check out *Dive Into Python*, which is available for free online_ or (in printed form) in the CMU library. Another quality online resource is `A Byte of Python`.
 
 .. _online: http://www.diveintopython.org/
+.. _A Byte of Python: http://www.swaroopch.com/notes/Python
 
 Homeworks
 +++++++++
