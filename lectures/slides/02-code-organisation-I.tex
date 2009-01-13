@@ -2,6 +2,7 @@
 \title{Code Organisation}
 \begin{document}
 
+\frame{\maketitle}
 
 \begin{frame}[fragile]
 \frametitle{Procedural Programming}
@@ -14,17 +15,18 @@
 \frametitle{Object Oriented Programming}
 
 \begin{block}{OOP}
-\begin{enumerate}
-\item Organise functions into classes
-\item Type polymorphism
-\end{enumerate}
+\begin{description}
+\item Aggregation: organise functions into classes.
+\item Encapsulation: hide information inside methods.
+\item Polymorphism: re-use code for multiple types.
+\end{description}
 \end{block}
 \end{frame}
 
 \begin{frame}[fragile] 
 \frametitle{User-Defined Types}
 
-\begin{block}{Types}
+\begin{block}{Built-in Types}
 \begin{enumerate}
 \item lists
 \item dictionaries
@@ -52,6 +54,7 @@
 \begin{enumerate}
 \item Domain: lists
 \item Functions: \code{L.append(e),L.insert(idx,e), \ldots}
+\item Operators: \code{L[0], 'Rita' in L}
 \end{enumerate}
 \end{block}
 
@@ -59,7 +62,7 @@
 \begin{block}{Integer}
 \begin{enumerate}
 \item Domain: $\dots,-2, 1, 0, 1, 2, \dots$
-\item Functions: $A + B$
+\item Operators: \code{A + B},\ldots
 \end{enumerate}
 \end{block}
 \end{frame}
@@ -67,7 +70,7 @@
 \begin{frame}[fragile] 
 \frametitle{User-defined Types}
 
-Object-oriented programming languages allow one to define one own types.
+Object-oriented programming languages allow one to define one's own types.
 
 \end{frame}
 
@@ -76,7 +79,7 @@ Object-oriented programming languages allow one to define one own types.
 
 \begin{block}{Why Define Your Own Types?}
 \begin{enumerate}
-\item Elegance: pre-defined types shouldn't be better.
+\item Elegance: pre-defined types shouldn't be special.
 \item Aggregation: closely related data and function should be tied together.
 \item Encapsulation: implementation details can be hidden.
 \end{enumerate}
@@ -190,35 +193,6 @@ The \alert{code that uses Animals} need not change!
 \end{frame}
 
 \begin{frame}[fragile] 
-\frametitle{More Complex Animals}
-\begin{block}{Motivation}
-Add resources to the environment and make it a grid.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{More Complex World}
-
-\begin{python}
-world = World()
-world.animals = [Animal(world,random(),random())
-                for i in xrange(nr_initial_animals)]
-for i in xrange(max_iters):
-    world.replenish()
-    for an in world.animals: an.roam()
-    i = 0
-    while i < len(world.animals):
-        if world.animals[i].dies():
-            del world.animals[i]
-        else: i += 1
-    for i in xrange(len(world.animals)):
-        nanimal = world.animals[i].may_reproduce()
-        if nanimal:
-            world.animals.append(nanimal)
-\end{python}
-\end{frame}
-
-\begin{frame}[fragile] 
 \frametitle{Polymorphism}
 
 \begin{block}{Type Polymorphism}
@@ -227,249 +201,29 @@ Code is \alert{polymorphic} if it can use different types without change
 \end{frame}
 
 \begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
+\frametitle{Animal Class}
 
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
+\begin{python}
+class Animal(object):
+    '''
+    Animal class
 
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
+    Implements an animal
+    ...
+    '''
+    def __init__(self,adaptation,sigma):
+        self.adaptation = adaptation
+        self.sigma = sigma
+    
+    def P_dead(self,environ):
+        '''
+        prob = animal.P_dead(environ)
 
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
+        ...
+        '''
+        return L*math.exp(-abs(self.adaptation-environ))
+    ...
+\end{python}
 \end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{<++>}
-<++>
-\end{frame}
-
 
 \end{document}

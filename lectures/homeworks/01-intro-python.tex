@@ -6,7 +6,10 @@
 Which function returns the number of elements in a list?
 
 \question
-How do
+How do you access the first element of a list? How about the last?
+
+\question
+Write a function that implements the factorial function (i.e., $n! = \Pi_{i=1}^n i$). Don't forget the documentation!
 
 \question
 Alice and Bob were doing some \textit{pair programming}\footnote{Pair programming is when two programmers write code together. Normally, one will sit at the computer typing with the other will look over his shoulder to make sure he isn't making any mistakes. After a while, they switch.
@@ -14,21 +17,19 @@ Alice and Bob were doing some \textit{pair programming}\footnote{Pair programmin
 You might consider pair programming to help with assignments in this class.} and Alice wrote the following code:
 
 \begin{python}
-value = 100
+amount = 100
 interest = 5
-value *= (1. + interest)
+amount *= (1. + interest)
 
-print 'Value after interest:', value
+print 'Value after interest:', amount 
 \end{python}
 
-Bob argued that this would never work. ``In Python, numbers are immutable. In the line \textit{value *= (1. + interest)}, you are changing the value of \textit{value}. However, when they try it out, it works as Alice expected. Where is the mistake in Bob's reasoning? Are numbers mutable after all?
+Bob argued that this would never work. ``In Python, numbers are immutable. In the line \lstinline{amount *= (1. + interest)}, you are changing the value of \lstinline{amount}. However, when they try it out, it works as Alice expected. Where is the mistake in Bob's reasoning? Are numbers mutable after all?
 
 \chapter{Programming Assignment}
 
 You are considering whether to enroll in a couple of different saving plans. You put some money in now and deduct some initial fee, you put in some money every month, interest accrues each month and accumulates. How much money would you have after 5 years?
 
-\begin{table}
-\centering
 \begin{tabular}{ccccc}
 \toprule
 Plan Name & Fee & Initial Amount & Monthly Amount & Interest \\
@@ -38,10 +39,8 @@ Low-interest & 20 & 100 & 50 & .02\% \\
 High-initial & 100 & 1000 & 50 & .2\% \\
 High-monthly & 100 & 0 & 250 & .2\% \\
 High-interest & 100 & 0 & 100 & .4\% \\
+\bottomrule
 \end{tabular}
-\caption{Possible Investment Plans}
-\label{tab:plans}
-\end{table}
 
 \end{document}
 
