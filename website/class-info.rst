@@ -47,7 +47,7 @@ Programming and Software Carpentry
 Lecture 1.1: Introduction
 -------------------------
 
-Overview of the course, course policies. Some examples of what students should be able to achieve by the end of the course.
+Overview of the course, course policies. Principles of readable code.
 
 Extra Lectures E1 & Lab Session EL1: Introduction to Programming
 -----------------------------------------------------------------
@@ -62,32 +62,32 @@ What is Python? Basic types and iterations.
 Lecture 1.2: Code Organisation I
 ---------------------------------
 
-This lecture discusses how to organise your code into functions. Also discussed are documentation principles. First notions of object-based code: using classes to organise related functions.
+Introduction to object-oriented code.
 
 Lab Session 2: More advanced Python
 -----------------------------------
 
-How to define a function, module, package, class.
+More Python. Classes, inheritance, 
 
 Lecture 1.3: Code Organisation II
 ---------------------------------
 
-Object oriented code. Polymorphism.
+Exception-handling. Defensive programming (assert statement)
 
-Lab Session 3: Writing classes
+Lab Session 3: Python wrap-up
 ------------------------------
 
-The class statement, defining methods. Discussion of the importance of adhering to convention (apropos the self parameter).
+Odds & ends of python
 
 Lecture 1.4: Software Carpentry
 -------------------------------
 
 Source code management. Unit testing.
 
-Lab Session 4: Advanced Python Examples
+Lab Session 4: Software Carpentry II
 ---------------------------------------
 
-Writing a class that inherits from another class. Example of a real script.
+Running the shell. Subversion. Nosetest.
 
 Scientific Programming
 ~~~~~~~~~~~~~~~~~~~~~~
