@@ -14,7 +14,7 @@ The class is broken up into three modules: *Programming and Software Carpentry*,
 Textbooks
 +++++++++
 
-There is no official textbook for the course, but *Python Programming: An Introduction to Computer Science* by John Zelle is a good Python introduction. Also, you can check out *Dive Into Python*, which is available for free online_ or (in printed form) in the CMU library. Another quality online resource is `A Byte of Python`.
+There is no official textbook for the course, but *Python Programming: An Introduction to Computer Science* by John Zelle is a good Python introduction. Also, you can check out *Dive Into Python*, which is available for free online_ or (in printed form) in the CMU library. Another quality online resource is `A Byte of Python`_.
 
 .. _online: http://www.diveintopython.org/
 .. _A Byte of Python: http://www.swaroopch.com/notes/Python
@@ -31,10 +31,15 @@ Expectations
 
 This is what I expect that students will have learned by the end of the course:
 
-    (i) Software carpentry: source control, unit testing, profilers. Students should know how to use Subversion, nosetest, and the Python profiler as well as understand the concepts behind these tools (which will enable them to use them with a different implementation).
+    (i) Software carpentry: source control, unit testing, profilers. Students should know how to use Subversion, nosetest, and the Python profiler as well as understand the concepts behind these tools (which will enable them to use a different implementation of the same ideas).
+
     (ii) Modern programming paradigms: object oriented. Students should know how polymorphism works and understand when and why it can be useful.
+
     (iii) Students should know how floating-point numbers are represented and their limitations. Detailed knowledge of specific formats is not required.
-    (iv) Technologies: Python including numpy. Students should be able to confortably write medium-sized programs (a few thousand lines of code) using these technologies in an effective way.
+   
+    (iv) Technologies: Python, including numpy. Students should be able to comfortably write medium-sized programs (a few thousand lines of code) using these technologies in an effective way.
+
+Most importantly, I expect students to be (and consider themselves) more efficient programmers. The overall goal is a twenty per-cent improvement in productivity.
 
 Outline
 +++++++
@@ -107,7 +112,7 @@ Using arrays to write code, reductions and broadcasting.
 Lecture 2.2:  Floating point
 ----------------------------
 
-Discussiong of fixed-point vs. floating point. How floating point numbers are represented internally. Ieee numbers, nan's, Infs.
+Discussion of fixed-point vs. floating point. How floating point numbers are represented internally. Ieee numbers, nan's, Infs.
 
 Lab Session 6: Writing fast array-based code 
 --------------------------------------------
@@ -154,7 +159,7 @@ Discussion of file formats, encodings. Basic syntax of regular expressions.
 Lab Session 11: Parsing file formats
 ------------------------------------
 
-Examples of more advanced regular expresssion.
+Examples of more advanced regular expressions.
 
 Lecture 2.8: Packaging your code for others
 -------------------------------------------
