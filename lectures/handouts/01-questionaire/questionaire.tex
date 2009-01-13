@@ -57,12 +57,12 @@
 \DeclareMathOperator{\goodness}{score}
 \DeclareMathOperator{\powerset}{Pow}
 
-\title{Student Survey}
-\author{Programming for Scientists}
+\author{Student Survey}
+\title{Programming for Scientists}
 
 \bibliographystyle{alpha}
 %\bibliographystyle{plain}
-\pagestyle{Ruled}
+\pagestyle{plain}
 
 \aliaspagestyle{chapter}{Ruled}
 \makeatletter
@@ -103,8 +103,8 @@
 \posttitle{\par\vspace{4ex}}
 \preauthor{\large\sffamily\hspace{1cm}}
 \postauthor{\par\vspace{3ex}}
-\predate{\small\sffamily\hspace{1cm}Last Updated on: }
-\postdate{\par\vspace{2cm}}
+\predate{\small\sffamily\hspace{1cm}Lecture 1: Introduction (}
+\postdate{)\par\vspace{2cm}}
 \copypagestyle{title}{plain}
 \makeoddfoot{title}{}{}{}
 \makeevenfoot{title}{}{}{}
@@ -131,6 +131,7 @@
 
 
 \renewcommand{\baselinestretch}{1.2}
+\setlength{\parindent}{0pt}
 \newcommand*{\fillunderscore}{~\hrulefill}
 \newcommand*{\checkbox}{$\square$}
 \newcommand*{\yesno}{\hfill\mbox{yes\checkbox~no\checkbox}}
@@ -138,17 +139,18 @@
 \def\th#1{#1}
 \begin{document}
 \maketitle
-\begin{abstract}
-Please fill out this survey. It will help steer the class in the right direction
-\end{abstract}
+\header{Please fill out this survey. Your answers will help steer the class in the right direction.}
 
 \chapter{About You}
 
 \header{This is just general information about you.}
 
-\noindent Name: \fillunderscore\\
-Email (if you want to receive class information): \fillunderscore\\
-Major/Programme: \fillunderscore\\
+Name: \fillunderscore
+
+Email (if you want to receive class information): \fillunderscore
+
+Major/Programme: \fillunderscore
+
 I am taking this class for credit: \yesno.
 
 \chapter{Motivation}
