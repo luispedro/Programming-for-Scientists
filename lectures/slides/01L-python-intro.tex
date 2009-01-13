@@ -2,7 +2,7 @@
 \title{Introduction to Python}
 \begin{document}
 
-\frame{\frametitle}
+\frame{\maketitle}
 
 \begin{frame}[fragile]
 \frametitle{Installing Python}
@@ -59,7 +59,7 @@ Links for the above are on the webpage under ``notes for lab session 1''.
 \end{block}
 
 \begin{block}{Python 3.0}
-Python 3.0 changes many more things. We'll, for the most part, ignore it.
+We are going to ignore Python 3!
 \end{block}
 \end{frame}
 
@@ -180,6 +180,21 @@ Outputs \alert{22.0}.
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Composite Assignment}
+
+\begin{python}
+total = total + n
+\end{python}
+
+Can be abbreviated as
+
+\begin{python}
+total += n
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Python Types: Strings}
 
 \begin{python}
@@ -207,8 +222,8 @@ Outputs \alert{John Doe}.
 \end{block}
 
 \begin{python}
-multiple = 'Let  me go back and face the peril.\\nNo, it\'s too perilous.'
-alternative = "Let  me go back and face the peril.\\nNo, it's too perilous."
+multiple = 'He: May I?\\nShe: No, you may not.'
+alternative = "He: May I?\\nShe: No, you may not."
 \end{python}
 \end{frame}
 
@@ -236,8 +251,6 @@ to_read = ['Crime and Punishment','Brothers Karamazov']
 print "The first book I am going to read is", to_read[0]
 print "The second book is", to_read[1]
 
-\only<2>{to_read.sort()}
-\only<2>{print 'I prefer alphabetical order:', to_read[0], to_read[1]}
 \end{python}
 
 Notice that list indices start at \alert{0}!
@@ -262,6 +275,19 @@ Notice that list indices start at \alert{0}!
 mixed = ['Banana',100,['Another','List'],[]]
 print len(mixed)
 \end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Types: Lists}
+
+\begin{python}
+fruits = ['Banana','Apple','Orange']
+fruits.sort()
+print fruits
+\end{python}
+
+Prints ['Apple', 'Banana', 'Orange']
 
 \end{frame}
 
@@ -325,12 +351,12 @@ Use 4 spaces to indent.
 
 \begin{block}{Examples}
 \begin{itemize}
-\item \python{x == y}
-\item \python{x != y}
-\item \python{x < y}
-\item \python{x < y < z}
-\item \python{x in lst}
-\item \python{x not in lst}
+\item \lstinline{x == y}
+\item \lstinline{x != y}
+\item \lstinline{x < y}
+\item \lstinline{x < y < z}
+\item \lstinline{x in lst}
+\item \lstinline{x not in lst}
 \end{itemize}
 \end{block}
 
