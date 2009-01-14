@@ -10,6 +10,11 @@ Programming for Scientists
 
 .. _Class Info: class-info.html
 
+Extra Session
+-------------
+
+The extra *Introduction to Programming* tutorial session will be held Wednesday Jan 14 in the Lane Center conference room (on the fourth floor of the Mellon Institute).
+
 
 Pages
 -----------
@@ -18,11 +23,12 @@ Pages
    :maxdepth: 1
 
    class-info
+   slides
    faq
    notes
    homeworks
-   copyright
    python
+   copyright
 
 
 Who is this class for?
