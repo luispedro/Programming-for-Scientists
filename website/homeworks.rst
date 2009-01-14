@@ -13,7 +13,7 @@ Run the following Python code and email me the result:
     print email, hash(email)
 
 
-Where 'YOUR EMAIL ADDRESS' should be replaced by your actual email address, of course.
+Where 'YOUR EMAIL ADDRESS' should be replaced by your actual email address, of course. The output will be your email followed by a number.
 
 See the notes_ for information on getting Python for your system.
 
