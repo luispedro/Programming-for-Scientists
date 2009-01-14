@@ -1,4 +1,9 @@
 \input{hwheader}
+\author{Programming for Scientists}
+\title{Homework 1}
+\date{Jan 27}
+\begin{document}
+\maketitle
 
 \chapter{Questions}
 
@@ -6,10 +11,11 @@
 Which function returns the number of elements in a list?
 
 \question
-How do you access the first element of a list? How about the last?
+How do you access the first element of a list? How do you access the last?
 
 \question
 Write a function that implements the factorial function (i.e., $n! = \Pi_{i=1}^n i$). Don't forget the documentation!
+
 
 \question
 Alice and Bob were doing some \textit{pair programming}\footnote{Pair programming is when two programmers write code together. Normally, one will sit at the computer typing with the other will look over his shoulder to make sure he isn't making any mistakes. After a while, they switch.
@@ -26,11 +32,30 @@ print 'Value after interest:', amount
 
 Bob argued that this would never work. ``In Python, numbers are immutable. In the line \lstinline{amount *= (1. + interest)}, you are changing the value of \lstinline{amount}. However, when they try it out, it works as Alice expected. Where is the mistake in Bob's reasoning? Are numbers mutable after all?
 
+\question
+What is the difference between the following two code examples:
+
+A)
+
+\begin{python}
+A = [1, 2, 3]
+B = [1, 2, 3]
+\end{python}
+
+B)
+
+\begin{python}
+A = [1, 2, 3]
+B = A
+\end{python}
+
+Write a small (should be 2 or 3 lines of code) piece of code that behaves differently if you insert it after the two segments above.
+
 \chapter{Programming Assignment}
 
-You are considering whether to enroll in a couple of different saving plans. You put some money in now and deduct some initial fee, you put in some money every month, interest accrues each month and accumulates. How much money would you have after 5 years?
+You are considering whether to enroll in a couple of different saving plans. You put some money in now and deduct some initial fee, you put in some money every month, interest accrues each month and is added to the pot (at the end of the month, just before you add in more). How much money would you have after 5 years under each plan?
 
-\begin{tabular}{ccccc}
+\begin{tabular}{lcccc}
 \toprule
 Plan Name & Fee & Initial Amount & Monthly Amount & Interest \\
 \midrule
