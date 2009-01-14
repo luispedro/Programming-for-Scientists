@@ -13,7 +13,7 @@ Programming for Scientists
 Extra Session
 -------------
 
-The extra *Introduction to Programming* tutorial session will be held Wednesday Jan 14 in the Lane Center conference room (on the fourth floor of the Mellon Institute).
+The extra *Introduction to Programming* tutorial session will be held Wednesday Jan 14 at 5pm in the Lane Center conference room (on the fourth floor of the Mellon Institute).
 
 
 Pages
