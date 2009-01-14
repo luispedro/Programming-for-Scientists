@@ -31,9 +31,6 @@
 \newtheorem{definition}{Definition}
 
 \newcommand*{\slantfrac}[2]{\hbox{$\raisebox{-.4ex}{$\,^#1$}\!/_#2$}}
-\newcommand*{\onehalf}{\ensuremath{
-{\frac{1}{2}}%
-}}
 \newcommand*{\dx}{\,dx}
 \newcommand*{\dt}{\,dt}
 
@@ -59,34 +56,9 @@
 
 \bibliographystyle{alpha}
 %\bibliographystyle{plain}
-\pagestyle{Ruled}
+\pagestyle{plain}
 
 \aliaspagestyle{chapter}{Ruled}
-\makeatletter
-\if@twoside
-	\makeoddhead{Ruled}{}{}{\scshape\rightmark}
-	\makeevenhead{Ruled}{\scshape\leftmark}{}{}
-	\makeevenfoot{Ruled}{\pagenumberfont\thepage}{}{}
-	\makeoddfoot{Ruled}{}{}{\pagenumberfont\thepage}
-	% Put section number on top
-	\def\sectionmark#1{\markright{#1 (\thesection)}}
-	\def\chaptermark#1{\markboth{#1}{#1}}
-	\renewcommand*{\bibmark}{\markboth{\bibname}{\bibname}} % I don't like empty headings!
-\else
-
-	% Put section number on top
-	\def\sectionmark#1{\markright{#1 (\thesection)}}
-	\def\chaptermark#1{\markright{#1 (\thechapter)}}
-
-	\makeoddhead{Ruled}{}{}{\scshape\rightmark}
-	\makeevenhead{Ruled}{}{}{\scshape\rightmark}
-	\makeevenfoot{Ruled}{}{}{\pagenumberfont\thepage}
-	\makeoddfoot{Ruled}{}{}{\pagenumberfont\thepage}
-	\renewcommand*{\bibmark}{\markright{\bibname}} % I don't like empty headings!
-
-
-\fi
-\makeatother
 
 %Change fonts: Page number sans-serif (much cleaner than the roman version)
 \def\pagenumberfont{\sffamily}
@@ -100,7 +72,7 @@
 \posttitle{\par\vspace{4ex}}
 \preauthor{\large\sffamily\hspace{1cm}}
 \postauthor{\par\vspace{3ex}}
-\predate{\small\sffamily\hspace{1cm}Last Updated on: }
+\predate{\small\sffamily\hspace{1cm}Due on: }
 \postdate{\par\vspace{2cm}}
 \copypagestyle{title}{plain}
 \makeoddfoot{title}{}{}{}
@@ -126,6 +98,6 @@
 
 \SetCommentSty{textsl}
 
-\newcommand*{\question}{\noindent\textbf{Question: }}
+\newcounter{questioncnt}
+\newcommand*{\question}{\addtocounter{questioncnt}{1}\noindent\textbf{Question \Roman{questioncnt}: }}
 
-\begin{document}
