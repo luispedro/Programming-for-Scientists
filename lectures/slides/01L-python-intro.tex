@@ -64,6 +64,15 @@ We are going to ignore Python 3!
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Python Example}
+
+\begin{python}
+print "Hello World"
+\end{python}
+\end{frame}
+
+
+\begin{frame}[fragile]
 
 \begin{block}{Running Python}
 \begin{enumerate}
@@ -77,14 +86,6 @@ We are going to ignore Python 3!
 \begin{frame}[fragile]
 \frametitle{Back to the Python Language}
 Let's look at the language itself.
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Python Example}
-
-\begin{python}
-print "Hello World"
-\end{python}
 \end{frame}
 
 \frame{\frametitle{Task}
@@ -125,10 +126,22 @@ return sum / n
 \end{frame}
 
 
-\frame{\frametitle{Programming Basics}
+\begin{frame}[fragile]
+\frametitle{Programming Basics}
 
-A 5~minute introduction to programming\ldots
-}
+\begin{python}
+numbers = [10, 7, 22, 14, 17]
+
+sum = 0
+n = 0
+for val in numbers:
+    sum = sum + val
+    n = n + 1
+return sum / n
+\end{python}
+
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{Python Types}
@@ -222,8 +235,8 @@ Outputs \alert{John Doe}.
 \end{block}
 
 \begin{python}
-multiple = 'He: May I?\\nShe: No, you may not.'
-alternative = "He: May I?\\nShe: No, you may not."
+multiple = 'He: May I?\nShe: No, you may not.'
+alternative = "He: May I?\nShe: No, you may not."
 \end{python}
 \end{frame}
 
@@ -239,17 +252,17 @@ Or merely an obsolete art?
 
 Forgive me, for asking,
 This simple question,
-I'm unfamiliar with his heart.'''
+I am unfamiliar with his heart.'''
 \end{python}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Python Types: Lists}
 \begin{python}
-to_read = ['Crime and Punishment','Brothers Karamazov']
+courses = ['PfS','Political Philosophy']
 
-print "The first book I am going to read is", to_read[0]
-print "The second book is", to_read[1]
+print "The the first course is", courses[0]
+print "The second course is", courses[1]
 
 \end{python}
 
@@ -384,7 +397,7 @@ elif <condition 1b>:
 emails = { 'Luis' : 'lpc@cmu.edu',
            'Mark' : 'mark@cmu.edu',
            'Rita' : 'rsmith@pitt.edu' }
-students = ['Rita','Sarah','Mark']
+students = ['Luis','Rita','Sabah','Mark']
 for st in students:
     if st not in emails.keys():
         print 'We need to ask', st, 'for her email'
@@ -598,6 +611,9 @@ A = 10
 B = 3
 print A / B
 \end{python}
+
+
+\lstinline{from __future__} must be at the start of a file!
 \end{frame}
 
 
