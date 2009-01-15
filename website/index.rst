@@ -4,16 +4,11 @@ Programming for Scientists
 
 **Class Number**: 98-111
 
-**Meeting Times**: 6.30PM SH 220
+**Meeting Times**: 6.30-7.30PM SH 220
 
 **Syllabus** See `Class Info`_
 
 .. _Class Info: class-info.html
-
-Extra Session
--------------
-
-The extra *Introduction to Programming* tutorial session will be held Wednesday Jan 14 at 5pm in the Lane Center conference room (on the fourth floor of the Mellon Institute).
 
 
 Pages
