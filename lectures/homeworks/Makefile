@@ -4,4 +4,4 @@ all: $(pdfs)
 .PHONY: all
 
 %.pdf: %.tex
-	./do-slides.sh $<
+	./do-hw.sh $<
