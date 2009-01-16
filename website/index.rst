@@ -4,12 +4,20 @@ Programming for Scientists
 
 **Class Number**: 98-111
 
-**Meeting Times**: 6.30-7.30PM SH 220
+**Meeting Times**: 6.30-7.30PM SH 220 (or SH219, which is next door)
 
-**Syllabus** See `Class Info`_
+**Syllabus**: See `Class Info`_
+
+**Office Hours**: 4.30pm on Tuesdays (either in 409D Mellon Institute or virtual office hours)
 
 .. _Class Info: class-info.html
 
+Virtual Office Hours
+--------------------
+
+During office hours, you can IM me at cmu_98111@jabber.org using the jabber protocol (gtalk uses it, you can use gtalk), or ekiga_ cmu_98111@ekiga.net. I also promise to reply to all outstanding class email during that period.
+
+.. _ekiga: http://www.gnomemeeting.org/
 
 Pages
 -----------
