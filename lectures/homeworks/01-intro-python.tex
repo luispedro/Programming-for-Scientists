@@ -14,8 +14,17 @@ Which function returns the number of elements in a list?
 How do you access the first element of a list? How do you access the last?
 
 \question
-Write a function that implements the factorial function (i.e., $n! = \Pi_{i=1}^n i$). Don't forget the documentation!
+Python has two forms of adding non-code text. You use the \#~sign to start a \textit{comment} (which extends to the end of the line). Or, as we saw in class, you can use a string at the start of the function to add a \textit{documentation string}.
 
+\begin{python}
+def function(arg):
+    '''
+    This is a documentation string.
+    '''
+    print arg # this is a comment
+\end{python}
+
+What is, then, the difference between a comment and documentation? Why these two mechanisms?
 
 \question
 Alice and Bob were doing some \textit{pair programming}\footnote{Pair programming is when two programmers write code together. Normally, one will sit at the computer typing with the other will look over his shoulder to make sure he isn't making any mistakes. After a while, they switch.
@@ -49,7 +58,7 @@ A = [1, 2, 3]
 B = A
 \end{python}
 
-Write a small (should be 2 or 3 lines of code) piece of code that behaves differently if you insert it after the two segments above.
+Write a small piece of code (should be 2 or 3 lines) that behaves differently if you insert it after each of the two segments above.
 
 \chapter{Programming Assignment}
 
