@@ -20,3 +20,9 @@ See the notes_ for information on getting Python for your system.
 .. _notes: notes.html
    
 
+Homework 1 (due Jan 27)
+-----------------------
+
+Available here_. Solutions by email.
+
+.. _here: _static/pfs-hw-01.pdf
