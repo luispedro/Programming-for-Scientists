@@ -1,14 +1,14 @@
 \input{slheader}
-\title{Code Organisation}
+\title{Object Oriented Programming}
 \begin{document}
 
 \frame{\maketitle}
 
 \begin{frame}[fragile]
 \frametitle{Procedural Programming}
-\alert{Procedural programming} means organising programs around functions.
+\alert{Procedural programming}: organising programs around functions.
 
-\alert{Object-oriented programming} means organising programs around objects.
+\alert{Object-oriented programming}: organising programs around objects.
 \end{frame}
 
 \begin{frame}[fragile] 
@@ -71,20 +71,7 @@
 \begin{frame}[fragile] 
 \frametitle{User-defined Types}
 
-Object-oriented programming languages allow one to define one's own types.
-
-\end{frame}
-
-\begin{frame}[fragile] 
-\frametitle{Why User-defined Types}
-
-\begin{block}{Why Define Your Own Types?}
-\begin{enumerate}
-\item Elegance: pre-defined types shouldn't be special.
-\item Aggregation: closely related data and function should be tied together.
-\item Encapsulation: implementation details can be hidden.
-\end{enumerate}
-\end{block}
+Object-oriented programming languages allow us to define new types.
 
 \end{frame}
 
@@ -92,14 +79,14 @@ Object-oriented programming languages allow one to define one's own types.
 \frametitle{Motivating Example}
 \begin{block}{Simple Population Simulation}
 \begin{enumerate}
-\item Our world is characterised by a single environmental value $e$.
-\item We have ``bacteria'' that are in the world.
+\item We want to simulate a bacterial population.
+\item Our environment is a single float $e$.
 \item Each bacterium has two characteristics: adaptation $\alpha$ and mutation rate $\sigma$.
 \item The smaller the difference $|\alpha-e|$, the better an bacterium is adapted to the world.
-\item When an bacterium reproduces, its offspring has adaptation $\alpha + \cal{N}(0,\sigma)$
+\item When an bacterium reproduces, its offspring has adaptation $\alpha + \mathcal{N}(0,\sigma)$
 \item At each iteration:
 \begin{enumerate}
-\item Bacteria die with a probability given by $\exp(\beta|\alpha-e|)$
+\item Bacteria die with a probability given by $\beta\exp(-\beta|\alpha-e|)$
 \item Bacteria that survive, sometimes reproduce.
 \end{enumerate}
 \end{enumerate}
@@ -127,21 +114,21 @@ and two methods:
 \begin{frame}[fragile] 
 \frametitle{Using our Bacteria}
 \begin{python}
-bacteria = [Bacterium() for i in xrange(nr_inital_bacteria)]
-environ = 1.0
+population = [Bacterium()
+        for i in xrange(nr_inital_bacteria)]
 for i in xrange(max_iters):
     bi = 0
     while bi < len(population):
-        if population[bi].P_dead(environ) < random.random():
+        if population[bi].P_dead(environ) < random():
             del population[bi]
         else:
             bi += 1
     N = len(population)
     for bi in xrange(N):
-        if random.random() < p_reprod:
+        if random() < p_reprod:
             population.append(population[bi].reproduce())
     if N >= max_population:
-        random.shuffle(population)
+        shuffle(population)
         while len(population) >= max_population:
             population.pop()
 \end{python}
@@ -171,27 +158,22 @@ A class aggregates data and functions that belong together.
 \frametitle{Bacterium Interface}
 
 \begin{block}{Interface}
+Functions:
 \begin{enumerate}
 \item Constructor: Takes the initial adaptation value and sigma.
-\item \code{P_dead(environ)}: Probability of bacterium dying in this environment.
+\item \code{P_dead(environ)}: Probability of dying in this environment.
 \item \code{reproduce()}: Return a new Bacterium.
+\end{enumerate}
+Data elements:
+\begin{enumerate}
 \item \code{adaptation}: Current adaptation.
 \item \code{sigma}: Current sigma.
 \end{enumerate}
 \end{block}
 \end{frame}
 
-\begin{frame}[fragile] 
-\frametitle{Bacteria}
-\begin{block}{Sigma Varying}
-Suppose we want to vary sigma from one generation to the next?
-\end{block}
 
-The \alert{code that uses Bacteria} need not change!
-\end{frame}
-
-\begin{frame}[fragile] 
-
+\begin{frame}[fragile]
 \begin{python}
 class Bacterium(object):
     '''
@@ -232,7 +214,7 @@ class Bacterium(object):
 
 \begin{block}{Calling a Method}
 \begin{python}
-anim = Bacterium()
+anim = Bacterium(random(),random())
 
 anim.method(arg1,arg2)
 \end{python}
@@ -252,15 +234,6 @@ anim.method(arg1,arg2)
 \end{block}
 \end{frame}
 
-\begin{frame}[fragile] 
-\frametitle{Polymorphism}
-
-\begin{block}{Type Polymorphism}
-Code is \alert{polymorphic} if it can use different types without change
-\end{block}
-
-\end{frame}
-
 \begin{frame}[fragile]
 \frametitle{Simulation of Changing Bacteria}
 
@@ -272,11 +245,12 @@ Why should only adaptation change? Why not \alert{sigma} too?
 \frametitle{Evolving Bacterium}
 
 \begin{python}
-class EvolveBacterium(object):
+class EvolveSigmaBacterium(object):
     '''...'''
-    def __init__(self,adapt,sigma):
+    def __init__(self,adapt,sigma,sigmasigma):
         self.adaptation = adapt
         self.sigma = sigma
+        self.sigmasigma = sigmasigma
 
     def P_dead(self,environ):
         '''...'''
@@ -287,25 +261,27 @@ class EvolveBacterium(object):
         '''...'''
         return EvolveBacterium(
             self.adaptation + normalvariate(0,self.sigma),
-            self.sigma + normalvariate(0,self.sigma/2.))
+            self.sigma + normalvariate(0,self.sigmasigma))
 \end{python}
 \end{frame}
 
 \begin{frame}[fragile]
 \begin{python}
+population = [EvolveSigmaBacterium()
+        for i in xrange(nr_inital_bacteria)]
 for i in xrange(max_iters):
     bi = 0
     while bi < len(population):
-        if population[bi].P_dead(environ) < random.random():
+        if population[bi].P_dead(environ) < random():
             del population[bi]
         else:
             bi += 1
     N = len(population)
     for bi in xrange(N):
-        if random.random() < p_reprod:
+        if random() < p_reprod:
             population.append(population[bi].reproduce())
     if N >= max_population:
-        random.shuffle(population)
+        shuffle(population)
         while len(population) >= max_population:
             population.pop()
 \end{python}
@@ -317,6 +293,40 @@ We can have a mixed population of $\sigma$-fixed and $\sigma$-changing bacteria!
 \end{frame}
 
 \begin{frame}[fragile]
+\begin{python}
+population = [EvolveSigmaBacterium(random(),random(),0.5)
+        for i in xrange(nr_inital_bacteria//2)] + \
+        [Bacterium(random(),random())
+        for i in xrange(nr_inital_bacteria//2)]
+
+for i in xrange(max_iters):
+    bi = 0
+    while bi < len(population):
+        if population[bi].P_dead(environ) < random():
+            del population[bi]
+        else:
+            bi += 1
+    N = len(population)
+    for bi in xrange(N):
+        if random() < p_reprod:
+            population.append(population[bi].reproduce())
+    if N >= max_population:
+        shuffle(population)
+        while len(population) >= max_population:
+            population.pop()
+\end{python}
+\end{frame}
+
+
+\begin{frame}[fragile] 
+\frametitle{Polymorphism}
+
+\begin{block}{Type Polymorphism}
+Code is \alert{polymorphic} if it can use different types without change
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Duck Typing}
 
 \centering
@@ -324,9 +334,64 @@ We can have a mixed population of $\sigma$-fixed and $\sigma$-changing bacteria!
 
 \end{frame}
 
+
+
+\begin{frame}[fragile] 
+\frametitle{Object Oriented Programming}
+
+\begin{block}{OOP}
+\begin{description}
+\item[\alert{Aggregation}] organise functions \& data into classes.
+\item[\alert{Encapsulation}] hide information inside methods.
+\item[\alert{Polymorphism}] re-use code for multiple types.
+\item[Inheritance] re-use code from one class to build another.
+\end{description}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Typical Polymorphism}
+\begin{block}{Typical examples}
+\begin{itemize}
+\item Actors in a simulation.
+\item File-like objects.
+\item Widgets.
+\item \ldots
+\end{itemize}
+\end{block}
+\end{frame}
+
 \begin{frame}[fragile]
 \frametitle{Inheritance}
 
+The code for EvolveSigmaBacterium is very similar to the code for Bacterium.
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{python}
+class EvolveSigmaBacterium(Bacterium):
+    '''
+    A type of Bacterium, where $\sigma$ (which controls
+    the rate of adaptative mutation) is itself subject
+    to mutation (subject to sigma*sigmafact).
+
+    Methods
+    -------
+        * Constructor:
+        * P_dead(environ): inherited from Bacterium
+        * reproduce(): 
+    '''
+    def __init__(self,adaptation,sigma,sigmafact):
+        Bacterium.__init__(self,adaptation,sigma)
+        self.sigmafact = sigmafact
+    def reproduce(self):
+        '''...'''
+        return EvolveSigmaBacterium(
+           self.adaptation + nv(0,self.sigma),
+           self.sigma + nv(0,self.sigma*self.sigmafact)
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -343,6 +408,30 @@ you should be able to use D anywhere you previously used C.
 If D inherits from C, then\\
 D should behave-like C.
 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{New-Style vs.\ Old-Style Classes}
+\begin{python}
+class Bacterium(object):
+    ...
+\end{python}
+
+Are we inheriting from \alert{object}?
+\end{frame}
+
+
+\begin{frame}[fragile] 
+\frametitle{Object Oriented Programming}
+
+\begin{block}{OOP}
+\begin{description}
+\item[\alert{Aggregation}] organise functions \& data into classes.
+\item[\alert{Encapsulation}] hide information inside methods.
+\item[\alert{Polymorphism}] re-use code for multiple types.
+\item[\alert{Inheritance}] re-use code from one class to build another.
+\end{description}
+\end{block}
 \end{frame}
 
 \end{document}
