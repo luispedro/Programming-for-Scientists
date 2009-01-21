@@ -1,397 +1,189 @@
 \input{slheader}
-\title{Writing Your Own Types}
+\title{Python's Odds and Ends}
 \begin{document}
+\frame{\maketitle}
 
-\begin{frame}[fragile] % SLIDE 1
-\frametitle{Your Own Types}
+\begin{frame}[fragile] % slide 1
+\frametitle{Python So Far}
 
-\begin{block}{Defining Your Own Types}
+\begin{block}{Python}
 \begin{enumerate}
-\item Our types should look like 
-\end{enumerate}<++>
+\item Basic types: int, float, list, dict
+\item Control flow: for, while, if, else, elif
+\item Type construction: class
+\end{enumerate}
 \end{block}
 
 \end{frame}
 
-
-\begin{frame}[fragile] % SLIDE 2
-\frametitle{Class Keyword}
+\begin{frame}[fragile] % slide 2
+\frametitle{Set Type}
 \begin{python}
-class Point(object):
-    def __init__(self, x, y, z):
-        self.x = x
-        self.y = y
-        self.z = z
+numbers = set([1,2,5])
+print 3 in numbers
+numbers.add(4)
+print numbers
+numbers.add(1)
+print numbers
+print numbers | set(['Rita'])
+print numbers - set([2,3])
+\end{python}
+
+Output:
+\begin{python}
+False
+set([1, 2, 4, 5])
+set([1, 2, 4, 5])
+set([1, 2, 4, 5, 'Rita'])
+set([1, 4, 5])
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile] % slide 3
+\frametitle{Frozenset Type}
+
+\begin{python}
+numbers = frozenset([1,2,5])
+
+print 3 in 5 # False
+print 2 in 5 # True
+
+numbers.add(1) # ERROR!!
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile] % slide 4
+\frametitle{Complex Numbers}
+\begin{python}
+A = 1+1j
+print A**2
+print A**4
+\end{python}
+
+prints
+
+\begin{python}
+2j
+(-4+0j)
 \end{python}
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 3
-\frametitle{Constructor}
+\begin{frame}[fragile] % slide 5
+\frametitle{Object Identity}
 
-\begin{block}{Constructor}
-The \code{__init__} method is a special method that is called when you create an object of the given class.
+\begin{block}{Object Identity}
+\begin{itemize}
+\item \lstinline{A is B}
+\item \lstinline{id(obj)}
+\end{itemize}
 \end{block}
+
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 4
-\frametitle{Usage of Defined Types}
+\begin{frame}[fragile] % slide 6
+\frametitle{List Comprehensions}
+
 \begin{python}
-P1 = Point(0,1,1)
-P2 = Point(1,2,1)
-
-print P1.x, P1.y, P1.z
+squares = [x*x for x in xrange(1,20)]
+evensquares = [x*x for x in xrange(1,20) if (x\%2) == 0]
 \end{python}
-\end{frame}
 
-\begin{frame}[fragile] % SLIDE 5
-\frametitle{Usage of User-Defined Types}
 \begin{python}
-def dist2(p1,p2):
-    dx = p1.x-p2.x
-    dy = p1.y-p2.y
-    dz = p1.z-p2.z
-    return dx**2+dy**2+dz**2
+squares = []
+for x in xrange(1,20):
+    squares.append(x*x)
+
+evensquares = []
+for x in xrange(1,20):
+    if (x\%1) == 0:
+        evensquares.append(x*x)
 \end{python}
+
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 6
-\frametitle{Another Example}
+\begin{frame}[fragile] % slide 7
+\frametitle{Functions}
+
 \begin{python}
-def norm2(p):
-    return p.x**2 + p.y**2 + p.z**2
+def max(arg0,*args):
+    '''
+    M = max(arg0,arg1,...)
 
-p = Point(1,2,2)
-print norm2(p)
+    Returns the maximum of its arguments
+    '''
+    M = arg0
+    for val in args:
+        if val > M:
+            M = val
+    return M
 \end{python}
+
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 7
-\frametitle{Methods}
-\begin{block}{Methods}
-A \alert{method} is simply a function that is tied to a type\\
-and has a special syntax to call it.
+\begin{frame}[fragile] % slide 8
+\frametitle{Generator}
+
+\begin{block}{Generator: ``Function''-like Sequence}
+
+\begin{python}
+def xrange(start,stop=None,step=None):
+    '''
+    xrange([start,]stop[,step]) -> xrange object
+
+    Like range, but instead of a list, returns...
+    '''
+    if stop is None and step is None:
+        stop = start
+        start = 0
+        step = 1
+    elif step is None:
+        step = 1
+
+    while start < stop:
+        yield start
+        start += step
+\end{python}
 \end{block}
+
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 8
-\frametitle{Defining a Method}
-\begin{block}
-class Point(object):
-    def __init__(self,x,y,z):
-        \ldots
+\begin{frame}[fragile] % slide 9
+\frametitle{Generators}
 
-    def norm2(self):
-        return self.x**2 + self.y**2 + self.z**2
-
-p = Point(1,2,2)
-print p.norm2()
-\end{block}
+\begin{itemize}
+\item Generators are similar to functions, but generate a sequence.
+\item Functions use \lstinline{return}, generators use \lstinline{yield}.
+\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 9
-\frametitle{Animal Example}
+\begin{frame}[fragile] % slide 10
+\frametitle{Import}
+
 \begin{python}
-from math import abs
-class Animal(object):
-    def __init__(self, adaptation, sigma):
-        self.adaptation = adaptation
-        self.sigma = sigma
-    def died(self,environment):
-        delta = abs(adaptation - sigma)
-        v = exp(delta)
-        r = random.random()*1000
-        return (v > r)
+import module
 
-    def reproduce(self):
-        nadaptation = self.adaptation + random.gaussian(0,self.sigma)
-        nsigma = self.sigma + random.gaussian(0,self.sigma/4.)
-        child = Animal(nadaptation,self.sigma)
+FIXME
 \end{python}
 \end{frame}
 
-\begin{frame}[fragile] % SLIDE 10
-\frametitle{<++>}
-<++>
-\end{frame}
+\begin{frame}[fragile] % slide 11
+\frametitle{Exception Handling}
 
-\begin{frame}[fragile] % SLIDE 11
-\frametitle{<++>}
-<++>
-\end{frame}
+\begin{block}{Exception Handling: Error Handling}
+\begin{python}
+try:
+    <code 1>
+    <code 2>
+    <code 3>
+except IOError, exc:
+    print 'I/O Error', exc
+except:
+    print 'Unspecified error'
+\end{python}
+\end{block}
 
-\begin{frame}[fragile] % SLIDE 12
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 13
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 15
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 15
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 16
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 18
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 18
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 19
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 21
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 21
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 22
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 24
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 24
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 25
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 27
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 27
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 28
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 30
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 30
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 31
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 33
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 33
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 34
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 36
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 36
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 37
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 39
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 39
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 40
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 42
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 42
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 43
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 45
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 45
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 46
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 48
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 48
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 49
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 51
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 51
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 52
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 54
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 54
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 55
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 57
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 57
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 58
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 60
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 60
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 61
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 63
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 63
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 64
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 66
-\frametitle{<++>}
-<++>
-\end{frame}
-
-\begin{frame}[fragile] % SLIDE 66
-\frametitle{<++>}
-<++>
 \end{frame}
 
 \end{document}
