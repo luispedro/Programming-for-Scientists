@@ -86,7 +86,7 @@ Object-oriented programming languages allow us to define new types.
 \item When an bacterium reproduces, its offspring has adaptation $\alpha + \mathcal{N}(0,\sigma)$
 \item At each iteration:
 \begin{enumerate}
-\item Bacteria die with a probability given by $\beta\exp(-\beta|\alpha-e|)$
+\item Bacteria die with a probability given by $\lambda\exp(-\lambda|\alpha-e|)$
 \item Bacteria that survive, sometimes reproduce.
 \end{enumerate}
 \end{enumerate}
@@ -114,7 +114,7 @@ and two methods:
 \begin{frame}[fragile] 
 \frametitle{Using our Bacteria}
 \begin{python}
-population = [Bacterium()
+population = [Bacterium(random(),random())
         for i in xrange(nr_inital_bacteria)]
 for i in xrange(max_iters):
     bi = 0
@@ -139,9 +139,9 @@ for i in xrange(max_iters):
 
 \begin{python}
 ...
-DeltaAdaptation = [math.abs(y-a.adaptation) 
-                    for a in population]
-Sigmas = [a.sigma for a in population]
+DeltaAdaptation = [math.abs(environ-b.adaptation) 
+                    for b in population]
+Sigmas = [b.sigma for b in population]
 hist(Sigmas)
 \end{python}
 
@@ -189,7 +189,7 @@ class Bacterium(object):
         prob = bact.P_dead(environ)
         ...
         '''
-        return L*math.exp(-abs(self.adaptation-environ))
+        return L*math.exp(-abs(self.adaptation-environ)*L)
     def reproduce(self):
         '''...'''
         return Bacterium(self.adaptation +
@@ -247,10 +247,10 @@ Why should only adaptation change? Why not \alert{sigma} too?
 \begin{python}
 class EvolveSigmaBacterium(object):
     '''...'''
-    def __init__(self,adapt,sigma,sigmasigma):
+    def __init__(self,adapt,sigma,sigmafact):
         self.adaptation = adapt
         self.sigma = sigma
-        self.sigmasigma = sigmasigma
+        self.sigmafact = sigmafact
 
     def P_dead(self,environ):
         '''...'''
@@ -261,13 +261,14 @@ class EvolveSigmaBacterium(object):
         '''...'''
         return EvolveBacterium(
             self.adaptation + normalvariate(0,self.sigma),
-            self.sigma + normalvariate(0,self.sigmasigma))
+            self.sigma + normalvariate(0,self.sigma*self.sigmafact),
+            self.sigmafact)
 \end{python}
 \end{frame}
 
 \begin{frame}[fragile]
 \begin{python}
-population = [EvolveSigmaBacterium()
+population = [EvolveSigmaBacterium(random(),random(),0.5)
         for i in xrange(nr_inital_bacteria)]
 for i in xrange(max_iters):
     bi = 0
@@ -389,8 +390,9 @@ class EvolveSigmaBacterium(Bacterium):
     def reproduce(self):
         '''...'''
         return EvolveSigmaBacterium(
-           self.adaptation + nv(0,self.sigma),
-           self.sigma + nv(0,self.sigma*self.sigmafact)
+           self.adaptation + normalvariate(0,self.sigma),
+           self.sigma + normalvariate(0,self.sigma*self.sigmafact),
+           self.sigmafact)
 \end{python}
 \end{frame}
 
