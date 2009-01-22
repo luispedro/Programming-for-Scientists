@@ -1,13 +1,14 @@
 import vim
+import re
 cb = vim.current.buffer
 Nframe = 0
+begin_pat = re.compile(r'\\begin{frame}(?:\[fragile\])?( % slide [0-9]+)?')
+
 for i,line in enumerate(cb):
     if line.startswith(r'\frame{') or line.startswith(r'\begin{frame}'):
-        if line == '\\begin{frame}':
-            cb[i] = '\\begin{frame} %% slide %s\n' % Nframe
-        if line == '\\begin{frame}[fragile]':
-            cb[i] = '\\begin{frame}[fragile] %% slide %s\n' % Nframe
+        if begin_pat.match(line):
+            fragile = ('[fragile]' if line.find('fragile') > 0 else '')
+            cb[i] = r'\begin{frame}%s %% slide %s' % (fragile,Nframe)
         Nframe += 1
 
-
-print Nframe
+print 'Number of frames:', Nframe
