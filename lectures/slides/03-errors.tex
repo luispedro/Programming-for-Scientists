@@ -1,0 +1,23 @@
+\input{slheader}
+\title{Handling Errors}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile] % slide 21
+\frametitle{Exception Handling}
+
+\begin{block}{Exception Handling: Error Handling}
+\begin{python}
+try:
+    <code 1>
+    <code 2>
+    <code 3>
+except IOError, exc:
+    print 'I/O Error', exc
+except:
+    print 'Unspecified error'
+\end{python}
+\end{block}
+\end{frame}
+
+\end{document}
