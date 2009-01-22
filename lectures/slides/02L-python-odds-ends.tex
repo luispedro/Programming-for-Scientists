@@ -87,7 +87,9 @@ numbers.add(1) # ERROR!!
 \begin{frame}[fragile]
 \frametitle{What's up With Immutability?}
 
-You can only use as dictionary keys \alert{immutable} objects!
+\pause
+You can only use \alert{immutable} objects as dictionary keys!
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -121,6 +123,7 @@ None
 \begin{block}{Object Identity}
 \begin{itemize}
 \item \lstinline{A is B}
+\item \lstinline{A is not B}
 \item \lstinline{id(obj)}
 \end{itemize}
 \end{block}
@@ -150,7 +153,7 @@ for <name> in <sequence>:
 
 \begin{python}
 squares = [x*x for x in xrange(1,20)]
-evensquares = [x*x for x in xrange(1,20) if (x\%2) == 0]
+evensquares = [x*x for x in xrange(1,20) if (x%2) == 0]
 \end{python}
 
 \begin{python}
@@ -160,7 +163,7 @@ for x in xrange(1,20):
 
 evensquares = []
 for x in xrange(1,20):
-    if (x\%2) == 0:
+    if (x%2) == 0:
         evensquares.append(x*x)
 \end{python}
 
@@ -222,9 +225,7 @@ def f(arg0,arg1,*args,**kwargs):
 \frametitle{Multiple Assignment}
 
 \begin{python}
-A = 1
-B = 2
-A, B = B, A
+A, B = 1,2
 \end{python}
 
 Assign multiple elements at once.
@@ -262,7 +263,7 @@ def greet(name,greeting='Hello'):
     '''
     print greeting, name
 
-res = greet('World')
+ret = greet('World')
 
 \end{python}
 
