@@ -3,7 +3,7 @@
 \begin{document}
 \frame{\maketitle}
 
-\begin{frame}[fragile] % slide 1
+\begin{frame}[fragile]
 \frametitle{Python So Far}
 
 \begin{block}{Python}
@@ -16,7 +16,37 @@
 
 \end{frame}
 
-\begin{frame}[fragile] % slide 2
+\begin{frame}[fragile]
+\frametitle{List Indexing}
+
+\begin{python}
+students = ['Luis','Rita','Sabah','Grace']
+print students[0]
+print students[1:2]
+print students[1:]
+print students[-1]
+print students[-2]
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tuples (I)}
+\begin{python}
+A = (0,1,2)
+B = (1,)
+
+print A[0]
+print len(B)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tuples (II)}
+Tuples are like \alert{immutable} lists.
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Set Type}
 \begin{python}
 numbers = set([1,2,5])
@@ -40,7 +70,7 @@ set([1, 4, 5])
 
 \end{frame}
 
-\begin{frame}[fragile] % slide 3
+\begin{frame}[fragile]
 \frametitle{Frozenset Type}
 
 \begin{python}
@@ -54,7 +84,13 @@ numbers.add(1) # ERROR!!
 
 \end{frame}
 
-\begin{frame}[fragile] % slide 4
+\begin{frame}[fragile]
+\frametitle{What's up With Immutability?}
+
+You can only use as dictionary keys \alert{immutable} objects!
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Complex Numbers}
 \begin{python}
 A = 1+1j
@@ -70,7 +106,16 @@ prints
 \end{python}
 \end{frame}
 
-\begin{frame}[fragile] % slide 5
+
+\begin{frame}[fragile]
+\frametitle{None object}
+
+\begin{python}
+None
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Object Identity}
 
 \begin{block}{Object Identity}
@@ -82,8 +127,26 @@ prints
 
 \end{frame}
 
-\begin{frame}[fragile] % slide 6
+\begin{frame}[fragile]
 \frametitle{List Comprehensions}
+
+\begin{python}
+name = [ <expr> for <name> in <sequence> if <condition> ]
+\end{python}
+
+maps to
+
+\begin{python}
+name = []
+for <name> in <sequence>:
+    if <condition>:
+        name.append(<expr>)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{List Comprehensions Example}
 
 \begin{python}
 squares = [x*x for x in xrange(1,20)]
@@ -97,13 +160,13 @@ for x in xrange(1,20):
 
 evensquares = []
 for x in xrange(1,20):
-    if (x\%1) == 0:
+    if (x\%2) == 0:
         evensquares.append(x*x)
 \end{python}
 
 \end{frame}
 
-\begin{frame}[fragile] % slide 7
+\begin{frame}[fragile]
 \frametitle{Functions}
 
 \begin{python}
@@ -122,8 +185,138 @@ def max(arg0,*args):
 
 \end{frame}
 
-\begin{frame}[fragile] % slide 8
-\frametitle{Generator}
+\begin{frame}[fragile]
+\begin{python}
+def simulate(pop,max_iters,p_prob=.3,max_pop=None):
+    '''
+    Simulate a population of bacteria.
+
+    Arguments
+        * max_population: Maximum population
+                        (default: 10*len(population))
+        ...
+    '''
+    if max_population is None:
+        max_population = 10*len(population)
+    for i in xrange(max_iters):
+        ...
+
+population = [ ... ]
+simulate(population,1000,.2)
+simulate(population,max_iters=1000,p_prob=.2)
+simulate(population,p_prob=.4,max_iters=1000)
+simulate(population,1000,max_population=10**5)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Functions (III)}
+
+\begin{python}
+def f(arg0,arg1,*args,**kwargs):
+    ...
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Multiple Assignment}
+
+\begin{python}
+A = 1
+B = 2
+A, B = B, A
+\end{python}
+
+Assign multiple elements at once.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Multiple Assignment to Return Multiple Arguments}
+
+\begin{python}
+def stats(values):
+    '''...'''
+    return mean(values), std(values)
+
+...
+values = ...
+props = stats(values)
+mu, std = stats(values)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{python}
+def greet(name,greeting='Hello'):
+    '''
+    greet(name,greeting='Hello')
+
+    Greets person by name
+
+    Arguments
+    ---------
+        * name: Name
+        * greeting: Greeting to use
+    '''
+    print greeting, name
+
+res = greet('World')
+
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Functions Are Objects}
+
+\begin{python}
+
+def integrate01(f):
+    '''
+    int_f = integrate01(f)
+    ...
+    '''
+    res = 0.0
+    for x in xrange(1000):
+        res += f(x/1000.)/1000.
+    return res
+
+def identity(x):
+    return x
+
+def square(x):
+    return x**2
+
+integrate01(identity)
+integrate01(square)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Sequences}
+
+\begin{python}
+for value in sequence:
+    ...
+\end{python}
+
+\begin{block}{Sequences}
+\begin{itemize}
+\item Lists
+\item Tuples
+\item Sets \& Frozensets
+\item Dictionaries
+\item ...
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Generators}
 
 \begin{block}{Generator: ``Function''-like Sequence}
 
@@ -149,7 +342,7 @@ def xrange(start,stop=None,step=None):
 
 \end{frame}
 
-\begin{frame}[fragile] % slide 9
+\begin{frame}[fragile]
 \frametitle{Generators}
 
 \begin{itemize}
@@ -158,32 +351,135 @@ def xrange(start,stop=None,step=None):
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile] % slide 10
-\frametitle{Import}
-
+\begin{frame}[fragile]
 \begin{python}
-import module
-
-FIXME
+def enumerate(iterable):
+    '''...'''
+    i = 0
+    for val in iterable:
+        yield i,val
+        i += 1
 \end{python}
 \end{frame}
 
-\begin{frame}[fragile] % slide 11
-\frametitle{Exception Handling}
+\begin{frame}[fragile]
+\frametitle{Zip}
 
-\begin{block}{Exception Handling: Error Handling}
 \begin{python}
-try:
-    <code 1>
-    <code 2>
-    <code 3>
-except IOError, exc:
-    print 'I/O Error', exc
-except:
-    print 'Unspecified error'
+names = ['Rita','Luis','Sabah']
+grades = ['A','B','A']
+
+for g,n in zip(names,grades):
+    print 'Student %s had grade %s' % (g,n)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File Reading}
+
+\begin{python}
+for line in file('filename.txt'):
+    print line
+\end{python}
+
+\end{frame}
+
+\section{Libraries}
+
+\begin{frame}[fragile]
+\frametitle{Modules \& Libraries}
+\begin{python}
+import math
+
+math.exp(1)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Namespaces}
+Namespaces are where names live.
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{block}{bacteria.py}
+\begin{python}
+...
+def simulate(...):
+    '''...'''
+    ...
+...
 \end{python}
 \end{block}
 
+\begin{block}{script.py}
+\begin{python}
+import bacteria
+
+population = [bacteria.Bacterium(...) ...]
+bacteria.simulate(...)
+\end{python}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Importing (II)}
+
+\begin{python}
+import bacteria
+simulate = bacteria.simulate
+Bacterium = bacteria.Bacterium
+\end{python}
+
+\pause
+
+\begin{python}
+from bacteria import simulate, Bacterium
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Importing (III)}
+
+\begin{python}
+import bacteria
+import bacteria
+import bacteria
+import bacteria
+import bacteria
+import bacteria
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Import All}
+
+\begin{python}
+from bacteria import *
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Import As}
+
+\begin{python}
+import bacteria
+bac = bacteria
+
+bac.simulate(...)
+\end{python}
+
+\lstinline{bac} is another name for \lstinline{bacteria} (modules are objects too!)
+
+\pause
+
+\begin{python}
+import bacteria as bac
+\end{python}
 \end{frame}
 
 \end{document}
