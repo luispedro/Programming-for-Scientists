@@ -64,17 +64,17 @@ Lab Session 1: Introduction to Python
 
 What is Python? Basic types and iterations.
 
-Lecture 1.2: Code Organisation I
+Lecture 1.2: Object Oriented Programming
 ---------------------------------
 
 Introduction to object-oriented code.
 
-Lab Session 2: More advanced Python
+Lab Session 2: Python Odds & Ends
 -----------------------------------
 
-More Python. Classes, inheritance, 
+More Python. 
 
-Lecture 1.3: Code Organisation II
+Lecture 1.3: Error-handling
 ---------------------------------
 
 Exception-handling. Defensive programming (assert statement)
@@ -82,7 +82,7 @@ Exception-handling. Defensive programming (assert statement)
 Lab Session 3: Python wrap-up
 ------------------------------
 
-Odds & ends of python
+Odds & ends of python 2. In-class exercises on Python.
 
 Lecture 1.4: Software Carpentry
 -------------------------------
