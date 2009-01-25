@@ -3,7 +3,82 @@
 \begin{document}
 \frame{\maketitle}
 
-\begin{frame}[fragile] % slide 21
+\begin{frame}[fragile]
+\frametitle{Errors}
+Errors happen.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Errors}
+
+\begin{itemize}
+\item File doesn't exist.
+\item File is misformatted.
+\item Some data is not appropriate for the situation.
+\item You have a bug in your code.
+\item \ldots
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Handling Errors}
+
+What should a function that reads a file do if the file doesn't exist?
+
+What should the log() function return for negative numbers?
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exceptions}
+
+\begin{block}{Exceptions}
+Report errors for higher up.
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Call Stack}
+\begin{python}
+def f(x):
+    return log(x)**2
+
+def g(x):
+    y = f(x)
+    return y+1
+
+def h(x):
+    return g(x+1) + g(4*x)
+
+print h(0)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exceptions}
+
+\begin{python}
+def log(x):
+    if x <= 0.:
+        raise ValueError(
+            'log: argument must be greater than zero')
+    ...
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Try-Except}
+
+\begin{python}
+try:
+    h(0)
+except:
+    print 'Ooops'
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Exception Handling}
 
 \begin{block}{Exception Handling: Error Handling}
@@ -16,8 +91,50 @@ except IOError, exc:
     print 'I/O Error', exc
 except:
     print 'Unspecified error'
+finally:
+    <code 1>
+    <code 2>
 \end{python}
 \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{python}
+def f(x):
+    if x <= 0.:
+        raise ValueError(
+            'f: argument must be greater than zero')
+    return sqrt(x)+2
+
+def g(x):
+    y = f(x)
+    print (y > 2) 
+
+try:
+    g(1)
+    g(-1)
+except:
+    print 'Exception'
+\end{python}
+
+This outputs:
+
+\begin{columns}
+\column{.25\textwidth}
+(a)\par
+True\\True
+\column{.25\textwidth}
+(b)\par
+True\\False
+\column{.25\textwidth}
+(c)\par
+False\\Exception
+\column{.25\textwidth}
+(d)\par
+True\\Exception
+\end{columns}
+
 \end{frame}
 
 \end{document}
