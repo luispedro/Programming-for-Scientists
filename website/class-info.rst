@@ -65,7 +65,7 @@ Lab Session 1: Introduction to Python
 What is Python? Basic types and iterations.
 
 Lecture 1.2: Object Oriented Programming
----------------------------------
+----------------------------------------
 
 Introduction to object-oriented code.
 
