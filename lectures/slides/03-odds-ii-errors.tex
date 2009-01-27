@@ -1,0 +1,342 @@
+\input{slheader}
+\title{Python's Odds and Ends (II)\\Error Handling}
+\begin{document}
+\frame{\maketitle}
+
+\section{Odds \& Ends (II)}
+
+\section{Libraries}
+
+\begin{frame}[fragile]
+\frametitle{Modules \& Libraries}
+\begin{python}
+import math
+
+math.exp(1)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Namespaces}
+Namespaces are where names live.
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{block}{bacteria.py}
+\begin{python}
+...
+def simulate(...):
+    '''...'''
+    ...
+...
+\end{python}
+\end{block}
+
+\begin{block}{script.py}
+\begin{python}
+import bacteria
+
+population = [bacteria.Bacterium(...) ...]
+bacteria.simulate(...)
+\end{python}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Importing (II)}
+
+\begin{python}
+import bacteria
+simulate = bacteria.simulate
+Bacterium = bacteria.Bacterium
+\end{python}
+
+\pause
+
+\begin{python}
+from bacteria import simulate, Bacterium
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Importing (III)}
+
+\begin{python}
+import bacteria
+import bacteria
+import bacteria
+import bacteria
+import bacteria
+import bacteria
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Import All}
+
+\begin{python}
+from bacteria import *
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Import As}
+
+\begin{python}
+import bacteria
+bac = bacteria
+
+bac.simulate(...)
+\end{python}
+
+\lstinline{bac} is another name for \lstinline{bacteria} (modules are objects too!)
+
+\pause
+
+\begin{python}
+import bacteria as bac
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+def enumerate(iterable):
+    '''...'''
+    i = 0
+    for val in iterable:
+        yield i,val
+        i += 1
+\end{python}
+
+\begin{python}
+buildings = ['Scaiffe','Wean','Mellon']
+for i,build in enumerate(buildings):
+    print i, build
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Zip}
+
+\begin{python}
+names = ['Rita','Luis','Sabah']
+grades = ['A','B','A']
+
+for g,n in zip(names,grades):
+    print 'Student %s had grade %s' % (g,n)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File Reading}
+
+\begin{python}
+for line in file('filename.txt'):
+    print line
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File Objects}
+
+\begin{python}
+input = file('myfile.data')
+for line in input:
+    ...
+\end{python}
+
+\begin{python}
+output = file('myoutput.txt','w')
+print >>output, 'Hello World\n'
+output.close()
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File Objects}
+\begin{python}
+input = file('myfile.data','r')
+for i in xrange(5):
+    # First five lines are comments
+    input.readline()
+
+sixth = input.readline()
+rest = input.readlines()
+\end{python}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Errors}
+Errors happen.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Errors}
+
+\begin{itemize}
+\item File doesn't exist.
+\item File is misformatted.
+\item Some data is not appropriate for the situation.
+\item You have a bug in your code.
+\item \ldots
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Handling Errors}
+
+What should a function that reads a file do if the file doesn't exist?
+
+What should the log() function return for negative numbers?
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exceptions}
+
+\begin{block}{Exceptions}
+Report errors for higher up.
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Call Stack}
+\begin{python}
+def f(x):
+    return log(x)**2
+
+def g(x):
+    y = f(x)
+    return y+1
+
+def h(x):
+    return g(x+1) + g(4*x)
+
+print h(0)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exceptions}
+
+\begin{python}
+def log(x):
+    if x <= 0.:
+        raise ValueError(
+            'log: argument must be greater than zero')
+    ...
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Try-Except}
+
+\begin{python}
+try:
+    h(0)
+except:
+    print 'Ooops'
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Try-Except}
+
+\begin{python}
+try:
+    <line 1>
+    <line 2>
+    <line 3>
+except:
+    <line 1>
+    <line 2>
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exceptions}
+
+\begin{block}{Exceptions}
+\begin{itemize}
+\item Exceptions are \alert{objects}.
+\item Exceptions have \alert{type} and \alert{values}.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exception Hierarchy}
+
+(Nothing here, folks, look at the blackboard)
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exception Handling}
+
+\begin{block}{Exception Handling: Error Handling}
+\begin{python}
+try:
+    <code 1>
+    <code 2>
+    <code 3>
+except IOError, exc:
+    print 'I/O Error', exc
+except:
+    print 'Unspecified error'
+finally:
+    <code 1>
+    <code 2>
+\end{python}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{python}
+def f(x):
+    if x <= 0.:
+        raise ValueError(
+            'f: argument must be greater than zero')
+    return sqrt(x)+2
+
+def g(x):
+    y = f(x)
+    print (y > 2) 
+
+try:
+    g(1)
+    g(-1)
+except:
+    print 'Exception'
+\end{python}
+
+This outputs:
+
+\begin{columns}
+\column{.25\textwidth}
+(a)\par
+True\\True
+\column{.25\textwidth}
+(b)\par
+True\\False
+\column{.25\textwidth}
+(c)\par
+False\\Exception
+\column{.25\textwidth}
+(d)\par
+True\\Exception
+\end{columns}
+
+\end{frame}
+
+
+\end{document}
