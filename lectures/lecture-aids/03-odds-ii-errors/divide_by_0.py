@@ -3,7 +3,7 @@ try:
     x = 0
     y = 1/x
 except ArithmeticError:
-    print 'f-p error'
+    print 'arithmetic error'
 except ZeroDivisionError:
     print 'divide by zero error'
 except:
