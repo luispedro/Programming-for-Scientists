@@ -1,0 +1,87 @@
+\input{slheader}
+\title{Assertions}
+\begin{document}
+\begin{frame}[fragile] % slide 0
+\frametitle{Assertions}
+\begin{python}
+def stddev(values):
+    '''
+    S = stddev(values)
+
+    Compute standard deviation
+    '''
+    assert len(S) > 0, 'stddev: standard deviation of empty list not defined.'
+    ...
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile] % slide 1
+\frametitle{Assertions}
+
+\begin{python}
+def stddev(values):
+    '''
+    S = stddev(values)
+
+    Compute standard deviation
+    '''
+    if len(S) <= 0:
+        raise AssertionError('stddev: standard deviation of empty list not defined.')
+    ...
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile] % slide 2
+\frametitle{}
+
+\begin{python}
+def factorial(N):
+    '''
+    fN = factorial(N)
+
+    Returns the factorial of N.
+
+    N must be equal or greater than zero.
+    '''
+    if N == 0:
+        return 1.
+    return N * factorial(N-1)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile] % slide 3
+\frametitle{Preconditions}
+
+\begin{quote}
+In computer programming, a precondition is a condition or predicate that must always be true just prior to the execution of some section of code.
+\end{quote}
+
+\begin{flushright}
+(Wikipedia)
+\end{flushright}
+
+\end{frame}
+
+\begin{frame}[fragile] % slide 4
+\frametitle{Preconditions}
+\begin{block}{Other Languages}
+\begin{itemize}
+\item[C/C++] \lstinline{#include <assert.h>}
+\item[Java] \lstinline{assert }\textit{pre-condition}
+\item[Matlab] \lstinline{assert()} (in newer versions)
+\item[\ldots] \ldots
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile] % slide 5
+\frametitle{Assertions Are Not Error Handling!}
+
+\begin{itemize}
+\item Error handling protect against outside events.
+\item Assertions \alert{should never} fire.
+\end{itemize}
+\end{frame}
+
+\end{document}
