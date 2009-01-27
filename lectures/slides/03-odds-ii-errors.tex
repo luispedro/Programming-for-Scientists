@@ -8,23 +8,11 @@
 \section{Libraries}
 
 \begin{frame}[fragile]
-\frametitle{Modules \& Libraries}
-\begin{python}
-import math
-
-math.exp(1)
-\end{python}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Namespaces}
-Namespaces are where names live.
-\end{frame}
-
-\begin{frame}[fragile]
 
 \begin{block}{bacteria.py}
 \begin{python}
+class Bacterium(object):
+    ...
 ...
 def simulate(...):
     '''...'''
@@ -42,6 +30,10 @@ bacteria.simulate(...)
 \end{python}
 \end{block}
 
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Namespaces}
+Namespaces are where names live.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -100,6 +92,19 @@ bac.simulate(...)
 \begin{python}
 import bacteria as bac
 \end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Modules \& Libraries}
+\begin{python}
+import math
+
+math.exp(1)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+Odds \& Ends (II)
 \end{frame}
 
 \begin{frame}[fragile]
