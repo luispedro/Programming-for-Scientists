@@ -12,14 +12,16 @@ def count_fasta_seqs(filename):
 
 try:
     N = count_fasta_seqs('this-file-does-not-exist')
+    print 'File has %s sequences' % N
 except Exception:
     print 'generic exception'
     
 
 try:
     N = count_fasta_seqs('this-file-does-not-exist')
-except IOError:
-    print 'IOError'
+    print 'File has %s sequences' % N
+except IOError, exc:
+    print 'IOError', exc
 except Exception:
     print 'generic exception'
 
