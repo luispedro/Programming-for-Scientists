@@ -29,6 +29,6 @@ for name, initial_fixed, initial_evolve, environs in experiments:
     bacteria.simulate(population,environs,(initial_fixed+initial_evolve)*10,p_reprod)
     print 'Mean sigma:', mean([a.sigma for a in population])
     print 'Mean Adaptation:',mean([b.adaptation for b in population])
-    print 'Fraction adaptative:', mean([type(b) == EvolveSigma for b in population])
+    print 'Fraction adaptative:', mean([type(b) == bacteria.EvolveSigma for b in population])
     print
 
