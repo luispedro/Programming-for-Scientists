@@ -11,20 +11,69 @@
 What is the \lstinline{__init__} method for? When is it called?
 
 \question
+In this class, we defined \textit{polymorphism} as the ability to write code that \emph{works with more than one type}. In Python, if you want code that works with two type of ``Bacteria'', that is achieved through:
+
+\begin{enumerate}[a]
+\item Inheritance: you define a base interface Bacterium and derive your working types from that.
+\item Duck-typing: your types should all have methods with the same names.
+\item Duck-typing: your derived type should have a name like the name of the base class (e.g., EnhancedBacterium deriving from Bacterium).
+\item None of the above.
+\end{enumerate}
+
+\question
+Consider the following code:
+
+\begin{python}
+class Point2(object):
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+
+    def dist2(self):
+        return self.x**2 + self.y**2 
+
+p = Point2(2,2)
+print p.dist2()
+p.y = 0
+print p.dist2()
+print p.x
+print p.y
+\end{python}
+
+This code prints four numbers. What are they:
+
+\begin{enumerate}[a]
+\item 8, 8, 2, 0
+\item 8, 8, 2, 2
+\item 8, 4, 2, 0
+\item 8, 4, 2, 2
+\end{enumerate}
+
+\question
+What is wrong with the following code?
+
+\begin{python}
+mynumbers = [0,1,2,3]
+dictionary = {}
+dictionary[mynumbers] = 'Lottery Winning Key'
+\end{python}
+
+\question
+What is the difference between a \lstinline{set} and a \lstinline{frozenset}?
 
 \chapter{Programming Assignment}
 
-Consider the competing bacteria environment from class. Consider the following reasoning:
+Recall the competing bacteria environment from class. Consider the following line of reasoning:
 
 \begin{quote}
-Species that change the speed of mutation do better when the environment changes fast. Species that mutate slowly do better when the environment is fixed. Therefore, the best would be specie that sense its own adaptation and mutates more when it is not adapted to the enviroment.
+Species that mutate slowly do better when the environment is fixed, but worse when the environment is changing. Therefore, the best would be species that sense its own adaptation and mutates more when it is not adapted to the enviroment.
 \end{quote}
 
 Your assignment is to 
 
 \begin{enumerate}
-\item Formulate a reasonable mathematical implementation of the idea above.
-\item Implement it in Python. For this, download the file \textit{bacteria.py} from the website (this is the code used in lecture) and extend it. You \textbf{should not} change the code in the function \textit{simulate_population}! You should simply implement a new type of bacteria.
+\item Formulate a reasonable mathematical formulation of the idea above.
+\item Implement it in Python. For this, download the file \textit{bacteria.py} from the website (this is the code used in lecture). You \textbf{should not} change the code in this file! You should simply import it\footnote{Writing \lstinline{from bacteria import *} at any point a Python file is similar to having copied \& pasted the contents of bacteria.py into that position in the file. We will go over the behaviour of the import statement in more detail on Thursday.} and implement a new type of bacteria. The file \textit{simulatebac.py} is an example of the use of bacteria.py. You use it as a starting point or start your own script.
 \end{enumerate} 
-\end{document}
 
+\end{document}
