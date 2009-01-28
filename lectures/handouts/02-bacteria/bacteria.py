@@ -1,7 +1,5 @@
 import random
 from math import exp
-import numpy as np
-import scipy.stats
 import math
 
 def exp_dist(d,L):
@@ -12,7 +10,7 @@ def exp_dist(d,L):
 
     See http://en.wikipedia.org/wiki/Exponential_distribution
     '''
-    return scipy.stats.expon.sf(d,0,L)
+    return 1-math.exp(-L*d)
 
 class Bacteria(object):
     '''
@@ -80,28 +78,5 @@ def simulate(population,environs,max_population,p_reprod):
             random.shuffle(population)
             while len(population) >= max_population:
                 population.pop()
-    
-
-very_sharp = np.r_[np.ones(40)*.2,np.ones(40)*.4,np.ones(40)*.6,np.ones(40)*.8,np.ones(40)*1.]
-sharp      = np.r_[np.ones(40)*0.,np.ones(40)*.5,np.ones(40)*1.,np.ones(40)*.5,np.ones(40)*0.]
-smooth     = np.linspace(0,2.,200)
-p_reprod = .3
-
-experiments = [
-    ('fixed env. no sigma evolution',            1000,  0,np.ones(200)*.23),
-    ('fixed env. w  sigma evolution',             500,500,np.ones(200)*.23),
-    ('smooth changes env. w sigma evolution',     500,500,smooth),
-    ('sharp changes env. w sigma evolution',      500,500,sharp),
-    ('very sharp changes env. w sigma evolution', 500,500,very_sharp),
-    ]
-for name, initial_fixed, initial_evolve, environs in experiments:
-    print 'Experiment',name
-    population = [Bacteria(random.random(),random.random()) for i in xrange(initial_fixed)] +\
-            [EvolveSigma(random.random(),random.random()) for i in xrange(initial_evolve)]
-    simulate(population,environs,(initial_fixed+initial_evolve)*10,p_reprod)
-    print 'Mean sigma:', np.mean([a.sigma for a in population])
-    print 'Mean Adaptation:',np.mean([b.adaptation for b in population])
-    print 'Fraction adaptative:', np.mean([type(b) == EvolveSigma for b in population])
-    print
 
 
