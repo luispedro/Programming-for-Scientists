@@ -1,0 +1,349 @@
+\input{slheader}
+\title{Python Review}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{What's The Bug?}
+
+\begin{python}
+def mean(values):
+    i = 0
+    S = 0.0
+    while i <= len(values):
+        S += values[i]
+        i += 1
+    return S/len(values)
+\end{python}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Corrected Version}
+
+\begin{python}
+def mean(values):
+    '''
+    M = mean(values)
+
+    Return the mean value of a sequence.
+    '''
+    if not values:
+        raise ValueError(
+            'mean: Mean of empty set not defined')
+    S = 0.0
+    for val in values:
+        S += val
+    return S/float(len(values))
+\end{python}
+\note{
+    Added docstring, exception,floating-point conversion.
+}
+\end{frame}
+
+\begin{frame}[fragile]
+Write a function that takes another function $f$ and a number $N$ and computes
+
+\begin{equation*}
+\sum_{i=0}^{N} f(N)^2.
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What's the Bug?}
+
+\begin{python}
+def cull_herd(bacteria):
+    for i in xrange(len(bacteria)):
+        if random.random() < bacteria[i].P_dead():
+            del bacteria[i]
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Corrected}
+\begin{python}
+def cull_herd(bacteria):
+    i = 0
+    while i < len(bacteria):
+        if random.random() < bacteria[i].P_dead():
+            del bacteria[i]
+        else:
+            i += 1
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{block}{hello.py}
+\begin{python}
+print 'Hello World'
+\end{python}
+\end{block}
+
+\begin{block}{main.py}
+\begin{python}
+import hello
+import hello
+\end{python}
+\end{block}
+
+What does \texttt{python main.py} print out?
+
+\begin{columns}
+\column{.3\textwidth}
+(a)\\
+Hello World\\
+Hello World
+
+\column{.3\textwidth}
+(b)\\
+\textit{nothing}
+
+\column{.3\textwidth}
+(c)\\
+Hello World
+\end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+class Bacterium(object):
+    def __init__(self):
+        print 'Bacterium'
+    ...
+
+class EvolveBacterium(Bacterium):
+    def __init__(self):
+        print 'EvolveBacterium'
+    ...
+
+bac = EvolveBacterium()
+\end{python}
+
+\begin{columns}
+\column{.25\textwidth}
+(a)\\
+\verb+Bacterium+
+
+\column{.25\textwidth}
+(b)\\
+\verb+EvolveBacterium+\\
+
+\column{.25\textwidth}
+(c)\\
+\verb+Bacterium+\\
+\verb+EvolveBacterium+\\
+
+\column{.25\textwidth}
+(d)\\
+\verb+EvolveBacterium+\\
+\verb+Bacterium+\\
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\begin{python}
+A = range(20)
+B = A[10:20]
+del B[0]
+del B[0]
+del B[0]
+print len(A)
+\end{python}
+
+\begin{columns}
+\column{.25\textwidth}
+(a)\\
+20
+\column{.25\textwidth}
+(b)\\
+17
+\column{.25\textwidth}
+(c)\\
+16
+\column{.25\textwidth}
+(d)\\
+19
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+A = range(20)
+B = A[10:20]
+B[0] = -1
+print A[10]
+\end{python}
+
+\begin{columns}
+\column{.25\textwidth}
+(a)\\
+-1
+\column{.25\textwidth}
+(b)\\
+10
+\column{.25\textwidth}
+(c)\\
+9
+\column{.25\textwidth}
+(d)\\
+11
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+def swap(x,y):
+    x, y = y,x
+
+a,b = 0,1
+swap(a,b)
+print a, b
+\end{python}
+
+\begin{flushright}
+(From: \textit{How to Think Like a Computer Scientist}
+\end{flushright}
+
+\begin{columns}
+\column{.5\textwidth}
+(a)\\
+0,1
+\column{.5\textwidth}
+(b)\\
+1,0
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\begin{python}
+def swap(A):
+    A[0],A[1] = A[1],A[0]
+
+A = [0,1]
+swap(A)
+print A[0],A[1]
+\end{python}
+
+\begin{columns}
+\column{.5\textwidth}
+(a)\\
+0,1
+\column{.5\textwidth}
+(b)\\
+1,0
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+Write a \alert{generator} that iterates through a list in \alert{reverse} order:
+
+\begin{python}
+for val in reversed(range(4)):
+    print val
+\end{python}
+should print
+
+\begin{python}
+3
+2
+1
+0
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Trick Question}
+
+\begin{python}
+A = [0,1,2]
+B = A
+A += [3]
+print B
+\end{python}
+
+What does this print?
+
+\begin{columns}
+\column{.4\textwidth}
+(a)\\
+\verb+[0,1,2]+
+\column{.4\textwidth}
+(b)\\
+\verb+[0,1,2,3]+
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+def mystery(*args):
+    if not args:
+        yield ()
+    else:
+        lst = args[0]
+        rest = args[1:]
+        for val in lst:
+            for tp in mystery(*rest):
+                yield (val,) + tp
+\end{python}
+
+\pause
+
+\textbf{Hint:} Consider
+
+\begin{python}
+for T in mystery(range(2),range(4)):
+    print T
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+def f(x):
+    print 'f(%s)' % x
+    return x + 2
+def g(x):
+    print 'g(%s)' % x
+    return log(f(x-1))
+def h(x):
+    print 'h(%s)' % x
+    return g(x)-g(x-1)
+
+print h(0)
+\end{python}
+
+\begin{columns}
+\column{.25\textwidth}
+(b)\\
+h(0)\\
+g(0)\\
+OverflowError: math range error
+\column{.25\textwidth}
+(b)\\
+h(0)\\
+g(0)\\
+f(-1)\\
+OverflowError: math range error
+\column{.25\textwidth}
+(c)\\
+h(0)\\
+g(0)\\
+f(-1)\\
+g(-1)\\
+f(-1)\\
+OverflowError: math range error
+\column{.25\textwidth}
+(d)\\
+h(0)\\
+g(0)\\
+f(-1)\\
+g(-1)\\
+f(-1)
+\end{columns}
+\end{frame}
+
+\end{document}
