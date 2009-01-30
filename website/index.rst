@@ -25,11 +25,12 @@ Pages
 .. toctree::
    :maxdepth: 1
 
-   class-info
+   homeworks
    slides
+   audio
+   class-info
    faq
    notes
-   homeworks
    python
    copyright
 

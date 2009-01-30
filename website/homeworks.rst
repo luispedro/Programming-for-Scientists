@@ -5,7 +5,7 @@ Homeworks
 Homework 2 (due Feb 4 [you get an extra day!])
 ----------------------------------------------
 
-`Homework 2`_ (you will also need `bacteria.py`, and you can look at `simulatebac.py` as an example). As before, solutions by email.
+`Homework 2`_ (you will also need `bacteria.py`_, and you can look at `simulatebac.py`_ as an example). As before, solutions by email.
 
 .. _`Homework 2`: _static/pfs-hw-02.pdf
 .. _`bacteria.py`: _static/bacteria.py
