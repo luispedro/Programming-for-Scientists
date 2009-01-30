@@ -10,6 +10,7 @@ These are the slides as delivered, except for the occasional fixed typo.
 4. `Lecture 3`_: Object-Oriented Programming.
 5. `Lecture 4`_: Python Odds & Ends.
 6. `Lecture 5`_: Python Odds & Ends (II) & Error Handling.
+7. `Lecture 6`_: Python Odds & Ends (II) & Error Handling.
 
 .. _`Lecture 1`: http://coupland.cbi.cmu.edu/pfs/_static/01-intro.pdf
 .. _`Tutorial Session`: http://coupland.cbi.cmu.edu/pfs/_static/E1-introprogramming.pdf
@@ -17,6 +18,7 @@ These are the slides as delivered, except for the occasional fixed typo.
 .. _`Lecture 3`: http://coupland.cbi.cmu.edu/pfs/_static/02-oop.pdf
 .. _`Lecture 4`: http://coupland.cbi.cmu.edu/pfs/_static/02L-python-odds-ends.pdf
 .. _`Lecture 5`: http://coupland.cbi.cmu.edu/pfs/_static/03-odds-ii-errors.pdf
+.. _`Lecture 6`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/03L-python-review.pdf
 
 If you'd like the LaTeX source for the above slides, email me (it's all available under `CC-By-Nc-SA`_).
 
