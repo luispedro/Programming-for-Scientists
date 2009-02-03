@@ -1,13 +1,25 @@
 \input{slheader}
+\makeatletter
+\def\verbatim@font{\small\ttfamily}
+\makeatother
 \title{Software Carpentry}
 \begin{document}
+\frame{\maketitle}
 
 \begin{frame}[fragile]
 \frametitle{Software Carpentry}
 
-Software engineering helps you build the equivalent of a bridge.
+\alert{Software engineering} helps you build the equivalent of a bridge.
 
-Software carpentry is what you need to build the equivalent of a garden shed.
+\medskip
+
+\alert{Software carpentry} is what you need to build the equivalent of a garden shed.
+
+\note{
+    Coined by Greg Wilson, U. of Toronto.
+
+    Not part of the original plan for the class, but then I found the software carpentry website.
+}
 
 \end{frame}
 
@@ -19,22 +31,188 @@ If you remember using MS-DOS, then that's crap. Interestingly, MS now makes one 
 Don't be afraid of the shell.
 }
 
+\centering
+\includegraphics[width=.9\textwidth]{04-konsole.png}
+
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Basic Commands}
+\frametitle{Basic Concepts}
 
+\begin{itemize}
+\item Current directory.
+\end{itemize}
+
+\texttt{cd newdir}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Directories}
+
+Your program also has a current directory.
+
+\begin{python}
+import os
+os.chdir('..')
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Executing Programs}
+
+\begin{verbatim}
+luispedro@lolitop - ~/work/pfs/lectures §ls
+01-intro-python.pdf  02-oop.pdf  03-python-odds.pdf
+do-hw.sh  Makefile 01-intro-python.tex  02-oop.tex
+03-python-odds.tex  headers
+luispedro@lolitop - ~/work/pfs/lectures §cat Makefile
+pdfs := $(patsubst %.tex,%.pdf,$(wildcard *.tex))
+all: $(pdfs)
+
+.PHONY: all
+
+%.pdf: %.tex
+        ./do-hw.sh $<
+luispedro@lolitop - ~/work/pfs/lectures §vim 03-python-odds.tex
+luispedro@lolitop - ~/work/pfs/lectures §
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Input/Output}
+\begin{block}{hello.py}
+\begin{python}
+print 'Hello World'
+\end{python}
+\end{block}
+
+\begin{block}{Shell}
+\texttt{python hello.py}
+\end{block}
 \end{frame}
 
 
 \begin{frame}[fragile]
 \frametitle{Input/Output}
-<+content+>
+Standard input/stdout.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{grep}
+
+\begin{verbatim}
+luispedro@lolitop - ~/work/pfs/lectures/slides §grep Exception *tex
+01-intro.tex:\item Exception: implementing code from a paper.
+03-odds-ii-errors.tex:\frametitle{Exceptions}
+03-odds-ii-errors.tex:\begin{block}{Exceptions}
+03-odds-ii-errors.tex:\frametitle{Exceptions}
+03-odds-ii-errors.tex:\frametitle{Exceptions}
+03-odds-ii-errors.tex:\begin{block}{Exceptions}
+03-odds-ii-errors.tex:\item Exceptions are \alert{objects}.
+03-odds-ii-errors.tex:\item Exceptions have \alert{type} and \alert{values}.
+03-odds-ii-errors.tex:\frametitle{Exception Hierarchy}
+03-odds-ii-errors.tex:               Exception
+03-odds-ii-errors.tex:\frametitle{Exception Handling}
+03-odds-ii-errors.tex:\begin{block}{Exception Handling: Error Handling}
+03-odds-ii-errors.tex:    print 'Exception'
+03-odds-ii-errors.tex:False\\Exception
+03-odds-ii-errors.tex:True\\Exception
+04-softwarecarpentry.tex:luispedro@lolitop - ~/work/pfs/lectures §grep Exception *tex
+04-softwarecarpentry.tex:03-python-odds.tex:except Exception:
+04-softwarecarpentry.tex:03-python-odds.tex:Hint: IOError is (indirectly) derived from Exception.
+04-softwarecarpentry.tex:grep Exception *tex
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{wc}
+\begin{block}{WC: Word Count}
+\texttt{wc -l}: count lines
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{verbatim}
+luispedro@lolitop - ~/work/pfs/lectures/slides §grep Exception *tex | wc -l
+19
+\end{verbatim}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Command-line Arguments}
-<+content+>
+\begin{verbatim}
+grep Exception *tex
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Levels}
+\begin{enumerate}
+\item konsole/xterm/gnome-terminal/iTerm.app/Terminal.app/\ldots
+\item sh/bash/zsh/\ldots
+\item your program
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Command-line Arguments}
+
+\begin{verbatim}
+luispedro@lolitop - ~ §echo Hello World
+Hello World
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Command-line Arguments}
+
+\begin{python}
+import sys
+print len(sys.argv)
+print sys.argv
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Command-line Arguments}
+
+\begin{verbatim}
+§python printargs.py Hello World
+3
+['printargs.py', 'Hello', 'World']
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Command-line Arguments}
+
+\begin{verbatim}
+§python printargs.py "Hello World"
+2
+['printargs.py', 'Hello World']
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Commands}
+
+\begin{itemize}
+\item cd
+\item ls
+\item cat
+\item grep
+\item \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Version Control}
+
+If your laptop exploded, how many hours of work would you lose?
 \end{frame}
 
 \begin{frame}[fragile]
@@ -44,6 +222,7 @@ Don't be afraid of the shell.
 \item Maintain project history.
 \item Sync between computers.
 \item Sync between project members.
+\item \ldots
 \end{itemize}
 \end{block}
 \end{frame}
