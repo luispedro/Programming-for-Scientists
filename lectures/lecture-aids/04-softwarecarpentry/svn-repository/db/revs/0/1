@@ -1,0 +1,49 @@
+id: 2-1.0.r1/0
+type: dir
+count: 0
+cpath: /trunk
+copyroot: 0 /
+
+id: 0-1.0.r1/63
+type: dir
+count: 0
+cpath: /branches
+copyroot: 0 /
+
+id: 1-1.0.r1/130
+type: dir
+count: 0
+cpath: /tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 15
+dir 0-1.0.r1/63
+K 4
+tags
+V 16
+dir 1-1.0.r1/130
+K 5
+trunk
+V 14
+dir 2-1.0.r1/0
+END
+ENDREP
+id: 0.0.r1/306
+type: dir
+pred: 0.0.r0/17
+count: 1
+text: 1 194 99 99 f518773917d40d257c04097c223eb7d3
+cpath: /
+copyroot: 0 /
+
+_2.0.t0-0 add false false /trunk
+
+_0.0.t0-0 add false false /branches
+
+_1.0.t0-0 add false false /tags
+
+
+306 431
