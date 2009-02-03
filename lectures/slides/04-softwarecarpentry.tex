@@ -63,36 +63,23 @@ os.chdir('..')
 \frametitle{Paths}
 \begin{itemize}
 \item \alert{Absolute paths:} \texttt{/home/luispedro/work/pfs/lectures/slides/04-softwarecarpentry.pdf}
-\item \alert{Relative paths:} \texttt{04-softwarecarpentry.pdf}, \texttt{../homeworks/02-oop.pdf}
+\item \alert{Relative paths:} \texttt{04-softwarecarpentry.pdf}, \texttt{images/04-konsole.png}, \texttt{../homeworks/02-oop.pdf}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Executing Programs}
+\frametitle{Opening Files Inside Python}
 
-\begin{verbatim}
-luispedro@lolitop - ~/work/pfs/lectures §
-\end{verbatim}
-
+\begin{python}
+input = file('/home/luispedro/absolute.txt')
+output = file('output.txt','w')
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Executing Programs}
 
 \begin{verbatim}
-luispedro@lolitop - ~/work/pfs/lectures §ls
-01-intro-python.pdf  02-oop.pdf  03-python-odds.pdf
-do-hw.sh  Makefile 01-intro-python.tex  02-oop.tex
-03-python-odds.tex  headers
-luispedro@lolitop - ~/work/pfs/lectures §cat Makefile
-pdfs := $(patsubst %.tex,%.pdf,$(wildcard *.tex))
-all: $(pdfs)
-
-.PHONY: all
-
-%.pdf: %.tex
-        ./do-hw.sh $<
-luispedro@lolitop - ~/work/pfs/lectures §vim 03-python-odds.tex
 luispedro@lolitop - ~/work/pfs/lectures §
 \end{verbatim}
 
