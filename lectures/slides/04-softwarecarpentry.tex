@@ -2,7 +2,7 @@
 \makeatletter
 \def\verbatim@font{\small\ttfamily}
 \makeatother
-\title{Software Carpentry}
+\title{Software Carpentry I: The Shell \& Version Control}
 \begin{document}
 \frame{\maketitle}
 
@@ -60,22 +60,26 @@ os.chdir('..')
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Paths}
+\begin{itemize}
+\item \alert{Absolute paths:} \texttt{/home/luispedro/work/pfs/lectures/slides/04-softwarecarpentry.pdf}
+\item \alert{Relative paths:} \texttt{04-softwarecarpentry.pdf}, \texttt{images/04-konsole.png}, \texttt{../homeworks/02-oop.pdf}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Opening Files Inside Python}
+
+\begin{python}
+input = file('/home/luispedro/absolute.txt')
+output = file('output.txt','w')
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Executing Programs}
 
 \begin{verbatim}
-luispedro@lolitop - ~/work/pfs/lectures §ls
-01-intro-python.pdf  02-oop.pdf  03-python-odds.pdf
-do-hw.sh  Makefile 01-intro-python.tex  02-oop.tex
-03-python-odds.tex  headers
-luispedro@lolitop - ~/work/pfs/lectures §cat Makefile
-pdfs := $(patsubst %.tex,%.pdf,$(wildcard *.tex))
-all: $(pdfs)
-
-.PHONY: all
-
-%.pdf: %.tex
-        ./do-hw.sh $<
-luispedro@lolitop - ~/work/pfs/lectures §vim 03-python-odds.tex
 luispedro@lolitop - ~/work/pfs/lectures §
 \end{verbatim}
 
@@ -104,7 +108,7 @@ Standard input/stdout.
 \frametitle{grep}
 
 \begin{verbatim}
-luispedro@lolitop - ~/work/pfs/lectures/slides §grep Exception *tex
+lp@lolitop ~/pfs/lects/slides §grep Exception *tex
 01-intro.tex:\item Exception: implementing code from a paper.
 03-odds-ii-errors.tex:\frametitle{Exceptions}
 03-odds-ii-errors.tex:\begin{block}{Exceptions}
@@ -120,9 +124,6 @@ luispedro@lolitop - ~/work/pfs/lectures/slides §grep Exception *tex
 03-odds-ii-errors.tex:    print 'Exception'
 03-odds-ii-errors.tex:False\\Exception
 03-odds-ii-errors.tex:True\\Exception
-04-softwarecarpentry.tex:luispedro@lolitop - ~/work/pfs/lectures §grep Exception *tex
-04-softwarecarpentry.tex:03-python-odds.tex:except Exception:
-04-softwarecarpentry.tex:03-python-odds.tex:Hint: IOError is (indirectly) derived from Exception.
 04-softwarecarpentry.tex:grep Exception *tex
 \end{verbatim}
 
@@ -137,7 +138,7 @@ luispedro@lolitop - ~/work/pfs/lectures/slides §grep Exception *tex
 
 \begin{frame}[fragile]
 \begin{verbatim}
-luispedro@lolitop - ~/work/pfs/lectures/slides §grep Exception *tex | wc -l
+lp@lolitop ~/pfs/lects/slides §grep Exception *tex | wc -l
 19
 \end{verbatim}
 \end{frame}
@@ -198,6 +199,25 @@ print sys.argv
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Command-line Argument Parsing}
+
+\begin{python}
+from optparse import OptionParser                        
+parser = OptionParser()                                  
+parser.add_option("-d", "--database", dest="database")   
+parser.add_option("-i", "--ideal-scale", dest="ideal")   
+parser.add_option("-m", "--min-scale", dest="min")       
+parser.add_option("-M", "--max-scale", dest="max")       
+(options, args) = parser.parse_args()                    
+
+Elsevier_DB=options.database
+Ideal_Scale=float(options.ideal)
+Min_Scale=float(options.min)
+Max_Scale=float(options.max)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Commands}
 
 \begin{itemize}
@@ -210,21 +230,33 @@ print sys.argv
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{SSH}
+\begin{block}{Secure Shell}
+\begin{verbatim}
+§ssh coupland.cbi.cmu.edu
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Password-less Login}
+Public key authentication.
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Version Control}
 
 If your laptop exploded, how many hours of work would you lose?
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Source Control}
-\begin{block}{Advantages}
+\frametitle{Advantages}
 \begin{itemize}
 \item Maintain project history.
 \item Sync between computers.
 \item Sync between project members.
 \item \ldots
 \end{itemize}
-\end{block}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -239,13 +271,21 @@ If your laptop exploded, how many hours of work would you lose?
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Version Control Etiquette}
-\begin{block}{Etiquette}
+\frametitle{Example}
 \begin{enumerate}
+\item Create a repository
+\item Create a checkout
+\item Edit
+\item Commit
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Version Control Etiquette}
+\begin{itemize}
 \item Don't commit over my commit.
 \item Use the log.
-\end{enumerate}
-\end{block}
+\end{itemize}
 \end{frame}
 
 \end{document}
