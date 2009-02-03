@@ -28,6 +28,7 @@ clean:
 publish: html
 	cp -r build/html/* /var/www/pfs
 	cp -r ../spring-2009/lecture-slides /var/www/pfs
+	cp -r ../spring-2009/homeworks /var/www/pfs
 
 html:
 	mkdir -p build/html build/doctrees

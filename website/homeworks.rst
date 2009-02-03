@@ -2,6 +2,13 @@
 Homeworks
 =================
 
+Homework 3 (due Feb 10)
+----------------------------------------------
+
+`Homework 3`_ 
+
+.. _`Homework 3`: homeworks/03-python-odds.pdf
+
 Homework 2 (due Feb 4 [you get an extra day!])
 ----------------------------------------------
 
