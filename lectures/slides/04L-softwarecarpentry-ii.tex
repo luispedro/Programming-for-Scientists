@@ -54,31 +54,6 @@ I can do this with file copying, no?
 \end{enumerate}
 \end{frame}
 
-
-\begin{frame}[fragile]
-\frametitle{Merging}
-
-\centering
-\includegraphics[width=.4\textwidth]{ch02dia4.png}
-
-\begin{flushright}
-(From the SVN Book --- link on course webpage, under \textit{Notes})
-\end{flushright}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Merging (II)}
-
-\centering
-\includegraphics[width=.4\textwidth]{ch02dia5.png}
-
-\begin{flushright}
-(From the SVN Book --- link on course webpage, under \textit{Notes})
-\end{flushright}
-
-\end{frame}
-
 \begin{frame}[fragile]
 \frametitle{Do You Keep Old Versions Around?}
 \begin{itemize}
@@ -109,6 +84,151 @@ def function(x,y,z):
     # Added 18/4/00 by MH
     print x
 \end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Diff'ing}
+
+You have two versions of a file bacteria.py and bacteria2.py.
+
+\bigskip
+Find the changes.
+
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Diffs \& Patches}
+
+A diff is a patch.
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{block}{hello.py (1)}
+\begin{python}
+print 'Hello World'
+\end{python}
+\end{block}
+
+\begin{block}{hello.py (2)}
+\begin{python}
+print 'Hello World'
+print 'How are you?'
+\end{python}
+\end{block}
+
+\begin{block}{diff (1)}
+\begin{verbatim}
+--- hello.py    2009-02-05 17:40:51.000000000 -0500
++++ hello2.py   2009-02-05 17:41:04.000000000 -0500
+@@ -1 +1,2 @@
+ print 'Hello World'
++print 'How are you doing?'
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{block}{hello.py (1)}
+\begin{python}
+print 'Hello World'
+\end{python}
+\end{block}
+
+\begin{block}{hello.py (2)}
+\begin{python}
+print 'Hello World'
+print 'How are you?'
+\end{python}
+\end{block}
+
+\begin{block}{diff (2)}
+\begin{verbatim}
+--- hello2.py   2009-02-05 17:41:04.000000000 -0500
++++ hello.py    2009-02-05 17:40:51.000000000 -0500
+@@ -1,2 +1 @@
+ print 'Hello World'
+-print 'How are you doing?'
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{block}{hello.py (1)}
+\begin{python}
+print 'Hello World'
+\end{python}
+\end{block}
+
+\begin{block}{hello.py (2)}
+\begin{python}
+print 'Hello World'
+print 'How are you?'
+\end{python}
+\end{block}
+
+\begin{block}{diff (1)}
+\begin{verbatim}
+--- hello.py    2009-02-05 17:40:51.000000000 -0500
++++ hello2.py   2009-02-05 17:41:04.000000000 -0500
+@@ -1 +1,2 @@
+ print 'Hello World'
++print 'How are you doing?'
+\end{verbatim}
+\end{block}
+
+\note{
+    This repeats so that I can explain the concept, but I want to use this as the main example.
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example}
+
+\begin{verbatim}
+diff --git a/pyslic/preprocess/preprocesscollection.py b/pyslic/preprocess/preprocesscollection.py
+index f060b8a..a8cd9ec 100644
+--- a/pyslic/preprocess/preprocesscollection.py
++++ b/pyslic/preprocess/preprocesscollection.py
+@@ -120,7 +120,10 @@ class FixIllumination(object):
+         @see see
+         '''
+         assert self.S is not None
+-        self.S /= self.S.min()
++        Smin = self.S.min()
++        if Smin == 0:
++            Smin = 1
++        self.S /= Smin
+         # float96 is not always very well supported and we no longer need to sum up lots of numbers
+         self.S = numpy.array(self.S,float)
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Merging}
+
+\centering
+\includegraphics[width=.4\textwidth]{ch02dia4.png}
+
+\begin{flushright}
+(From the SVN Book --- link on course webpage, under \textit{Notes})
+\end{flushright}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Merging (II)}
+
+\centering
+\includegraphics[width=.4\textwidth]{ch02dia5.png}
+
+\begin{flushright}
+(From the SVN Book --- link on course webpage, under \textit{Notes})
+\end{flushright}
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -244,7 +364,7 @@ def test_stddev_positive():
 
 Nose software testing framework:
 \begin{itemize}
-\item Tests are named \lstlinline{test_}\textit{something}.
+\item Tests are named \lstinline{test_}\textit{something}.
 \item Conditions are \lstinline{assert}ed.
 \end{itemize}
 
