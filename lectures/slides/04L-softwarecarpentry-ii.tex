@@ -3,13 +3,13 @@
 \begin{document}
 \frame{\maketitle}
 
-\begin{frame}[fragile] % slide 1
+\begin{frame}[fragile]
 \frametitle{Version Control}
 
 If your laptop exploded, how many hours of work would you lose?
 \end{frame}
 
-\begin{frame}[fragile] % slide 2
+\begin{frame}[fragile]
 \frametitle{Advantages}
 \begin{itemize}
 \item Maintain project history.
@@ -19,7 +19,7 @@ If your laptop exploded, how many hours of work would you lose?
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile] % slide 3
+\begin{frame}[fragile]
 \frametitle{Subversion}
 \begin{block}{Subversion: model}
 \begin{enumerate}
@@ -30,7 +30,7 @@ If your laptop exploded, how many hours of work would you lose?
 \end{block}
 \end{frame}
 
-\begin{frame}[fragile] % slide 4
+\begin{frame}[fragile]
 \frametitle{Example}
 \begin{enumerate}
 \item Create a repository
@@ -40,7 +40,78 @@ If your laptop exploded, how many hours of work would you lose?
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile] % slide 5
+\begin{frame}[fragile]
+\frametitle{Alternative: Simply Copying}
+
+I can do this with file copying, no?
+
+\pause
+
+\begin{enumerate}
+\item history
+\item diffing
+\item merging
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Merging}
+
+\centering
+\includegraphics[width=.4\textwidth]{ch02dia4.png}
+
+\begin{flushright}
+(From the SVN Book --- link on course webpage, under \textit{Notes})
+\end{flushright}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Merging (II)}
+
+\centering
+\includegraphics[width=.4\textwidth]{ch02dia5.png}
+
+\begin{flushright}
+(From the SVN Book --- link on course webpage, under \textit{Notes})
+\end{flushright}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Do You Keep Old Versions Around?}
+\begin{itemize}
+\item bacteria.py
+\item bacteria1.py
+\item bacteria2.py
+\item bacteria3.py
+\item bacteria4.py
+\item bacteria5.py
+\item bacteriaold.py
+\item bacteriaold2.py
+\item bacteria.py2
+\item \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Do you explain your changes in the code?}
+
+\begin{python}
+def function(x,y,z):
+    ...
+    # Added 2/4/92 by LPC
+    x = 0
+    # Added 3/3/93 by XYZ
+    x += 1
+    # Added 8/23/97 by XYZ
+    # Added 18/4/00 by MH
+    print x
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Version Control Etiquette}
 \begin{itemize}
 \item Don't commit over my commit.
@@ -48,7 +119,22 @@ If your laptop exploded, how many hours of work would you lose?
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile] % slide 6
+\begin{frame}[fragile]
+\frametitle{Branches and Tags}
+\begin{itemize}
+\item Tag: name for revision.
+\item Branch: multiple parallel tracks of development.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Defensive Programming}
+
+Defensive programming means writing code that will catch bugs early.
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Assertions}
 \begin{python}
 def stddev(values):
@@ -57,12 +143,12 @@ def stddev(values):
 
     Compute standard deviation
     '''
-    assert len(S) > 0, 'stddev: standard deviation of empty list not defined.'
+    assert len(S) > 0, 'stddev: got empty list.'
     ...
 \end{python}
 \end{frame}
 
-\begin{frame}[fragile] % slide 7
+\begin{frame}[fragile]
 \frametitle{Assertions}
 
 \begin{python}
@@ -73,13 +159,14 @@ def stddev(values):
     Compute standard deviation
     '''
     if len(S) <= 0:
-        raise AssertionError('stddev: standard deviation of empty list not defined.')
+        raise AssertionError(
+            'stddev: got empty list.')
     ...
 \end{python}
 
 \end{frame}
 
-\begin{frame}[fragile] % slide 8
+\begin{frame}[fragile]
 \frametitle{}
 
 \begin{python}
@@ -97,7 +184,7 @@ def factorial(N):
 \end{python}
 \end{frame}
 
-\begin{frame}[fragile] % slide 9
+\begin{frame}[fragile]
 \frametitle{Preconditions}
 
 \begin{quote}
@@ -110,26 +197,74 @@ In computer programming, a precondition is a condition or predicate that must al
 
 \end{frame}
 
-\begin{frame}[fragile] % slide 10
+\begin{frame}[fragile]
 \frametitle{Preconditions}
 \begin{block}{Other Languages}
 \begin{itemize}
-\item[C/C++] \lstinline{#include <assert.h>}
-\item[Java] \lstinline{assert }\textit{pre-condition}
-\item[Matlab] \lstinline{assert()} (in newer versions)
-\item[\ldots] \ldots
+\item \alert{C/C++} \lstinline{#include <assert.h>}
+\item \alert{Java} \lstinline{assert }\textit{pre-condition}
+\item \alert{Matlab} \lstinline{assert()} (in newer versions)
+\item \alert{\ldots} \ldots
 \end{itemize}
 \end{block}
 \end{frame}
 
-\begin{frame}[fragile] % slide 11
+\begin{frame}[fragile]
 \frametitle{Assertions Are Not Error Handling!}
 
 \begin{itemize}
 \item Error handling protect against outside events.
-\item Assertions \alert{should never} fire.
+\item Assertions \alert{should never} be false.
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}[fragile]
+\frametitle{Testing}
+
+Do you test your code?
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Unit Testing}
+
+\begin{python}
+def test_stddev_const():
+    assert stddev([1]*100) < 1e-3
+
+def test_stddev_positive():
+    assert stddev(range(20)) > 0.
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Nosetest}
+
+Nose software testing framework:
+\begin{itemize}
+\item Tests are named \lstlinline{test_}\textit{something}.
+\item Conditions are \lstinline{assert}ed.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Software Testing Philosophies}
+
+\begin{enumerate}
+\item Test everything. Test it twice.
+\item Write tests first.
+\item Regression testing.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Regression Testing}
+
+Make sure bugs only appear once!
+
+\end{frame}
 
 \end{document}
