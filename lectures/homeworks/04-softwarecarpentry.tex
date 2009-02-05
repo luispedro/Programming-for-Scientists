@@ -8,6 +8,24 @@
 \chapter{Questions}
 
 \question % 1
+Alice and Bob are pair-programming again. This time, Alice writes the following code:
+
+\begin{python}
+print 'Error: file format unrecognised.'
+\end{python}
+
+Bob suggests that, since this is an error, it should be 
+
+\begin{python}
+import sys
+...
+
+print >>sys.stderr, 'Error: file format unrecognised.'
+\end{python}
+
+Alice argues ``Both go to the screen when I run the program, so printing errors to \lstinline{sys.stderr} is just being pedantic.'' Bob says ``Well, if you run it directly, both stdout and stderr go to the screen, but you can redirect stdout or pipe it to some other program and then it makes a big difference.''
+
+What is Bob talking about? (You can simply give an example of where things work differently if you use Bob or Alice's version.)
 
 \question % 2
 
