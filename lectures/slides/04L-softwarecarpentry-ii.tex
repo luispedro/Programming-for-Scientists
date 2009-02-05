@@ -3,13 +3,13 @@
 \begin{document}
 \frame{\maketitle}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile] % slide 1
 \frametitle{Version Control}
 
 If your laptop exploded, how many hours of work would you lose?
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile] % slide 2
 \frametitle{Advantages}
 \begin{itemize}
 \item Maintain project history.
@@ -19,7 +19,7 @@ If your laptop exploded, how many hours of work would you lose?
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile] % slide 3
 \frametitle{Subversion}
 \begin{block}{Subversion: model}
 \begin{enumerate}
@@ -30,7 +30,7 @@ If your laptop exploded, how many hours of work would you lose?
 \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile] % slide 4
 \frametitle{Example}
 \begin{enumerate}
 \item Create a repository
@@ -40,12 +40,96 @@ If your laptop exploded, how many hours of work would you lose?
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile] % slide 5
 \frametitle{Version Control Etiquette}
 \begin{itemize}
 \item Don't commit over my commit.
 \item Use the log.
 \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile] % slide 6
+\frametitle{Assertions}
+\begin{python}
+def stddev(values):
+    '''
+    S = stddev(values)
+
+    Compute standard deviation
+    '''
+    assert len(S) > 0, 'stddev: standard deviation of empty list not defined.'
+    ...
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile] % slide 7
+\frametitle{Assertions}
+
+\begin{python}
+def stddev(values):
+    '''
+    S = stddev(values)
+
+    Compute standard deviation
+    '''
+    if len(S) <= 0:
+        raise AssertionError('stddev: standard deviation of empty list not defined.')
+    ...
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile] % slide 8
+\frametitle{}
+
+\begin{python}
+def factorial(N):
+    '''
+    fN = factorial(N)
+
+    Returns the factorial of N.
+
+    N must be equal or greater than zero.
+    '''
+    if N == 0:
+        return 1.
+    return N * factorial(N-1)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile] % slide 9
+\frametitle{Preconditions}
+
+\begin{quote}
+In computer programming, a precondition is a condition or predicate that must always be true just prior to the execution of some section of code.
+\end{quote}
+
+\begin{flushright}
+(Wikipedia)
+\end{flushright}
+
+\end{frame}
+
+\begin{frame}[fragile] % slide 10
+\frametitle{Preconditions}
+\begin{block}{Other Languages}
+\begin{itemize}
+\item[C/C++] \lstinline{#include <assert.h>}
+\item[Java] \lstinline{assert }\textit{pre-condition}
+\item[Matlab] \lstinline{assert()} (in newer versions)
+\item[\ldots] \ldots
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile] % slide 11
+\frametitle{Assertions Are Not Error Handling!}
+
+\begin{itemize}
+\item Error handling protect against outside events.
+\item Assertions \alert{should never} fire.
+\end{itemize}
+\end{frame}
+
 
 \end{document}
