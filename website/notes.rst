@@ -2,6 +2,31 @@
 Class Notes
 ==========================
 
+Software Carpentry: Version Control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Links
+    * `SVN Book`_
+    * `Visual Intro to Version Control`_
+    * `Show Me Do`_ (screencast) on SVN. This is Linux based, but works on Mac OS and Windows.
+
+.. _`SVN Book`: http://svnbook.red-bean.com
+.. _`Visual Intro to Version Control`: http://betterexplained.com/articles/a-visual-guide-to-version-control/
+.. _`Show Me Do`: http://showmedo.com/videos/series?name=bfNi2X3Xg
+
+Software
+    * `Subversion`_ (for any platform, command-line interface)
+    * `kdesvn`_ (for Linux: this was what I demonstrated in class)
+    * `TortoiseSVN`_ (for Windows)
+    * `Versions`_ (for Mac OS, commercial software)
+    * `SCPlugin`_ (for Mac OS, open source)
+
+.. _`TortoiseSVN`: http://tortoisesvn.tigris.org/
+.. _`Subversion`: http://subversion.tigris.org/
+.. _`kdesvn`: http://kdesvn.alwins-world.de/
+.. _`Versions`: http://versionsapp.com/
+.. _`SCPlugin`: http://scplugin.tigris.org/
+
 Lab Lecture 1
 ~~~~~~~~~~~~~
 
