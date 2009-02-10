@@ -1,13 +1,31 @@
 \input{slheader}
-\title{Software Carpentry III: Defensive Programming \& Testing}
+\title[SC3: Defensive Programming \& Testing]{Software Carpentry III: Defensive Programming \& Testing}
 \begin{document}
 \frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{Set}
+How would we implement a set of numbers?
+
+\begin{block}{Set operations}
+\begin{itemize}
+\item Create
+\item Add
+\item Remove
+\item Find
+\end{itemize}
+\end{block}
+\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Binary Seach Trees}
 
 \centering
-\includegraphics{200px-Binary_search_tree.svg.png}
+\includegraphics[width=.5\textwidth]{Binarysearchtree.png}
+
+\begin{flushright}
+(Wikipedia)
+\end{flushright}
 
 \end{frame}
 
@@ -17,16 +35,10 @@
 \begin{itemize}
 \item constructor: creates empty tree
 \item insert(value): inserts elements
-\item find(value) -> boolean
+\item find(value) $\to$ boolean
+\item size() $\to$ number
 \item remove(value): removes a value
 \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-
-\centering
-\includegraphics{Tree_rotation}
-
 \end{frame}
 
 \begin{frame}[fragile]
@@ -145,7 +157,8 @@ What is true after calling a function.
 \begin{block}{Examples}
 \begin{itemize}
 \item sort: element must be comparable.
-\item dictionaries: keys must be immutable.
+\item BST.add(val): element must be comparable to all elements in BST.
+\item BST.find(val): element must be comparable to all elements in BST.
 \item \ldots
 \end{itemize}
 \end{block}
@@ -157,7 +170,8 @@ What is true after calling a function.
 \begin{block}{Examples}
 \begin{itemize}
 \item \lstinline{sort}: elements are in sorted order.
-\item \lstinline{dict[k] = v}: key \lstinline{k} is associated with value \lstinline{v}
+\item \lstinline{BST.add(val)}: value is in tree.
+\item \lstinline{BST.remove(val)}: value is not in tree.
 \item \ldots
 \end{itemize}
 \end{block}
@@ -165,7 +179,7 @@ What is true after calling a function.
 
 \begin{frame}[fragile]
 \frametitle{Invariants}
-Invariants make sense only within the context of related functions (e.g., methods of a class).
+Invariants make sense within the context of related functions.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -231,5 +245,17 @@ Nose software testing framework:
 Make sure bugs only appear once!
 
 \end{frame}
+
+\begin{frame}[fragile]
+
+\centering
+\includegraphics[width=.9\textwidth]{Treerotation}
+
+\begin{flushright}
+(Wikipedia)
+\end{flushright}
+\end{frame}
+
+
 
 \end{document}
