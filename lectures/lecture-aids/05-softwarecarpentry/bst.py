@@ -9,8 +9,7 @@ class _BinaryElem(object):
         elif elem < self.elem:
             if self.left:
                 return self.left.find(elem)
-            return None
-        if self.right:
+        elif self.right:
             return self.right.find(elem)
         return None
     
@@ -70,6 +69,41 @@ class BinarySearchTree(object):
             return 1 + _size(top.left) + _size(top.right)
         return _size(self.root)
 
+    def _rotateright(self,Q):
+        assert Q.left is not None
+        P = Q.left
+        A = P.left
+        B = P.right
+        C = Q.right
+        Q.elem, P.elem = P.elem, Q.elem
+        Q.left = A
+        Q.right = Q
+        P.left = B
+        P.right = C
+
+    def _rotateleft(self,P):
+        assert P.right is not None
+        Q = P.right
+        A = P.left
+        B = Q.left
+        C = Q.right
+        P.elem, Q.elem = Q.elem,P.elem
+        P.left = Q
+        P.right = C
+        Q.right = A
+        Q.left = B
+
+    def _rotatedown(self,node):
+        val = node.elem
+        while node.left or node.right:
+            assert node.elem == val
+            if node.left:
+                self.rotateright(node)
+                node = node.right
+            if node.right:
+                self.rotateleft(node)
+                node = node.left
+        return node
     def remove(self,elem):
         '''
         T.remove(value)
@@ -77,66 +111,28 @@ class BinarySearchTree(object):
         Remove element from tree
         NOP if element does not exist in tree.
         '''
-        def rotateleft(top):
-            assert top.left is not None
-            left = top.left
-            A = left.left
-            B = left.right
-            C = top.right
-            top.elem, left.elem = left.elem, top.elem
-            top.left = A
-            top.right = left
-            left.left = B
-            left.right = C
 
-        def rotateright(top):
-            assert top.right is not None
-            right = top.right
-            A = top.left
-            B = right.left
-            C = right.right
-            top.elem, right.elem = right.elem,top.elem
-            top.left = B
-            right.left = A
-            right.right = C
-
-        def rotatedown(top,elem):
-            while top.elem != elem:
-                if elem < top.elem:
-                    top = top.left
+        def removeleaf(leaf):
+            assert leaf.left is None
+            assert leaf.right is None
+            leafpar = self.root
+            while leafpar.left is not leaf and leafpar.right is not leaf:
+                if leaf.elem < leafpar.elem:
+                    leafpar = leafpar.left
                 else:
-                    top = top.right
-                if top is None:
-                    return
-            while top.left and top.right:
-                if top.left:
-                    rotateleft(top)
-                    top = top.left
-                if top.right:
-                    rotateright(top)
-                    top = top.right
-            return top
-
-        def removeleaf(top):
-            if elem < top.elem:
-                if top.left.elem == elem:
-                    assert top.left.left is None
-                    assert top.left.right is None
-                    top.left = None
-                else:
-                    removeleaf(top.left)
+                    leafpar = leafpar.right
+            if leafpar.left is leaf:
+                leafpar.left = None
             else:
-                if top.right == elem:
-                    assert top.right.right is None
-                    assert top.right.left is None
-                    top.right = None
-                else:
-                    removechildless(top.right)
+                leafpar.right = None
 
         if self.root is None:
             return
-        if self.root.find(elem) is None:
+        node = self.root.find(elem)
+        assert node.elem == elem
+        if node is None:
             return
-        top = rotatedown(self.root,elem)
-        removeleaf(top)
+        node = self._rotatedown(node)
+        removeleaf(node)
+        assert not self.find(elem)
 
