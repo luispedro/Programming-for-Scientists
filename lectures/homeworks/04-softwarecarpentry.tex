@@ -28,14 +28,34 @@ Alice argues ``Both go to the screen when I run the program, so printing errors 
 What is Bob talking about? (You can simply give an example of where things work differently if you use Bob or Alice's version.)
 
 \question % 2
+Recall the printargs.py script:
 
-\question % 3
+\begin{python}
+import sys
+print len(sys.argv)
+print sys.argv
+\end{python}
 
-\question % 4
+What gets printed when you run the following (the dollar sign is the prompt):
 
-\question % 5
-What does \texttt{svn diff} do?
+\begin{verbatim}
+$python printargs.py
+$python printargs.py one two three
+$python printargs.py *.py
+$python printargs.py *py
+\end{verbatim}
 
 \chapter{Programming Assignment}
+Create a subversion repository in one computer and check-out in another. (You are going to have to read up on this or look through the show-me-do video: check the website for links).
+
+\begin{enumerate}
+\item Create a Subversion repository.
+\item Create a checkout in another computer.
+\item Add a file \texttt{hello.py} which prints 'Hello World'
+\item Change the file to print more things.
+\item Commit that change.
+\item Make some new change.
+\item Run \texttt{svn diff} and email me the results.
+\end{enumerate}
 
 \end{document}
