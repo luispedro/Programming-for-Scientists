@@ -69,41 +69,6 @@ class BinarySearchTree(object):
             return 1 + _size(top.left) + _size(top.right)
         return _size(self.root)
 
-    def _rotateright(self,Q):
-        assert Q.left is not None
-        P = Q.left
-        A = P.left
-        B = P.right
-        C = Q.right
-        Q.elem, P.elem = P.elem, Q.elem
-        Q.left = A
-        Q.right = Q
-        P.left = B
-        P.right = C
-
-    def _rotateleft(self,P):
-        assert P.right is not None
-        Q = P.right
-        A = P.left
-        B = Q.left
-        C = Q.right
-        P.elem, Q.elem = Q.elem,P.elem
-        P.left = Q
-        P.right = C
-        Q.right = A
-        Q.left = B
-
-    def _rotatedown(self,node):
-        val = node.elem
-        while node.left or node.right:
-            assert node.elem == val
-            if node.left:
-                self.rotateright(node)
-                node = node.right
-            if node.right:
-                self.rotateleft(node)
-                node = node.left
-        return node
     def remove(self,elem):
         '''
         T.remove(value)
@@ -125,6 +90,41 @@ class BinarySearchTree(object):
                 leafpar.left = None
             else:
                 leafpar.right = None
+        def rotateright(Q):
+            assert Q.left is not None
+            P = Q.left
+            A = P.left
+            B = P.right
+            C = Q.right
+            Q.elem, P.elem = P.elem, Q.elem
+            Q.left = A
+            Q.right = Q
+            P.left = B
+            P.right = C
+
+        def rotateleft(P):
+            assert P.right is not None
+            Q = P.right
+            A = P.left
+            B = Q.left
+            C = Q.right
+            P.elem, Q.elem = Q.elem,P.elem
+            P.left = Q
+            P.right = C
+            Q.right = A
+            Q.left = B
+
+        def rotatedown(node):
+            val = node.elem
+            while node.left or node.right:
+                assert node.elem == val
+                if node.left:
+                    rotateright(node)
+                    node = node.right
+                if node.right:
+                    rotateleft(node)
+                    node = node.left
+            return node
 
         if self.root is None:
             return
@@ -132,7 +132,7 @@ class BinarySearchTree(object):
         assert node.elem == elem
         if node is None:
             return
-        node = self._rotatedown(node)
+        node = rotatedown(node)
         removeleaf(node)
         assert not self.find(elem)
 
