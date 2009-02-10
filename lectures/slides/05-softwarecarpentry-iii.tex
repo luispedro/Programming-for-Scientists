@@ -4,6 +4,32 @@
 \frame{\maketitle}
 
 \begin{frame}[fragile]
+\frametitle{Binary Seach Trees}
+
+\centering
+\includegraphics{200px-Binary_search_tree.svg.png}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Binary Search Tree Interface}
+
+\begin{itemize}
+\item constructor: creates empty tree
+\item insert(value): inserts elements
+\item find(value) -> boolean
+\item remove(value): removes a value
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\centering
+\includegraphics{Tree_rotation}
+
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Defensive Programming}
 
 Defensive programming means writing code that will catch bugs early.
@@ -93,6 +119,70 @@ In computer programming, a precondition is a condition or predicate that must al
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Programming by Contract}
+\begin{enumerate}
+\item pre-conditions.
+\item post-conditions.
+\item invariants.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{block}{Pre-condition}
+What must be true before calling a function.
+\end{block}
+
+\begin{block}{Post-condition}
+What is true after calling a function.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Pre-conditions}
+
+\begin{block}{Examples}
+\begin{itemize}
+\item sort: element must be comparable.
+\item dictionaries: keys must be immutable.
+\item \ldots
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Post-conditions}
+
+\begin{block}{Examples}
+\begin{itemize}
+\item \lstinline{sort}: elements are in sorted order.
+\item \lstinline{dict[k] = v}: key \lstinline{k} is associated with value \lstinline{v}
+\item \ldots
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Invariants}
+Invariants make sense only within the context of related functions (e.g., methods of a class).
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Bacteria class}
+\begin{itemize}
+\item \lstinline{sigma >= 0}
+\end{itemize}
+\end{block}
+
+\begin{block}{Binary Search Tree}
+\begin{itemize}
+\item Items in left sub-tree are smaller than cur item.
+\item Items in right sub-tree are bigger than cur item.
+\item All items are comparable.
+\end{itemize}
+\end{block}
+\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Testing}
@@ -141,6 +231,5 @@ Nose software testing framework:
 Make sure bugs only appear once!
 
 \end{frame}
-
 
 \end{document}
