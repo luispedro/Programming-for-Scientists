@@ -3,6 +3,7 @@ class _BinaryElem(object):
         self.elem = elem
         self.left = left
         self.right = right
+
     def find(self,elem):
         if self.elem == elem:
             return self
@@ -12,7 +13,7 @@ class _BinaryElem(object):
         elif self.right:
             return self.right.find(elem)
         return None
-    
+
     def add(self,elem):
         if self.elem == elem: return
         if elem < self.elem:
@@ -30,15 +31,15 @@ class BinarySearchTree(object):
     Binary Serch Tree
 
     Operations:
-        * create:
         * BST.add(value)
         * BST.remove(value)
         * BST.find(value)
+        * BST.size()
     '''
-    
+
     def __init__(self):
         self.root = None
-
+    
     def add(self,elem):
         '''
         T.add(value)

@@ -17,4 +17,5 @@ def test_bst():
     assert B.size() == 1
     assert not B.find(15)
     assert B.find(25)
+    assert not B.find(2)
 
