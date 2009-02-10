@@ -2,6 +2,14 @@
 Homeworks
 =================
 
+Homework 4 (due Feb 17)
+----------------------------------------------
+
+`Homework 4`_: This is a slightly different homework. The *programming assignment* is different and slightly longer. Therefore, you only get 2 questions. Be sure to check the notes_ for links.
+
+.. _`Homework 4`: homeworks/04-softwarecarpentry.pdf
+.. _notes: notes.html
+
 Homework 3 (due Feb 10)
 ----------------------------------------------
 
