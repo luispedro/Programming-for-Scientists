@@ -2,6 +2,16 @@
 Class Notes
 ==========================
 
+Software Carpentry: Debugging
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Links:
+    * The software carpentry website on debugging_ has some useful tips on debugging (called Rules).
+
+You might want to browse through the software carpentry website as it is the source of inspiration for this module.
+
+.. _debugging: http://www.swc.scipy.org/lec/debugging.html
+
 Software Carpentry: Testing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
