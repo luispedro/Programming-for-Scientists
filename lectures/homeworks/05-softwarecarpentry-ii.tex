@@ -8,6 +8,16 @@
 \chapter{Questions}
 
 \question % 1
+What is wrong with the following code?
+
+\begin{python}
+from os.path import exists
+...
+
+assert exists(inputfilename), 'User typed in wrong file name'
+input = file(inputfilename)
+...
+\end{python}
 
 \question % 2
 
@@ -18,6 +28,6 @@
 \question % 5
 
 \chapter{Programming Assignment}
-Write two tests for this function using the \lstinline{nosetest} framework.
+The first implementation of \texttt{bst.remove} that I wrote didn't correctly remove the last element of a set (calling remove() to remove the last element had no effect). Write a test for this behaviour using the nose conventions.
 
 \end{document}
