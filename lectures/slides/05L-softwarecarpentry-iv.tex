@@ -41,12 +41,14 @@ import logging
 # Setup logging
 
 logging.basicConfig(
-            level=logging.DEBUG, # FIXME: This should be read from os.env['PYTHON_DEBUG'] or some variation thereof
-            format='Python Process: %(asctime)s %(levelname)-8s %(message)s',
-            datefmt='%a, %d %b %Y %H:%M:%S',
-            #filename='slif.python.log',
-            #filemode='w'
-            )
+   # FIXME: This should be read from
+   # os.env['PYTHON_DEBUG'] or some variation thereof
+   level=logging.DEBUG,
+   format='%(asctime)s %(levelname)-8s %(message)s',
+   datefmt='%a, %d %b %Y %H:%M:%S',
+   #filename='slif.python.log',
+   #filemode='w'
+   )
 
 logging.info('Starting up')
 ...
