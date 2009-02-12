@@ -77,13 +77,10 @@ Performance doesn't matter until it matters.
 
 \begin{frame}[fragile]
 \frametitle{Making it faster}
-\begin{block}{90/10 Rule}
-Your code will spend 90\% of its time in 10\% of the code.
+\begin{block}{97/3 Rule}
+Your code will spend 97\% of its time in 3\% of the code.
 \end{block}
 
-\pause
-\bigskip
-Which 10\%?
 \end{frame}
 
 \begin{frame}[fragile]
@@ -98,15 +95,11 @@ Which 10\%?
 
 \begin{frame}[fragile]
 \frametitle{Profiler}
+Where are those 3\%?
+\bigskip
+\pause
 
-You don't (generally) know where the speed bottle neck will be!
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Performance Bugs}
-
-At one time, I wanted to optimise a bit of my code.
-
+You don't (generally) know where the speed-bottle necks will be!
 \end{frame}
 
 \begin{frame}[fragile]
@@ -117,6 +110,20 @@ import profiler
 ...
 profiler.run(code)
 \end{python}
+
+\bigskip
+or (inside \alert{ipython}):
+
+\begin{python}
+%prun code
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Performance Bugs}
+
+At one time, I wanted to optimise a bit of my code.
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -124,10 +131,9 @@ profiler.run(code)
 \begin{block}{Original Version}
 \begin{python}
 labeled,N = ndimage.label(protproc > 0)
-if N == 0:
-    return numpy.zeros(5,double)
 for obj in xrange(1,obj+1):
     objimage = croptobbox(protproc * (labeled == (obj+1)))
+    ...
 \end{python}
 \end{block}
 
@@ -135,11 +141,10 @@ for obj in xrange(1,obj+1):
 \begin{block}{Faster Version}
 \begin{python}
 labeled,N = ndimage.label(protproc > 0)
-if N == 0:
-    return numpy.zeros(5,double)
 objects = ndimage.find_objects(labeled)
 for i,slice in enumerate(objects):
     objimage = protproc[slice] * (labeled[slice] == (i+1))
+    ...
 \end{python}
 \end{block}
 \end{frame}
