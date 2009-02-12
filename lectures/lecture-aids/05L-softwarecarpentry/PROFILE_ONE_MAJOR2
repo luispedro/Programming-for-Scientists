@@ -1,0 +1,22 @@
+In [3]: cProfile.run("F=pyslic.computefeatures(z1_40[0],['skl'])")
+/usr/lib/python2.5/site-packages/scipy/ndimage/measurements.py:350: DeprecationWarning: integer argument expected, got float
+  return _nd_image.histogram(input, min, max, bins, labels, index)
+         1921568 function calls in 148.510 CPU seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    18872    0.882    0.000   35.659    0.002 bbox.py:27(bbox)
+     9436    0.138    0.000   35.211    0.004 bbox.py:74(croptobbox)
+        1    0.001    0.001  148.512  148.512 computefeatures.py:48(computefeatures)
+     9436    0.138    0.000    1.334    0.000 convexhull.py:34(convexhull)
+        1   90.468   90.468  147.490  147.490 imgskelfeats.py:34(imgskelfeatures)
+     9436    0.237    0.000    1.527    0.000 imgskelfeats.py:66(find_branch_points)
+     9436    0.971    0.000   56.921    0.006 imgskelfeats.py:80(objskelfeats)
+   281578    1.248    0.000   43.793    0.000 inline_tools.py:134(inline)
+   131352    1.340    0.000    9.758    0.000 mmthin.py:105(hitmiss)
+   131352    1.323    0.000    2.295    0.000 mmthin.py:160(fastany)
+     9436    2.694    0.000   16.992    0.002 mmthin.py:33(mmthin)
+        1    0.002    0.002    1.022    1.022 preprocess.py:34(preprocessimage)
+   286119   42.406    0.000   42.406    0.000 {apply}
+   117774    2.293    0.000    2.486    0.000 {numpy.core.multiarray.array}
