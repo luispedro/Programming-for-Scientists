@@ -134,6 +134,9 @@ class BinarySearchTree(object):
         if node is None:
             return
         node = rotatedown(node)
-        removeleaf(node)
+        if node is self.root:
+            self.root = None
+        else:
+            removeleaf(node)
         assert not self.find(elem)
 
