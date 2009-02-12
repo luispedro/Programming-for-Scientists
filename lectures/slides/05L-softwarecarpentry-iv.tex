@@ -1,0 +1,151 @@
+\input{slheader}
+\title{Software Carpentry IV: Profiling \& Debugging}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{Today's Lecture}
+
+\begin{itemize}
+\item Debugger
+\item Profiler
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Debugger}
+
+Your code will have bugs.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Three Ways to Debug}
+
+\begin{enumerate}
+\item Run in debugger.
+\item Debugger at ``crash'' (exception in Python).
+\item Print statements.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Print Statements}
+
+Learn about the \texttt{logging} module.
+
+\begin{python}
+import logging
+# Setup logging
+
+logging.basicConfig(
+            level=logging.DEBUG, # FIXME: This should be read from os.env['PYTHON_DEBUG'] or some variation thereof
+            format='Python Process: %(asctime)s %(levelname)-8s %(message)s',
+            datefmt='%a, %d %b %Y %H:%M:%S',
+            #filename='slif.python.log',
+            #filemode='w'
+            )
+
+logging.info('Starting up')
+...
+logging.debug('Executing this, that, and the other')
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{quote}
+Performance doesn't matter until it matters.
+
+---Python Lore
+\end{quote}
+
+
+\begin{frame}[fragile]
+
+\begin{quote}
+``We should forget about small efficiencies, say about 97\% of the time: premature optimization is the root of all evil.''
+
+--- Donald Knuth
+\end{quote}
+
+
+\end{frame}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Making it faster}
+\begin{block}{90/10 Rule}
+Your code will spend 90\% of its time in 10\% of the code.
+\end{block}
+
+\pause
+\bigskip
+Which 10\%?
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{quote}
+``We should forget about small efficiencies, say about 97\% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3\%.''
+
+---Donald Knuth
+\end{quote}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Profiler}
+
+You don't (generally) know where the speed bottle neck will be!
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Performance Bugs}
+
+At one time, I wanted to optimise a bit of my code.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Profiler}
+
+\begin{python}
+import profiler
+...
+profiler.run(code)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{block}{Original Version}
+\begin{python}
+labeled,N = ndimage.label(protproc > 0)
+if N == 0:
+    return numpy.zeros(5,double)
+for obj in xrange(1,obj+1):
+    objimage = croptobbox(protproc * (labeled == (obj+1)))
+\end{python}
+\end{block}
+\end{frame}
+
+\pause
+\begin{block}{Faster Version}
+\begin{python}
+labeled,N = ndimage.label(protproc > 0)
+if N == 0:
+    return numpy.zeros(5,double)
+objects = ndimage.find_objects(labeled)
+for i,slice in enumerate(objects):
+    objimage = protproc[slice] * (labeled[slice] == (i+1))
+\end{python}
+\end{block}
+\end{frame}
+
+
+\end{document}
