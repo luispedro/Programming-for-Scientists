@@ -2,6 +2,18 @@
 Class Notes
 ==========================
 
+Software Carpentry: Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Nose testing framework
+    * Nose_
+    * `Show Me Do Video`_ about nose
+    
+.. _Nose: http://somethingaboutorange.com/mrl/projects/nose/
+.. _`Show Me Do Video`: http://showmedo.com/videos/video?name=2910010&fromSeriesID=291
+
+If you install one of the bigger Python distributions like enthought, then nose should already be installed.
+
 Software Carpentry: Version Control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
