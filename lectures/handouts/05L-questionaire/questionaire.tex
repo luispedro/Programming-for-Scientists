@@ -1,0 +1,213 @@
+\documentclass[article,twoside]{memoir}
+\usepackage[latin9]{inputenc}
+\usepackage{psfrag}
+\usepackage{hyperref}
+\usepackage{eepic}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{sublabel}
+\usepackage[vlined,linesnumbered,ruled]{algorithm2e}
+\usepackage{multirow}
+%\usepackage[]{pgf}
+\usepackage[]{graphicx}
+
+\graphicspath{{../figures/other/}{../figures/generated/}}
+
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}} 
+\newcommand{\pdpd}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}} 
+\newcommand{\B}{\ensuremath{\mathbb{B}}}
+\newcommand*{\Pa}{\ensuremath{\text{\upshape\textbf{Pa}}}}
+\newcommand*{\Dkl}{\ensuremath{D_{\text{\textsc{kl}}}}}
+\newcommand*{\encspace}{\quad}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+
+\newcommand*{\slantfrac}[2]{\hbox{$\raisebox{-.4ex}{$\,^#1$}\!/_#2$}}
+\newcommand*{\onehalf}{\ensuremath{
+{\frac{1}{2}}%
+}}
+\newcommand*{\dx}{\,dx}
+\newcommand*{\dt}{\,dt}
+
+\newcommand*{\Expected}{\ensuremath{\mathbb{E}}}
+\newcommand*{\Var}{\ensuremath{\text{Var}}}
+\newcommand*{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand*{\Binary}{\ensuremath{\mathbb{B}}}
+\newcommand*{\discr}{\mbox{discr}}
+\newcommand*{\from}{\leftarrow}
+
+\newcommand*{\indicator}[1]{\hspace{1pt}[\hspace{-.4em}[\hspace{3pt} #1 \hspace{3pt}]\hspace{-.4em}]\hspace{2pt}}
+\newcommand*{\Assign}{\ensuremath\,:=\,}
+\newcommand*{\vect}[1]{\ensuremath{\bm{#1}}}
+\newcommand*{\textvalue}[1]{\mbox{\textsl{#1}}}
+\newcommand*{\bigO}{\mathcal{O}}
+\newcommand*{\MI}{\mbox{MI}}
+
+\DeclareMathOperator{\goodness}{score}
+\DeclareMathOperator{\powerset}{Pow}
+
+\author{Feeback Survey (Module 1)}
+\title{Programming for Scientists}
+
+\bibliographystyle{alpha}
+%\bibliographystyle{plain}
+\pagestyle{plain}
+
+\aliaspagestyle{chapter}{Ruled}
+\makeatletter
+\if@twoside
+	\makeoddhead{Ruled}{}{}{\scshape\rightmark}
+	\makeevenhead{Ruled}{\scshape\leftmark}{}{}
+	\makeevenfoot{Ruled}{\pagenumberfont\thepage}{}{}
+	\makeoddfoot{Ruled}{}{}{\pagenumberfont\thepage}
+	% Put section number on top
+	\def\sectionmark#1{\markright{#1 (\thesection)}}
+	\def\chaptermark#1{\markboth{#1}{#1}}
+	\renewcommand*{\bibmark}{\markboth{\bibname}{\bibname}} % I don't like empty headings!
+\else
+
+	% Put section number on top
+	\def\sectionmark#1{\markright{#1 (\thesection)}}
+	\def\chaptermark#1{\markright{#1 (\thechapter)}}
+
+	\makeoddhead{Ruled}{}{}{\scshape\rightmark}
+	\makeevenhead{Ruled}{}{}{\scshape\rightmark}
+	\makeevenfoot{Ruled}{}{}{\pagenumberfont\thepage}
+	\makeoddfoot{Ruled}{}{}{\pagenumberfont\thepage}
+	\renewcommand*{\bibmark}{\markright{\bibname}} % I don't like empty headings!
+
+
+\fi
+\makeatother
+
+%Change fonts: Page number sans-serif (much cleaner than the roman version)
+\def\pagenumberfont{\sffamily}
+% Change fonts: Section headers Sans-Serif:
+\setsecheadstyle{\Large\sffamily\raggedright}
+\setsubsecheadstyle{\large\sffamily\raggedright}
+\setsubsubsecheadstyle{\normalsize\sffamily\raggedright}
+
+% Title
+\pretitle{\LARGE\sffamily}
+\posttitle{\par\vspace{4ex}}
+\preauthor{\large\sffamily\hspace{1cm}}
+\postauthor{\par\vspace{3ex}}
+\predate{\small\sffamily\hspace{1cm}Lecture 1: Introduction (}
+\postdate{)\par\vspace{1cm}}
+\copypagestyle{title}{plain}
+\makeoddfoot{title}{}{}{}
+\makeevenfoot{title}{}{}{}
+
+\renewcommand{\abstractnamefont}{\sffamily}
+\renewcommand{\abstracttextfont}{}
+\renewcommand{\absnamepos}{flushleft}
+
+
+\makechapterstyle{mestrado}{% Originally ``AlexanderGrebenkov'', adapted
+\renewcommand{\chapterheadstart}{\goodbreak\vspace*{\beforechapskip}\medskip}
+\renewcommand{\chapnamefont}{\normalfont\Large\scshape}
+\renewcommand{\chapnumfont}{\normalfont\Large\scshape}
+\renewcommand{\chaptitlefont}{\normalfont\Large\scshape}
+\renewcommand{\printchaptername}{}
+\renewcommand{\chapternamenum}{}
+\renewcommand{\printchapternum}{\normalfont\Large\scshape\S\thechapter}
+\renewcommand{\afterchapternum}{\hspace{1em}}
+\renewcommand{\afterchaptertitle}{\par\nobreak\vspace{-.9em}\moveright 6pt\vbox to 1pt{\hrule width .64\textwidth}\nobreak\vskip\afterchapskip\nobreak}
+}
+\chapterstyle{mestrado}
+
+\SetCommentSty{textsl}
+
+
+\renewcommand{\baselinestretch}{1.2}
+\setlength{\parindent}{0pt}
+\newcommand*{\fillunderscore}{~\hrulefill}
+\newcommand*{\checkbox}{$\square$}
+\newcommand*{\yesno}{\hfill\mbox{yes\checkbox~no\checkbox}}
+\newcommand{\header}[1]{\textsl{#1}\par\medskip}
+\def\th#1{#1}
+\begin{document}
+\maketitle
+
+
+\chapter{Clarity}
+Are the subjects covered so far clear to you (after the lectures and the homeworks)?
+
+\begin{center}
+\begin{tabular}{lccccc}
+ \toprule
+ & \th{Totally }         & \th{A bit} & \th{Mostly}    & \th{Very} & \th{Crystal}\\
+ & \th{unclear}         & \th{unclear} & \th{Clear}    & \th{Clear} & \th{Clear}\\
+ \midrule
+Python (in general)     &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Exceptions              &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Shell                   &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+Version Control         &\checkbox &\checkbox &\checkbox &\checkbox &\checkbox \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+What was most unclear about the course so far? \fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore
+
+
+\chapter{Usefulness}
+Do you think you will use the technologies techniques covered?
+
+\begin{center}
+\begin{tabular}{lcccccc}
+ \toprule
+Will use & \th{No} & \th{Maybe}            & \th{Yes} \\
+ \midrule
+Python                     &\checkbox &\checkbox &\checkbox \\
+exceptions                 &\checkbox &\checkbox &\checkbox \\
+debugger                   &\checkbox &\checkbox &\checkbox \\
+profiler                   &\checkbox &\checkbox &\checkbox \\
+assert statement           &\checkbox &\checkbox &\checkbox \\
+version control system     &\checkbox &\checkbox &\checkbox \\
+unit tests                 &\checkbox &\checkbox &\checkbox \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+What did you \textbf{not find useful} to learn about and why? \fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore
+
+Is there anything you particularly liked or found useful? \fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore
+
+\chapter{General}
+Any other comments?  \fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+\fillunderscore\par\smallskip
+
+\end{document}
