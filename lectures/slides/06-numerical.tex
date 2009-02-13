@@ -1,0 +1,30 @@
+\input{slheader}
+\title{Numerical Representations}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{How Are Numbers Represented}
+
+It's all 0s \& 1s. How do you represent 123?
+
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+def fact(N):
+     if N == 0: return 1
+     return N * fact(N-1)
+
+print  fact(100)
+\end{python}
+
+Prints out
+
+933262154439441526816992388562667004907159682643816214\\
+685929638952175999932299156089414639761565182862536979\\
+20827223758251185210916864000000000000000000000000L
+
+\end{frame}
+
+\end{document}
