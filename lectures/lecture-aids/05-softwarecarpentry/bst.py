@@ -130,9 +130,9 @@ class BinarySearchTree(object):
         if self.root is None:
             return
         node = self.root.find(elem)
-        assert node.elem == elem
         if node is None:
             return
+        assert node.elem == elem
         node = rotatedown(node)
         if node is self.root:
             self.root = None
