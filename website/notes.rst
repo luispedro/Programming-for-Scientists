@@ -22,7 +22,7 @@ Nose testing framework
     
 .. _Nose: http://somethingaboutorange.com/mrl/projects/nose/
 .. _`Show Me Do Video`: http://showmedo.com/videos/video?name=2910010&fromSeriesID=291
-.. _MNEST: http://blogs.mathworks.com/steve/2009/02/03/mtest-a-unit-test-harness-for-matlab-code/
+.. _MTEST: http://blogs.mathworks.com/steve/2009/02/03/mtest-a-unit-test-harness-for-matlab-code/
 
 If you install one of the bigger Python distributions like enthought, then nose should already be installed.
 
