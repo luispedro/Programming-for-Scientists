@@ -14,6 +14,7 @@ These are the slides as delivered, except for the occasional fixed typo.
 8. `Lecture 7`_: Software Carpentry I: The shell
 9. `Lecture 8`_: Software Carpentry II: Version Control
 10. `Lecture 9`_: Software Carpentry III: Defensive Programming & Testing
+11. `Lecture 10`_: Software Carpentry IV: Profiling & Debugging
 
 
 .. _`Lecture 1`: http://coupland.cbi.cmu.edu/pfs/_static/01-intro.pdf
@@ -26,7 +27,8 @@ These are the slides as delivered, except for the occasional fixed typo.
 .. _`Lecture 7`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/04-softwarecarpentry.pdf
 .. _`Lecture 8`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/04L-softwarecarpentry-ii.pdf
 .. _`Lecture 9`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/05-softwarecarpentry-iii.pdf
+.. _`Lecture 10`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/05L-softwarecarpentry-iv.pdf
 
-If you'd like the LaTeX source for the above slides, email me (it's all available under `CC-By-Nc-SA`_).
+If you'd like the LaTeX source for the above slides, email me (it's all available under `CC-By-Nc-SA`_). At the end of the semester, I'll make the whole project available. For the time being, it's easier not to have to keep it all in sync.
 
 .. _`CC-By-Nc-SA`: http://creativecommons.org/licenses/by-nc-sa/3.0/us/
