@@ -87,12 +87,22 @@ Odds & ends of python 2. In-class exercises on Python.
 Lecture 1.4: Software Carpentry
 -------------------------------
 
-Source code management. Unit testing.
+Using the shell.
 
 Lab Session 4: Software Carpentry II
+------------------------------------
+
+Version control: Subversion.
+
+Lecture 1.5: Software Carpentry III
+------------------------------------
+
+Defensive Programming & Unit testing (nosetest).
+
+Lab Session 5: Software Carpentry IV
 ---------------------------------------
 
-Running the shell. Subversion. Nosetest.
+Debugger & Profiler.
 
 Scientific Programming
 ~~~~~~~~~~~~~~~~~~~~~~
