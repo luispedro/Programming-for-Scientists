@@ -109,74 +109,57 @@ Scientific Programming
 
 We focus on both basic issues of scientific computing (floating point representation) and an overview of basic algorithms for scientific tasks (in particular, numerical optimisation).
 
-Lecture 2.1: Integer Representation
+Lecture 2.1: Number Representation
 -----------------------------------
 
-Binary representation. How integers are represented in memory (positive and negative numbers), integer sizes. Thinking about memory allocation and temporaries.
+Binary representation. How integers are represented in memory (positive and negative numbers), integer sizes. Discussion of fixed-point vs. floating point. How floating point numbers are represented internally. Ieee numbers, nan's, Infs.
 
 Lab Session 5: Introduction to numpy
 ------------------------------------
 
 Using arrays to write code, reductions and broadcasting.
 
-Lecture 2.2:  Floating point
-----------------------------
+Lecture 2.3: Optimisation as a programming tool
+-----------------------------------------------
 
-Discussion of fixed-point vs. floating point. How floating point numbers are represented internally. Ieee numbers, nan's, Infs.
+Reformulating your problems as an optimisation problem. Limitations of this approach.  Newton's method. Gradient descent.
 
-Lab Session 6: Writing fast array-based code 
---------------------------------------------
-
-Lecture 2.3: Floating point II
-------------------------------
-
-Problems with floating point. Techniques to overcome under- and over-flow (using logarithms, re-writing expressions).
-
-Lab Session 7: Introduction to other scipy Tools
+Lab Session 6: Introduction to other scipy Tools
 ------------------------------------------------
+Thinking about memory allocation and temporaries.
 
-Lecture 2.4: Optimisation as a programming tool I
--------------------------------------------------
+Lecture 2.5: Random processes
+-----------------------------
 
-Reformulating your problems as an optimisation problem. Limitations of this approach.
+Pseudo-random numbers. Issues with stochasticity. Metropolis-Hastings Algorithm
 
-Lab Session 8: OpenOpt
+Lab Session 7: OpenOpt
 ----------------------
 
 Introduction to OpenOpt. Discussion of possible projects.
 
 Homework: Students should submit a project proposal (or choose from the instructor proposed projects).
 
-Lecture 2.5: Optimisation as a programming tool II 
---------------------------------------------------
-Newton's method. Gradient descent.
-
-Lab Session 9: Implementation of a numerical algorithm
-------------------------------------------------------
-
-Lecture 2.6: Random processes
------------------------------
-
-Pseudo-random numbers. Issues with stochasticity.
-
-Lab Session 10: Metropolis-Hastings Algorithm
----------------------------------------------
-
-Lecture 2.7: File parsing and regular expressions
+Lecture 2.5: File parsing and regular expressions
 -------------------------------------------------
+
 Discussion of file formats, encodings. Basic syntax of regular expressions.
 
-Lab Session 11: Parsing file formats
+Lab Session 8: Implementation of a numerical algorithm
+------------------------------------------------------
+
+Lecture 2.6: Packaging your code for others
+-------------------------------------------
+
+Publishing code is often part of the publication process with benefits for both the community and the author. In this lecture, we focus on the aspects inherent to a good, re-usable, software package. We also go over open-source licenses.
+
+
+Lab Session 9: Parsing file formats
 ------------------------------------
 
 Examples of more advanced regular expressions.
 
-Lecture 2.8: Packaging your code for others
--------------------------------------------
-
-Publishing code is often part of the publication process with benefits for both the community and the author. In this lecture, we focus on the aspects inherent to a good, re-usable, software package
-
-Lab Session 12: setup.py
+Lab Session 10: setup.py
 ------------------------
 
 Discussion of open source distribution licenses and models.
