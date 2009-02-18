@@ -2,6 +2,25 @@
 Class Notes
 ==========================
 
+Numpy
+~~~~~~~~
+
+Links:
+    * `Numpy for Matlab users`_
+    * `Numpy for R users`_
+    * `Numpy examples`_
+
+.. _`Numpy for Matlab users`: http://mathesaurus.sourceforge.net/matlab-numpy.html
+.. _`Numpy for R users`: http://mathesaurus.sourceforge.net/r-numpy.html
+.. _`Numpy examples`: http://www.scipy.org/Numpy_Example_List
+
+Numerical Representations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+See the paper `A Remarkable Example of Catastrophic Cancellation Unravelled`_ for an illustration of catastrophic cancellation.
+
+.. _`A Remarkable Example of Catastrophic Cancellation Unravelled`: http://www.springerlink.com/content/4hqxfemn24a0m3ep/
+
 Software Carpentry: Debugging
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
