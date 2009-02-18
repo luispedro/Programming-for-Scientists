@@ -2,6 +2,14 @@
 Homeworks
 =================
 
+Homework 5 (due Feb 24)
+----------------------------------------------
+
+`Homework 5`_. You don't strictly need it, but you might want to check out `bst.py`_.
+
+.. _`Homework 5`: homeworks/05-softwarecarpentry-ii.pdf
+.. _`bst.py`: _static/bst.py
+
 Homework 4 (due Feb 17)
 ----------------------------------------------
 
