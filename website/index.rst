@@ -12,28 +12,21 @@ Programming for Scientists
 
 .. _Class Info: class-info.html
 
+New Stuff
+---------
+
+  * [Feb 18] Links for numerical representation and numpy (see Notes_)
+  * [Feb 17] Homework 5 (see Homeworks_)
+
+.. _Notes: notes.html
+.. _Homeworks: homeworks.html
+
 Virtual Office Hours
 --------------------
 
 During office hours, you can IM me at cmu_98111@jabber.org using the jabber protocol (gtalk uses it, you can use gtalk), or ekiga_ cmu_98111@ekiga.net. I also promise to reply to all outstanding class email during that period.
 
 .. _ekiga: http://www.gnomemeeting.org/
-
-Pages
------------
-
-.. toctree::
-   :maxdepth: 1
-
-   homeworks
-   slides
-   audio
-   class-info
-   faq
-   notes
-   python
-   copyright
-
 
 Who is this class for?
 ----------------------
@@ -52,5 +45,17 @@ Who teaches it?
 
 This is a *student taught* course, taught by Luís Pedro Coelho, a third-year Ph.D. student in Computational Biology. Luís has a BS and an MS in computer science from IST in Lisbon.
 
+Pages
+-----------
 
+.. toctree::
+   :maxdepth: 1
 
+   homeworks
+   slides
+   audio
+   class-info
+   faq
+   notes
+   python
+   copyright
