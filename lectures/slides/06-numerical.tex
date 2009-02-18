@@ -33,9 +33,9 @@ $(b_4b_3b_2b_1b_0)_2 = b_4 2^4 + b_3 2^3 + b_2 2^2 + b_1 2^1 + b_0 2^0 = 16b_4 +
 
 \begin{enumerate}
 \item NOT(A): true if A is \alert{not} true (\lstinline{~A})
-\item AND(A,B): true if A is true and B is true (\lstinline{A \& B})
+\item AND(A,B): true if A is true and B is true (\lstinline{A & B})
 \item OR(A,B): true if either A or B are true (\lstinline{A | B})
-\item XOR(A,B): true if one is true and the other is false \lstinline{A \^ B}
+\item XOR(A,B): true if one is true and the other is false \lstinline{A ^ B}
 \end{enumerate}
 
 \note{
@@ -79,7 +79,7 @@ What about negative numbers?
 \begin{frame}[fragile]
 \frametitle{Sign Bit}
 
-$(s b_4 b_3 b_2 b_1 b_0)_2 = (-1)^s \left(b_4 2^4 + b_3 2^3 + b_2 2^2 + b_1 2^1 + b_0 2^0 = 16b_4 + 8b_3 + 4b_2 + 2 b_1 + b_0\right)$
+$(s b_4 b_3 b_2 b_1 b_0)_2 = (-1)^s \left(b_4 2^4 + b_3 2^3 + b_2 2^2 + b_1 2^1 + b_0 2^0 \right)$
 
 \end{frame}
 
@@ -94,10 +94,11 @@ Have a bias $B$, so that the number $n$ is representated as unsigned$(n+B)$.
 \frametitle{One's Complement}
 
 If $(b_k b_{k-1}\cdots b_1 b_0)_2$ is some number $n$, then we represent $-n$ by\\
-$(\tilde{}b_k \tilde{}b_{k-1}\cdots \tilde b_1 \tilde{} b_0)_2$ is some number $n$, then we represent $-n$ by
+$(\tilde{}b_k \tilde{}b_{k-1}\cdots \tilde{} b_1 \tilde{} b_0)_2$ is some number $n$, then we represent $-n$ by
 
 \pause
 
+\bigskip
 $(00000011)_2$ is $\phantom{-}3$\\
 $(11111100)_2$ is $-3$
 
@@ -108,11 +109,12 @@ $(11110000)_2$ is $-31$
 
 \bigskip
 
+\pause
 $(00000000)_2$ is $\phantom{-}0$\\
 $(11111111)_2$ is $-0$
 
-
 \pause
+\bigskip
 
 Ones' complement is not actually used in any modern machine.
 
@@ -122,7 +124,7 @@ Ones' complement is not actually used in any modern machine.
 \frametitle{Twos' Complement}
 
 \centering
-\includegraphics{Odometer2.jpg}
+\includegraphics[width=.7\textwidth]{Odometer2.jpg}
 
 \begin{flushright}
 Image from Wikipedia\\
@@ -200,7 +202,7 @@ $6.022 * 10^{23}$
 \]
 
 \centering
-\includegraphics{images/FP-format.png}
+\includegraphics[width=.6\textwidth]{images/FP-format.png}
 
 \note{
     Image (as all images in this lecture) from Wikipedia
@@ -211,7 +213,7 @@ $6.022 * 10^{23}$
 \frametitle{IEEE-754}
 
 \centering
-\includegraphics{images/FP-example.png}
+\includegraphics[width=.8\textwidth]{images/FP-example.png}
 
 \end{frame}
 
@@ -315,12 +317,23 @@ When they are too small, we say they \alert{underflow}.
 \[
 \lim_{x \to 0} \frac{1-\cos x}{x^2}
 \]
+
+\note{
+    work out on blackboard using Taylor expansion:
+
+    cos x = 1 - x2/2! + x4/4! - x6/6! + \ldots
+
+}%
+\begin{flushright}
+(Example from ``Introduction to Programming in Java'')
+\end{flushright}
+\note{http://www.cs.princeton.edu/introcs/home/}
 \end{frame}
 \begin{frame}[fragile]
 \frametitle{Catastrophic Cancellation}
 
 \centering
-\includegraphics{catastrophic.pdf}
+\includegraphics[width=.9\textwidth]{catastrophic.pdf}
 
 \end{frame}
 
