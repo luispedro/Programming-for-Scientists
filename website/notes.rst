@@ -9,10 +9,12 @@ Links:
     * `Numpy for Matlab users`_
     * `Numpy for R users`_
     * `Numpy examples`_
+    * The `Numpy Book`_ has probably too much detail, but it's a good reference.
 
 .. _`Numpy for Matlab users`: http://mathesaurus.sourceforge.net/matlab-numpy.html
 .. _`Numpy for R users`: http://mathesaurus.sourceforge.net/r-numpy.html
 .. _`Numpy examples`: http://www.scipy.org/Numpy_Example_List
+.. _`Numpy Book`: http://www.tramy.us/
 
 Numerical Representations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
