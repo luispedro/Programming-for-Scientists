@@ -1,0 +1,283 @@
+\input{slheader}
+\title{Numpy}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+
+\begin{frame}[fragile]
+\frametitle{Installation}
+
+\begin{itemize}
+\item \alert{Linux} Install packages \texttt{python-numpy} or similar.
+\item \alert{Windows} Use Python(x,y)
+\item \alert{Mac OS} Use Enthought Python Distribution
+\end{itemize}
+
+\end{frame}
+
+\frametitle{Historical}
+\note{
+    Without numpy, this class would have to use something other than Python!
+}
+
+\begin{itemize}
+\item Numeric (1995)
+\item Numarray (for large arrays)
+\item scipy.core (briefly, around 2005)
+\item numpy (2005)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Currently}
+\begin{itemize}
+\item numpy 1.2
+\item \alert{de facto} standard\note{ Not part of standard library, but no one uses anything else.}
+\item very stable \note{biggest effort last year: not on bugs, on documentation!}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Basic Type}
+
+\lstinline{numpy.array} or \lstinline{numpy.ndarray}.
+
+\bigsip
+Multi-dimensional array of numbers.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{numpy example}
+
+\begin{python}
+import numpy as np
+A = np.array([
+    [0,1,2],
+    [2,3,4],
+    [4,5,6],
+    [6,7,8]])
+print A[0,0]
+print A[0,1]
+print A[1,0]
+\end{python}
+
+\note{
+    comment on the np abbreviation.
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Some Array Properties}
+
+\begin{python}
+import numpy as np
+A = np.array([
+    [0,1,2],
+    [2,3,4],
+    [4,5,6],
+    [6,7,8]])
+print A.shape
+print A.size
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Some Array Functions}
+\begin{python}
+...
+print A.max()
+print A.min()
+\end{python}
+
+\begin{itemize}
+\item max(): maximum
+\item min(): minimum
+\item ptp(): spread (max - min)
+\item sum(): sum
+\item std(): standard deviation
+\item \ldots
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Other Functions}
+\begin{itemize}
+\item \lstinline{np.exp}
+\item \lstinline{np.sin}
+\item \ldots
+\end{itemize}
+
+All of these work \alert{element-wise}!
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Arithmetic Operations}
+\begin{python}
+import numpy as np
+A = np.array([0,1,2,3])
+B = np.array([1,1,2,2])
+
+print A + B
+print A * B
+print A / B
+\end{python}
+
+\note{Operations are element-wise!}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Broadcasting}
+Mixing arrays of different dimensions
+
+\begin{python}
+import numpy as np
+A = np.array([
+    [0,0,1],
+    [1,1,2],
+    [1,2,2],
+    [3,2,2]
+    ])
+B = np.array([2,1,2])
+
+print A + B
+print A * B
+\end{python}
+\note{
+    Present this as array of arrays instead of 2D-array.
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Broadcasting}
+Special case: scalar.
+
+\begin{python}
+import numpy as np
+A = np.arange(100)
+print A + 2
+A += 2
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Data Types}
+
+\lstinline{numpy.ndarray} is a homogeneous array of numbers.
+
+\begin{block}{Types}
+\begin{itemize}
+\item Boolean
+\item int8, int16, \ldots
+\item uint8, uint16,\ldots
+\item float32, float64,\ldots
+\item \ldots
+\end{itemize}
+\end{block}
+
+Some types are only available in some platforms (e.g., \lstinline{float96}).
+
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+import numpy as np
+A = np.array([0,1,1],np.float32)
+A = np.array([0,1,1],float)
+A = np.array([0,1,1],bool)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reduction}
+
+\begin{python}
+A = np.array([
+    [0,0,1],
+    [1,2,3],
+    [2,4,2],
+    [1,0,1]])
+print A.max(0)
+print A.max(1)
+print A.max()
+\end{python}
+prints
+\begin{verbatim}
+[2,4,3]
+[1,3,4,1]
+4
+\end{verbatim}
+
+The same is true for many other functions.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Slicing}
+
+\begin{python}
+import numpy as np
+A = np.array([
+    [0,1,2],
+    [2,3,4],
+    [4,5,6],
+    [6,7,8]])
+print A[0]
+print A[0].shape
+print A[1]
+print A[:,2]
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Slices Share Memory!}
+\begin{python}
+import numpy as np
+A = np.array([
+    [0,1,2],
+    [2,3,4],
+    [4,5,6],
+    [6,7,8]])
+B = A[0]
+B[0] = -1
+print A[0,0]
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+def double(A):
+    A *= 2
+
+A = np.arange(20)
+double(A)
+\end{python}
+\pause
+\begin{python}
+A = np.arange(20)
+B = A.copy()
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Logical Arrays}
+\begin{python}
+A = np.array([-1,0,1,2,-2])
+print (A > 0)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Logical Indexing}
+\begin{python}
+A[A < 0] = 0
+\end{python}
+or
+\begin{python}
+A *= (A > 0)
+\end{python}
+\end{frame}
+
+\end{document}
