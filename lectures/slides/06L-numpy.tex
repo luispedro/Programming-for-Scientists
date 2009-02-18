@@ -1,0 +1,91 @@
+\input{slheader}
+\title{Numpy}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{Historical}
+\note{
+    Without numpy, this class would have to use something other than Python!
+}
+
+\begin{itemize}
+\item Numeric (1995)
+\item Numarray (for large arrays)
+\item scipy.core (briefly, around 2005)
+\item numpy (2005)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Currently}
+\begin{itemize}
+\item numpy 1.2
+\item \alert{de facto} standard\note{ Not part of standard library, but no one uses anything else.}
+\item very stable \note{biggest effort last year: not on bugs, on documentation!}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Basic Type}
+
+\lstinline{numpy.array} or \lstinline{numpy.ndarray}.
+
+\bigsip
+Multi-dimensional array of numbers.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{numpy example}
+
+\begin{python}
+import numpy as np
+A = np.array([
+    [0,1,2],
+    [2,3,4],
+    [4,5,6],
+    [6,7,8]])
+print A[0,0]
+print A[0,1]
+print A[1,0]
+\end{python}
+
+\note{
+    comment on the np abbreviation.
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Slicing}
+
+\begin{python}
+import numpy as np
+A = np.array([
+    [0,1,2],
+    [2,3,4],
+    [4,5,6],
+    [6,7,8]])
+print A[0]
+print A[1]
+print A[:,2]
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Slices Share Memory!}
+\begin{python}
+import numpy as np
+A = np.array([
+    [0,1,2],
+    [2,3,4],
+    [4,5,6],
+    [6,7,8]])
+B = A[0]
+B[0] = -1
+print A[0,0]
+\end{python}
+
+\end{frame}
+
+\end{document}
