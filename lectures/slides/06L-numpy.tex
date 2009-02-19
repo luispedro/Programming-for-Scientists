@@ -249,7 +249,7 @@ print A[0,0]
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Pass is By-Reference}
+\frametitle{Pass is By Reference}
 
 \begin{python}
 def double(A):
@@ -268,9 +268,19 @@ B = A.copy()
 \begin{frame}[fragile]
 \frametitle{Logical Arrays}
 \begin{python}
-A = np.array([-1,0,1,2,-2])
+A = np.array([-1,0,1,2,-2,3,4,-2])
 print (A > 0)
 \end{python}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Logical Arrays II}
+\begin{python}
+A = np.array([-1,0,1,2,-2,3,4,-2])
+print ( (A > 0) & (A < 3) ).mean()
+\end{python}
+
+What does this do?
+\note{Prints the fraction of elements between 0 and 3.}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -283,6 +293,7 @@ or
 A *= (A > 0)
 \end{python}
 \end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{Logical Indexing}
