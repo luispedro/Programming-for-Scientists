@@ -1,0 +1,108 @@
+\input{slheader}
+\title{File Parsing \& Regular Expressions}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{File Representions}
+\begin{block}{What's a File?}
+A sequence of bytes.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File Format Examples: FASTA format}
+\begin{verbatim}
+> qqq
+ACTGTC
+CTGTAA
+CCCCTG
+ACTTC
+> ppp
+TTTAATA
+TACCATA
+ATT
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File Format Examples (II): GenBank}
+
+\begin{verbatim}
+LOCUS       SCU49845     5028 bp    DNA             PLN       21-JUN-1999
+DEFINITION  Saccharomyces cerevisiae TCP1-beta gene, partial cds, and Axl2p
+            (AXL2) and Rev7p (REV7) genes, complete cds.
+ACCESSION   U49845
+VERSION     U49845.1  GI:1293613
+KEYWORDS    .
+SOURCE      Saccharomyces cerevisiae (baker's yeast)
+  ORGANISM  Saccharomyces cerevisiae
+            Eukaryota; Fungi; Ascomycota; Saccharomycotina; Saccharomycetes;
+            Saccharomycetales; Saccharomycetaceae; Saccharomyces.
+...
+ORIGIN
+        1 gatcctccat atacaacggt atctccacct caggtttaga tctcaacaac ggaaccattg
+       61 ccgacatgag acagttaggt atcgtcgaga gttacaagct aaaacgagca gtagtcagct
+      121 ctgcatctga agccgctgaa gttctactaa gggtggataa catcatccgt gcaagaccaa
+      181 gaaccgccaa tagacaacat atgtaacata tttaggatat acctcgaaaa taataaaccg
+      241 ccacactgtc attattataa ttagaaacag aacgcaaaaa ttatccacta tataattcaa
+      301 agacgcgaaa aaaaaagaac aacgcgtcat agaacttttg gcaattcgcg tcacaaataa
+      361 attttggcaa cttatgtttc ctcttcgagc agtactcgag ccctgtctca agaatgtaat
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Representing Text}
+\begin{block}{ASCII}
+\begin{itemize}
+\item 65: A
+\item 66: B
+\item \ldots
+\item 48: 0
+\item 49: 1
+\item \ldots
+\item \ldots
+\end{itemize}
+
+127 code points taken.
+\end{block}
+
+\begin{frame}[fragile]
+\frametitle{What About International Characters?}
+
+\begin{itemize}
+\item Such as \'{a} or \c{c}?
+\item Or $\mu$?
+\item Or ---?
+\end{itemize}
+It's a mess!
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{International Character Sets}
+
+\begin{itemize}
+\item Traditional (latin--1,latin--9,latin--15,\ldots)
+\item Unicode (16-bits, or 32-bits)
+\item UTF-8
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Unicode}
+
+Use 16~bits for (almost) all possible possible characters.\\
+Use 32~bits for all possible characters.
+
+\begin{block}{Byte Order}
+If you have a 2~byte number, which byte do you write first?
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{UTF-8}
+Emerging standard (at some level).
+\end{frame}
+
+\end{document}
