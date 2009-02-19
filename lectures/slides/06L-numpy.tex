@@ -182,6 +182,8 @@ Some types are only available in some platforms (e.g., \lstinline{float96}).
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Object Construction}
+
 \begin{python}
 import numpy as np
 A = np.array([0,1,1],np.float32)
@@ -247,6 +249,8 @@ print A[0,0]
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Pass is By-Reference}
+
 \begin{python}
 def double(A):
     A *= 2
@@ -279,5 +283,42 @@ or
 A *= (A > 0)
 \end{python}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Logical Indexing}
+
+\begin{python}
+print 'Mean of positives', A[A > 0].mean()
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Some Helper Functions}
+
+\begin{block}{Constructing Arrays}
+\begin{python}
+A = np.zeros((10,10), dtype=np.int8)
+B = np.ones(10)
+C = np.arange(100).reshape((10,10))
+...
+\end{python}
+\end{block}
+
+\begin{block}{Multiple Dimensions}
+\begin{python}
+img = np.zeros((1024,1024,3),dype=np.uint8)
+\end{python}
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Documentation}
+
+\href{http://docs.scipy.org/doc/}{http://docs.scipy.org/doc/}
+
+\end{frame}
+
 
 \end{document}
