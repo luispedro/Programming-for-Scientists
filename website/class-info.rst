@@ -122,19 +122,28 @@ Using arrays to write code, reductions and broadcasting.
 Lecture 2.3: Optimisation as a programming tool
 -----------------------------------------------
 
+*Feb 24*.
+
 Reformulating your problems as an optimisation problem. Limitations of this approach.  Newton's method. Gradient descent.
 
 Lab Session 6: Introduction to other scipy Tools
 ------------------------------------------------
-Thinking about memory allocation and temporaries.
+
+*Feb 26*
+
+Thinking about memory allocation and temporaries. Projects
 
 Lecture 2.5: Random processes
 -----------------------------
 
+*Mar 3*
+
 Pseudo-random numbers. Issues with stochasticity. Metropolis-Hastings Algorithm
 
-Lab Session 7: OpenOpt
-----------------------
+Lab Session 7: OpenOpt/Scipy
+-----------------------------
+
+*Mar 5*
 
 Introduction to OpenOpt. Discussion of possible projects.
 
@@ -143,26 +152,36 @@ Homework: Students should submit a project proposal (or choose from the instruct
 Lecture 2.5: File parsing and regular expressions
 -------------------------------------------------
 
+*Mar 17*
+
 Discussion of file formats, encodings. Basic syntax of regular expressions.
 
-Lab Session 8: Implementation of a numerical algorithm
+Lab Session 8: Implementation of a Simple Program
 ------------------------------------------------------
 
-Lecture 2.6: Packaging your code for others
--------------------------------------------
-
-Publishing code is often part of the publication process with benefits for both the community and the author. In this lecture, we focus on the aspects inherent to a good, re-usable, software package. We also go over open-source licenses.
+*Mar 19*
 
 
-Lab Session 9: Parsing file formats
-------------------------------------
+Lecture 2.6: Open Source. Packaging your code for others
+--------------------------------------------------------
 
-Examples of more advanced regular expressions.
+*Mar 24*
 
-Lab Session 10: setup.py
+Publishing code is often part of the publication process with benefits for both the community and the author. In this lecture, we focus on the aspects inherent to a good, re-usable, software package. We also go over open-source licenses. Re-produceable research.
+
+
+Lab Session 9: setup.py
 ------------------------
 
+*Mar 26*
+
 Discussion of open source distribution licenses and models.
+
+Lab Session 10: TBA
+------------------------------------
+
+*Mar 31*
+
 
 Applied Topics
 ~~~~~~~~~~~~~~
@@ -189,8 +208,8 @@ Lab Session 14: Databases
 
 How to build a database.
 
-Lecture 3.3: Buffer
--------------------
+Lecture 3.3: Django
+--------------------
 
 Buffer time for overflow from other lectures.
 
