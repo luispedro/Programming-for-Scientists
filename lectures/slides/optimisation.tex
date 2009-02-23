@@ -17,11 +17,71 @@ s.t. x \in S
 \frametitle{Simple Example}
 
 \[
-f(x) = x^4-2x^3+x
+f(x) = x^4+4x^3-4x
 \]
 
 Let's look to minimise $f(x)$.
 
+\end{frame}
+
+\begin{frame}[fragile]
+
+\centering
+\includegraphics[width=.9\textwidth]{functionmin.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Linear Least-Squares}
+
+Linear least-squares has a closed-form \alert{fast} solution.
+
+\[
+y = X \beta
+\]
+
+Where $y \in R^{n} \beta \in R^m, X \in R^{n \times m}$, where $y$ and $X$ are given.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Two Solutions}
+
+\begin{block}{Pseudo-Inverse}
+\[
+\hat{\beta} = (X X^T)^{-1}X^T y
+\]
+\end{block}
+
+\pause
+This is, generally, not a good idea.
+\pause
+\begin{block}{Use An Equation Solver}
+\begin{python}
+X = np.array(...)
+y = np.array(...)
+beta = scipy.linalg.leastsq(X,y)
+\end{python}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Polynomial Fit}
+
+Let's say you have one input variable~$x$ and an output $y$ and you want to fit a 3rd-degree polynomial.\\
+Is this a linear regression?
+\pause
+Yes!
+
+\[
+y = \beta_3 x^3 + \beta_2 x^2 + \beta_1 x + \beta_0,
+\]
+
+can be written as
+
+\[
+y = [ x^3 x^2 x^1 1] [\beta_3 \beta_2 \beta_1 \beta_0 ]^{T}.
+\]
 \end{frame}
 
 \end{document}
