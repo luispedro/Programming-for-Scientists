@@ -1,3 +1,4 @@
+import numpy
 from pylab import *
 X = linspace(-4,2,1000)
 def f(x):
@@ -22,6 +23,18 @@ def newton(x0):
         Xs.append(Xs[-1]-f_(Xs[-1])/f__(Xs[-1]))
     return np.array(Xs)
 
+R = numpy.random.RandomState(123)
+def greedy(x0,sigma):
+    Rs = [x0]
+    for i in xrange(1000):
+        c = Rs[-1] + R.normal(scale=sigma)
+        if f(c) < f(Rs[-1]):
+            Rs.append(c)
+        else:
+            Rs.append(Rs[-1])
+    return np.array(Rs)
+
+
 for x0 in (2.,-4.):
     Xs = graddesc(x0)
     for k in [2,10,25,100,1000]:
@@ -38,6 +51,25 @@ for x0 in (2.,-4.):
     plot(X,f(X))
     plot(N[:10],f(N[:10]),'rx')
     savefig('generated/newton-x0%s.pdf' % int(x0))
+
+    Rs = greedy(2.,0.1)
+    clf()
+    xlabel(r'$x$')
+    ylabel(r'$x^4+4x^3-4x$')
+    plot(X,f(X))
+    plot(Rs[:100],f(Rs[:100]),'rx')
+    savefig('generated/random-x0%s-sigma-1.pdf' % int(x0))
+
+
+    Rs = greedy(2.,1.)
+    clf()
+    xlabel(r'$x$')
+    ylabel(r'$x^4+4x^3-4x$')
+    plot(X,f(X))
+    plot(Rs[:100],f(Rs[:100]),'rx')
+    savefig('generated/random-x0%s-sigma1.pdf' % int(x0))
+
+
     
     clf()
     plot(f(Xs[:20]),'r')
