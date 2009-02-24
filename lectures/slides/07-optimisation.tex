@@ -113,6 +113,7 @@ s.t.\,\,\,& Ax \le b
 
 \begin{block}{Example}
 You can manufacture 3~types of widgets:
+\begin{center}
 \begin{tabular}{lrrrrrr}
 \toprule
       & $R_1$ & $R_2$ & $R_3$ & $R_4$ & $P$ \\
@@ -122,6 +123,7 @@ $W_2$ &    5  &    1  &   10  &    1  &  3  \\
 $W_3$ &  100  &  120  &    9  &  1.8  & 90  \\
 \bottomrule
 \end{tabular}
+\end{center}
 \end{block}
 \end{frame}
 
@@ -138,9 +140,11 @@ $W_3$ &  100  &  120  &    9  &  1.8  & 90  \\
 
 \begin{enumerate}
 \item Start with some prediction $x_0$
+\item $i \Assign 0$
 \item While \emph{not bored}
 \begin{enumerate}
-\item $x_{i+1} = x_i - \varepsilon f'(x_i)$
+\item $x_{i+1} \Assign x_i - \varepsilon f'(x_i)$
+\item $i \Assign i + 1$
 \end{enumerate}
 \end{enumerate}
 \end{frame}
@@ -154,6 +158,7 @@ $W_3$ &  100  &  120  &    9  &  1.8  & 90  \\
 \only<2>{\includegraphics[width=.9\textwidth]{graddesc-x02-10.pdf}}%
 \only<3>{\includegraphics[width=.9\textwidth]{graddesc-x02-25.pdf}}%
 \only<4>{\includegraphics[width=.9\textwidth]{graddesc-x02-100.pdf}}
+\only<5>{\includegraphics[width=.9\textwidth]{graddesc-x02-1000.pdf}}
 
 \end{overprint}
 \end{frame}
@@ -163,12 +168,171 @@ $W_3$ &  100  &  120  &    9  &  1.8  & 90  \\
 \begin{overprint}
 
 \centering
-\only<1>{\includegraphics[width=.9\textwidth]{graddesc-x0-2-2.pdf}}%
-\only<2>{\includegraphics[width=.9\textwidth]{graddesc-x0-2-10.pdf}}%
-\only<3>{\includegraphics[width=.9\textwidth]{graddesc-x0-2-25.pdf}}%
-\only<4>{\includegraphics[width=.9\textwidth]{graddesc-x0-2-100.pdf}}
+\only<1>{\includegraphics[width=.9\textwidth]{graddesc-x0-4-2.pdf}}%
+\only<2>{\includegraphics[width=.9\textwidth]{graddesc-x0-4-10.pdf}}%
+\only<3>{\includegraphics[width=.9\textwidth]{graddesc-x0-4-25.pdf}}%
+\only<4>{\includegraphics[width=.9\textwidth]{graddesc-x0-4-100.pdf}}
+\only<5>{\includegraphics[width=.9\textwidth]{graddesc-x0-4-1000.pdf}}
 
 \end{overprint}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Multi-dimension}
+
+\centering
+\includegraphics[width=.7\textwidth]{GradientDescent.png}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Newton's Method}
+
+Newton-Raphson solves a similar problem:
+
+\[
+f(x) = 0
+\]
+
+by iterating
+
+\[
+x_{i+1} = x_i - \frac{f(x_i)}{f'(x_{i})}
+\]
+
+\note{This is equivalent to an optimization problem if we set $f'(x) = 0$.}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Newton's Method}
+
+\centering
+\includegraphics[width=.9\textwidth]{newton-x02.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Newton's Method}
+
+\centering
+\includegraphics[width=.9\textwidth]{newton-x0-4.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Newton's Method vs. Gradient Descent}
+
+\centering
+\includegraphics[width=.9\textwidth]{newton-vs-gd-x0-4.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Derivatives?}
+
+In gradient descent, we need \alert{derivatives}. What if the function is a complex function?
+
+\pause
+
+\[
+\frac{\partial f}{\partial x_i}(\vec{x}) = \frac{f(x_0,\cdots,x_i+h,\cdots,x_n) - f(x_0,\cdots,x_i,\cdots,x_n)}{h}.
+\]
+
+This works for very complex functions.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Random Greedy Hill Descent}
+\begin{enumerate}
+\item $x_0 \Assign ...$
+\item For $i \in \{ 1, \cdots , N \}$
+\begin{enumerate}
+\item $C \Assign x_i + \mathcal{N}(0,\sigma)$
+\item If $f(C) < f(x_i)$, then $x_{i+1} \Assign C$
+\item Else $x_{i+1} \Assign x_i$
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\centering
+\includegraphics[width=.9\textwidth]{random-x02-sigma-1.pdf}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+
+\centering
+\includegraphics[width=.9\textwidth]{random-x02-sigma1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{In Practice}
+
+\begin{block}{Always Use Pre-Written Functions!}
+\begin{itemize}
+\item They are (mostly) \alert{gradient descent} or \alert{Newton-Raphson}.
+\item However, they are \alert{much better} than anything you could write\\
+    (unless you spend a couple of years working on it).
+\item They can fall into local minima.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+import scipy.optimize
+def f(x):
+    return x**4+4*x**3-4*x
+
+print scipy.optimize.fmin(f,2.)
+print scipy.optimize.fmin_cg(f,2.)
+\end{python}
+prints out
+\begin{verbatim}
+Optimization terminated successfully.
+         Current function value: -1.445622
+         Iterations: 17
+         Function evaluations: 34
+array([ 0.53212891])
+
+Optimization terminated successfully.
+         Current function value: -15.234422
+         Iterations: 4
+         Function evaluations: 30
+         Gradient evaluations: 10
+array([-2.87938508])
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{OpenOpt}
+
+\begin{python}
+import scikits.openopt
+def f(x):
+    return x**4+4*x**3-4*x
+
+P = scikits.openopt.NLP(f,2)
+result = P.solve('ralg')
+print 'result:', result.xf
+\end{python}
+\begin{verbatim}
+solver: ralg   problem: unnamed   goal: minimum
+ iter    objFunVal
+   ...
+istop:  4 (|| F[k] - F[k-1] || < ftol)
+Solver:   Time Elapsed = 0.03   CPU Time Elapsed = 0.02
+objFunValue: -15.234422
+
+result: [-2.87941895]
+\end{verbatim}
+
 \end{frame}
 
 \end{document}
