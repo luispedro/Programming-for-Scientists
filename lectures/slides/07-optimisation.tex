@@ -7,8 +7,8 @@
 \frametitle{Optimisation}
 
 \begin{align*}
-\min_x f(x)\\
-s.t. x \in S
+\min_x & f(x)\\
+s.t.\,\,  &x \in S
 \end{align*}
 
 \end{frame}
@@ -32,15 +32,34 @@ Let's look to minimise $f(x)$.
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Taxonomy of Minimisation Problems}
+\begin{align*}
+\min_x & f(x)\\
+s.t.\,\,  &x \in S
+\end{align*}
+
+\begin{itemize}
+\item What is the form of $f$?
+\item What is the form of $S$?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Linear Least-Squares}
 
-Linear least-squares has a closed-form \alert{fast} solution.
-
 \[
-y = X \beta
+\min_{\beta} (y - X\beta)^2;
 \]
 
-Where $y \in R^{n} \beta \in R^m, X \in R^{n \times m}$, where $y$ and $X$ are given.
+or find an approximation to
+
+\[
+y = X \beta,
+\]
+
+where $y \in R^{n} \beta \in R^m, X \in R^{n \times m}$, where $y$ and $X$ are given.
+
+Linear least-squares has a closed-form \alert{fast} solution.
 
 \end{frame}
 
@@ -53,7 +72,6 @@ Where $y \in R^{n} \beta \in R^m, X \in R^{n \times m}$, where $y$ and $X$ are g
 \]
 \end{block}
 
-\pause
 This is, generally, not a good idea.
 \pause
 \begin{block}{Use An Equation Solver}
@@ -82,6 +100,75 @@ can be written as
 \[
 y = [ x^3 x^2 x^1 1] [\beta_3 \beta_2 \beta_1 \beta_0 ]^{T}.
 \]
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Linear Programming}
+\begin{block}{Linear Programming}
+\begin{align*}
+\min & c\cdot x\\
+s.t.\,\,\,& Ax \le b
+\end{align*}
+\end{block}
+
+\begin{block}{Example}
+You can manufacture 3~types of widgets:
+\begin{tabular}{lrrrrrr}
+\toprule
+      & $R_1$ & $R_2$ & $R_3$ & $R_4$ & $P$ \\
+\midrule                      
+$W_1$ &   10  &   20  &    9  &  0.1  & 20  \\
+$W_2$ &    5  &    1  &   10  &    1  &  3  \\
+$W_3$ &  100  &  120  &    9  &  1.8  & 90  \\
+\bottomrule
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Gradient Descent}
+
+\centering
+\includegraphics[width=.9\textwidth]{functionmin.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Gradient Descent}
+
+\begin{enumerate}
+\item Start with some prediction $x_0$
+\item While \emph{not bored}
+\begin{enumerate}
+\item $x_{i+1} = x_i - \varepsilon f'(x_i)$
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{overprint}
+
+\centering
+\only<1>{\includegraphics[width=.9\textwidth]{graddesc-x02-2.pdf}}%
+\only<2>{\includegraphics[width=.9\textwidth]{graddesc-x02-10.pdf}}%
+\only<3>{\includegraphics[width=.9\textwidth]{graddesc-x02-25.pdf}}%
+\only<4>{\includegraphics[width=.9\textwidth]{graddesc-x02-100.pdf}}
+
+\end{overprint}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{overprint}
+
+\centering
+\only<1>{\includegraphics[width=.9\textwidth]{graddesc-x0-2-2.pdf}}%
+\only<2>{\includegraphics[width=.9\textwidth]{graddesc-x0-2-10.pdf}}%
+\only<3>{\includegraphics[width=.9\textwidth]{graddesc-x0-2-25.pdf}}%
+\only<4>{\includegraphics[width=.9\textwidth]{graddesc-x0-2-100.pdf}}
+
+\end{overprint}
 \end{frame}
 
 \end{document}
