@@ -15,6 +15,7 @@ Programming for Scientists
 New Stuff
 ---------
 
+  * [Feb 24] Homework 6 (see Homeworks_)
   * [Feb 18] Links for numerical representation and numpy (see Notes_)
   * [Feb 17] Homework 5 (see Homeworks_)
 

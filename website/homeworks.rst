@@ -2,6 +2,13 @@
 Homeworks
 =================
 
+Homework 6 (due Mar 3)
+----------------------------------------------
+
+`Homework 6`_.
+
+.. _`Homework 6`: homeworks/06-numerical.pdf
+
 Homework 5 (due Feb 24)
 ----------------------------------------------
 
