@@ -11,13 +11,56 @@
 What is under-flow (when talking about numerical precision)?
 
 \question % 2
+What is the smallest (i.e., smallest absolute value) that a 32~bit \textsc{ieee-754} float can represent? (Hint: Wikipedia has the answer to this question).
 
 \question % 3
+You will sometimes see the following programming idiom:
+
+\begin{python}
+import numpy as np
+mystery = np.uint32(-1)
+\end{python}
+
+What is the value of mystery? Why would we be interested in this particular value? (Hint: think of its bit representation).
 
 \question % 4
+With numpy, we saw that we could easily create an array of 32~bit numbers:
+
+\begin{python}
+import numpy as np
+A = np.array([1,2,3,4,5],np.int32)
+\end{python}
+
+However, it is also possible to simply use a traditional Python list:
+
+\begin{python}
+A = [1,2,3,4,5]
+\end{python}
+
+This has the advantage of using Python numbers, which are of infinite precision, instead of being limited to 32~bits. Given this obvious disadvantage, why would anyone use the 32~bit array? (There is more than one reason, but you only need to give one).
 
 \question % 5
+Consider the following code
+
+\begin{python}
+import numpy as np
+...
+M = A.ptp(0)
+\end{python}
+
+If $A$ is of shape $(120,1000)$, what is the resulting shape of $M$? What does the ptp function return?
 
 \chapter{Programming Assignment}
+
+Consider the following approximation to compute an integral:
+
+\begin{equation}
+\int_0^{1} f(x)dx \approx \sum_{i = 0}^{999} \frac{f(i/1000)}{1000}.
+\end{equation}
+
+\begin{enumerate}
+\item Implement two versions of this for integrating $f(x) = x^2$. One should use ``pure Python'' (i.e., you should not require any \lstinline{import}s). Another should be based on \lstinline{numpy} (where you compute all the values $f(i/1000)$ in a single step).
+\item Determine which version is faster. (Hint: You might need to run each version a many times to be able to get a meaningful answer.)
+\end{enumerate}
 
 \end{document}
