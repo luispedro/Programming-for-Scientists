@@ -17,7 +17,7 @@ These are the slides as delivered, except for the occasional fixed typo.
 11. `Lecture 10`_: Software Carpentry IV: Profiling & Debugging
 12. `Lecture 11`_: Numerical Representations
 13. `Lecture 12`_: Numpy
-
+14. `Lecture 13`_: Function Minimisation
 
 .. _`Lecture 1`: http://coupland.cbi.cmu.edu/pfs/_static/01-intro.pdf
 .. _`Tutorial Session`: http://coupland.cbi.cmu.edu/pfs/_static/E1-introprogramming.pdf
@@ -32,6 +32,7 @@ These are the slides as delivered, except for the occasional fixed typo.
 .. _`Lecture 10`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/05L-softwarecarpentry-iv.pdf
 .. _`Lecture 11`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/06-numerical.pdf
 .. _`Lecture 12`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/06L-numpy.pdf
+.. _`Lecture 13`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/07-optimisation.pdf
 
 If you'd like the LaTeX source for the above slides, email me (it's all available under `CC-By-Nc-SA`_). At the end of the semester, I'll make the whole project available. For the time being, it's easier not to have to keep it all in sync.
 
