@@ -15,10 +15,11 @@ Programming for Scientists
 New Stuff
 ---------
 
+  * [Feb 26] Information about the project_.
   * [Feb 24] Homework 6 (see Homeworks_)
   * [Feb 18] Links for numerical representation and numpy (see Notes_)
-  * [Feb 17] Homework 5 (see Homeworks_)
 
+.. _project: project
 .. _Notes: notes.html
 .. _Homeworks: homeworks.html
 
@@ -53,6 +54,7 @@ Pages
    :maxdepth: 1
 
    homeworks
+   project
    slides
    audio
    class-info
