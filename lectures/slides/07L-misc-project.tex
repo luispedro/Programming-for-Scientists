@@ -1,0 +1,105 @@
+\input{slheader}
+\title{Scipy, OpenOpt \& Projects}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{Scipy}
+
+\begin{block}{Scipy}
+\begin{itemize}
+\item A collection of libraries for scientific computing.
+\item Current version: 0.7 (February 2009).
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Scipy: main modules}
+
+\begin{itemize}
+\item linalg: linear algebra
+\item stats: probability and statistics
+\item ndimage: n-dimensional image processing.
+\item \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Matplotlib}
+Matplotlib is a \alert{plotting library} for Python.
+
+\begin{python}
+import pylab
+import numpy as np
+X = np.linspace(-4,+4,1000)
+pylab.plot(X,np.exp(-X**2))
+pylab.xlabel(r'$x$')
+pylab.ylabel(r'$\exp(-x^{2})$)
+pylab.savefig('gaussian.pdf')
+\end{python}
+
+\centering
+\href{http://matplotlib.sf.net/}{http://matplotlib.sf.net/}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Projects}
+
+There is a small final project.
+
+\begin{enumerate}
+\item Self-proposed.
+\item Class project.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Class Project}
+
+Let's see the motivation video (credit: Rebecca Webb and Brooke McCartney)
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Simulation Project}
+
+\begin{enumerate}
+\item Simulate a video
+\item Track on the video
+\item Compare the results
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Project}
+\begin{enumerate}
+\item Object position generator
+\item Image generator
+\item Object detection
+\item Object tracking
+\item Results visualisation
+\item Statistics gathering
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Project Logistics}
+
+\begin{block}{Design}
+I will use the project as a design ``case study'' for a medium sized project.
+\end{block}
+
+\begin{block}{Infrastructure}
+\begin{itemize}
+\item Open source (i.e., we will post the code online for others to use).
+\item Common Subversion repository.
+\item Email discussions.
+\item Nosetest tests.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\end{document}
