@@ -1,5 +1,5 @@
 \input{slheader}
-\title{Scipy, OpenOpt \& Projects}
+\title{Misc Software \& Projects}
 \begin{document}
 \frame{\maketitle}
 
@@ -36,12 +36,20 @@ import numpy as np
 X = np.linspace(-4,+4,1000)
 pylab.plot(X,np.exp(-X**2))
 pylab.xlabel(r'$x$')
-pylab.ylabel(r'$\exp(-x^{2})$)
+pylab.ylabel(r'$\exp(-x^{2})$')
 pylab.savefig('gaussian.pdf')
 \end{python}
 
 \centering
 \href{http://matplotlib.sf.net/}{http://matplotlib.sf.net/}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Matplotlib Example}
+
+\centering
+\includegraphics[width=.9\textwidth]{matplotlibexample.pdf}
 
 \end{frame}
 
