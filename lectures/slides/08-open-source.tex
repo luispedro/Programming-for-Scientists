@@ -44,7 +44,6 @@ A license is a \alert{loosening} of the default ``All Rights Reserved'' framewor
 \item Public-domain
 \item BSD or MIT licenses
 \item GPL (copy-left)
-\item Author License
 \item \ldots (10~million others)
 \end{enumerate}
 \end{frame}
@@ -54,7 +53,7 @@ A license is a \alert{loosening} of the default ``All Rights Reserved'' framewor
 
 I can do whatever I want.
 
-\note{You can release the code into the public domain.}
+\note{You can release the code into the public domain in some jurisdictions.}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -118,6 +117,10 @@ modification, are permitted provided that the following conditions are met:
 \item Free as in speech (libre)
 \end{itemize}
 
+\note{Free software is a more ideological term than open source.
+
+Which is why this lecture is termed ``open source''!
+}%
 \end{frame}
 
 \begin{frame}[fragile]
@@ -128,6 +131,20 @@ You can distribute \& modify the software as long as
 \item you make the source code available,
 \item you license your modifications under the GPL.
 \end{itemize}
+
+\note{
+    There are several versions of the GPL. Currently in use
+        * v2 \& v2.1
+        * v3: June 2007.
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{GPL Compatibility}
+
+You can use BSD licensed code in a GPL.\\
+BSD is \alert{GPL compatible}.
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -138,13 +155,22 @@ then closed-source programs can use it.
 
 \end{frame}
 
-
 \begin{frame}[fragile]
 \frametitle{GPL Logo}
 
 \centering
 \includegraphics[width=.7\textwidth]{GPLlogo.png}
 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Summary}
+
+\begin{itemize}
+\item Think about your license
+\item Pick either BSD/MIT, or GPL, or LGPL
+\item Be careful about code re-use
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -183,6 +209,17 @@ Mix \& match to get a license, e.g., By-NC-SA.\note{
 \end{frame}
 
 \begin{frame}[fragile]
+
+How do you actually distribute your software?
+
+\begin{itemize}
+\item Put it on your home page
+\item Put it in PyPI (Python Package Index)
+\item Use a service like \alert{sourceforge}, \alert{google code}, \alert{launchpad}, \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Distributing Software: setup.py}
 \begin{python}
 import setuptools
@@ -192,16 +229,15 @@ classifiers = ['Development Status :: 2 - Pre-Alpha',
 'License :: OSI Approved :: MIT License',
 'Programming Language :: Python',]
 
-setuptools.setup(name = 'Jug', version = '0.3-git',
+setuptools.setup(name = 'Particles', version = '0.1',
       description = 'A Task Based Framework',
       long_description = long_description,
-      author = 'Luis Pedro Coelho',
-      author_email = 'lpc@mcu.edu',
+      author = 'Spring 09 Class of 98111 (CMU)',
+      author_email = 'lpc@cmu.edu',
       license = 'MIT', platforms = ['Any'],
       classifiers = classifiers,
-      url = 'http://luispedro.org/jug',
+      url = 'http://code.google.com/p/particles/',
       packages = setuptools.find_packages(exclude='tests'),
-      scripts = ['jug/jug.py'],
       )
 
 \end{python}
