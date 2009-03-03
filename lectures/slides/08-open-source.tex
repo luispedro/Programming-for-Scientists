@@ -4,6 +4,18 @@
 \frame{\maketitle}
 
 \begin{frame}[fragile]
+\frametitle{Why Make Your Software Available?}
+
+\begin{itemize}
+\item You \alert{want} to.
+\item You \alert{have} to.
+\end{itemize}
+\note{Mention ``reproduceable research'' movement.
+Mention BLAST.
+}%
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Open Source}
 What is open-source?
 \end{frame}
@@ -42,8 +54,7 @@ A license is a \alert{loosening} of the default ``All Rights Reserved'' framewor
 
 I can do whatever I want.
 
-\bigskip
-You can release the code into the public domain.
+\note{You can release the code into the public domain.}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -72,6 +83,67 @@ modification, are permitted provided that the following conditions are met:
 \item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 \item Neither the name of the <organization> nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Copyleft}
+
+\centering
+\includegraphics[width=.8\textwidth]{RMS.jpeg}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{GNU Project}
+
+\centering
+\includegraphics[height=.6\textheight]{gnu-head.png}
+
+\centering
+\href{http://www.gnu.org/}{http://www.gnu.org}
+
+\note{
+    The GNU project is run by the free software foundation (also
+    founded by rms).
+}%
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Free Software}
+
+\begin{itemize}
+\item Free as in beer (gratis)
+\item Free as in speech (libre)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{GNU General Public License (GPL)}
+
+You can distribute \& modify the software as long as
+\begin{itemize}
+\item you make the source code available,
+\item you license your modifications under the GPL.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{GNU Lesser General Public License (LGPL)}
+
+If you write a library and release it under the LGPL,\\
+then closed-source programs can use it.
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{GPL Logo}
+
+\centering
+\includegraphics[width=.7\textwidth]{GPLlogo.png}
 
 \end{frame}
 
@@ -108,6 +180,38 @@ modification, are permitted provided that the following conditions are met:
 Mix \& match to get a license, e.g., By-NC-SA.\note{
     This is the license of the class.
 }
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Distributing Software: setup.py}
+\begin{python}
+import setuptools
+long_description = '''...'''
+
+classifiers = ['Development Status :: 2 - Pre-Alpha',
+'License :: OSI Approved :: MIT License',
+'Programming Language :: Python',]
+
+setuptools.setup(name = 'Jug', version = '0.3-git',
+      description = 'A Task Based Framework',
+      long_description = long_description,
+      author = 'Luis Pedro Coelho',
+      author_email = 'lpc@mcu.edu',
+      license = 'MIT', platforms = ['Any'],
+      classifiers = classifiers,
+      url = 'http://luispedro.org/jug',
+      packages = setuptools.find_packages(exclude='tests'),
+      scripts = ['jug/jug.py'],
+      )
+
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Distributing Software: PyPI}
+
+Python Package Index
+
 \end{frame}
 
 \end{document}
