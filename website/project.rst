@@ -9,14 +9,14 @@ Class Project
 
 The class project is to be done by all students, but will be broken up into individual chunks.
 
-The overall goal of the project is to (1) simulate a video of particles moving in space, (2) from the video *track the particles*, (3) compare the results of tracking with the simulated tracks. This is to be broken into several pieces, each of which is assigned to one or two students:
+The overall goal of the project is to (1) simulate a video of particles moving in space, (2) from the video *track the particles*, (3) compare the results of tracking with the simulated tracks. This is to be broken into several pieces, each of which is assigned to one or two students (in brackets, the names of the students working on it):
 
     1. Object position generator
     2. Image generator
-    3. Object detection
+    3. Object detection [Peng Liu]
     4. Object tracking
     5. Results visualisation
-    6. Statistics collector
+    6. Statistics collector [Longzhu Shen]
 
 We will also spend some class time going over the structure and design of the program.
 
