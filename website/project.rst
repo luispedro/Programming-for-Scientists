@@ -20,6 +20,16 @@ The overall goal of the project is to (1) simulate a video of particles moving i
 
 We will also spend some class time going over the structure and design of the program.
 
+To participate in the project, please 
+
+    1. Get a google account (you can use any email)
+    2. Email me the email you used to get a google account
+    3. Wait for me to add you to the project (I'll reply to your email when I've done so)
+    4. Go to the `particles webpage`_ and follow the instructions to downloading the code from google's subversion. You need to be logged in to google to have *write access* to the subversion repository.
+    5. Add your name to the AUTHORS.txt file and commit
+
+.. _`particles webpage`: http://code.google.com/p/particles/
+
 Self-Proposed
 ---------------
 
