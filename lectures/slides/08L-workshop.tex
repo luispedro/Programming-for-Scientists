@@ -1,0 +1,136 @@
+\input{slheader}
+\title{Project Case Study}
+\begin{document}
+\frame{\maketitle}
+
+\note{First, let's get some stuff out of the way\ldots}
+
+\begin{frame}[fragile]
+\frametitle{First Steps for the Project}
+\begin{enumerate}
+\item Email me your preferences
+\item Get a google account
+\item Send me the email for the google account (just email)
+\item Wait for my confirmation
+\item Checkout the repository (see google page)
+\item Add yourself to AUTHORS.txt
+\item Commit
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Project Structure}
+\begin{itemize}
+\item COPYING.MIT
+\item AUTHORS.txt
+\item README
+\item template.py
+\item setup.py
+\item docs/
+\item tests/
+\item particles/
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{reStructuredText}
+
+\begin{verbatim}
+----------------
+This is a title
+----------------
+
+Now here comes my text. *This is bold*
+
+Here's a list
+    * first element
+    * second element
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+def brownian_motion(mv_s,p_dis,crowding,crowding_std):
+    '''
+    particles = brownian_motion(mv_s,p_dis,crowding,crowding_std):
+
+    Generate particle tracks according to Brownian motion.
+
+    Parameters
+    -----------
+
+        * mov_sigma: std. dev. for movement
+                (i.e., the position of a particle at time T+1
+                 is given by a Gaussian centred on its position at time T
+                 with std. dev. mov_sigma)
+        * p_disappear: probability that a particle disappears
+        * crowding: expected number of particles
+        * crowding_std: std. dev. of number of particles
+
+    The initial set number of particles is sampled from a
+    normal distribution of mean crowding and std. dev.
+    crowding_std. New particles are randomly generated to 
+    offset the dying particles and maintain the property
+    that the expected number of particles is given by
+    crowding and crowding_std.
+    '''
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Software \& Software Product}
+
+A product is only finished when you have the \alert{software}, \alert{documentation}, \alert{tests}, and a \alert{web-page}.
+\end{frame}
+
+\note{Now, let's get to the project.}
+
+\begin{frame}[fragile]
+\frametitle{Project Goals}
+
+\begin{enumerate}
+\item Generate a video of particles moving
+\begin{enumerate}[a]
+\item<2-> Generate tracks
+\begin{enumerate}[i]
+\item<3-> \alert<4>{Brownian motion} (with parameters)
+\item<3-> Brownian motion w. momentum
+\item<3-> \ldots
+\end{enumerate}
+\item<2-> Generate video from tracks
+\begin{enumerate}[i]
+\item<3-> \alert<4>{Shot noise} (parameters)
+\item<3-> Blur
+\item<3-> \ldots
+\end{enumerate}
+\end{enumerate}
+\item Track the particles in this movie
+\begin{enumerate}[a]
+\item<2-> Detect particles
+\begin{enumerate}[i]
+\item<3-> \alert<4>{Global threshold}
+\item<3-> Local threshold
+\item<3-> \ldots
+\end{enumerate}
+\item<2-> Track particles
+\end{enumerate}
+\item Compare
+\item Visualise
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Initial Guess}
+
+\begin{python}
+tracks = generate_tracks()
+video = generate_video(tracks)
+recovered = track(video)
+statistics = compare(tracks,recovered)
+print_statistics(statistics)
+\end{python}
+\end{frame}
+
+\end{document}
