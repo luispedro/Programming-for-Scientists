@@ -2,6 +2,14 @@
 Homeworks
 =================
 
+Homework 7 (due Mar 17)
+----------------------------------------------
+
+`Homework 7`_. If you have already completed seven homeworks, then you do not need to do this one, but you still need to email me your project_ preferences.
+
+.. _`Homework 7`: homeworks/07-optimisation.pdf
+.. _project: project
+
 Homework 6 (due Mar 3)
 ----------------------------------------------
 
