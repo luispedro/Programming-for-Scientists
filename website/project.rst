@@ -14,7 +14,7 @@ The overall goal of the project is to (1) simulate a video of particles moving i
     1. Object position generator
     2. Image generator
     3. Object detection [Peng Liu]
-    4. Object tracking
+    4. Object tracking [Andrej Savol]
     5. Results visualisation
     6. Statistics collector [Longzhu Shen]
 
