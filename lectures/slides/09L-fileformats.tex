@@ -1,0 +1,280 @@
+\input{slheader}
+\title{Some Useful File Formats}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{XML: Xtensible Markup Language}
+\alert{XML} is a 
+\begin{itemize}
+\item meta-format
+\item on which you define formats.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{XML Says}
+
+You define a \alert{hierarchical structure} of tags,\\
+with optional attributes, and text.
+
+\bigskip
+
+A file format is only complete when you specify what the tags mean!
+\note{In this way, it's similar to saying you are using a text file for your data.
+It only means something if you specify what the text means.}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{XML Example}
+\begin{verbatim}
+ <recipe name="bread" prep_time="5m" cook_time="3h">
+   <title>Basic bread</title>
+   <ingredient amount="8dL">Flour</ingredient>
+   <ingredient amount="10g">Yeast</ingredient>
+   <ingredient amount="4dl">Water</ingredient>
+   <ingredient amount="1tsp">Salt</ingredient>
+   <instructions>
+     <step>Mix all ingredients together.</step>
+     <step>Knead thoroughly.</step>
+     <step>Cover with a cloth, and wait 1h.</step>
+     <step>Knead again.</step>
+     <step>Place in a bread baking tin.</step>
+     <step>Bake in the oven at 180C for 30 min.</step>
+   </instructions>
+ </recipe>
+\end{verbatim}
+\begin{flushright}
+(Wikipedia)
+\end{flushright}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{XML}
+
+\begin{block}{XML Pros \& Cons}
+\begin{itemize}
+\item Appropriate for \alert{heavy-duty} formats
+\item Based on standards
+\item Parseable in any programming language
+\item extensible, mix-'n'-match
+\item XML has a lot attached to it.\\
+    It would take us more than one lecture on how to\\
+    parse that simple example!
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Comma-Separated Values}
+\begin{itemize}
+\item Simple idea
+\item Messy details
+\end{itemize}
+
+Great for communicating with a spread-sheet application.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{CSV Example}
+
+\begin{verbatim}
+luispedro,Luís Pedro Coelho,lpc@cmu.edu
+rita,Rita Reis,rita@somewhere.com
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Messy Issues}
+\begin{itemize}
+\item Everything we talked about last time comes into play again\\
+    (file enconding issues, line-endings,\ldots)
+\item What if you want to have a comma inside a field?
+\item What if you want to have a newline inside a field?
+\item \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{CSV: Comma Separated Files} 
+
+\begin{python}
+import csv
+for name,user,email in csv.reader(file('emails.csv')):
+    print name,user,email
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Pickle}
+
+\begin{python}
+import pickle
+
+obj = ...
+
+pickle.dump(obj,file('output.pp','w'))
+
+obj2 = pickle.load(file('output.pp'))
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Gzip}
+
+\begin{python}
+import pickle
+from gzip import GzipFile
+
+obj = ...
+
+pickle.dump(obj,GzipFile('output.pp.gz','w'))
+obj2 = pickle.load(GzipFile('output.pp'))
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Numpy Files (npy)}
+
+\begin{python}
+import numpy as np
+
+A = np.arange(100).reshape((10,10))
+np.save('output.npy',A)
+
+B = np.load('output.npy')
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{JSON: JavaScript Object Notation}
+
+\begin{itemize}
+\item Strings
+\item Lists
+\item String $\to$ Object Dictionaries
+\end{itemize}
+
+\begin{python}
+import simplejson
+
+object = ['One','Two','Three']
+print simplejson.dumps(object)
+\end{python}
+prints ["One", "Two", "Three"]
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{JSON II}
+\begin{python}
+import simplejson
+complex = (range(3),
+            {'Name': 'Luis',
+            'Emails' : ['lpc@cmu.edu',
+                    'lcoelho@andrew.cmu.edu']})
+print simplejson.dumps(complex)
+\end{python}
+prints 
+\begin{python}
+[[0, 1, 2], 
+    {"Name": "Luis",
+    "Emails": ["lpc@cmu.edu", "lcoelho@andrew.cmu.edu"]}]
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Project Configuration}
+
+\begin{block}{Options}
+\begin{itemize}
+\item Which model to use for generation? (and parameters)
+\item Which model to use for image? (and parameters)
+\item Which method for detection? (and parameters)
+\item Which method for tracking? (and parameters)
+\item Which method for visualisation? (and parameters)
+\item Which statistics?
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{INI File}
+\begin{verbatim}
+[Generation]
+method=brownian
+std=1.2
+[Image-Generation]
+method=single
+shot-noise=2.0
+[Detection]
+method=otsu
+filter-smaller=2
+[Tracking]
+method=hungarian
+[Visualization]
+method=colors
+[Statistics]
+speed=True
+velocity=True
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Desired Characteristics}
+
+\begin{itemize}
+\item Read-able
+\item Edit-able
+\item Parse-able
+\item Standard
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Parsing INI Files}
+
+\begin{python}
+import ConfigParser
+config = ConfigParser.ConfigParser()
+config.readfp(file('particles.ini'))
+generation_method = config.get('Generation','method')
+generation_options = dict(config.items('Generation'))
+
+print generation_options
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Particles}
+
+\begin{python}
+import ConfigParser
+import optparse
+parser = optparse.OptionParser()
+parser.add_option('--config-file',
+                action='store',
+                dest='configfile',
+                default='particles.ini')
+options,args = parser.parse_args()
+config = ConfigParser.ConfigParser()
+config.readfp(file(options.configfile))
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Summary}
+
+\begin{itemize}
+\item For your own stuff: Python pickles
+\item (Or, if it's only numpy arrays: npy)
+\item For simple communication/editing: INI files or JSON
+\item For heavy-duty publication: standard XML-based format
+\end{itemize}
+\end{frame}
+
+\end{document}
