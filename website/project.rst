@@ -11,8 +11,8 @@ The class project is to be done by all students, but will be broken up into indi
 
 The overall goal of the project is to (1) simulate a video of particles moving in space, (2) from the video *track the particles*, (3) compare the results of tracking with the simulated tracks. This is to be broken into several pieces, each of which is assigned to one or two students (in brackets, the names of the students working on it):
 
-    1. Object position generator
-    2. Image generator
+    1. Object position generator [John Sekar]
+    2. Image generator [Qi Yang]
     3. Object detection [Peng Liu]
     4. Object tracking [Andrej Savol]
     5. Results visualisation [Svetlana Romanova]
