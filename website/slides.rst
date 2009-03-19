@@ -19,7 +19,10 @@ These are the slides as delivered, except for the occasional fixed typo.
 13. `Lecture 12`_: Numpy
 14. `Lecture 13`_: Function Minimisation
 15. `Lecture 14`_: Misc & Projects
-15. `Lecture 15`_: Open Source
+16. `Lecture 15`_: Open Source
+17. `Lecture 16`_: Workshop (project)
+18. `Lecture 17`_: File Parsing
+19. `Lecture 18`_: Basic File Formats
 
 .. _`Lecture 1`: http://coupland.cbi.cmu.edu/pfs/_static/01-intro.pdf
 .. _`Tutorial Session`: http://coupland.cbi.cmu.edu/pfs/_static/E1-introprogramming.pdf
@@ -37,6 +40,9 @@ These are the slides as delivered, except for the occasional fixed typo.
 .. _`Lecture 13`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/07-optimisation.pdf
 .. _`Lecture 14`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/07L-misc-project.pdf
 .. _`Lecture 15`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/08-open-source.pdf
+.. _`Lecture 16`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/08L-workshop.pdf
+.. _`Lecture 17`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/09-fileparsing.pdf
+.. _`Lecture 18`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/09L-fileformats.pdf
 
 If you'd like the LaTeX source for the above slides, email me (it's all available under `CC-By-Nc-SA`_). At the end of the semester, I'll make the whole project available. For the time being, it's easier not to have to keep it all in sync.
 
