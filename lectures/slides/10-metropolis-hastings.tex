@@ -11,7 +11,7 @@
 \begin{enumerate}[a]
 \item $c \Assign x_{t-1} + \mathcal{N}(0,\sigma)$
 \item If $f(c) < f(x_{t-1}), x_t \Assign c$
-\item Else, $x_t x_{t-1}$
+\item Else, $x_t \Assign x_{t-1}$
 \end{enumerate}
 \end{enumerate}
 \end{frame}
@@ -47,19 +47,22 @@ Each number is generated based on the previous.
 
 \begin{frame}[fragile]
 \frametitle{Seeding the Sequence}
+\begin{columns}
+\column{.5\textwidth}
 \begin{python}
 import random
 random.seed(0)
 print random.random()
 print random.random()
 print random.random()
-print kjjj
+print 
 
 random.seed(0)
 print random.random()
 print random.random()
 print random.random()
 \end{python}
+\column{.5\textwidth}
 prints
 \begin{verbatim}
 0.844421851525
@@ -71,6 +74,39 @@ prints
 0.420571580831
 \end{verbatim}
 
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Seeding the Sequence (II)}
+\begin{columns}
+\column{.5\textwidth}
+\begin{python}
+import numpy.random
+numpy.random.seed(0)
+print numpy.random.random()
+print numpy.random.random()
+print numpy.random.random()
+print 
+
+numpy.random.seed(0)
+print numpy.random.random()
+print numpy.random.random()
+print numpy.random.random()
+\end{python}
+\column{.5\textwidth}
+prints
+\begin{verbatim}
+0.548813503927
+0.715189366372
+0.602763376072
+
+0.548813503927
+0.715189366372
+0.602763376072
+\end{verbatim}
+
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -91,7 +127,7 @@ What if $P(x)$ is really complicated?
 \item $x_0 \Assign $ random
 \item For $t \in \{ 1 \cdots T \}$:
 \begin{enumerate}
-\item $c \Assign Q(x_t)$
+\item $c \Assign $ sample from $Q(x' | x_t)$
 \item $a \Assign \frac{P(c)Q(x_t|c)}{P(x_t)Q(c|x_t)}$
 \item $r \Assign U(0,1)$
 \item If $r < a: x_{t+1} \Assign c$
