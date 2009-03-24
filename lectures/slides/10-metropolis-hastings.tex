@@ -1,0 +1,103 @@
+\input{slheader}
+\title{Metropolis-Hastings}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{Random Hill Climbin}
+\begin{enumerate}
+\item $x_0 \Assign $ random
+\item For $t \in \{1 \ldots N \}$
+\begin{enumerate}[a]
+\item $c \Assign x_{t-1} + \mathcal{N}(0,\sigma)$
+\item If $f(c) < f(x_{t-1}), x_t \Assign c$
+\item Else, $x_t x_{t-1}$
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Random Numbers}
+Many algorithms need random numbers.
+\note{For example, our class project.}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Pseudo-Random Numbers}
+PRN are deterministically generated numbers that look like random.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Pseudo Random Number Example}
+
+\[
+x_{n+1} = 1103515245 x_n + 12345 \mod 2^{32}
+\]
+
+\note{This is used in glibc.}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Pseudo Random Sequences}
+
+Each number is generated based on the previous.
+
+\note{Therefore, the whole sequence is based on the initial number (the seed)!}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Seeding the Sequence}
+\begin{python}
+import random
+random.seed(0)
+print random.random()
+print random.random()
+print random.random()
+print kjjj
+
+random.seed(0)
+print random.random()
+print random.random()
+print random.random()
+\end{python}
+prints
+\begin{verbatim}
+0.844421851525
+0.75795440294
+0.420571580831
+
+0.844421851525
+0.75795440294
+0.420571580831
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Sampling From a Distribution}
+
+Given a random number uniformly distributed on $[0,1]$,\\
+how do we sample from $p(x)$?
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Metropolis-Hastings}
+What if $P(x)$ is really complicated?
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Metropolis-Hastings}
+\begin{itemize}
+\item $x_0 \Assign $ random
+\item For $t \in \{ 1 \cdots T \}$:
+\begin{enumerate}
+\item $c \Assign Q(x_t)$
+\item $a \Assign \frac{P(c)Q(x_t|c)}{P(x_t)Q(c|x_t)}$
+\item $r \Assign U(0,1)$
+\item If $r < a: x_{t+1} \Assign c$
+\item Else $x_{t+1} \Assign x_t$
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\end{document}
