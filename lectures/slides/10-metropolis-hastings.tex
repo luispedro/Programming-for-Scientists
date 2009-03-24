@@ -4,7 +4,7 @@
 \frame{\maketitle}
 
 \begin{frame}[fragile]
-\frametitle{Random Hill Climbin}
+\frametitle{Random Hill Climbing}
 \begin{enumerate}
 \item $x_0 \Assign $ random
 \item For $t \in \{1 \ldots N \}$
@@ -117,8 +117,38 @@ how do we sample from $p(x)$?
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{In Practice}
+
+Check out what's already written (scipy.stats has plenty).
+\begin{block}{Scipy.stats}
+\begin{itemize}
+\item Normal
+\item Exponential
+\item Poisson
+\item \ldots
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{How do I Sample a sphere?}
+
+\includegraphics[width=.9\textwidth]{10-circle.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Metropolis-Hastings}
 What if $P(x)$ is really complicated?
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example}
+
+\centering
+\includegraphics[width=.9\textwidth]{10-complexcontour.pdf}
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -136,4 +166,85 @@ What if $P(x)$ is really complicated?
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Metropolis-Hastings Example (Simple)}
+
+\centering
+\includegraphics[width=.9\textwidth]{10-Px.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Metropolis-Hastings Example}
+
+\centering
+\includegraphics[width=.9\textwidth]{10-Px-hist.pdf}
+
+1 million iterations, $\sigma = .1$
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Metropolis-Hastings Example}
+
+\centering
+\includegraphics[width=.9\textwidth]{10-Px-hist-notmixed.pdf}
+
+100,000 iterations, $\sigma = .01$
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Metropolis-Hastings More Complex Example}
+
+\centering
+\includegraphics[width=.9\textwidth]{10-complexcontour-samples.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{MCMC for Minimisation}
+
+\[
+P(x) = k \exp(-\beta f(x))
+\]
+
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Minimisation}
+
+\centering
+\includegraphics[width=.9\textwidth]{functionmin.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Minimisation}
+
+\centering
+\includegraphics[width=.9\textwidth]{10-mcmcmin.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Simulated Annealing Trick}
+
+\[
+P(x)/P(x') = \exp\left( T (f(x) - f(x')) \right)
+\]
+\pause
+
+Start hot, reduce the temperature.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Simulated Annealing}
+
+Starts like Metropolis-Hastings, finished like Random Hill Climbing.
+
+\end{frame}
+
 \end{document}
+
