@@ -2,6 +2,14 @@
 Homeworks
 =================
 
+Homework 8 & 9 (due Apr 5)
+----------------------------------------------
+
+`Homework 8`_ and `homework 9`_.
+
+.. _`Homework 8`: homeworks/08-open-source.pdf
+.. _`Homework 9`: homeworks/09-fileparsing.pdf
+
 Homework 7 (due Mar 17)
 ----------------------------------------------
 
