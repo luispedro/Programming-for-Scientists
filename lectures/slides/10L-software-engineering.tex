@@ -21,7 +21,7 @@ Most projects that we are tackling do not need software engineering.
 \item Testing
 \item Maintenance
 \end{enumerate}
-\note{According to wp, this was---from the start---presented as the *wrong* way to do things.}
+\note{According to wikipedia, this was---from the start---presented as the *wrong* way to do things.}
 \end{block}
 \end{frame}
 
@@ -32,7 +32,7 @@ Most projects that we are tackling do not need software engineering.
 \item Requirements
 \item Design
 \item Implement
-\item Test
+\item Testing
 \item Maintenance
 \item Goto 1
 \end{enumerate}
@@ -67,21 +67,65 @@ Most projects that we are tackling do not need software engineering.
 \frametitle{Design of Particles}
 
 \begin{itemize}
-\item List of tracks \only<2>{simple Python list}
-\item Tracks \only<2>{$(t_0,[p_0,p_1,\cdots])$}
-\item Video \only<2>{numpy 3-d array}
-\item position \only<2>{class Position}
+\item List of tracks
+\item Tracks
+\item Video
+\item Positions
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Unified Modeling Language}
 
-\notes{I don't recommend full UML as it was intended to be used..
+\centering
+\includegraphics[width=.9\textwidth]{Track.png}
+
+\note{I don't recommend full UML as it was intended to be used..
 
 It's a good way to communicate with others or, in a much less formal version,
 to think about the design.}
 \end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+class Track:
+    def __init__(self) :
+        self.positions = None # List<positions>
+        self.start_time = None # int
+        pass
+class Position:
+    def __init__(self) :
+        pass
+    def next (self, method) :
+        pass # returns Position
+class 2D Position (Position) :
+    def __init__(self) :
+        self.y = None # int
+        self.x = None # int
+        pass
+    def next (self, method) :
+        pass # returns position
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\centering
+\includegraphics[height=.8\textheight]{gentracks.png}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Design of Particles: Our Version}
+
+\begin{itemize}
+\item List of tracks: simple Python list
+\item Tracks: $(t_0,[p_0,p_1,\cdots])$
+\item Video: numpy 3-d array
+\item position: class Position
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{Use Cases}
@@ -117,13 +161,32 @@ with programming.
 \frametitle{Properties of Agile Methodologies}
 \begin{itemize}
 \item No big design up front.
-\item Pair programming (two people programming at once) \note{Pair programming comes from a specific methodology called Xtreme Programming (XP)}
+\item Pair programming (two people programming at once). \note{Pair programming comes from a specific methodology called Xtreme Programming (XP)}
 \item Test everything, test it twice.
-\item Dynamic languages (Python, Ruby, Basic,\ldots)
+\item Dynamic languages (Python, Ruby, Basic,\ldots).
 \item Release early, release often.
 \item Avoid over-engineering.
 \item Organic growth instead of design.
+\item Constant refactoring
 \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Release Early, Release Often}
+
+Short release cycles, even if internal.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Refactoring}
+
+\begin{itemize}
+\item Refactoring means \alert{improving the code}\\
+    without \alert{changing the program}.
+\item It often means paying down \alert{technical debt}
+\end{itemize}
+
 \end{frame}
 
 

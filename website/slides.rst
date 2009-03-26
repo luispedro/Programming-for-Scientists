@@ -23,7 +23,8 @@ These are the slides as delivered, except for the occasional fixed typo.
 17. `Lecture 16`_: Workshop (project)
 18. `Lecture 17`_: File Parsing
 19. `Lecture 18`_: Basic File Formats
-20. `Lecture 19`_: Basic File Formats
+20. `Lecture 19`_: Metropolis-Hastings
+21. `Lecture 20`_: Software Engineering
 
 .. _`Lecture 1`: http://coupland.cbi.cmu.edu/pfs/_static/01-intro.pdf
 .. _`Tutorial Session`: http://coupland.cbi.cmu.edu/pfs/_static/E1-introprogramming.pdf
@@ -45,6 +46,7 @@ These are the slides as delivered, except for the occasional fixed typo.
 .. _`Lecture 17`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/09-fileparsing.pdf
 .. _`Lecture 18`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/09L-fileformats.pdf
 .. _`Lecture 19`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/10-metropolis-hastings.pdf
+.. _`Lecture 20`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/10L-software-engineering.pdf
 
 If you'd like the LaTeX source for the above slides, email me (it's all available under `CC-By-Nc-SA`_). At the end of the semester, I'll make the whole project available. For the time being, it's easier not to have to keep it all in sync.
 
