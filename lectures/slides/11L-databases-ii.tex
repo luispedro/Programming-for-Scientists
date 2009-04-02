@@ -1,0 +1,125 @@
+\input{slheader}
+\title{SQL: Database Access}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{Using Databases}
+
+Problem
+\begin{itemize}
+\item Many different ``experiments''.
+\item Each experiment has input parameters and output measurements.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Database Design}
+
+Experiments with input parameters and output values.
+
+\pause
+Tables
+\begin{enumerate}
+\item Experiments
+\item Experiment parameters
+\item Experiment results
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{SQL For Table Creation}
+
+\begin{verbatim}
+CREATE TABLE experiments (
+    eid INT PRIMARY KEY,
+    name VARCHAR(255),
+    date DATE NOT NULL
+    );
+CREATE TABLE parameters (
+    pid INT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+    );
+CREATE TABLE experiment_parameters (
+    eid INT NOT NULL,
+    pid INT NOT NULL,
+    paramvalue VARCHAR(255)
+    );
+CREATE TABLE experiment_results (
+    eid INT NOT NULL,
+    measure VARCHAR(255),
+    value VARCHAR(255)
+    );
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example Query}
+\begin{verbatim}
+SELECT name, date
+FROM experiments, parameters, experiment_parameters
+WHERE experiments.eid = experiment_parameters.eid AND
+    experiment_parameters.pid = paramenters.pid AND
+    parameters.name = 'Generation/model' AND
+    experiment_parameters.paramvalue = 'brownian';
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{A Traditional Database Management System}
+
+\begin{enumerate}
+\item Install it.
+\item Set it up to run as daemon.
+\item Create database(s).
+\item Create user(s).
+\item Create tables.
+\item Use it.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{SQLite: Database in a File}
+
+SQLite implements SQL-like databases in a single file.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Using SQLite}
+
+\begin{python}
+import sqlite3
+from os.path import exists
+filename = 'experiment.db'
+create = not exists(filename)
+connection = sqlite3.connect(filename)
+cursor = connection.cursor()
+if create:
+    cursor.execute('''
+        CREATE TABLE ...''')
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Using SQLite (II)}
+
+cursor.execute('''
+    SELECT eid,name,date
+    FROM experiments
+    WHERE date > DATE('2008-12-01')
+    ''')
+
+for eid,name,date in cursor.fetchall():
+    print eid, name, date
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{PyTables}
+A different type of database,\\
+based on \alert{HDF5}.
+\end{frame}
+
+
+\end{document}
