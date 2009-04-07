@@ -2,6 +2,13 @@
 Class Notes
 ==========================
 
+Qt
+~~~~
+
+Tutorial_
+
+.. _Tutorial: http://www.zetcode.com/tutorials/pyqt4/
+
 Numpy
 ~~~~~~~~
 
