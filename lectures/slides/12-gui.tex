@@ -20,6 +20,7 @@ Many options:
 \begin{itemize}
 \item Widgets
 \item Event loop
+\item Signals \& Slots
 \end{itemize}
 \end{frame}
 
@@ -56,14 +57,6 @@ Don't call us, we'll call you.
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Actually Writing An Application}
-\begin{enumerate}
-\item Code it from scratch
-\item Use a dialog editor
-\end{enumerate}
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{Qt}
 \begin{itemize}
 \item Commercial software from Trolltech (now owned by Nokia).
@@ -73,4 +66,116 @@ Don't call us, we'll call you.
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Actually Writing An Application}
+\begin{enumerate}
+\item Code it from scratch
+\item Use a dialog editor
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Simple Example}
+
+\begin{python}
+import sys
+from PyQt4 import QtGui
+app = QtGui.QApplication(sys.argv)
+
+widget = QtGui.QLabel('Hello World')
+widget.setWindowTitle('Hello')
+widget.show()
+
+sys.exit(app.exec_())
+
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Variation}
+
+
+\begin{python}
+import sys
+from PyQt4 import QtGui
+app = QtGui.QApplication(sys.argv)
+
+button = QtGui.QPushButton('Press Me')
+button.setWindowTitle('Hello')
+button.show()
+
+sys.exit(app.exec_())
+
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Signals \& Slots}
+
+\begin{python}
+bigger = True
+def resize():
+    global bigger
+    w = button.width()
+    h = button.height()
+    if bigger:
+        button.resize(w*2, h*2)
+    else:
+        button.resize(w//2, h//2)
+    bigger = not bigger
+
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Signals \& Slots (II)}
+
+\begin{python}
+import sys
+from PyQt4 import QtGui, QtCore
+app = QtGui.QApplication(sys.argv)
+
+button = QtGui.QPushButton('Press Me')
+button.setWindowTitle('Hello')
+button.show()
+
+app.connect(button, QtCore.SIGNAL('clicked()'), resize)
+sys.exit(app.exec_())
+
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Some Builtin Widgets}
+\begin{columns}
+\column[t]{.5\textwidth}
+\begin{itemize}
+\item QLabel
+\item QPushButton
+\item QRadioButton
+\item QCheckBox
+\item QLineEdit
+\end{itemize}
+\column[t]{.5\textwidth}
+\begin{itemize}
+\item QComboBox
+\item QListView
+\item QGroupBox
+\item \ldots
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Object Oriented Widgets}
+\begin{block}{Widget Properties \& Methods}
+\begin{itemize}
+\item size \& resize()
+\item show() \& hide()
+\item \ldots
+\end{itemize}
+\end{block}
+\end{frame}
 \end{document}

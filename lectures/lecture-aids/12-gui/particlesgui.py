@@ -1,0 +1,32 @@
+import sys
+from PyQt4 import QtGui, QtCore
+app = QtGui.QApplication(sys.argv)
+main = QtGui.QWidget()
+main.setWindowTitle('Particles GUI')
+main.resize(260,210)
+main.show()
+method = QtGui.QLabel('Method',main)
+method.move(100,50)
+method.show()
+methodchoose = QtGui.QComboBox(main)
+methodchoose.addItem('Brownian')
+methodchoose.addItem('Directed')
+methodchoose.move(100,45)
+methodchoose.show()
+method.move(40,50)
+stddev = QtGui.QLabel('Std. dev.',main)
+stddev.move(40,90)
+stddev.show()
+stddevinput = QtGui.QLineEdit(main)
+stddevinput.move(100,80)
+main.show()
+stddevinput.show()
+Ok = QtGui.QPushButton('Ok', main)
+Ok.show()
+Ok.move(200,150)
+def execute():
+    print 'python particles --method=%s --std-dev=%s' % (str(methodchoose.currentText()), str(stddevinput.text()))
+    
+app.connect(Ok,QtCore.SIGNAL('clicked()'),execute)
+sys.exit(app.exec_())
+
