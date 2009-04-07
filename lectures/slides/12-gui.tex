@@ -1,0 +1,76 @@
+\input{slheader}
+\title{GUI Programming I}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{How to Write a GUI}
+Many options:
+\begin{itemize}
+\item tk
+\item wxWindows
+\item Gtk
+\item \alert<2>{Qt}
+\item \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Main Elements}
+\begin{itemize}
+\item Widgets
+\item Event loop
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What's a widget?}
+Everything you see on your screen is a widget.
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Event Loop}
+\begin{block}{Traditional Program}
+\begin{python}
+tracks = generate_tracks()
+video = generate_video(tracks)
+recovered = track(video)
+statistics = compare(tracks,recovered)
+print_statistics(statistics)
+\end{python}
+\end{block}
+
+\begin{block}{Event Loop}
+\begin{python}
+while True:
+    event = get_next_event()
+    handle_event(event)
+\end{python}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Hollywood Principle}
+Don't call us, we'll call you.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Actually Writing An Application}
+\begin{enumerate}
+\item Code it from scratch
+\item Use a dialog editor
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Qt}
+\begin{itemize}
+\item Commercial software from Trolltech (now owned by Nokia).
+\item Used to be GPL, now LGPL.
+\item Very complete.\note{well documented}
+\item C++ toolkit with Python bindings.
+\end{itemize}
+\end{frame}
+
+\end{document}
