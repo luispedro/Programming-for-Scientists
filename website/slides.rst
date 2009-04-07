@@ -26,6 +26,8 @@ These are the slides as delivered, except for the occasional fixed typo.
 20. `Lecture 19`_: Metropolis-Hastings
 21. `Lecture 20`_: Software Engineering
 22. `Lecture 21`_: Databases I
+23. `Lecture 22`_: Databases II
+24. `Lecture 23`_: GUI Programming
 
 .. _`Lecture 1`: http://coupland.cbi.cmu.edu/pfs/_static/01-intro.pdf
 .. _`Tutorial Session`: http://coupland.cbi.cmu.edu/pfs/_static/E1-introprogramming.pdf
@@ -49,6 +51,8 @@ These are the slides as delivered, except for the occasional fixed typo.
 .. _`Lecture 19`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/10-metropolis-hastings.pdf
 .. _`Lecture 20`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/10L-software-engineering.pdf
 .. _`Lecture 21`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/11-databases.pdf
+.. _`Lecture 22`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/11-databases-ii.pdf
+.. _`Lecture 23`: http://coupland.cbi.cmu.edu/pfs/lecture-slides/12-gui.pdf
 
 If you'd like the LaTeX source for the above slides, email me (it's all available under `CC-By-Nc-SA`_). At the end of the semester, I'll make the whole project available. For the time being, it's easier not to have to keep it all in sync.
 
