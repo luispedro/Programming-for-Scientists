@@ -1,0 +1,124 @@
+<ui version="4.0" >
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>530</width>
+    <height>314</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <widget class="QPushButton" name="runbutton" >
+    <property name="geometry" >
+     <rect>
+      <x>390</x>
+      <y>210</y>
+      <width>105</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text" >
+     <string>Run</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox" >
+    <property name="geometry" >
+     <rect>
+      <x>100</x>
+      <y>40</y>
+      <width>411</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="title" >
+     <string>Options</string>
+    </property>
+    <widget class="QWidget" name="" >
+     <property name="geometry" >
+      <rect>
+       <x>16</x>
+       <y>40</y>
+       <width>361</width>
+       <height>59</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout" >
+      <item row="0" column="0" >
+       <widget class="QLabel" name="label" >
+        <property name="text" >
+         <string>Me&amp;thod</string>
+        </property>
+        <property name="buddy" >
+         <cstring>methodcombo</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" >
+       <widget class="QComboBox" name="methodcombo" >
+        <item>
+         <property name="text" >
+          <string>Brownian</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>Directed</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="0" >
+       <widget class="QLabel" name="label_2" >
+        <property name="text" >
+         <string>Standard &amp;Deviation</string>
+        </property>
+        <property name="buddy" >
+         <cstring>stddev</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" >
+       <widget class="QLineEdit" name="stddev" />
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>530</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile" >
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionQuit" />
+   </widget>
+   <addaction name="menuFile" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" />
+  <action name="actionQuit" >
+   <property name="text" >
+    <string>&amp;Quit</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>methodcombo</tabstop>
+  <tabstop>stddev</tabstop>
+  <tabstop>runbutton</tabstop>
+ </tabstops>
+ <includes/>
+ <resources/>
+ <connections/>
+</ui>
