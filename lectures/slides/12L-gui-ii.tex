@@ -17,7 +17,7 @@ We saw that the basics elements of a GUI program were
 \frametitle{Widgets}
 
 \centering
-\includegraphics{widgets}
+\includegraphics[width=.9\textwidth]{widgets}
 
 \end{frame}
 
@@ -25,7 +25,7 @@ We saw that the basics elements of a GUI program were
 \frametitle{Widgets}
 
 \centering
-\includegraphics{widgets-bespin}
+\includegraphics[width=.9\textwidth]{widgets-bespin}
 
 \end{frame}
 
@@ -33,7 +33,7 @@ We saw that the basics elements of a GUI program were
 \frametitle{Widgets}
 
 \centering
-\includegraphics{parent-child-widgets}
+\includegraphics[width=.9\textwidth]{parent-child-widgets}
 
 \creditto{Qt Documentation}
 
@@ -60,7 +60,8 @@ Let's build a more complex \textsc{gui}\ldots
 \begin{frame}[fragile]
 \frametitle{What About the Quit Button?}
 \begin{python}
-app.connect(main.actionQuit,QtCore.SIGNAL('activated()'),app.quit)
+app.connect(main.actionQuit,
+        QtCore.SIGNAL('activated()'),app.quit)
 \end{python}
 \end{frame}
 
@@ -108,8 +109,10 @@ def process_output():
 def startit():
     proc.start('python',['sleeper.py','10'])
 
-app.connect(proc,QtCore.SIGNAL('readReadyStandardOutput()'),process_output)
-app.connect(button, QtCore.SIGNAL('clicked()'),startit)
+app.connect(proc,
+            QtCore.SIGNAL('readReadyStandardOutput()'), process_output)
+app.connect(button,
+            QtCore.SIGNAL('clicked()'), startit)
 
 sys.exit(app.exec_())
 \end{python}
