@@ -9,7 +9,7 @@ proc = QtCore.QProcess()
 
 def process_output():
     output = proc.readAllStandardOutput()
-    output = output.strip()
+    button.setText(str(output).strip())
     print 'output from process >>', output, '<<'
 
 def startit():
