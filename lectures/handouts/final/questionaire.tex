@@ -62,7 +62,7 @@
 
 \bibliographystyle{alpha}
 %\bibliographystyle{plain}
-\pagestyle{Ruled}
+\pagestyle{plain}
 
 \aliaspagestyle{chapter}{Ruled}
 \makeatletter
@@ -103,8 +103,8 @@
 \posttitle{\par\vspace{4ex}}
 \preauthor{\large\sffamily\hspace{1cm}}
 \postauthor{\par\vspace{3ex}}
-\predate{\small\sffamily\hspace{1cm}Last Updated on: }
-\postdate{\par\vspace{2cm}}
+\predate{\small\sffamily\hspace{1cm}Lecture 25 (}
+\postdate{)\par\vspace{1cm}}
 \copypagestyle{title}{plain}
 \makeoddfoot{title}{}{}{}
 \makeevenfoot{title}{}{}{}
@@ -130,29 +130,20 @@
 \SetCommentSty{textsl}
 
 
-
+\renewcommand{\baselinestretch}{1.2}
+\setlength{\parindent}{0pt}
 \newcommand*{\fillunderscore}{~\hrulefill}
 \newcommand*{\checkbox}{$\square$}
 \newcommand*{\yesno}{\hfill\mbox{yes\checkbox~no\checkbox}}
-\newcommand{\header}[1]{\textsl{#1}}
+\newcommand{\header}[1]{\textsl{#1}\par\medskip}
 \def\th#1{#1}
 \begin{document}
 \maketitle
 \begin{abstract}
-Please fill out this survey. This will help me understand what was good and bad about this class. Try to be as precise and complete as possible.
-
-The surveys are anonymous, but I make some results of it public.
+Please fill out this survey. This will help me understand what was good and bad about this class. Try to be as precise and complete as possible. The surveys are anonymous, but I may make some results of it public.
 \end{abstract}
-
-\chapter{About You}
-
-\header{This is just general information about you.}
-
-Major/Programme: \fillunderscore\\
-I am taking this class for credit: \yesno.
-
+\vspace{-2em}
 \chapter{Overall}
-
 Did this class fulfill your expectations?
 \begin{itemize}[\checkbox]
 \item It surpassed them by a mile.
@@ -163,10 +154,10 @@ Did this class fulfill your expectations?
 \end{itemize}
 
 The goal of this class was to make you 20\% more productive. How would you estimate the productivity increase from the methods and tools you learnt?
-
 \begin{itemize}[\checkbox]
+\item I'm actually a worse programmer now.
 \item Zero.
-\item Just a bit, but less than 20\%.
+\item Just a bit, less than 20\%.
 \item Around 20\%.
 \item More than 20\%.
 \item More than twice as productive.
@@ -175,7 +166,7 @@ The goal of this class was to make you 20\% more productive. How would you estim
 If you replied ``Zero'' or ``Just a bit,'' why do you think so:
 
 \begin{itemize}[\checkbox]
-\item I still haven't gone over the initial energy barrier, but I believe I will still get more productive with the tools I've learnt.
+\item I still haven't gone over the initial energy barrier of using new tools, but I think they are going to be helpful in the future.
 \item The tools don't help with the kind of problems I work on.
 \item I didn't really understand what was being taught.
 \end{itemize}
@@ -186,13 +177,14 @@ Or something else:\par
 \fillunderscore\par
 \fillunderscore\par
 
+\section{Expectations}
 Here are the particular expectations that I had listed on the website. Let me know if you think that you fulfill them:
 
     (i) Software carpentry: source control, unit testing, profilers. Students should know how to use Subversion, nosetest, and the Python profiler as well as understand the concepts behind these tools (which will enable them to use them with a different implementation).
 
 \begin{itemize}[\checkbox]
 \item I understand this perfectly.
-\item I understand the overall gist.
+\item I understand most of it.
 \item I have a vague idea.
 \item I don't really get it.
 \item What are you talking about?
@@ -202,11 +194,10 @@ Additional comments:
 \fillunderscore\par
 \fillunderscore\par
 
-
     (ii) Modern programming paradigms: object oriented. Students should know how polymorphism works and understand when and why it can be useful.
 \begin{itemize}[\checkbox]
 \item I understand this perfectly.
-\item I understand the overall gist.
+\item I understand most of it.
 \item I have a vague idea.
 \item I don't really get it.
 \item What are you talking about?
@@ -220,7 +211,7 @@ Additional comments:
     (iii) Students should know how floating-point numbers are represented and their limitations. Detailed knowledge of specific formats is not required.
 \begin{itemize}[\checkbox]
 \item I understand this perfectly.
-\item I understand the overall gist.
+\item I understand most of it.
 \item I have a vague idea.
 \item I don't really get it.
 \item What are you talking about?
@@ -235,7 +226,7 @@ Additional comments:
 
 \begin{itemize}[\checkbox]
 \item I understand this perfectly.
-\item I understand the overall gist.
+\item I understand most of it.
 \item I have a vague idea.
 \item I don't really get it.
 \item What are you talking about?
@@ -250,6 +241,8 @@ Additional comments:
 
 \header{These are the tools that were taught in this class. I would like to know if you think they were useful.}
 
+Would you use the following tools/technologies on your projects?
+
 \begin{tabular}[H]{lcccccccc}
 
 \toprule
@@ -260,17 +253,40 @@ shell              &\checkbox &\checkbox &\checkbox &\checkbox \\
 testing            &\checkbox &\checkbox &\checkbox &\checkbox \\
 version control    &\checkbox &\checkbox &\checkbox &\checkbox \\
 debugger           &\checkbox &\checkbox &\checkbox &\checkbox \\
-                   &\checkbox &\checkbox &\checkbox &\checkbox \\
-                   &\checkbox &\checkbox &\checkbox &\checkbox \\
-                   &\checkbox &\checkbox &\checkbox &\checkbox \\
-                   &\checkbox &\checkbox &\checkbox &\checkbox \\
-                   &\checkbox &\checkbox &\checkbox &\checkbox \\
-                   &\checkbox &\checkbox &\checkbox &\checkbox \\
-                   &\checkbox &\checkbox &\checkbox &\checkbox \\
-                   &\checkbox &\checkbox &\checkbox &\checkbox \\
+numpy              &\checkbox &\checkbox &\checkbox &\checkbox \\
+matplotlib         &\checkbox &\checkbox &\checkbox &\checkbox \\
+sqlite             &\checkbox &\checkbox &\checkbox &\checkbox \\
+Qt                 &\checkbox &\checkbox &\checkbox &\checkbox \\
 \bottomrule
 \end{tabular}
 
+\chapter{Homeworks \& Project}
+
+Did you think that the homeworks were a good use of your time?
+\begin{itemize}[\checkbox]
+\item Yes, they helped a lot.
+\item Generally helpful.
+\item Mixed bag.
+\item Mostly a waste of time.
+\item Not helpful---just something more to do.
+\end{itemize}
+
+Is the project getting you to understand the material better?
+\begin{itemize}[\checkbox]
+\item Yes, is helping a lot.
+\item Generally helpful.
+\item Mixed bag.
+\item Mostly a waste of time.
+\item Not helpful---just something more to do.
+\item I haven't worked enough on the project to answer this question.
+\end{itemize}
+
+Any further comments on homeworks and project?
+
+\fillunderscore\par
+\fillunderscore\par
+\fillunderscore\par
+\fillunderscore\par
 
 \chapter{Bugs}
 
@@ -299,6 +315,7 @@ What did you think was too much in this class? Was there a subject/lecture that 
 \fillunderscore\par
 \fillunderscore\par
 
+\clearpage
 \section{Badly Explained}
 
 Were there any topics you felt were particularly badly explained (hopefully not the whole course)?
@@ -309,6 +326,8 @@ Were there any topics you felt were particularly badly explained (hopefully not 
 \fillunderscore\par
 \fillunderscore\par
 \fillunderscore\par
+
+
 \chapter{Comments}
 
 \header{Please add any other comments you feel might be helpful.}
