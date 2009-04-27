@@ -24,12 +24,224 @@ The main Python implementation is \alert{CPython}.
 \begin{frame}[fragile]
 \frametitle{Other Implementations}
 \begin{itemize}
-\item Jython
-\item IronPython
-\item PyPy
-\item Pyjamas
+\item Stackless Python (C)
+\item Jython (Java)
+\item IronPython (.NET)
+\item PyPy (Python in Python)
+\item Pyjamas (Python to Javascript!)
 \item \ldots
 \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Writing Extensions}
+Writing extensions to CPython can be done\\
+in C(++) or similar languages (Fortran).
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Writing an Extension Example}
+
+\begin{python}
+def countchar(string,c):
+    '''
+    C = countchar(string,ch)
+
+    Counts the number of instances of character ch
+    in string string. Returns an integer.
+    '''
+    res = 0
+    for ch in string:
+        if c == ch:
+            res += 1
+    return res
+\end{python}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Writing A Python Extension}
+
+\begin{ccode}
+PyObject* countchar(PyObject* self, PyObject* args) {
+    const char* string;
+    const char ch;
+    if (!PyArg_ParseTuple(args,"sc",&string,&ch))
+        return NULL;
+    int res = 0;
+    while (*string) {
+        if (ch == *string) ++res;
+        ++string;
+    }
+    return Py_BuildValue("i", res);
+}
+\end{ccode}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Writing a Python Extension}
+\begin{enumerate}
+\item Get the arguments into \alert{C variables}
+\item Do computation
+\item Put the arguments into \alert{Python variables}
+\item Return
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Get the Arguments}
+
+\begin{block}{PyArg\_ParseTuple}
+Like \alert{printf} (or \alert{scanf}), takes a format string.
+
+Powerful, but fragile.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Telling Python About Your Function}
+
+\begin{ccode}
+static PyMethodDef methods[] = {
+    {"countchar",  countchar, METH_VARARGS,
+            "countchar(str,ch)\n"
+            "Counts the number of ..."},
+    {NULL, NULL, 0, NULL} /* Sentinel */
+};
+
+PyMODINIT_FUNC initcountchar(void)
+{
+    (void) Py_InitModule("countchar", methods);
+}
+\end{ccode}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{block}{Embedding C++}
+Trivial.
+
+Just remember to add a couple of
+\alert{extern "C"} here and there.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{C++ Example}
+\begin{ccode}
+
+extern "C" {
+    #include <Python.h>
+}
+
+...
+const char* module_doc = 
+    "countchar module.\n\n"
+    "This is a great module.\n";
+
+extern "C"
+void initcountchar()
+  {
+    (void)Py_InitModule3("countchar", methods, module_doc);
+  }
+\end{ccode}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Structuring}
+
+\begin{block}{Two Layers}
+\begin{enumerate}
+\item \alert{Python}: Massage the arguments
+\item \alert{C(++)}: Do computation
+\item \alert{Python}: Massage results
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example}
+
+\begin{python}
+import _countchar
+
+def countchar(s,ch):
+    '''
+    countchar(str,ch)
+
+    Counts the ...
+    '''
+    if s is None:
+        return 0
+    return _countchar(str,ch)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Alternatives}
+
+\begin{block}{SWIG}
+Does most of what you've seen automatically.
+\end{block}
+
+\begin{block}{Boost.Python}
+Allows mixed language applications (Python/C++).
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{SWIG}
+\begin{block}{Pros}
+\begin{itemize}
+\item Easy to use.
+\item Widely used.
+\item Well supported by build tools.
+\end{itemize}
+\end{block}
+
+\begin{block}{Cons}
+\begin{itemize}
+\item Error messages are not Pythonic.
+\item Leads to undocumented functions.
+\item \alert{C++ only:} template support lacking.
+\note{To be fair to swig, templates are a really different model for the tool to worry about.}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Boost.Python}
+\begin{block}{Pros}
+\begin{itemize}
+\item Tight integration of C++/Python
+\item Amazing Technology
+\end{itemize}
+\end{block}
+
+\begin{block}{Cons}
+\begin{itemize}
+\item Hard to use
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Summary}
+\begin{enumerate}
+\item Use \alert{swig} as your first pass.
+\item Write your own for control.
+\item Use Boost.python for very large projects.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Fortran}
+There exists a tool, called \alert{f2py} which is\\
+similar to swig for Fortran.
+\end{frame}
+
+
 
 \end{document}
