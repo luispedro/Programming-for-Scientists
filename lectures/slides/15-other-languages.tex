@@ -29,7 +29,7 @@ The main Python implementation is \alert{CPython}.
 \item IronPython (.NET)
 \item PyPy (Python in Python)
 \item Pyjamas (Python to Javascript!)
-\item \ldots
+\item \ldots\note{Chinese Python which has keywords in Chinese<F2}
 \end{itemize}
 \end{frame}
 
@@ -242,6 +242,72 @@ There exists a tool, called \alert{f2py} which is\\
 similar to swig for Fortran.
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Scipy.weave: Inline C++ Code}
+\begin{python}
+import numpy as np
+from scipy import weave
+from scipy.weave import converters
+
+p2 = np.zeros(N)
+code = '''
+for (int i = 0; i != N; ++i) {
+    for (int j = 0; j != N; ++j) {
+        p2(i) += p(i,j)*p(i,j);
+    }
+}
+'''
+weave.inline(
+        code,
+        ['N','p','p2'],
+        type_converters=converters.blitz) 
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Scipy.Weave}
+
+\begin{block}{Pros}
+\begin{itemize}
+\item Very fast to use
+\item Convenient syntax
+\end{itemize}
+\end{block}
+
+\begin{block}{Cons}
+\begin{itemize}
+\item Error messages can be hard to parse
+\item Your code will run differently if\\
+    you distribute it to people without a C++ compiler.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Cython}
+
+Cython is language which \alert{extends Python} to\\
+make it easier to write Python extensions.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Cython}
+
+\begin{block}{Pros}
+\begin{itemize}
+\item Well supported
+\item Familiar syntax
+\end{itemize}
+\end{block}
+
+\begin{block}{Cons}
+\begin{itemize}
+\item Still in development\\
+    (moving target)
+\end{itemize}
+\end{block}
+
+\end{frame}
 
 
 \end{document}
