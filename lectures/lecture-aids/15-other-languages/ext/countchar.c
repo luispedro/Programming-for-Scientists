@@ -2,7 +2,7 @@
 
 PyObject* countchar(PyObject* self, PyObject* args) {
     const char* string;
-    const char ch;
+    char ch;
     if (!PyArg_ParseTuple(args,"sc",&string,&ch))
         return NULL;
     int res = 0; 
