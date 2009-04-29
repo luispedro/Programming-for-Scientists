@@ -15,9 +15,9 @@ Programming for Scientists
 New Stuff
 ---------
 
+  * [Apr 29] No class on Thursday (Apr 30).
   * [Mar 26] Homeworks 8 & 9 (see Homeworks_).
   * [Mar 3] Homework 7 (see Homeworks_). Also, updated project_ webpage.
-  * [Feb 26] Information about the project_.
 
 .. _project: project
 .. _Notes: notes.html
