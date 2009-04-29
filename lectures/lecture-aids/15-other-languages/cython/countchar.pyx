@@ -5,8 +5,15 @@ def countchar(str,ch):
             res += 1
     return res
 
-def factorial(n):
+def untyped_factorial(n):
     res = 1.
-    for i in xrange(1,n):
+    for i in range(1,n):
+        res *= i
+    return res
+
+def factorial(int n):
+    cdef double res = 1.
+    cdef int i
+    for i in range(1,n):
         res *= i
     return res
