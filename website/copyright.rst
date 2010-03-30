@@ -18,4 +18,7 @@ Luís Pedro Coelho, except where otherwise noted.
 Availability
 ------------
 
-I will make the source code to all of this class (including LaTeX source to slides and notes) available at the end of the semester. If you'd like it earlier, just let me know.
+All materials for this class (including LaTeX source to slides and notes) are
+available at `github
+<http://github.com/luispedro/Programming-for-Scientists>`_.
+
