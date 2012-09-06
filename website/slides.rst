@@ -61,6 +61,8 @@ These are the slides as delivered, except for the occasional fixed typo.
 .. _`Lecture 25`: http://luispedro.org/pfs/lecture-slides/13-review.pdf
 .. _`Lecture 28`: http://luispedro.org/pfs/lecture-slides/15-other-languages.pdf
 
-If you'd like the LaTeX source for the above slides, email me (it's all available under `CC-By-Nc-SA`_). At the end of the semester, I'll make the whole project available. For the time being, it's easier not to have to keep it all in sync.
+The source code for these slides is available under `CC-By-Nc-SA`_ on
+`Github <http://github.com/luispedro/Programming-for-Scientists>`__.
 
 .. _`CC-By-Nc-SA`: http://creativecommons.org/licenses/by-nc-sa/3.0/us/
+
