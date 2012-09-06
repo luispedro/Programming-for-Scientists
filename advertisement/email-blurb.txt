@@ -1,7 +1,7 @@
 Programming for Scientists
 ---------------------------
 
-Instructor: Luís Pedro Coelho <lpc@cmu.edu>
+Instructor: Luis Pedro Coelho
 Course Number: 98-111
 Day/Time/Location: Tue & Thu 6.30pm SH 220
 Credit: 3 Units
