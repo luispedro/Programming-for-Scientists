@@ -23,5 +23,4 @@ Contact
 
 Luis Pedro Coelho
 Carnegie Mellon University
-5000 Forbes Ave, 7405 GHC
 luis@luispedro.org
