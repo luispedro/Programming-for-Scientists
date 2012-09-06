@@ -43,4 +43,4 @@ For the practical part of the course, the Python programming language will be co
 Who teaches it?
 ---------------
 
-This is a *student taught* course, taught by Luís Pedro Coelho, a third-year Ph.D. student in Computational Biology. Luís has a BS and an MS in computer science from IST in Lisbon.
+This is a *student taught* course, taught by Luis Pedro Coelho, a third-year Ph.D. student in Computational Biology. Luis has a BS and an MS in computer science from IST in Lisbon.

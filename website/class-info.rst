@@ -2,7 +2,7 @@
 Class Overview
 =================
 
-**Instructor**: Luís Pedro Coelho <lpc@cmu.edu>
+**Instructor**: Luis Pedro Coelho <lpc@cmu.edu>
 
 **Class Number**: 98-111
 

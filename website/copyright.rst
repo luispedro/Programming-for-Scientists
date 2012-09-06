@@ -12,7 +12,7 @@ If you do use these in a class, I would appreciate it if you dropped me a note
 with any comments/corrections. Thank you.
 
 Everything in these pages, including lecture slides and lecture notes, is by
-Luís Pedro Coelho, except where otherwise noted.
+Luis Pedro Coelho, except where otherwise noted.
 
 
 Availability
