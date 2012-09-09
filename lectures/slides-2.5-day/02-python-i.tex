@@ -1,0 +1,216 @@
+\input{slheader}
+\title{Introduction to Python Programming}
+\begin{document}
+
+\frame{\maketitle}
+
+\note{
+    Goals for this session:
+
+    - Be able to run a program.
+    - Be able to run interactively.
+
+    - Rough understanding of name/object concept.
+    - Understand control flow.
+}
+
+\begin{frame}[fragile]
+\frametitle{Python}
+
+Let's digress for a moment discussing the language\ldots
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Python Language History}
+
+\begin{block}{History}
+Python was started in the late 80's. It was intended to be both \alert{easy to teach} and \alert{industrial strength}.
+
+It is (has always been) open-source and has become one of the most widely used languages (top 10).
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Python Versions}
+
+\begin{block}{Python Versions}
+\begin{itemize}
+\item The current version of Python is \alert{2.7} and \alert{3.3}
+\item This class assumes you have 2.6--2.7
+\item There are some small differences when compared to version 3.x
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Example}
+
+\begin{python}
+print "Hello World"
+\end{python}
+\end{frame}
+
+
+\begin{frame}[fragile]
+
+\begin{block}{Running Python}
+\begin{enumerate}
+\item From a file
+\item Interactively
+\end{enumerate}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Back to the Python Language}
+Let's look at the language itself.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What is a Computer?}
+
+\begin{enumerate}
+\item Memory
+\item Processor
+\item Magic
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Model}
+
+\begin{enumerate}
+\item Objects
+\item Operations on objects
+\item Magic
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Computer Program}
+
+\begin{block}{helloword.py}
+\begin{python}
+print 'Hello World'
+\end{python}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Running a Program}
+\begin{enumerate}
+\item Shell
+\item IDE
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\bigskip
+\bigskip
+\bigskip
+Let me show you a demonstration\ldots
+
+\note{
+\begin{enumerate}
+\item Demo shell with vim
+\item Demo one IDE
+\end{enumerate}
+}
+
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{More Complex Example}
+
+What is 25 + 20\%?
+
+\pause
+\begin{python}
+print 25 * 1.2
+\end{python}
+\note{Demo the python shell.
+
+This is basically a glorified calcular}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Blackboard demonstration}
+
+\note{Use the blackboard to introduce the idea of objects, values and names.}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Conditionals}
+
+\begin{python}
+
+if <condition>:
+    <statement 1>
+    <statement 2>
+else:
+    <statement 3>
+
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lists}
+
+\begin{python}
+
+students = ['Luis','Mark','Rita']
+
+print students[0]
+print students[1]
+print students[2]
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Loops}
+
+\begin{python}
+students = ['Luis','Mark','Rita',...]
+
+for st in students:
+    print st
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Loops (II)}
+
+\begin{python}
+
+students = ['Luis',...]
+
+looking_for = 'Anna'
+
+i = 0
+while students[i] != looking_for:
+    i += 1
+
+if students[i] == looking_for:
+    print 'Found her'
+else:
+    print "Sorry, she's not registered!"
+\end{python}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{For Monday}
+
+\begin{itemize}
+\item Install Python(x,y)\\
+    (or the equivalent on your platform)
+\end{itemize}
+\end{frame}
+
+\end{document}
