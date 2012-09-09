@@ -5,8 +5,11 @@ A course for scientists who write code
 --------------------------------------
 
 This was a course offered at Carnegie Mellon University in Spring 2009. It was
-designed and taught by Luis Pedro Coelho (available at luis@luispedro.org), a
-graduate student in computational biology.
+designed and taught by Luis Pedro Coelho (available at luis@luispedro.org), at
+the time, a graduate student in computational biology.
+
+Later, an abdridged, two-and-a-half day version of the course was offered in
+Fall 2012 at Instituto de Medicina Molecular (Lisbon, Portugal).
 
 Materials available
 -------------------
