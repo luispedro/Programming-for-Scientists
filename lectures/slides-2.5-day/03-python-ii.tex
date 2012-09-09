@@ -1,0 +1,355 @@
+\input{slheader}
+\title{Python's Odds and Ends}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{Python So Far}
+
+\begin{block}{Python}
+\begin{enumerate}
+\item Basic types: int, float, list, dict
+\item Control flow: for, while, if, else, elif
+\item Type construction: class
+\end{enumerate}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{List Indexing}
+
+\begin{python}
+students = ['Luis','Rita','Sabah','Grace']
+print students[0]
+print students[1:2]
+print students[1:]
+print students[-1]
+print students[-2]
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tuples (I)}
+\begin{python}
+A = (0,1,2)
+B = (1,)
+
+print A[0]
+print len(B)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tuples (II)}
+Tuples are like \alert{immutable} lists.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Set Type}
+\begin{python}
+numbers = set([1,2,5])
+print 3 in numbers
+numbers.add(4)
+print numbers
+numbers.add(1)
+print numbers
+print numbers | set(['Rita'])
+print numbers - set([2,3])
+\end{python}
+
+Output:
+\begin{python}
+False
+set([1, 2, 4, 5])
+set([1, 2, 4, 5])
+set([1, 2, 4, 5, 'Rita'])
+set([1, 4, 5])
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Frozenset Type}
+
+\begin{python}
+numbers = frozenset([1,2,5])
+
+print 3 in 5 # False
+print 2 in 5 # True
+
+numbers.add(1) # ERROR!!
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What's up With Immutability?}
+
+\pause
+You can only use \alert{immutable} objects as dictionary keys!
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Complex Numbers}
+\begin{python}
+A = 1+1j
+print A**2
+print A**4
+\end{python}
+
+prints
+
+\begin{python}
+2j
+(-4+0j)
+\end{python}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{None object}
+
+\begin{python}
+None
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Object Identity}
+
+\begin{block}{Object Identity}
+\begin{itemize}
+\item \lstinline{A is B}
+\item \lstinline{A is not B}
+\item \lstinline{id(obj)}
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{List Comprehensions}
+
+\begin{python}
+name = [ <expr> for <name> in <sequence> if <condition> ]
+\end{python}
+
+maps to
+
+\begin{python}
+name = []
+for <name> in <sequence>:
+    if <condition>:
+        name.append(<expr>)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{List Comprehensions Example}
+
+\begin{python}
+squares = [x*x for x in xrange(1,20)]
+evensquares = [x*x for x in xrange(1,20) if (x%2) == 0]
+\end{python}
+
+\begin{python}
+squares = []
+for x in xrange(1,20):
+    squares.append(x*x)
+
+evensquares = []
+for x in xrange(1,20):
+    if (x%2) == 0:
+        evensquares.append(x*x)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Functions}
+
+\begin{python}
+def max(arg0,*args):
+    '''
+    M = max(arg0,arg1,...)
+
+    Returns the maximum of its arguments
+    '''
+    M = arg0
+    for val in args:
+        if val > M:
+            M = val
+    return M
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{python}
+def simulate(pop,max_iters,p_prob=.3,max_pop=None):
+    '''
+    Simulate a population of bacteria.
+
+    Arguments
+        * max_population: Maximum population
+                        (default: 10*len(population))
+        ...
+    '''
+    if max_population is None:
+        max_population = 10*len(population)
+    for i in xrange(max_iters):
+        ...
+
+population = [ ... ]
+simulate(population,1000,.2)
+simulate(population,max_iters=1000,p_prob=.2)
+simulate(population,p_prob=.4,max_iters=1000)
+simulate(population,1000,max_population=10**5)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Functions (III)}
+
+\begin{python}
+def f(arg0,arg1,*args,**kwargs):
+    ...
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Multiple Assignment}
+
+\begin{python}
+A, B = 1,2
+\end{python}
+
+Assign multiple elements at once.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Multiple Assignment to Return Multiple Arguments}
+
+\begin{python}
+def stats(values):
+    '''...'''
+    return mean(values), std(values)
+
+...
+values = ...
+props = stats(values)
+mu, std = stats(values)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{python}
+def greet(name,greeting='Hello'):
+    '''
+    greet(name,greeting='Hello')
+
+    Greets person by name
+
+    Arguments
+    ---------
+        * name: Name
+        * greeting: Greeting to use
+    '''
+    print greeting, name
+
+ret = greet('World')
+
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Functions Are Objects}
+
+\begin{python}
+
+def integrate01(f):
+    '''
+    int_f = integrate01(f)
+    ...
+    '''
+    res = 0.0
+    for x in xrange(1000):
+        res += f(x/1000.)/1000.
+    return res
+
+def identity(x):
+    return x
+
+def square(x):
+    return x**2
+
+integrate01(identity)
+integrate01(square)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Sequences}
+
+\begin{python}
+for value in sequence:
+    ...
+\end{python}
+
+\begin{block}{Sequences}
+\begin{itemize}
+\item Lists
+\item Tuples
+\item Sets \& Frozensets
+\item Dictionaries
+\item ...
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Generators}
+
+\begin{block}{Generator: ``Function''-like Sequence}
+
+\begin{python}
+def xrange(start,stop=None,step=None):
+    '''
+    xrange([start,]stop[,step]) -> xrange object
+
+    Like range, but instead of a list, returns...
+    '''
+    if stop is None and step is None:
+        stop = start
+        start = 0
+        step = 1
+    elif step is None:
+        step = 1
+
+    while start < stop:
+        yield start
+        start += step
+\end{python}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Generators}
+
+\begin{itemize}
+\item Generators are similar to functions, but generate a sequence.
+\item Functions use \lstinline{return}, generators use \lstinline{yield}.
+\end{itemize}
+\end{frame}
+
+\end{document}
