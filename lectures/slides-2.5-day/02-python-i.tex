@@ -1,5 +1,5 @@
 \input{slheader}
-\title{Introduction to Python Programming}
+\title[Python I]{Introduction to Python Programming}
 \begin{document}
 
 \frame{\maketitle}
@@ -32,11 +32,26 @@ It is (has always been) open-source and has become one of the most widely used l
 \end{frame}
 
 \begin{frame}
+\frametitle{Popularity}
+
+\centering
+\includegraphics[width=.8\textwidth]{language-ranking-0912.png}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Popularity}
+
+\centering
+\includegraphics[width=.8\textwidth]{language-ranking-0912-zoom.png}
+
+\end{frame}
+\begin{frame}
 \frametitle{Python Versions}
 
 \begin{block}{Python Versions}
 \begin{itemize}
-\item The current version of Python is \alert{2.7} and \alert{3.3}
+\item The current versions of Python are \alert{2.7} and \alert{3.3}
 \item This class assumes you have 2.6--2.7
 \item There are some small differences when compared to version 3.x
 \end{itemize}
@@ -44,30 +59,6 @@ It is (has always been) open-source and has become one of the most widely used l
 
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Python Example}
-
-\begin{python}
-print "Hello World"
-\end{python}
-\end{frame}
-
-
-\begin{frame}[fragile]
-
-\begin{block}{Running Python}
-\begin{enumerate}
-\item From a file
-\item Interactively
-\end{enumerate}
-\end{block}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Back to the Python Language}
-Let's look at the language itself.
-\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{What is a Computer?}
@@ -87,6 +78,27 @@ Let's look at the language itself.
 \item Operations on objects
 \item Magic
 \end{enumerate}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Python Example}
+
+\begin{python}
+print "Hello World"
+\end{python}
+\end{frame}
+
+
+\begin{frame}[fragile]
+
+\begin{block}{Running Python}
+\begin{enumerate}
+\item From a file
+\item Interactively
+\end{enumerate}
+\end{block}
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -139,6 +151,18 @@ This is basically a glorified calcular}
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{More Complex Example}
+
+\begin{python}
+name = 2
+other = 3
+yetanother = name + other
+name = 5
+print yetanother + name
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Blackboard demonstration}
 
 \note{Use the blackboard to introduce the idea of objects, values and names.}
@@ -182,6 +206,83 @@ for st in students:
     print st
 \end{python}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example}
+
+\begin{python}
+values = [0.11, 0.23, 0.16, 0.18, 0.23, 0.19]
+
+sum = 0.0
+sum2 = 0.0
+for v in values:
+    sum = sum + v
+    sum2 = sum + v * v
+
+mu = sum/len(values)
+mu2 = sum2/len(values)
+print 'Average: {0}'.format(mu)
+print 'Std Dev: {0}'.format(mu2 - mu*mu)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example}
+
+\begin{python}
+values = [0.11, 0.23, 0.16, 0.18, 0.23, 0.19]
+
+sum = 0.0
+sum2 = 0.0
+for v in values:
+    sum += v
+    sum2 += v * v
+
+mu = sum/len(values)
+mu2 = sum2/len(values)
+print 'Average: {0}'.format(mu)
+print 'Std Dev: {0}'.format(mu2 - mu*mu)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example}
+
+\begin{python}
+values = [0.11, 0.23, 0.16, 0.18, 0.23, 0.19]
+
+mu = 0.0
+mu2 = 0.0
+for v in values:
+    mu += v
+    mu2 += v * v
+
+mu /= len(values)
+mu2 /= len(values)
+print 'Average: {0}'.format(mu)
+print 'Std Dev: {0}'.format(mu2 - mu*mu)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example}
+
+\begin{python}
+values = [0.11, 0.23, 0.16, 0.18, 0.23, 0.19]
+
+mu = 0.0
+mu2 = 0.0
+for v in values:
+    mu += v
+    mu2 += v * v
+
+mu /= len(values)
+mu2 /= len(values)
+print 'Average: {0}'.format(mu)
+print 'Std Dev: {0}'.format(mu2 - mu*mu)
+\end{python}
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{Loops (II)}
