@@ -1,0 +1,114 @@
+\input{slheader}
+\title{Guided Exercises}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}
+\frametitle{Goals for this hour}
+
+\begin{itemize}
+\item A quiz
+\item Do a few exercises.
+\item Play around.
+\item You can work alone, in pairs, in triples,\ldots
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists I}
+
+How do you access the first element of a list?
+
+Assume \texttt{list} is a list:
+
+\begin{enumerate}
+\item \texttt{list[1]}
+\item \texttt{list[0]}
+\item \texttt{list[-1]}
+\item \texttt{list(0)}
+\item \texttt{list(-1)}
+\item \texttt{list(1)}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists II}
+
+How do you access the last element of a list?
+
+Assume \texttt{list} is a list:
+
+\begin{enumerate}
+\item \texttt{list[1]}
+\item \texttt{list(-0)}
+\item \texttt{list[-1]}
+\item \texttt{list(-1)}
+\item \texttt{list(1)}
+\item \texttt{list[-0]}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+{}
+
+\bigskip
+\bigskip
+\bigskip
+Exercises
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Object Identity}
+
+What is the difference between the following two code examples:
+
+A)
+\begin{python}
+A = [1, 2, 3]
+B = [1, 2, 3]
+\end{python}
+
+B)
+
+\begin{python}
+A = [1, 2, 3]
+B = A
+\end{python}
+
+Write a small piece of code (should be 2 or 3 lines) that behaves differently
+if you insert it after each of the two segments above.
+
+\pause
+
+\begin{python}
+B[0] = 0
+print A
+\end{python}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{sum}
+\begin{enumerate}
+\item Learn about the built-in function \lstinline{sum}
+\item Write an implementations of this function
+\end{enumerate}
+
+\pause
+\begin{python}
+def sum(xs, start=0):
+    '''
+    s = sum(xs, start=0)
+
+    Returns the sum of all values in ``xs`` + ``start`` (which defaults to 0)
+    '''
+    for x in xs:
+        start += x
+    return start
+\end{python}
+\end{frame}
+
+
+\end{document}
