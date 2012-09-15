@@ -8,9 +8,8 @@
 
 \begin{block}{Python}
 \begin{enumerate}
-\item Basic types: int, float, list, dict
+\item Basic types: int, float, list
 \item Control flow: for, while, if, else, elif
-\item Type construction: class
 \end{enumerate}
 \end{block}
 
@@ -44,6 +43,22 @@ print len(B)
 \begin{frame}[fragile]
 \frametitle{Tuples (II)}
 Tuples are like \alert{immutable} lists.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Dictionaries}
+
+\begin{itemize}
+\item Dictionaries are \alert{associative arrays}.
+\end{itemize}
+
+\begin{python}
+gene2ensembl = {}
+gene2ensembl['SMAD9'] = 'ENSG00000120693'
+gene2ensembl['ZNF670'] = 'ENSG00000135747'
+
+print gene2ensembl['SMAD9']
+\end{python}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -188,38 +203,6 @@ def max(arg0,*args):
 
 \end{frame}
 
-\begin{frame}[fragile]
-\begin{python}
-def simulate(pop,max_iters,p_prob=.3,max_pop=None):
-    '''
-    Simulate a population of bacteria.
-
-    Arguments
-        * max_population: Maximum population
-                        (default: 10*len(population))
-        ...
-    '''
-    if max_population is None:
-        max_population = 10*len(population)
-    for i in xrange(max_iters):
-        ...
-
-population = [ ... ]
-simulate(population,1000,.2)
-simulate(population,max_iters=1000,p_prob=.2)
-simulate(population,p_prob=.4,max_iters=1000)
-simulate(population,1000,max_population=10**5)
-\end{python}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Functions (III)}
-
-\begin{python}
-def f(arg0,arg1,*args,**kwargs):
-    ...
-\end{python}
-\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Multiple Assignment}
@@ -256,42 +239,17 @@ def greet(name,greeting='Hello'):
 
     Greets person by name
 
-    Arguments
-    ---------
-        * name: Name
-        * greeting: Greeting to use
+    Parameters
+    ----------
+    name: str
+        Name
+    greeting: str, optional
+        Greeting to use
     '''
     print greeting, name
 
 ret = greet('World')
 
-\end{python}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Functions Are Objects}
-
-\begin{python}
-
-def integrate01(f):
-    '''
-    int_f = integrate01(f)
-    ...
-    '''
-    res = 0.0
-    for x in xrange(1000):
-        res += f(x/1000.)/1000.
-    return res
-
-def identity(x):
-    return x
-
-def square(x):
-    return x**2
-
-integrate01(identity)
-integrate01(square)
 \end{python}
 
 \end{frame}
