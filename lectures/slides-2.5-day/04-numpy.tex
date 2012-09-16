@@ -320,5 +320,31 @@ img = np.zeros((1024,1024,3),dype=np.uint8)
 
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Matplotlib}
+Matplotlib is a \alert{plotting library} for Python.
+
+\begin{python}
+import pylab
+import numpy as np
+X = np.linspace(-4,+4,1000)
+pylab.plot(X,np.exp(-X**2))
+pylab.xlabel(r'$x$')
+pylab.ylabel(r'$\exp(-x^{2})$')
+pylab.savefig('gaussian.pdf')
+\end{python}
+
+\centering
+\href{http://matplotlib.sf.net/}{http://matplotlib.sf.net/}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Matplotlib Example}
+
+\centering
+\includegraphics[width=.9\textwidth]{matplotlibexample.pdf}
+
+\end{frame}
 
 \end{document}

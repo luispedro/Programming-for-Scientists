@@ -110,5 +110,31 @@ def sum(xs, start=0):
 \end{python}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Numpy}
+
+\begin{python}
+import numpy as np
+\end{python}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Matplotlib}
+
+\begin{python}
+import numpy as np
+from matplotlib import pyplot as plt
+
+X = np.linspace(-4, 4, 100)
+Y = np.exp(.5-X*X)
+\end{python}
+
+\centering
+\includegraphics[width=.5\textwidth]{gaussian.pdf}
+
+\end{frame}
+
+
 
 \end{document}
