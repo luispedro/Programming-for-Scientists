@@ -1,0 +1,336 @@
+\input{slheader}
+\title{File Parsing}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{File Representions}
+\begin{block}{What's a File?}
+A sequence of bytes.
+
+\bigskip
+(and meta-data).
+\note{This is very unixy. Files in Windows can have multiple streams}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File Format Examples: FASTA format}
+\begin{verbatim}
+> qqq
+ACTTTGTTATATATACTATCTGTATTTTC
+CTGGGTGAGAGAGTGGTTGAGAGGGGGAA
+CCCCCAACCACATTTCCCCACACCCCCTG
+ACTTTCCTATATGTCCATTTTTATAATC
+> ppp
+TTTTTGGTATCTATTTTCCACTCATTCTTTAT
+TACCCCAGTCATCACAAAACACACACACAACC
+ATTATCTCTAATATATAATTTTACCTTT
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Parsing FASTA}
+
+\begin{python}
+sequences = []
+curseq = ''
+for line in file('input.fsa'):
+    if line[0] == '>':
+        sequences.append(curseq)
+    else:
+        curseq += line.strip()
+sequences.append(curseq)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File Format Examples (II): GenBank}
+
+\begin{verbatim}
+LOCUS       SCU49845     5028 bp    DNA             PLN       21-JUN-1999
+DEFINITION  Saccharomyces cerevisiae TCP1-beta gene, partial cds, and Axl2p
+            (AXL2) and Rev7p (REV7) genes, complete cds.
+ACCESSION   U49845
+VERSION     U49845.1  GI:1293613
+KEYWORDS    .
+SOURCE      Saccharomyces cerevisiae (baker's yeast)
+  ORGANISM  Saccharomyces cerevisiae
+            Eukaryota; Fungi; Ascomycota; Saccharomycotina; Saccharomycetes;
+            Saccharomycetales; Saccharomycetaceae; Saccharomyces.
+...
+ORIGIN
+        1 gatcctccat atacaacggt atctccacct caggtttaga tctcaacaac ggaaccattg
+       61 ccgacatgag acagttaggt atcgtcgaga gttacaagct aaaacgagca gtagtcagct
+      121 ctgcatctga agccgctgaa gttctactaa gggtggataa catcatccgt gcaagaccaa
+      181 gaaccgccaa tagacaacat atgtaacata tttaggatat acctcgaaaa taataaaccg
+      241 ccacactgtc attattataa ttagaaacag aacgcaaaaa ttatccacta tataattcaa
+      301 agacgcgaaa aaaaaagaac aacgcgtcat agaacttttg gcaattcgcg tcacaaataa
+      361 attttggcaa cttatgtttc ctcttcgagc agtactcgag ccctgtctca agaatgtaat
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Representing Text}
+\begin{block}{ASCII}
+\begin{itemize}
+\item 65: A
+\item 66: B
+\item \ldots
+\item 48: 0
+\item 49: 1
+\item \ldots
+\item \ldots
+\end{itemize}
+
+127 code points taken.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Two File Format Classes}
+
+\begin{itemize}
+\item Text files
+\item Non-text files (binary files)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+Size & Hex Value & Value & Meaning\\
+\midrule
+2 & 42 4D  &"BM"  &Magic Number (66, 77)\\
+4 & 46 00 00 00 & 70 Bytes & Size of Bitmap\\
+2 & 00 00 & Unused & Application Specific\\
+2 & 00 00 & Unused & Application Specific\\
+4 & 36 00 00 00 & 54 bytes & The offset of data.\\
+4 & 28 00 00 00 & 40 bytes & Size of header. \\
+4 & 02 00 00 00 & 2 pixels & The width in pixels\\
+4 & 02 00 00 00 & 2 pixels & The height in pixels\\
+2 & 01 00 & 1 plane & Number of color planes.\\
+2 & 18 00 & 24 bits & The bits/pixel.\\
+4 & 00 00 00 00 & 0 & No compression used\\
+4 & 10 00 00 00 & 16 bytes & The size of the raw BMP data\\
+4 & 13 0B 00 00 & 2,835 pixels/m& The horizontal resolution\\
+4 & 13 0B 00 00 & 2,835 pixels/m& The vertical resolution\\
+4 & 00 00 00 00 & 0 & Number of colors in the palette\\
+4 & 00 00 00 00 & 0 & Means all colors are important\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+Size & Hex Value & Value & Meaning\\
+\midrule
+3 & 00 00 FF & 0 0 255 & Red, Pixel (0,1)\\
+3 & FF FF FF & 255 255 255 &  White, Pixel (1,1)\\
+2 & 00 00    & 0 & Padding for 4 bytes/row\\
+3 & FF 00 00 & 255 0 0 & Blue, Pixel (0,0)\\
+3 & 00 FF 00 & 0 255 0 & Green, Pixel (1,0)\\
+2 & 00 00    & 0  & Padding for 4 bytes/row\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\begin{flushright}
+(Wikipedia)
+\end{flushright}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Bitmap}
+
+\centering
+\includegraphics{BMPexample}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Text vs.\ Binary}
+When possible, prefer text formats.
+
+They are simpler.\note{but they still have a million quirks and we'll spend the rest of the lecture talking about them.}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Line Endings}
+\begin{itemize}
+\item Unix: LF (line feed)
+\item Windows: CRLF (carriage return, line feed)
+\item (Old Mac OS: CR)
+\end{itemize}
+
+The extra carriage returns will often show up as \^{}M in Unix.
+
+Some unix text files will show up as a single ultra-long line on Windows.
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{What About International Characters?}
+
+\begin{itemize}
+\item Such as \'{a} or \c{c}?
+\item Or $\mu$?
+\item Or Asian characters?\note{I couldn't get asian characters in Latex, for example}
+\item Or ---?
+
+\end{itemize}
+It's a mess!
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{International Character Sets}
+
+\begin{itemize}
+\item Traditional (latin-1,latin-9,latin-15,\ldots)
+\item Unicode (16-bits, or 32-bits)
+\item UTF-8
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Unicode}
+
+\begin{block}{Unicode}
+Use 16~bits for (almost) all possible possible characters.\\
+Use 32~bits for all possible characters.
+\end{block}
+
+\begin{block}{Byte Order}
+If you have a 2~byte number, which byte do you write first?
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{UTF-8}
+Emerging standard (at some levels).
+
+\pause
+
+You still see errors
+
+I saw this in an ATM receipt the other day
+
+confirmaÃ§Ã£o (which is confirma\,{c}\~{a}o in UTF-8, but printed out in Latin-15)
+
+\end{frame}
+
+
+
+
+\note{break here}
+
+\begin{frame}[fragile]
+\frametitle{Text Based Formats}
+
+\begin{itemize}
+\item Text format is not only for text
+\item Your Python files are text files
+\item Anything can be represented as a text-file
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Text Formats}
+
+\begin{itemize}
+\item Easier to parse
+\item Easier to debug
+\item Easier to transfer from one machine to the next
+\item Larger files (but you can compress them)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tabular Text Formats}
+
+\begin{itemize}
+\item Comma- or TAB- separated files are flexible
+\item Can be used to transfer from and to spreadsheet software
+\item Unfortunately, these are often not 100\% well specified
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example: SAM Format}
+\begin{verbatim}
+
+@HD     VN:1.0  SO:unsorted
+@SQ     SN:     LN:9732
+@PG     ID:bowtie2      PN:bowtie2      VN:2.0.0-beta7
+FC5:1101:1441:2131        4       *       0       0       *       *       0       0       TNTCTATTTCGTGTTCATGCAAATTCTGTTGCTGGTCTGGGTGACTATT       _BP\acccgggbeghfhhfhhf_gggghhfghhfhdfgfffbfgghdeg      YT:Z:UU
+FC5:1101:1371:2227        4       *       0       0       *       *       0       0       TTGTCTCTGGTCCTATTTTTCATGGAGTCTTTTTTTTTTTCACTTTTAA       bbbeeeeeggeggihhiiiifgiiiegghhiiiiiiiiiiZZ\cghgd`      YT:Z:UU
+FC5:1101:1650:2171        4       *       0       0       *       *       0       0       GTGTAATTCTTATTAATGTTATAGAAAATAGTAAGATAAAATAGTTCAG       ba_eeeeegggggihiiiiifihhiiiiiiieghhhhifdeddfdghhi      YT:Z:UU
+FC5:1101:1599:2183        4       *       0       0       *       *       0       0       GTATATACTCAAACAGAAAGAGGAGGGGTGGTAGAGATGAGAATTTTAC       babeeeeegggggiiihiiiegheghii^cgaegfgghfffhhiiiihi      YT:Z:UU
+FC5:1101:1539:2201        4       *       0       0       *       *       0       0       CCTTCTCAGAACCACTAAGGCAGCAGTTTGACGTTGACAATTGAAGTTT       _^^cccdeggacgffgghhhZYbcge[bcgfgh\fgegfhfhfcgfI^f      YT:Z:UU
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{SAM Close Up}
+
+\begin{verbatim}
+FC5:1101:1441:2131\t4\t*\t0\t0...
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Parsing This File}
+
+\begin{python}
+ifile = open('input.sam')
+matched = []
+nreads = 0
+for line in ifile:
+    if line[0] == '@':
+        continue
+    nreads += 1
+    tokens = line.strip().split('\t')
+    if tokens[1] != '4': # Four is *unmatched*
+        matched.append( (tokens[0], tokens[2], int(tokens[3])) )
+
+print 'Matched {0} reads out of {1} ({2:.2%})'.format(len(matched), nreads, len(matched)/float(nreads))
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Conclusions}
+\begin{itemize}
+\item Use UTF-8
+\item Prefer text-based formats (use generic compression on top)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Homework I}
+
+\begin{itemize}
+\item Download FastQ file from course webpage
+\item Plot (for each base pair position) average quality \& std.\ dev.
+\item Write a sequence trimmer
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Homework I}
+
+\centering
+\includegraphics[width=.7\textwidth]{fastqtrim}
+
+\end{frame}
+
+\end{document}
