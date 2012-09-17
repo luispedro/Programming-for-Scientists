@@ -1,5 +1,5 @@
 \input{slheader}
-\title{File Parsing \& Regular Expressions}
+\title{File Parsing}
 \begin{document}
 \frame{\maketitle}
 
@@ -11,6 +11,23 @@ A sequence of bytes.
 \bigskip
 (and meta-data).
 \note{This is very unixy. Files in Windows can have multiple streams}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Representing Text}
+\begin{block}{ASCII}
+\begin{itemize}
+\item 65: A
+\item 66: B
+\item \ldots
+\item 48: 0
+\item 49: 1
+\item \ldots
+\item \ldots
+\end{itemize}
+
+127 code points taken.
 \end{block}
 \end{frame}
 
@@ -71,30 +88,71 @@ ORIGIN
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Representing Text}
-\begin{block}{ASCII}
+\frametitle{Line Endings}
 \begin{itemize}
-\item 65: A
-\item 66: B
-\item \ldots
-\item 48: 0
-\item 49: 1
-\item \ldots
-\item \ldots
+\item Unix: LF (line feed)
+\item Windows: CRLF (carriage return, line feed)
+\item (Old Mac OS: CR)
 \end{itemize}
 
-127 code points taken.
-\end{block}
+The extra carriage returns will often show up as \^{}M in Unix.
+
+Some unix text files will show up as a single ultra-long line on Windows.
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{What About International Characters?}
+
+\begin{itemize}
+\item Such as \'{a} or \c{c}?
+\item Or $\mu$?
+\item Or Asian characters?\note{I couldn't get asian characters in Latex, for example}
+\item Or ---?
+
+\end{itemize}
+It's a mess!
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Two File Format Classes}
+\frametitle{International Character Sets}
 
 \begin{itemize}
-\item Text files
-\item Non-text files (binary files)
+\item Traditional (latin-1,latin-9,latin-15,\ldots)
+\item Unicode (16-bits, or 32-bits)
+\item UTF-8
 \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Unicode}
+
+\begin{block}{Unicode}
+Use 16~bits for (almost) all possible possible characters.\\
+Use 32~bits for all possible characters.
+\end{block}
+
+\begin{block}{Byte Order}
+If you have a 2~byte number, which byte do you write first?
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{UTF-8}
+Emerging standard (at some levels).
+
+\pause
+
+You still see errors
+
+I saw this in an ATM receipt the other day
+
+confirmaÃ§Ã£o (which is confirmação in UTF-8, but printed out in Latin-15)
+
+\end{frame}
+
 
 \begin{frame}[fragile]
 \begin{center}
@@ -161,220 +219,92 @@ When possible, prefer text formats.
 They are simpler.\note{but they still have a million quirks and we'll spend the rest of the lecture talking about them.}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Line Endings}
-\begin{itemize}
-\item Unix: LF (line feed)
-\item Windows: CRLF (carriage return, line feed)
-\item (Old Mac OS: CR)
-\end{itemize}
 
-The extra carriage returns will often show up as \^{}M in Unix.
-
-Some unix text files will show up as a single ultra-long line on Windows.
-
-\end{frame}
-
-
-\begin{frame}[fragile]
-\frametitle{What About International Characters?}
-
-\begin{itemize}
-\item Such as \'{a} or \c{c}?
-\item Or $\mu$?
-\item Or Asian characters?\note{I couldn't get asian characters in Latex, for example}
-\item Or ---?
-
-\end{itemize}
-It's a mess!
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{International Character Sets}
-
-\begin{itemize}
-\item Traditional (latin-1,latin-9,latin-15,\ldots)
-\item Unicode (16-bits, or 32-bits)
-\item UTF-8
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Unicode}
-
-\begin{block}{Unicode}
-Use 16~bits for (almost) all possible possible characters.\\
-Use 32~bits for all possible characters.
-\end{block}
-
-\begin{block}{Byte Order}
-If you have a 2~byte number, which byte do you write first?
-\end{block}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{UTF-8}
-Emerging standard (at some levels).
-\end{frame}
 
 \note{break here}
 
 \begin{frame}[fragile]
-\frametitle{Parsing Files}
-Let's say you had to parse the following ``file'':
+\frametitle{Text Based Formats}
 
+\begin{itemize}
+\item Text format is not only for text
+\item Your Python files are text files
+\item Anything can be represented as a text-file
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Text Formats}
+
+\begin{itemize}
+\item Easier to parse
+\item Easier to debug
+\item Easier to transfer from one machine to the next
+\item Larger files (but you can compress them)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tabular Text Formats}
+
+\begin{itemize}
+\item Comma- or TAB- separated files are flexible
+\item Can be used to transfer from and to spreadsheet software
+\item Unfortunately, these are often not 100\% well specified
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example: SAM Format}
 \begin{verbatim}
-Job id        Name          User     Time Use S Queue
------------ ------------- --------- -------- - -----
-318695.c0-32 q1025-X.sh    jieyuel   169:29:2 R workq
-320137.c0-32 q29199-X.sh   lcoelho   113:10:0 R workq
-320139.c0-32 q29212-X.sh   lcoelho   113:29:0 R workq
-320141.c0-32 q29226-X.sh   lcoelho   113:24:3 R workq
-320143.c0-32 q29240-X.sh   lcoelho   113:09:3 R workq
-320145.c0-32 q29254-X.sh   lcoelho   113:58:5 R workq
+
+@HD     VN:1.0  SO:unsorted
+@SQ     SN:     LN:9732
+@PG     ID:bowtie2      PN:bowtie2      VN:2.0.0-beta7
+FC5:1101:1441:2131        4       *       0       0       *       *       0       0       TNTCTATTTCGTGTTCATGCAAATTCTGTTGCTGGTCTGGGTGACTATT       _BP\acccgggbeghfhhfhhf_gggghhfghhfhdfgfffbfgghdeg      YT:Z:UU
+FC5:1101:1371:2227        4       *       0       0       *       *       0       0       TTGTCTCTGGTCCTATTTTTCATGGAGTCTTTTTTTTTTTCACTTTTAA       bbbeeeeeggeggihhiiiifgiiiegghhiiiiiiiiiiZZ\cghgd`      YT:Z:UU
+FC5:1101:1650:2171        4       *       0       0       *       *       0       0       GTGTAATTCTTATTAATGTTATAGAAAATAGTAAGATAAAATAGTTCAG       ba_eeeeegggggihiiiiifihhiiiiiiieghhhhifdeddfdghhi      YT:Z:UU
+FC5:1101:1599:2183        4       *       0       0       *       *       0       0       GTATATACTCAAACAGAAAGAGGAGGGGTGGTAGAGATGAGAATTTTAC       babeeeeegggggiiihiiiegheghii^cgaegfgghfffhhiiiihi      YT:Z:UU
+FC5:1101:1539:2201        4       *       0       0       *       *       0       0       CCTTCTCAGAACCACTAAGGCAGCAGTTTGACGTTGACAATTGAAGTTT       _^^cccdeggacgffgghhhZYbcge[bcgfgh\fgegfhfhfcgfI^f      YT:Z:UU
 \end{verbatim}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{First Try}
+\frametitle{SAM Close Up}
 
-\begin{python}
-for line in file('input.txt'):
-    if line[0] not in '0123456789':
-        continue
-    jobid,name,user,time,s,queue = line.split()
-    if user != 'lcoelho':
-        continue
-    jobid = jobid[:-len('.c0-32')] # 318695.c0-32
-    runid = name[1:name.find('-')] # q1025-X.sh
-    runid = int(runid)
-    print "%-12s %-12s %-12%s' % (jobid,runid,time)
-
-\end{python}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Regular Expressions}
-
-\begin{itemize}
-\item You have already seen regular expressions:
-\verb+cat *.py+
-\item A regular expression is a ``pattern''.
-\end{itemize}
-
-\note{Regular expressions are so important that some languages have built-in syntax for them (perl)}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Basic Regular Expressions}
-
-\begin{itemize}
-\item 'A', 'B', \ldots match themselves
-\item '.' matches anything
-\item '*' means repeat the previous any number of times\\
-    (including zero)
-\item '+' means repeat the previous at least once
-\item '?' means one or zero of the previous
-\item '[abc]' mean either 'a' or 'b' or 'c'
-\item \ldots
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}[fragile]
-\frametitle{Example}
-
-\begin{python}
-import re
-line = '320143.c0-32 q29240-X.sh      lcoelho         113:09:3 R workq'
-if re.match('[0-9]+.c0-32 q[0-9]+-X.sh +lcoelho +[0-9:]+.*',line):
-    print 'matches!'
-\end{python}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Get Information Out}
-\begin{python}
-import re
-line = '320143.c0-32 q29240-X.sh      lcoelho         113:09:3 R workq'
-match = re.match('([0-9]+).c0-32 q([0-9]+)-X.sh +lcoelho +([0-9:]+).*',line)
-if match:
-    jobid,runid,time = match.groups()
-    print "%-12s %-12s %-12%s' % (jobid,runid,time)
-\end{python}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Example}
-
-Let's say your files look like this:
-\begin{itemize}
-\item experiment0\_t0\_0.txt
-\item experiment0\_t0\_1.txt
-\item experiment0\_t0\_2.txt
-\item \ldots
-\item experiment0\_t0\_14.txt
-\item \ldots
-\item experiment0\_t1\_0.txt
-\item experiment0\_t1\_1.txt
-\item \ldots
-\item experiment1\_t0\_0.txt
-\item \ldots
-\item experiment123\_t124\_125.txt
-\end{itemize}
-
-You could match this with:
-
-\begin{python}
-import re
-for file in os.listdir('.'):
-    if re.match(r'experiment([0-9]+)_t([0-9]+)_([0-9]+)\.txt',line)
-\end{python}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Compiling Patterns}
-\begin{python}
-import re
-for file in os.listdir('.'):
-    if re.match(r'experiment([0-9]+)_t([0-9]+)_([0-9]+)\.txt',line)
-\end{python}
-\begin{python}
-import re
-pat = re.compile(r'experiment([0-9]+)_t([0-9]+)_([0-9]+)\.txt')
-for file in os.listdir('.'):
-    if pat.match(line)
-\end{python}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Closing Quote}
-
-``Some people, when confronted with a problem, think \textit{I know, I’ll use regular expressions}. Now they have two problems.''
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Example}
-
-\begin{block}{Apache Log}
 \begin{verbatim}
-
-128.237.247.73 - - [17/Mar/2009:17:39:27 -0400] "GET /pfs/homeworks.html HTTP/1.1" 200 
-        6997 "http://coupland.cbi.cmu.edu/pfs/" "Mozilla/4.0 (compatible; MSIE 7.0; 
-        Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506; InfoPath.2)"
-128.237.247.73 - - [17/Mar/2009:17:39:42 -0400] "GET /pfs/index.html HTTP/1.1" 304 
-        - "http://coupland.cbi.cmu.edu/pfs/homeworks.html" "Mozilla/4.0 (compatible; 
-        MSIE 7.0; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506; InfoPath.2)"
-128.237.247.73 - - [17/Mar/2009:17:39:45 -0400] "GET /pfs/project.html HTTP/1.1" 200
-        4998 "http://coupland.cbi.cmu.edu/pfs/index.html" "Mozilla/4.0 (compatible; 
-        MSIE 7.0; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506;InfoPath.2)"
+FC5:1101:1441:2131\t4\t*\t0\t0...
 \end{verbatim}
-\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Parsing This File}
+
+\begin{python}
+ifile = open('input.sam')
+matched = 0
+nreads = 0
+for line in ifile:
+    if line[0] == '@':
+        continue
+    nreads += 1
+    tokens = line.strip().split('\t')
+    if tokens[1] != '4': # Four is *unmatched*
+        matched += 1
+
+print 'Matched {0} reads out of {1} ({2:.2%})' \
+            .format(matched, nreads, matched/float(nreads))
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Conclusions}
+\begin{itemize}
+\item Use UTF-8
+\item Prefer text-based formats (use generic compression on top)
+\end{itemize}
 \end{frame}
 
 \end{document}
