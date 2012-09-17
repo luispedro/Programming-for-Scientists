@@ -243,6 +243,9 @@ class FastQSequence(object):
 
     def averageq(self):
         return mean(self.quals)
+
+s = FastQSequence('ATTA', [23, 32, 20, 21])
+print s.averageq()
 \end{python}
 
 \end{frame}
