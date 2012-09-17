@@ -106,28 +106,6 @@ set([1, 4, 5])
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Frozenset Type}
-
-\begin{python}
-numbers = frozenset([1,2,5])
-
-print 3 in 5 # False
-print 2 in 5 # True
-
-numbers.add(1) # ERROR!!
-\end{python}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{What's up With Immutability?}
-
-\pause
-You can only use \alert{immutable} objects as dictionary keys!
-
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{Complex Numbers}
 \begin{python}
 A = 1+1j
@@ -159,7 +137,6 @@ None
 \begin{itemize}
 \item \lstinline{A is B}
 \item \lstinline{A is not B}
-\item \lstinline{id(obj)}
 \end{itemize}
 \end{block}
 
@@ -286,48 +263,12 @@ for value in sequence:
 \begin{itemize}
 \item Lists
 \item Tuples
-\item Sets \& Frozensets
+\item Sets
 \item Dictionaries
 \item ...
 \end{itemize}
 \end{block}
 \end{frame}
 
-
-\begin{frame}[fragile]
-\frametitle{Generators}
-
-\begin{block}{Generator: ``Function''-like Sequence}
-
-\begin{python}
-def xrange(start,stop=None,step=None):
-    '''
-    xrange([start,]stop[,step]) -> xrange object
-
-    Like range, but instead of a list, returns...
-    '''
-    if stop is None and step is None:
-        stop = start
-        start = 0
-        step = 1
-    elif step is None:
-        step = 1
-
-    while start < stop:
-        yield start
-        start += step
-\end{python}
-\end{block}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Generators}
-
-\begin{itemize}
-\item Generators are similar to functions, but generate a sequence.
-\item Functions use \lstinline{return}, generators use \lstinline{yield}.
-\end{itemize}
-\end{frame}
 
 \end{document}
