@@ -15,6 +15,23 @@ A sequence of bytes.
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Representing Text}
+\begin{block}{ASCII}
+\begin{itemize}
+\item 65: A
+\item 66: B
+\item \ldots
+\item 48: 0
+\item 49: 1
+\item \ldots
+\item \ldots
+\end{itemize}
+
+127 code points taken.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{File Format Examples: FASTA format}
 \begin{verbatim}
 > qqq
@@ -68,97 +85,6 @@ ORIGIN
       301 agacgcgaaa aaaaaagaac aacgcgtcat agaacttttg gcaattcgcg tcacaaataa
       361 attttggcaa cttatgtttc ctcttcgagc agtactcgag ccctgtctca agaatgtaat
 \end{verbatim}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Representing Text}
-\begin{block}{ASCII}
-\begin{itemize}
-\item 65: A
-\item 66: B
-\item \ldots
-\item 48: 0
-\item 49: 1
-\item \ldots
-\item \ldots
-\end{itemize}
-
-127 code points taken.
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Two File Format Classes}
-
-\begin{itemize}
-\item Text files
-\item Non-text files (binary files)
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{center}
-\begin{tabular}{lllll}
-\toprule
-Size & Hex Value & Value & Meaning\\
-\midrule
-2 & 42 4D  &"BM"  &Magic Number (66, 77)\\
-4 & 46 00 00 00 & 70 Bytes & Size of Bitmap\\
-2 & 00 00 & Unused & Application Specific\\
-2 & 00 00 & Unused & Application Specific\\
-4 & 36 00 00 00 & 54 bytes & The offset of data.\\
-4 & 28 00 00 00 & 40 bytes & Size of header. \\
-4 & 02 00 00 00 & 2 pixels & The width in pixels\\
-4 & 02 00 00 00 & 2 pixels & The height in pixels\\
-2 & 01 00 & 1 plane & Number of color planes.\\
-2 & 18 00 & 24 bits & The bits/pixel.\\
-4 & 00 00 00 00 & 0 & No compression used\\
-4 & 10 00 00 00 & 16 bytes & The size of the raw BMP data\\
-4 & 13 0B 00 00 & 2,835 pixels/m& The horizontal resolution\\
-4 & 13 0B 00 00 & 2,835 pixels/m& The vertical resolution\\
-4 & 00 00 00 00 & 0 & Number of colors in the palette\\
-4 & 00 00 00 00 & 0 & Means all colors are important\\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{center}
-\begin{tabular}{lllll}
-\toprule
-Size & Hex Value & Value & Meaning\\
-\midrule
-3 & 00 00 FF & 0 0 255 & Red, Pixel (0,1)\\
-3 & FF FF FF & 255 255 255 &  White, Pixel (1,1)\\
-2 & 00 00    & 0 & Padding for 4 bytes/row\\
-3 & FF 00 00 & 255 0 0 & Blue, Pixel (0,0)\\
-3 & 00 FF 00 & 0 255 0 & Green, Pixel (1,0)\\
-2 & 00 00    & 0  & Padding for 4 bytes/row\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-
-\begin{flushright}
-(Wikipedia)
-\end{flushright}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Bitmap}
-
-\centering
-\includegraphics{BMPexample}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Text vs.\ Binary}
-When possible, prefer text formats.
-
-They are simpler.\note{but they still have a million quirks and we'll spend the rest of the lecture talking about them.}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -228,6 +154,71 @@ confirmaÃ§Ã£o (which is confirmação in UTF-8, but printed out in Latin-15)
 \end{frame}
 
 
+\begin{frame}[fragile]
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+Size & Hex Value & Value & Meaning\\
+\midrule
+2 & 42 4D  &"BM"  &Magic Number (66, 77)\\
+4 & 46 00 00 00 & 70 Bytes & Size of Bitmap\\
+2 & 00 00 & Unused & Application Specific\\
+2 & 00 00 & Unused & Application Specific\\
+4 & 36 00 00 00 & 54 bytes & The offset of data.\\
+4 & 28 00 00 00 & 40 bytes & Size of header. \\
+4 & 02 00 00 00 & 2 pixels & The width in pixels\\
+4 & 02 00 00 00 & 2 pixels & The height in pixels\\
+2 & 01 00 & 1 plane & Number of color planes.\\
+2 & 18 00 & 24 bits & The bits/pixel.\\
+4 & 00 00 00 00 & 0 & No compression used\\
+4 & 10 00 00 00 & 16 bytes & The size of the raw BMP data\\
+4 & 13 0B 00 00 & 2,835 pixels/m& The horizontal resolution\\
+4 & 13 0B 00 00 & 2,835 pixels/m& The vertical resolution\\
+4 & 00 00 00 00 & 0 & Number of colors in the palette\\
+4 & 00 00 00 00 & 0 & Means all colors are important\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+Size & Hex Value & Value & Meaning\\
+\midrule
+3 & 00 00 FF & 0 0 255 & Red, Pixel (0,1)\\
+3 & FF FF FF & 255 255 255 &  White, Pixel (1,1)\\
+2 & 00 00    & 0 & Padding for 4 bytes/row\\
+3 & FF 00 00 & 255 0 0 & Blue, Pixel (0,0)\\
+3 & 00 FF 00 & 0 255 0 & Green, Pixel (1,0)\\
+2 & 00 00    & 0  & Padding for 4 bytes/row\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\begin{flushright}
+(Wikipedia)
+\end{flushright}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Bitmap}
+
+\centering
+\includegraphics{BMPexample}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Text vs.\ Binary}
+When possible, prefer text formats.
+
+They are simpler.\note{but they still have a million quirks and we'll spend the rest of the lecture talking about them.}
+\end{frame}
+
 
 
 \note{break here}
@@ -293,7 +284,7 @@ FC5:1101:1441:2131\t4\t*\t0\t0...
 
 \begin{python}
 ifile = open('input.sam')
-matched = []
+matched = 0
 nreads = 0
 for line in ifile:
     if line[0] == '@':
@@ -301,9 +292,10 @@ for line in ifile:
     nreads += 1
     tokens = line.strip().split('\t')
     if tokens[1] != '4': # Four is *unmatched*
-        matched.append( (tokens[0], tokens[2], int(tokens[3])) )
+        matched += 1
 
-print 'Matched {0} reads out of {1} ({2:.2%})'.format(len(matched), nreads, len(matched)/float(nreads))
+print 'Matched {0} reads out of {1} ({2:.2%})' \
+            .format(matched, nreads, matched/float(nreads))
 \end{python}
 \end{frame}
 
