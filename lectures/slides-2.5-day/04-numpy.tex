@@ -159,14 +159,11 @@ A += 2
 \begin{block}{Types}
 \begin{itemize}
 \item Boolean
-\item int8, int16, \ldots
-\item uint8, uint16,\ldots
-\item float32, float64,\ldots
+\item integers
+\item floating point numbers
 \item \ldots
 \end{itemize}
 \end{block}
-
-Some types are only available in some platforms (e.g., \lstinline{float96}).
 
 \end{frame}
 
@@ -175,7 +172,6 @@ Some types are only available in some platforms (e.g., \lstinline{float96}).
 
 \begin{python}
 import numpy as np
-A = np.array([0,1,1],np.float32)
 A = np.array([0,1,1],float)
 A = np.array([0,1,1],bool)
 \end{python}
