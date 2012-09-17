@@ -185,16 +185,16 @@ for x in xrange(1,20):
 \frametitle{Functions}
 
 \begin{python}
-def max(arg0,*args):
+def max(xs):
     '''
-    M = max(arg0,arg1,...)
+    M = max(xs)
 
-    Returns the maximum of its arguments
+    Returns the maximum of ``xs``
     '''
-    M = arg0
-    for val in args:
-        if val > M:
-            M = val
+    M = xs[0]
+    for x in xs[1:]
+        if x > M:
+            M = x
     return M
 \end{python}
 
@@ -209,22 +209,6 @@ A, B = 1,2
 \end{python}
 
 Assign multiple elements at once.
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Multiple Assignment to Return Multiple Arguments}
-
-\begin{python}
-def stats(values):
-    '''...'''
-    return mean(values), std(values)
-
-...
-values = ...
-props = stats(values)
-mu, std = stats(values)
-\end{python}
-
 \end{frame}
 
 \begin{frame}[fragile]
