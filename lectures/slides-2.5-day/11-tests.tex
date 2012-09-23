@@ -1,0 +1,175 @@
+\input{slheader}
+\title{Testing}
+\usepackage{pgfpages}
+\setbeameroption{show notes}
+\setbeameroption{show notes on second screen}
+
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{Defensive Programming}
+
+Defensive programming means writing code that will catch bugs early.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Remember the Homework?}
+
+\begin{python}
+def trim(qs, thresh):
+    . . .
+    assert len(qs) > 0, 'trim: got empty list'
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Assert}
+\begin{python}
+assert <condition>, <error message>
+\end{python}
+
+\note{
+    Catch errors early
+
+    Give good error messages
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Testing}
+
+Do you test your code?
+
+\note{
+    Of course you do, interactively, informally.
+
+    Here we are only going to make this automatic.
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Testing trim}
+\begin{python}
+
+
+import numpy as np
+from trimfq import trim
+
+qs = np.array([])
+trim(qs, 20)
+
+qs = np.array([20,20])
+trim(qs, 20)
+\end{python}
+
+\pause
+These simple sort of tests are called \alert{smoke tests}.
+\note{
+    A ``real'' smoke test is when you put smoke through pipes and check for leaks
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Testing trim II}
+\begin{python}
+
+qs = np.array([10,10,10,20,20,20,20,10])
+s,e = trim(qs, 15)
+assert np.all(qs[s:e] >= 15)
+assert s < e
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Testing trim III}
+
+Where are errors likely to lurk?
+\pause
+
+\begin{itemize}
+\item At the edges?
+\item What if the whole string is \alert{above} threshold?
+\item What if the whole string is \alert{below} threshold?
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Testing trim IV}
+\begin{python}
+
+s,e = trim(np.array([10,10,10,10]), 5)
+assert s == 0
+assert e == 4
+
+s,e = trim(np.array([10,10,10,10]), 15)
+assert s == e # Note that we DO NOT care about actual values
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Testing trim V}
+\begin{python}
+
+s,e = trim(np.array([10,10,20,20]), 15)
+assert s == 2
+assert e == 4
+
+s,e = trim(np.array([20,20,10,10]), 15)
+assert s == 0
+assert e == 2
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Fencepost Errors}
+
+If you build a straight fence 100 meters long with posts 10 meters apart, how
+many posts do you need?
+
+\pause
+
+Eleven, but we often think 10.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Software Testing Philosophies}
+
+\begin{enumerate}
+\item Test everything. Test it twice.
+\item Write tests first.
+\item Regression testing.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Regression Testing}
+
+Make sure bugs only appear once!
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Nose testing}
+
+\begin{itemize}
+\item Many utilities already exist to help manage test suites\\
+(A test suite is a fancy name for ``a bunch of tests).
+\item In Python, \alert{nose} is the most popular one.
+\end{itemize}
+
+\url{http://nose.readthedocs.org/en/latest/}
+
+\note{
+    Demo it.
+
+    Show Coverage HTML
+}
+
+\end{frame}
+
+
+
+\end{document}
