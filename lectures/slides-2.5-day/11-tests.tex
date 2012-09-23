@@ -104,7 +104,10 @@ assert s == 0
 assert e == 4
 
 s,e = trim(np.array([10,10,10,10]), 15)
-assert s == e # Note that we DO NOT care about actual values
+assert s == e # Note that we 
+              # DO NOT care about
+              # actual values
+
 \end{python}
 \end{frame}
 
@@ -130,8 +133,34 @@ many posts do you need?
 
 \pause
 
+\bigskip
+\bigskip
+
 Eleven, but we often think 10.
 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What is the use of testing?}
+
+\begin{itemize}
+\item Ok, I tested it
+\item It seems to work
+\item Now, I am happy
+\pause
+\item But save those tests!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{When your code changes}
+
+\begin{itemize}
+\item When your code changes\ldots
+\pause
+\item \ldots you rerun your tests.
+\item Over time, you will accumulate a collection of tests.
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
