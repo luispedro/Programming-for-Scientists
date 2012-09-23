@@ -209,38 +209,36 @@ Mix \& match to get a license, e.g., By-NC-SA.\note{
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{This is Complicated\ldots}
+\ldots{} can't I just put up my software on my lab webpage?
+
+\pause
+
+Let me give you two answers:
+
+\pause
+
+\begin{enumerate}
+\item Yes\only<3>{, but that is a confusing legal grey area and some people
+(like me) will complain.}
+
+\item No\only<3>{, because doing so is the same as writing ``this is made
+available for you to look at, but I might change my mind at any minute and
+demand that you start paying, take it offline, \&c.'' Because, the default is
+``all rights reserved.''}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]
 {}
 How do you actually distribute your software?
 
 \begin{itemize}
 \item Put it on your home page
 \item Put it in PyPI (Python Package Index)
-\item Use a service like \alert{sourceforge}, \alert{google code}, \alert{launchpad}, \ldots
+\item Use a service like \alert{github}, \alert{google code}, \alert{launchpad}, \ldots
 \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Distributing Software: setup.py}
-\begin{python}
-import setuptools
-long_description = '''...'''
-
-classifiers = ['Development Status :: 2 - Pre-Alpha',
-'License :: OSI Approved :: MIT License',
-'Programming Language :: Python',]
-
-setuptools.setup(name = 'Particles', version = '0.1',
-      description = 'A Task Based Framework',
-      long_description = long_description,
-      author = 'Spring 09 Class of 98111 (CMU)',
-      author_email = 'lpc@cmu.edu',
-      license = 'MIT', platforms = ['Any'],
-      classifiers = classifiers,
-      url = 'http://code.google.com/p/particles/',
-      packages = setuptools.find_packages(exclude='tests'),
-      )
-
-\end{python}
 \end{frame}
 
 \begin{frame}[fragile]
