@@ -155,4 +155,72 @@ True\\Exception
 
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Standard Library Miscellanea}
+Random numbers
+\begin{itemize}
+\item Truly random numbers
+\item Pseudo random numbers
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Pseudo Random Numbers}
+
+\[
+x_{i+1} = 48271 x_i \mod (2^{31}-1)
+\]
+
+\centering
+\includegraphics[width=.7\textwidth]{randomwalk}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Pseudo Random Numbers}
+\begin{itemize}
+\item Are not random
+\item Some are ``more random'' than others
+\end{itemize}
+\pause
+
+\begin{itemize}
+\item For testing/reproducibility, you want \alert{pseudo-}random numbers.
+\item For cryptography, you want really random numbers.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Testing with random numbers}
+
+\begin{python}
+import random
+random.seed(32)
+for i in xrange(16):
+    qs = np.array([random.randint(0,40) for j in xrange(100)])
+    s,e = trim(qs, 20)
+    assert s <= e
+    assert np.all(qs[s:e] > 20)
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Pickle}
+
+\begin{python}
+import pickle
+
+something = [12, 'hello']
+
+pickle.dump(something, open('myfile.pkl', 'w'))
+\end{python}
+
+Later
+
+\begin{python}
+import pickle
+
+other = pickle.load(open('myfile.pkl'))
+\end{python}
+\end{frame}
 \end{document}
