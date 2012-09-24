@@ -19,7 +19,7 @@ Defensive programming means writing code that will catch bugs early.
 \begin{python}
 def trim(qs, thresh):
     . . .
-    assert len(qs) > 0, 'trim: got empty list'
+    assert thresh >= 0, 'threshold should be positive'
 \end{python}
 \end{frame}
 
