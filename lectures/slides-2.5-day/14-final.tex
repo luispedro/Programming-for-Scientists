@@ -115,12 +115,47 @@ print 'Maximum quality found was {0}.'.format(maxq)
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Continuing\ldots}
+
+\begin{python}
+import HTSeq
+allqs = np.array([seq.qual
+            for seq in
+                HTSeq.FastqReader('hw-HeLa.fq.gz', 'solexa')])
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Calling System Programmes}
+
+\begin{itemize}
+\item Now, you want to align the sequences.
+\item Just use \alert{bowtie2}
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Calling External Programmes}
+
+\begin{python}
+from os import system
+
+system('bowtie2 -x hg19reference -U {0} -S {1}'.format(ifilename, ofilename))
+
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{More HTSeq}
 \begin{itemize}
 \item Parses GFF/GTF files
 \item Basis of \texttt{htseq-count}
 \end{itemize}
 \end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{Links for Learning More}
@@ -135,6 +170,12 @@ print 'Maximum quality found was {0}.'.format(maxq)
 \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Any Other Questions\ldots}
+Email me: luis@luispedro.org
+\end{frame}
+
 
 
 \end{document}
