@@ -28,7 +28,7 @@ According to Wikipedia, we get a sequence every four lines:
 \end{enumerate}
 
 \begin{python}
-ifile = open('hw.fq')
+ifile = open('hw-HeLa.fq')
 while True:
     header = ifile.readline().strip()
     seq = ifile.readline().strip()
@@ -60,7 +60,7 @@ import numpy as np
 . . .
 while True:
     . . .
-    qualities = [(ord(q) - 65) for q in qualities]
+    qualities = [(ord(q) - 64) for q in qualities]
     qualities = np.array(qualities)
 \end{python}
 
@@ -75,7 +75,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 allqs = []
-ifile = open('hw.fq')
+ifile = open('hw-HeLa.fq')
 while True:
     header = ifile.readline().strip()
     seq = ifile.readline().strip()
@@ -83,7 +83,7 @@ while True:
     qualities = ifile.readline().strip()
     if not len(qualities):
         break
-    qualities = [(ord(q) - 65) for q in qualities]
+    qualities = [(ord(q) - 64) for q in qualities]
     qualities = np.array(qualities)
     allqs.append(qualities)
 allqs = np.array(allqs)
@@ -143,7 +143,7 @@ plt.show()
 Replace
 
 \begin{python}
-ifile = open('hw.fq')
+ifile = open('hw-HeLa.fq')
 \end{python}
 
 by
