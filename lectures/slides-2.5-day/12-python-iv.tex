@@ -197,11 +197,38 @@ x_{i+1} = 48271 x_i \mod (2^{31}-1)
 import random
 random.seed(32)
 for i in xrange(16):
-    qs = np.array([random.randint(0,40) for j in xrange(100)])
+    qs = [random.randint(0,40) for j in xrange(100)]
     s,e = trim(qs, 20)
     assert s <= e
     assert np.all(qs[s:e] > 20)
 \end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Other Random Things}
+\begin{itemize}
+\item Random floating point numbers
+\item Random normally distributed values
+\item Shuffle arrays
+\item \ldots
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Random on a circle}
+
+\centering
+\includegraphics[width=.7\textwidth]{circle}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{More randomness}
+
+\begin{itemize}
+\item Check out \lstinline{numpy.random}
+\item Check out \lstinline{scipy.stats}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]

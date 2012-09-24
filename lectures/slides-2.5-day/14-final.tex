@@ -143,7 +143,8 @@ allqs = np.array([seq.qual
 \begin{python}
 from os import system
 
-system('bowtie2 -x hg19reference -U {0} -S {1}'.format(ifilename, ofilename))
+system('bowtie2 -x hg19reference -U {0} -S {1}' \
+                .format(ifilename, ofilename))
 
 \end{python}
 \end{frame}
