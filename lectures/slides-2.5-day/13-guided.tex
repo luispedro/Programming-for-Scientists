@@ -51,6 +51,7 @@ This code prints four numbers. What are they:
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Hello World}
 
 Write a piece of code that writes the string "Hello World" to a file called "hello".
 
@@ -106,6 +107,35 @@ What is a text file?
 \end{enumerate}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Factorial}
+Write a factorial function.
 
+\[
+N! = N \cdot (N - 1) \cdot (N - 2) \cdots 1
+\]
+
+\pause
+
+\begin{python}
+def factorial(n):
+    assert n >= 0, \
+        'factorial is only for n >= 0'
+    if n == 0: return 1
+    return n * factorial(n-1)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Fibonacci}
+
+Write a Fibonnaci function
+\begin{align*}
+F_0 &= 1\\
+F_1 &= 1\\
+F_{n+2} &= F_{n+1} + F_n
+\end{align*}
+\end{frame}
 
 \end{document}
