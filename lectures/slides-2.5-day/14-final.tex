@@ -1,0 +1,140 @@
+\input{slheader}
+\title{Review. Future}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}[fragile]
+\frametitle{Review}
+
+\begin{block}{Course Content: Python}
+\begin{itemize}
+\item Basic types: int, float, list, dict, set
+\item Control flow: \lstinline{for}, \lstinline{while}, \lstinline{if}, \lstinline{elif}, \lstinline{else}\ldots
+\item Defining types: \lstinline{class}, \lstinline{_ _init_ _},\ldots
+\item Errors (Exceptions): \lstinline{try}, \lstinline{except}, \lstinline{raise},\ldots
+\item Modules \& Standard Library: \lstinline{import}
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Course Content: Numeric Representations}
+\begin{block}{Memory \& Numeric Representations}
+\begin{itemize}
+\item It's bits all the way down
+\item Binary representation of signed \& unsigned integers
+\item Floating point numbers
+\item When handling a lot of data, think of memory usage
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Course Content: Parsing files}
+
+\begin{block}{Parsing files}
+\begin{itemize}
+\item Files are just Bytes (sequence of small numbers)
+\item It is all in how you interpret them
+\item There are standard character assignments for text files
+\item ASCII (English only), Latin-15 (used in Portugal), UTF-8 (usable for everything).
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Course Content: Open Source}
+\begin{block}{Open Source}
+\begin{itemize}
+\item Free as in beer, free as in speech (gratis/freedom distinction)
+\item Copyleft vs.\ liberal licenses
+\item It is not about price
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Course Content: Testing}
+\begin{block}{Testing}
+\begin{itemize}
+\item Testing is good and you should do it
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What Was Not in The Course}
+\begin{block}{Missing}
+\begin{itemize}
+\item Some more advanced programming details
+\item Version Control
+\item Unix \& Shell \& Interacting with Other Programmes
+\item More specific tools
+\end{itemize}
+\end{block}
+
+\note{Break after this}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Case Study}
+
+\bigskip
+\bigskip
+\bigskip
+Next Generation Sequencing
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{HTSeq}
+
+\begin{itemize}
+\item Third-party libraries are hit \& miss
+\item HTSeq is good
+\item \url{http://www-huber.embl.de/users/anders/HTSeq/doc/overview.html}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Examples of HTSeq Usage}
+
+\begin{python}
+maxq = 0
+for seq in HTSeq.FastqReader('hw-HeLa.fq.gz', 'solexa'):
+    maxq = max(maxq, seq.qual.max())
+
+print 'Maximum quality found was {0}.'.format(maxq)
+\end{python}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{More HTSeq}
+\begin{itemize}
+\item Parses GFF/GTF files
+\item Basis of \texttt{htseq-count}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Links for Learning More}
+
+\begin{itemize}
+\item How to Think Like a Computer Scientist
+    \url{http://interactivepython.org/courselib/static/thinkcspy/index.html}
+\item Stack Overflow \\
+    for asking questions
+\item Python.org \& numpy.scipy.org \\
+    for documentation
+\end{itemize}
+
+\end{frame}
+
+
+\end{document}
