@@ -1,0 +1,111 @@
+\input{slheader}
+\title{Guided Exercises}
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}
+\frametitle{Goals for this hour}
+
+\begin{itemize}
+\item A quiz
+\item Do a few exercises.
+\item Play around.
+\item You can work alone, in pairs, in triples,\ldots
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+{}
+
+
+Consider the following code:
+
+\begin{python}
+class Point2(object):
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+
+    def dist2(self):
+        return self.x**2 + self.y**2 
+
+p = Point2(2,2)
+print p.dist2()
+p.y = 0
+print p.dist2()
+print p.x
+print p.y
+\end{python}
+
+This code prints four numbers. What are they:
+
+\begin{enumerate}[a]
+\item 8, 8, 2, 0
+\item 8, 8, 2, 2
+\item 8, 4, 2, 0
+\item 8, 4, 2, 2
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+Write a piece of code that writes the string "Hello World" to a file called "hello".
+
+\bigskip
+What happens if you use your code above when a file called \textit{hello} already exists?
+
+\end{frame}
+
+\begin{frame}[fragile]
+{}
+What does the following code do?
+
+\begin{python}
+from random import choice
+print choice(range(30))
+\end{python}
+
+For this, you might want to read the Python documentation.
+\end{frame}
+
+\begin{frame}[fragile]
+{}
+You will sometimes see the following programming idiom:
+
+\begin{python}
+import numpy as np
+mystery = np.uint32(-1)
+\end{python}
+
+Remember:
+\begin{itemize}
+\item \lstinline{uint32} is short for \alert{unsigned integer of 32 bits}.
+\item Unsigned means that it should be interpreted as a positive number.
+\item So, \lstinline{mystery} cannot have the value $-1$!
+\end{itemize}
+
+What is the value of mystery? Why would we be interested in this particular
+value? (Hint: think of its bit representation).
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File Parsing}
+
+What is a text file?
+
+\begin{enumerate}
+\item A file with an extension TXT\\
+    (for example file.txt)
+\item A file whose content can be interpreted as printable characters.
+\item A Word file.
+\item A file with text in a human language (like English).
+\end{enumerate}
+\end{frame}
+
+
+
+\end{document}
