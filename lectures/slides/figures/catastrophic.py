@@ -5,5 +5,5 @@ X = linspace(-10e-8,10e-8,1000)
 plot(X,f(X))
 xlabel(r'$x$')
 ylabel(r'$\frac{1.-\cos x}{x^2}$')
-savefig('catastrophic.pdf')
+savefig('generated/catastrophic.pdf')
 
