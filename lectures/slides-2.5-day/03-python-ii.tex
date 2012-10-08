@@ -106,23 +106,6 @@ set([1, 4, 5])
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Complex Numbers}
-\begin{python}
-A = 1+1j
-print A**2
-print A**4
-\end{python}
-
-prints
-
-\begin{python}
-2j
-(-4+0j)
-\end{python}
-\end{frame}
-
-
-\begin{frame}[fragile]
 \frametitle{None object}
 
 \begin{python}
@@ -139,6 +122,80 @@ None
 \item \lstinline{A is not B}
 \end{itemize}
 \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exercise}
+\begin{python}
+A = []
+B = []
+A.append(1)
+B.append(1)
+
+print (A == B)
+print (A is B)
+\end{python}
+
+This prints:
+\begin{columns}
+\column{.25\textwidth}
+(a)
+\begin{python}
+True
+True
+\end{python}
+\column{.25\textwidth}
+(b)
+\begin{python}
+False
+True
+\end{python}
+\column{.25\textwidth}
+(c)
+\begin{python}
+False
+False
+\end{python}
+\column{.25\textwidth}
+(d)
+\begin{python}
+True
+False
+\end{python}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exercise Break}
+Consider the following code:
+\begin{python}
+g2g = {
+    'PBANKA_000230': ['GO:0003899'],
+    'PBANKA_000370': ['GO:0016740'],
+    'PBANKA_010060': ['GO:0030430'],
+    'PBANKA_010080': ['GO:0008270'],
+}
+\end{python}
+(In real life, this would have 2420 entries)
+
+\pause
+How do you look up GO term for gene \lstinline{PBANKA_00230}?
+
+\pause
+\bigskip
+\begin{columns}
+\column{.13\textwidth}
+(a)\\
+\lstinline{g2g[0]}
+\column{.4\textwidth}
+(b)\\
+\lstinline{g2g['PBANKA_00230']}
+\column{.3\textwidth}
+(c)\\
+\lstinline{g2g[00230]}
+
+\end{columns}
 
 \end{frame}
 
