@@ -25,9 +25,12 @@ Let's digress for a moment discussing the language\ldots
 \frametitle{Python Language History}
 
 \begin{block}{History}
-Python was started in the late 80's. It was intended to be both \alert{easy to teach} and \alert{industrial strength}.
-
-It is (has always been) open-source and has become one of the most widely used languages (top 10).
+\begin{itemize}
+\item Python was started in the late 80's.
+\item It was intended to be both \alert{easy to teach} and \alert{industrial strength}.
+\item It is (has always been) open-source.
+\item In the last 10 years, it has become one of the most widely used languages (top 10).
+\end{itemize}
 \end{block}
 \end{frame}
 
@@ -139,11 +142,11 @@ Let me show you a demonstration\ldots
 \begin{frame}[fragile]
 \frametitle{More Complex Example}
 
-What is 25 + 20\%?
+What is 25 times 5?
 
 \pause
 \begin{python}
-print 25 * 1.2
+print 25 * 5
 \end{python}
 \note{Demo the python shell.
 
@@ -211,7 +214,7 @@ for st in students:
 \frametitle{Example}
 
 \begin{python}
-values = [0.11, 0.23, 0.16, 0.18, 0.23, 0.19]
+values = [0.11, -0.23, -0.16, 0.18, 0.23, 0.19]
 
 sum = 0.0
 sum2 = 0.0
@@ -230,7 +233,7 @@ print 'Std Dev: {0}'.format(mu2 - mu*mu)
 \frametitle{Example}
 
 \begin{python}
-values = [0.11, 0.23, 0.16, 0.18, 0.23, 0.19]
+values = [0.11, -0.23, -0.16, 0.18, 0.23, 0.19]
 
 sum = 0.0
 sum2 = 0.0
@@ -249,7 +252,7 @@ print 'Std Dev: {0}'.format(mu2 - mu*mu)
 \frametitle{Example}
 
 \begin{python}
-values = [0.11, 0.23, 0.16, 0.18, 0.23, 0.19]
+values = [0.11, -0.23, -0.16, 0.18, 0.23, 0.19]
 
 mu = 0.0
 mu2 = 0.0
@@ -268,7 +271,7 @@ print 'Std Dev: {0}'.format(mu2 - mu*mu)
 \frametitle{Example}
 
 \begin{python}
-values = [0.11, 0.23, 0.16, 0.18, 0.23, 0.19]
+values = [0.11, -0.23, -0.16, 0.18, 0.23, 0.19]
 
 mu = 0.0
 mu2 = 0.0
@@ -283,24 +286,61 @@ print 'Std Dev: {0}'.format(mu2 - mu*mu)
 \end{python}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Exercise}
+
+Adapt the code to ignore negative numbers.
+
+\pause
+
+\begin{python}
+values = [0.11, -0.23, -0.16, 0.18, 0.23, 0.19]
+
+mu = 0.0
+mu2 = 0.0
+n = 0.0
+for v in values:
+    if v >= 0.0:
+        mu += v
+        mu2 += v * v
+        n += 1
+
+mu /= n
+mu2 /= n
+print 'Average: {0}'.format(mu)
+print 'Std Dev: {0}'.format(mu2 - mu*mu)
+\end{python}
+\note{
+    Negative? strictly negative or just negative.
+}
+
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{Loops (II)}
 
+\begin{block}{Greatest Common Divisor (Euclid's Method)}
+\[
+gcd(a,b) = \begin{cases}
+            a & \text{if $b = a$}\\
+            gcd(a-b, b) & \text{if $a > b$} \\
+            gcd(a, b-a) & \text{o.w.}
+            \end{cases}
+\]
+\end{block}
+
+\pause
 \begin{python}
+a = 9344
+b = 6497
 
-students = ['Luis',...]
-
-looking_for = 'Anna'
-
-i = 0
-while students[i] != looking_for:
-    i += 1
-
-if students[i] == looking_for:
-    print 'Found her'
-else:
-    print "Sorry, she's not registered!"
+while a != b:
+    if a > b:
+        a,b = a-b,b
+    else:
+        a,b = a,b-a
+print a
 \end{python}
 
 \end{frame}
