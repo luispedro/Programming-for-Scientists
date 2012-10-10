@@ -9,4 +9,4 @@ for i in xrange(128):
     x = update(x, a, b)
     ys.append(x)
 plot(ys)
-savefig('pnrwalk.pdf')
+savefig('generated/pnrwalk.pdf')

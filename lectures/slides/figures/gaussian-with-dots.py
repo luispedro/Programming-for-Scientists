@@ -7,4 +7,4 @@ plt.plot(X, Y, 'r-')
 plt.xlabel(r'$x$')
 plt.ylabel(r'$\exp \frac{x^2}{2}$')
 
-plt.savefig('gaussian.pdf')
+plt.savefig('generated/gaussian.pdf')
