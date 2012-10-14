@@ -1,5 +1,5 @@
 \input{slheader}
-\title{Python's Odds and Ends}
+\title{More Python Types \& Functions}
 \begin{document}
 \frame{\maketitle}
 
@@ -242,6 +242,21 @@ for x in xrange(1,20):
 \frametitle{Functions I}
 
 \begin{python}
+def greet():
+    print 'Hello World'
+    print 'Still Here'
+
+greet()
+greet()
+print 'Now here'
+greet()
+\end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Functions II}
+
+\begin{python}
 def greet(name):
     print 'Hello {0}'.format(name)
 
@@ -252,7 +267,7 @@ greet('Kim')
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Functions II}
+\frametitle{Functions III}
 
 \begin{python}
 def max(xs):
