@@ -4,52 +4,6 @@
 
 \frame{\maketitle}
 
-\begin{frame}[fragile]
-\frametitle{Generators \& Functions}
-\begin{python}
-def doublevals(seq):
-    '''
-    '''
-    result = []
-    for x in seq:
-        result.append(2*x)
-    return result
-
-x2s = doublevals([1,2,3])
-for x2 in x2s:
-    print x2
-\end{python}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Generators \& Functions}
-\begin{python}
-def doublevals(seq):
-    '''
-    '''
-    for x in seq:
-        yield 2*x
-
-x2s = doublevals([1,2,3])
-for x2 in x2s:
-    print x2
-\end{python}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Generators \& Functions}
-\begin{python}
-def doublevals(seq):
-    result = []
-    for x in seq:
-        result.append(2*x)
-    return result
-
-def doublevals(seq):
-    for x in seq:
-        yield 2*x
-\end{python}
-\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Modules}
@@ -225,6 +179,8 @@ class NAME(object):
     def METHODNAME(self, . . .):
         . . .
 \end{python}
+
+Note: it is a \alert{double underscore}!
 
 \end{frame}
 
