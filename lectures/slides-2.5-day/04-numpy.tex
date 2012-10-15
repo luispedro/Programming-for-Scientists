@@ -302,7 +302,7 @@ print 'Mean of positives', A[A > 0].mean()
 
 \begin{block}{Constructing Arrays}
 \begin{python}
-A = np.zeros((10,10), dtype=np.int8)
+A = np.zeros((10,10), int)
 B = np.ones(10)
 C = np.arange(100).reshape((10,10))
 ...
@@ -311,7 +311,7 @@ C = np.arange(100).reshape((10,10))
 
 \begin{block}{Multiple Dimensions}
 \begin{python}
-img = np.zeros((1024,1024,3),dype=np.uint8)
+img = np.zeros((1024,1024,3))
 \end{python}
 \end{block}
 
