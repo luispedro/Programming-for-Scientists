@@ -85,78 +85,22 @@
 \bigskip
 \bigskip
 \bigskip
-Next Generation Sequencing
+Image Analysis
 
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{HTSeq}
+\frametitle{Libraries}
 
 \begin{itemize}
 \item Third-party libraries are hit \& miss
-\item HTSeq is good
-\item \url{http://www-huber.embl.de/users/anders/HTSeq/doc/overview.html}
+\item mahotas is good
+\item scikit-image is good
+\item imread is good
 \end{itemize}
 
 \end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Examples of HTSeq Usage}
-
-\begin{python}
-maxq = 0
-for seq in HTSeq.FastqReader('hw-HeLa.fq.gz', 'solexa'):
-    maxq = max(maxq, seq.qual.max())
-
-print 'Maximum quality found was {0}.'.format(maxq)
-\end{python}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Continuing\ldots}
-
-\begin{python}
-import HTSeq
-allqs = np.array([seq.qual
-            for seq in
-                HTSeq.FastqReader('hw-HeLa.fq.gz', 'solexa')])
-\end{python}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Calling System Programmes}
-
-\begin{itemize}
-\item Now, you want to align the sequences.
-\item Just use \alert{bowtie2}
-\end{itemize}
-
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Calling External Programmes}
-
-\begin{python}
-from os import system
-
-system('bowtie2 -x hg19reference -U {0} -S {1}' \
-                .format(ifilename, ofilename))
-
-\end{python}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{More HTSeq}
-\begin{itemize}
-\item Parses GFF/GTF files
-\item Basis of \texttt{htseq-count}
-\end{itemize}
-\end{frame}
-
 
 \begin{frame}[fragile]
 \frametitle{Links for Learning More}
@@ -170,6 +114,15 @@ system('bowtie2 -x hg19reference -U {0} -S {1}' \
     for documentation
 \end{itemize}
 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Shameless Plug}
+
+\begin{itemize}
+\item I am giving an introductory/research talk on \alert{Bioimage Informatics}
+\item October 31st 10am (room 057)
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
