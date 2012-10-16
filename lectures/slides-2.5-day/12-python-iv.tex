@@ -69,54 +69,6 @@ except:
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Exceptions}
-
-\begin{block}{Exceptions}
-\begin{itemize}
-\item Exceptions are \alert{objects}.
-\item Exceptions have \alert{type} and \alert{values}.
-\end{itemize}
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Exception Hierarchy}
-
-(Nothing here, folks, look at the blackboard)
-
-\note{
-    Draw a diagram on BB:
-
-               Exception
-                   |
-             StandardError
-              |         |
-     EnvironmentError  ArithmeticError
-       |        |             |
-    OSError   IOError     ZeroDivisionError
-
-    Explain that the arrows mean inheritance.
-}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Exception Handling}
-
-\begin{block}{Exception Handling: Error Handling}
-\begin{python}
-try:
-    <code 1>
-    <code 2>
-    <code 3>
-except IOError, exc:
-    print 'I/O Error', exc
-except:
-    print 'Unspecified error'
-\end{python}
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]
 
 \begin{python}
 def f(x):
