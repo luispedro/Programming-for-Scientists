@@ -30,6 +30,51 @@ Analysis of fluorescent microgrpah
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Task}
+Given an image which has a \textsc{dna} (Hoechst) and a protein (GFP tag)
+channel, can we determine ``what fraction of protein is in nuclear region?''
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Loading images}
+
+\begin{python}
+from mahotas import imread
+dna = imread('00-001-dna.tiff')
+protein = imread('00-001-protein.tiff')
+\end{python}
+
+We now have arrays of small integers.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Visualising}
+\begin{itemize}
+\item Remember, all that we have are small numbers.
+\item We can show them in different ways for better visualization.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Thresholding}
+
+\begin{enumerate}
+\item Gaussian filtering
+\item Otsu thresholding
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Protein Measurement}
+\begin{enumerate}
+\item Subtract background
+\item Sum up protein fluorescence \alert{inside} valid region
+\item Sum up protein fluorescence \alert{outside} valid region
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Links for Learning More}
 
 \begin{itemize}
