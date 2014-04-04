@@ -56,7 +56,7 @@ def stddev(values):
 
     Compute standard deviation
     '''
-    assert len(S) > 0, 'stddev: got empty list.'
+    assert len(values) > 0, 'stddev: got empty list.'
     ...
 \end{python}
 \end{frame}
@@ -71,7 +71,7 @@ def stddev(values):
 
     Compute standard deviation
     '''
-    if len(S) <= 0:
+    if len(values) <= 0:
         raise AssertionError(
             'stddev: got empty list.')
     ...
@@ -126,7 +126,8 @@ In computer programming, a precondition is a condition or predicate that must al
 \frametitle{Assertions Are Not Error Handling!}
 
 \begin{itemize}
-\item Error handling protect against outside events.
+\item Error handling protects against outside events;\\
+    Assertions protect against programmer error.
 \item Assertions \alert{should never} be false.
 \end{itemize}
 \end{frame}
